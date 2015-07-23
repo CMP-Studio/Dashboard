@@ -1,0 +1,97 @@
+/*
+Colors:
+Off white: rgb(232,232,232)
+Orange: rgb(222,73,47)
+Blue/grey: rgb(77,102,132)
+*/
+
+body
+{
+    padding:0;
+    margin:0;
+    background-color: rgb(232,232,232);
+}
+
+/* Three main fixed parts */
+#topbar
+{
+  position: absolute;
+  height: 10vh;
+  width: 100%;
+  top:0;
+  background-color: rgb(222,73,47);
+}
+/*
+#sidebar
+{
+  position: absolute;
+  width: 10vw;
+  top: 10vh;
+  left: 0;
+  height: 90vh;
+  background-color: rgb(77,102,132);
+}
+*/
+#content
+{
+    position: absolute;
+    top: 10vh;
+    left: 0vw;
+    width: 100vw;
+    height: 90vh;
+    background-color: rgb(232,232,232);
+
+}
+.title
+{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 1vh;
+
+
+}
+.title h2
+{
+  margin: 0;
+}
+#chart-container
+{
+  height:100%;
+  width:100%;
+
+
+}
+.chart
+{
+  height: 100%;
+
+}
+#main-chart
+{
+  height:100%;
+  width:100%;
+  margin:0;
+}
+
+#compare-chart
+{
+  height:0;
+  width:100%;
+  margin:0;
+
+}
+#Select
+{
+  position: absolute;
+  bottom: 1vh;
+  padding-left:20px;
+  left 0;
+}
+#Compare-Container
+{
+  position: absolute;
+  bottom: 1vh;
+  padding-right:20px;
+  right:0;
+}

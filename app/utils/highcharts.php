@@ -1,5 +1,4 @@
 <?php
-require_once 'chartConfig.php';
 
 class Highchart
 {

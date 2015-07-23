@@ -1,4 +1,7 @@
 <?php
+require_once 'twitter.php';
+require_once 'ganalytics.php';
+require_once "utils/cache.php";
 /* 
 This is the main application file
 It handles all the AJAX calls from other web pages
@@ -26,9 +29,67 @@ function is_ajax()
 /* Main function to delegate actions */
 function delegate($action)
 {
+	cleanCache();
+	$ds = dataSetName($_GET);
+    if(checkCache($ds))
+    {
+    	print output(loadFromCache($ds));
+
+    	return;
+    }
+
+    $data = null;
+	switch($action)
+	{
+		//Twitter
+		case 'topTweets': $data = topTweets(); break;
+
+		//Google Analytics
+		case 'chart' :  $data = getChart(); break;
+	}
+
+	if(!empty($data))
+	{
+
+		$val = storeInCache($ds, output($data));
+
+	}
+
+	print output($data);
+
 
 }
 
+
+
+function output($data)
+{
+	//Formats output of various types into JSON
+
+	if(is_array ($data))
+	{
+		return json_encode($data);
+	}
+	if(json_decode($data))
+	{
+		return $data;
+	}
+	else
+	{
+		return json_encode($data);
+	}
+	
+}
+
+function dataSetName($settings)
+{
+  $res = "";
+  foreach ($settings as $k => $s) {
+    $res .= "$k=$s;";
+  }
+
+  return $res;
+}
 
 
 ?>

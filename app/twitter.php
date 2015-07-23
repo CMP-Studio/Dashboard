@@ -6,7 +6,7 @@ require_once 'utils/api.php';
 require_once 'config/twitConfig.php';
 
 /* This file will handle the twitter API calls */
-topTweets();
+
 
 /*
 
@@ -41,6 +41,7 @@ function topTweets()
 
 		return $tweets;
 	}
+
 }
 
 /*

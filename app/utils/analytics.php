@@ -1,5 +1,5 @@
 <?php
-require_once '../config/googleConfig.php';
+require_once __DIR__ . '/../config/googleConfig.php';
 
 require_once getAPIPath() . 'autoload.php';
 

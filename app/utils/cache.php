@@ -1,5 +1,5 @@
 <?php
-require_once 'sqlConfig.php';
+require_once __DIR__ . '/../config/sqlConfig.php';
 
 $cacheLimit = 10*24*60*60; //10 days
 
@@ -7,13 +7,15 @@ $cacheLimit = 10*24*60*60; //10 days
 
 function loadFromCache($datasetName)
 {
-
 	$sql = getSql();
+
+
 	if($sql != null)
 	{
+		$dsn = $sql->real_escape_string($datasetName);
 		if(checkCache($datasetName))
 		{
-			$query = "SELECT data FROM datacache WHERE dataset = '$datasetName'";
+			$query = "SELECT data FROM datacache WHERE dataset = '$dsn'";
 			if ($result = $sql->query($query))
 			{
 				$row = $result->fetch_assoc();
@@ -23,16 +25,23 @@ function loadFromCache($datasetName)
 	}
 	return null;
 }
+function escape($data)
+{
+	return $sql->real_escape_string($data);
+}
 
 function storeInCache($datasetName, $data)
 {
-	$sql = getSql();
+	$sql = getSql();	
+
 	if($sql != null)
 	{
+		$dsn = $sql->real_escape_string($datasetName);
+		$data = $sql->real_escape_string($data);
 		if(cacheExists($datasetName))
 		{
 			//Update
-			if($sql->query("UPDATE datacache SET data = '$data' WHERE dataset = '$datasetName'") == TRUE)
+			if($sql->query("UPDATE datacache SET data = '$data' WHERE dataset = '$dsn'") == TRUE)
 			{
 				return true;
 			}
@@ -40,24 +49,29 @@ function storeInCache($datasetName, $data)
 		else
 		{
 			//Insert
-			if($sql->query("Insert into datacache (dataset, data) values ('$datasetName', '$data')") == TRUE)
+			if($sql->query("Insert into datacache (dataset, data) values ('$dsn', '$data')") == TRUE)
 			{
 				return true;
 			}
 		}
 	}
+
 	return false;
 }
 
 // Check if cache is valid - run automatically with load
 function checkCache($datasetName)
 {
+	
 	global $cacheLimit;
 	cleanCache();
+
 	$sql = getSql();
+
 	if($sql != null)
 	{
-		$query = "SELECT updated FROM datacache WHERE dataset = '$datasetName'";
+		$dsn = $sql->real_escape_string($datasetName);
+		$query = "SELECT updated FROM datacache WHERE dataset = '$dsn'";
 		if ($result = $sql->query($query))
 		{
 			$row = $result->fetch_assoc();
@@ -79,10 +93,13 @@ function checkCache($datasetName)
 // Check if cache exists (does not check validity) used in store to determine update vs. insert for store
 function cacheExists($datasetName)
 {
+	
 	$sql = getSql();
+	
 	if($sql != null)
 	{
-		$query = "SELECT * FROM datacache WHERE dataset = '$datasetName'";
+		$dsn = $sql->real_escape_string($datasetName);
+		$query = "SELECT * FROM datacache WHERE dataset = '$dsn'";
 		if ($result = $sql->query($query))
 		{
 			$row = $result->fetch_assoc();
