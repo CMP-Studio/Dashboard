@@ -15,15 +15,23 @@ Endpoints
 */
 
 
-function topTweets()
+function topTweets($user = null, $count = 5)
 {
-	$user = tryGET('user');
+
+	if(!isset($user))
+	{
+		$user = tryGET('user');
+	}
 	$start = tryGET('start');
 	$end = tryGET('end');
-	//$count = tryGET('count');
 
-	if(!isset($count)) $count = 5;
+	$tc = tryGET('count');
+	if(isset($tc))
+	{
+		$count = $tc;
+	}
 
+	//print "COUNT|$count";
 
 
 	$tweets = getTweetsByDate($user, $start, $end);
@@ -34,14 +42,35 @@ function topTweets()
 
 		usort($tweets, "tweetSort");
 
-
-
-		array_splice($tweets, 0, $count);
-
-
+		$tweets = array_splice($tweets, 0, $count);
+		//var_dump($tweets);
 		return $tweets;
 	}
 
+}
+
+function tweetEmbeed($tid = null)
+{
+	if(!isset($tid))
+	{
+		if(isset($_GET['tid']))
+		{
+			$tid = $_GET['tid'];
+		}
+		else
+		{
+			$tid = null;
+		}
+	}
+
+	$token = getToken();
+	$headers = array("Authorization: Bearer " . $token);
+	$url = "https://api.twitter.com/1.1/statuses/oembed.json";
+	$params = array("align"=>"center","id"=>$tid);
+
+	$tweet = getAPI($url, $params, $headers);
+
+	return $tweet;
 }
 
 /*

@@ -1,6 +1,8 @@
 <?php
+
 require_once 'twitter.php';
 require_once 'ganalytics.php';
+require_once 'events.php';
 require_once "utils/cache.php";
 /* 
 This is the main application file
@@ -8,12 +10,14 @@ It handles all the AJAX calls from other web pages
 Most of the functions should be handled in other files but this will delegate calls to those files.
 */
 
-
 /* source: https://jonsuh.com/blog/jquery-ajax-call-to-php-script-with-json-return/ */
 if (is_ajax() || true) //Remove TRUE when done testing
 {
+
   if (isset($_GET["action"]) && !empty($_GET["action"])) //Checks if action value exists
   	{
+  		
+  		header('Content-type: application/x-javascript');
     	delegate($_GET["action"]);
 
 	}
@@ -29,16 +33,24 @@ function is_ajax()
 /* Main function to delegate actions */
 function delegate($action)
 {
-	cleanCache();
+	//cleanCache();
+	
 	$ds = dataSetName($_GET);
-    if(checkCache($ds))
-    {
-    	print output(loadFromCache($ds));
+	
 
-    	return;
+    	
+    $data = loadFromCache($ds);
+    
+    
+    
+    if($data)
+    {
+    	echo $data;
+    	exit(0);
     }
 
-    $data = null;
+    
+
 	switch($action)
 	{
 		//Twitter
@@ -46,6 +58,9 @@ function delegate($action)
 
 		//Google Analytics
 		case 'chart' :  $data = getChart(); break;
+
+		//Events
+		case 'events' : $data = getEvents(); break;
 	}
 
 	if(!empty($data))
@@ -55,7 +70,8 @@ function delegate($action)
 
 	}
 
-	print output($data);
+	echo output($data);
+	exit(0);
 
 
 }

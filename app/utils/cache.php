@@ -7,21 +7,35 @@ $cacheLimit = 10*24*60*60; //10 days
 
 function loadFromCache($datasetName)
 {
+	global $cacheLimit;
+
 	$sql = getSql();
 
 
 	if($sql != null)
 	{
+
 		$dsn = $sql->real_escape_string($datasetName);
-		if(checkCache($datasetName))
+
+
+		
+		$query = "SELECT data, updated FROM datacache WHERE dataset = '$dsn'";
+		if ($result = $sql->query($query))
 		{
-			$query = "SELECT data FROM datacache WHERE dataset = '$dsn'";
-			if ($result = $sql->query($query))
-			{
-				$row = $result->fetch_assoc();
-				return $row['data'];
-			}
+			$row = $result->fetch_assoc();
+			if($row == NULL) return null;
+
+			$updated = strtotime($row['updated']);
+			$now = time();
+
+
+			//Check for cache expiry
+			if(($now-$updated) > $cacheLimit) return null;
+
+			//valid!
+			return $row['data'];
 		}
+		
 	}
 	return null;
 }
@@ -64,7 +78,7 @@ function checkCache($datasetName)
 {
 	
 	global $cacheLimit;
-	cleanCache();
+	//cleanCache();
 
 	$sql = getSql();
 

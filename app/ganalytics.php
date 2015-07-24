@@ -128,8 +128,8 @@ function getSettings()
   //Get settings
   $settings["Chart"] = tryGet("chart");
   $settings["Account"] = tryGet("account");
-  $settings["From"] = tryGet("from");
-  $settings["To"] = tryGet("to");
+  $settings["From"] = tryGet("start");
+  $settings["To"] = tryGet("end");
 
   //Validate settings
   if(empty($settings["Account"]))
@@ -406,13 +406,28 @@ function chartPageviews($settings)
   $start = strtotime($data[0][0]);
   $int = 1*24*60*60; //1 day
   $chart = new Highchart('areaspline');
-  $chart->addLegend();
+  //$chart->addLegend();
   $chart->addPlotOption('fillOpacity',0.2);
   $chart->addSeries($data[1],'Pageviews',$colors[3]);
   $chart->addTimestamps($start*1000,$int*1000);
 
   //print $chart->toJson();
   return $chart->toJson();
+}
+
+function topSources($count = 10)
+{
+  $tc = tryGET('count');
+  if($tc) $count = $tc;
+
+  $set = getSettings();
+  $analytics = getAnalytics();
+
+  $data = runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"], "ga:users","ga:date,ga:hour,ga:source","-ga:users",$count,"ga:source!=(direct)");
+  return $data;
+
+
+
 }
 
 
