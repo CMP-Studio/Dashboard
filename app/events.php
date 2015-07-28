@@ -3,6 +3,7 @@ require_once 'utils/api.php';
 require_once 'twitter.php';
 require_once 'facebook.php';
 require_once 'ganalytics.php';
+require_once 'instagram.php';
 
 /* This file contains functions that are across the different APIs and other data sources to generate 'event' items for timelines. */ 
 
@@ -18,6 +19,7 @@ require_once 'ganalytics.php';
 				title: event title
 				type: event type
 				source: e.g. twitter
+				source_url: e.g. twitter.com/id/post*
 				timestamp: time in ms since epoch
 				score: an arbitrary number of rank (lower is better)
 				html: html code (+ JS and CSS) to render the event
@@ -69,6 +71,10 @@ function getEvents()
 
 			case 'facebook' :
 				$te = fbEvents($id);
+				break;
+
+			case 'instagram' :
+				$te = igEvents($id);
 				break;
 		}
 		if(isset($te))
@@ -177,6 +183,38 @@ function fbEvents($account)
 	
 }
 
+function igEvents($account)
+{
+	$events = getTopIGMedia($account);
+	$tevents = array();
+
+	foreach ($events as $key => $d) 
+	{
+		$teve = array();
+
+
+
+		$time = $d->created_time;
+		$sdate = date("l F jS",$time);
+
+		$teve['title'] = "Photo from $sdate";
+		$teve['type'] = "Top Instagram Posts";
+		$teve['source'] = "Instagram";
+		$teve['score'] = $key;
+		$teve['timestamp'] = $time*1000;
+
+		$embed = igEmbed($d->link);
+
+		$teve['html'] = $embed->html;
+
+
+
+		array_push($tevents, $teve);
+	}
+
+	return $tevents;
+}
+
 function sortEvents($a, $b)
 {
 	$tA = $a['timestamp'];
@@ -187,5 +225,6 @@ function sortEvents($a, $b)
 
   	return ($tA < $tB) ? -1 : 1;
 }
+
 
 ?>

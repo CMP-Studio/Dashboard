@@ -148,6 +148,8 @@ require_once 'app/facebook.php';
                                     return "rgba(247,153,28, 1)"; //GA orange
                                  case 'Facebook':
                                     return "rgba(68,97,157, 1)"; //FB blue
+                                 case 'Instagram':
+                                    return "rgba(185,163,140, 1)"  //IG brown
                                  default:
                                     return "rgba(255,255,255,1)";
                               }
