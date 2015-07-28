@@ -63,7 +63,7 @@ function tweetEmbeed($tid = null)
 		}
 	}
 
-	$token = getToken();
+	$token = getTwitterToken();
 	$headers = array("Authorization: Bearer " . $token);
 	$url = "https://api.twitter.com/1.1/statuses/oembed.json";
 	$params = array("align"=>"center","id"=>$tid);
@@ -106,7 +106,7 @@ function getTweetsByDate($user, $start=0, $end=0)
 {
 	if(empty($user)) return null;
 
-	$token = getToken();
+	$token = getTwitterToken();
 	$headers = array("Authorization: Bearer " . $token);
 
 	$getTweets = array();
@@ -184,7 +184,7 @@ function getTweetsByDate($user, $start=0, $end=0)
 }
 
 
-function getToken()
+function getTwitterToken()
 {
 	$url = "https://api.twitter.com/oauth2/token";
 	$cred = getBearerCred();

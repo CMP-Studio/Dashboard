@@ -1,6 +1,8 @@
 <?php
-
-
+require_once 'app/facebook.php';
+   $start = strtotime("-1 month -1 day 12:00am");
+   $end = strtotime("-1 day 12:00am");
+  // print "Start $start\nEnd $end";
 ?>
 
 <!DOCTYPE html>
@@ -37,13 +39,14 @@
    		
 
 
-   		var url = "./app/ajax.php?action=chart&account=ga:30663551&chart=pageviews&end=1437591963&start=1434931200";
+   		var url = "./app/ajax.php?action=chart&account=ga:53193816&chart=pageviews&end=<?php print $end; ?>&start=<?php print $start; ?>";
    		$.getJSON(url, function(data) 
    		{
-   			//.log(data);
+   			console.log(data);
    			$('#main-chart .chart').highcharts(data);
+            setupTooltip();
 
-		   		url = "./app/ajax.php?action=events&end=1437591963&start=1434931200&count=20";
+		   		url = "./app/ajax.php?action=events&location=cmoa&end=<?php print $end; ?>&start=<?php print $start; ?>";
 				$.getJSON(url, function(data) 
 		   		{
 		   			console.log(data);
@@ -59,8 +62,8 @@
 
    		$("#tweet").dialog({
    			autoOpen: false,
-   			minWidth: 400,
-   			position: { my: "center top", at: "center top+10%", of: window }
+   			minWidth: 600,
+   			position: { my: "center top", at: "center top", of: window }
    		})
 
 
@@ -69,11 +72,30 @@
    			var max = -999999;
    			for (var i = events.length - 1; i >= 0; i--) {
    				var e = events[i];
-   				console.log(e);
+
    				if(e.score > max) max = e.score;
    			};
    			return max;
    		}
+
+         function setupTooltip()
+         {
+            var tt = d3.select('.highcharts-tooltip');
+            tt.style('display','none');
+
+            var markers = d3.select('.highcharts-markers').selectAll('path');
+            markers.style('cursor','hand');
+            markers.on('click', function()
+            {
+               tt.style('display',null);
+            })
+            .on('mouseleave', function()
+            {
+               tt.style('display','none');
+            })
+
+
+         }
    		
    		function events(data)
    		{
@@ -98,7 +120,7 @@
    			var max = maxScore(events);
 
    			var xS = d3.time.scale().domain([getDate(start), getDate(end)]).range([l,l+w]);
-   			var yS = d3.scale.linear().domain([0, max]).range([t+h/2,t+h - 20]);
+   			var yS = d3.scale.linear().domain([0, max]).range([t+100,t+h - 20]);
    			console.log(max);
    			//.log(xS);
    			//.log(start);
@@ -116,7 +138,21 @@
    									return yS(d.score);
    								})
    								.attr("r", "4")
-   								.style("fill","rgba(77,102,132,0.9)")
+   								.style("fill",function(d)
+                           {
+                              switch(d.source)
+                              {
+                                 case 'Twitter':
+                                    return "rgba(80,171,241,1)"; //Twitter blue
+                                 case 'Google Analytics':
+                                    return "rgba(247,153,28, 1)"; //GA orange
+                                 case 'Facebook':
+                                    return "rgba(68,97,157, 1)"; //FB blue
+                                 default:
+                                    return "rgba(255,255,255,1)";
+                              }
+
+                           })
    								.style("cursor","hand")
    								.on('click',function(d)
    									{
@@ -146,6 +182,7 @@
    </script>
 </head>
 <body>
+<?php print getFBEmbeedScript(); ?>
   <div id='topbar'>
 
   </div>

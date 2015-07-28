@@ -69,7 +69,7 @@ function delegate($action)
 		$val = storeInCache($ds, output($data));
 
 	}
-
+	//var_dump($data);
 	echo output($data);
 	exit(0);
 

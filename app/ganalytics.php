@@ -142,7 +142,7 @@ function getSettings()
   }
   else
   {
-      $settings["From"] = GoogleDate(strtotime($settings["From"]));
+      $settings["From"] = GoogleDate($settings["From"]);
   }
   if(empty($settings["To"])) //To defaults to today
   {
@@ -150,7 +150,7 @@ function getSettings()
   }
   else
   {
-      $settings["To"] = GoogleDate(strtotime($settings["To"]));
+      $settings["To"] = GoogleDate($settings["To"]);
   }
 
 
@@ -162,6 +162,7 @@ function getSettings()
 function getChart()
 {
   $set = getSettings();
+  //var_dump($set);
   if(!isset($_GET["chart"])) return null;
 
       switch($_GET["chart"])
@@ -400,13 +401,15 @@ function chartPageviews($settings)
     return json_encode($e);
   }
 
+
   //var_dump($data);
 
   //Form chart
-  $start = strtotime($data[0][0]);
+  $start = strtotime($data[0][0]) + 8*60*60;
   $int = 1*24*60*60; //1 day
   $chart = new Highchart('areaspline');
   //$chart->addLegend();
+  //$chart->disableTooltip();
   $chart->addPlotOption('fillOpacity',0.2);
   $chart->addSeries($data[1],'Pageviews',$colors[3]);
   $chart->addTimestamps($start*1000,$int*1000);
@@ -415,16 +418,31 @@ function chartPageviews($settings)
   return $chart->toJson();
 }
 
-function topSources($count = 10)
+function topSources($account = null, $count = 10)
 {
   $tc = tryGET('count');
   if($tc) $count = $tc;
 
-  $set = getSettings();
+
+  $start = tryGET('start');
+  $end = tryGET('end');
+
+  if(!isset($start) || !isset($end)) return null;
+
+
+  $start = GoogleDate($start);
+  $end = GoogleDate($end);
+
+  if(!isset($account))
+  {
+    $account = $settings["Account"];
+  }
+
   $analytics = getAnalytics();
 
-  $data = runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"], "ga:users","ga:date,ga:hour,ga:source","-ga:users",$count,"ga:source!=(direct)");
-  return $data;
+  $filter = "ga:pagePath!=/;ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
+  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:date,ga:hour,ga:source,ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
+  return $data->getRows();
 
 
 

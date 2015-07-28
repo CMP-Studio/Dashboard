@@ -106,6 +106,11 @@ class Highchart
 		$this->chart['legend']['backgroundColor'] = 'transparent';
 	}
 
+	public function disableTooltip()
+	{
+		$this->chart['tooltip']['enabled'] = false;
+	}
+
 	public function addCategories($cats, $step =1)
 	{
 		$this->chart['xAxis']["categories"] = $cats;

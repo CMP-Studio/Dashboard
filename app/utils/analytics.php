@@ -10,8 +10,8 @@ require_once getAPIPath() . 'autoload.php';
 function getClient()
 {
 	$client = new Google_Client();
-	$client->setApplicationName(getAppName());
-	$client->setClientId(getClientID());
+	$client->setApplicationName(getGAAppName());
+	$client->setClientId(getGAClientID());
 	
 	return $client;
 	
@@ -54,7 +54,7 @@ function Auth($client)
 	$scope = array('https://www.googleapis.com/auth/analytics');
 
 	$cred = new Google_Auth_AssertionCredentials(
-					getAcctName(),
+					getGAAcctName(),
 					$scope,
 					$key
 					);
