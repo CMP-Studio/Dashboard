@@ -116,7 +116,37 @@ function throwError($message, $function)
   $return["error"]["function"] = $function;
   $return["error"]["message"] = $message;
 
-  print $return;
+  print json_encode($return);
+}
+
+function getGAAccountByLoc()
+{
+  $loc = tryGET('location');
+
+  if(!isset($loc)) return null;
+
+  $accounts = json_decode(file_get_contents('config/accounts.json'), true);
+  $locAccounts = $accounts['location'][$loc]['accounts'];
+
+  foreach ($locAccounts as $key => $act) 
+  {
+    $type = $act['type'];
+    $id = $act["id"];
+    switch($type)
+    {
+
+
+      case 'google analytics':
+          return $id;
+        break;
+      default:
+
+        break;
+
+    }
+  }
+
+  return null;
 }
 
 
@@ -134,7 +164,15 @@ function getSettings()
   //Validate settings
   if(empty($settings["Account"]))
   {
-    return throwError("*account* must be set","getSettings");
+    $account = getGAAccountByLoc();
+    if($account)
+    {
+      $settings["Account"] = $account;
+    }
+    else
+    {
+      return throwError("account or location must be set","getSettings");
+    }
   }
   if(empty($settings["From"])) //From defaults to 1 month prior to today
   {
@@ -418,7 +456,7 @@ function chartPageviews($settings)
   return $chart->toJson();
 }
 
-function topSources($account = null, $count = 10)
+function topSources($account = null, $count = 20)
 {
   $tc = tryGET('count');
   if($tc) $count = $tc;

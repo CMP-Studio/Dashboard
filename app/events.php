@@ -171,7 +171,14 @@ function fbEvents($account)
 		$teve['title'] = "Post from $sdate";
 		$teve['type'] = "Top Facebook Posts";
 		$teve['source'] = "Facebook";
-		$teve['html'] = FBembeed($d->actions[0]->link);
+		if(isset($d->actions[0]))
+		{
+			$teve['html'] = FBembeed($d->actions[0]->link);
+		}
+		else
+		{
+			continue;
+		}
 		$teve['score'] = $key;
 		$teve['timestamp'] = $time*1000;
 

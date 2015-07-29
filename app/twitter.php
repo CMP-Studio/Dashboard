@@ -15,7 +15,7 @@ Endpoints
 */
 
 
-function topTweets($user = null, $count = 5)
+function topTweets($user = null, $count = 20)
 {
 
 	if(!isset($user))

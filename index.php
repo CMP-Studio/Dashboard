@@ -36,28 +36,30 @@ require_once 'app/facebook.php';
    <script>
    	$(document).ready(function (){ 
 
-   		
+   		var loc = "csc";
 
 
-   		var url = "./app/ajax.php?action=chart&account=ga:53193816&chart=pageviews&end=<?php print $end; ?>&start=<?php print $start; ?>";
-   		$.getJSON(url, function(data) 
+   		var url = "./app/ajax.php?action=chart&location=" + loc + "&chart=pageviews&end=<?php print $end; ?>&start=<?php print $start; ?>";
+   		$.getJSON(url, function(cdata) 
    		{
-   			console.log(data);
-   			$('#main-chart .chart').highcharts(data);
-            setupTooltip();
+   			console.log(cdata);
+   			
+            //setupTooltip();
 
-		   		url = "./app/ajax.php?action=events&location=cmoa&end=<?php print $end; ?>&start=<?php print $start; ?>";
-				$.getJSON(url, function(data) 
+		   		url = "./app/ajax.php?action=events&location=" + loc + "&end=<?php print $end; ?>&start=<?php print $start; ?>";
+               console.log(url);
+				$.getJSON(url, function(edata) 
 		   		{
-		   			console.log(data);
-		   			events(data);
+                  $('#main-chart .chart').highcharts(cdata);
+		   			console.log(edata);
+		   			events(edata);
 		   		})
 		   		.fail(function() {
-		   			alert("Failure");
+		   			alert("Failure - Events");
 		   		});
 	   		})
 	   		.fail(function() {
-	   			alert("Failure");
+	   			alert("Failure - Chart");
 	   		});
 
    		$("#tweet").dialog({
@@ -107,21 +109,29 @@ require_once 'app/facebook.php';
    			var start = data.start;
    			var end = data.end;
 
-   			var axis = d3.select(".highcharts-series-group").node();
+   			var axis = d3.select(".highcharts-yaxis-labels").node();
    			var box = axis.getBBox();
 
+            var h = box.height;
+            var t = box.y;
+
+            var axis = d3.select(".highcharts-series-group").node();
+            var box = axis.getBBox();
 
    			var w = box.width;
    			var l = box.x;
 
-   			var h = box.height;
-   			var t = box.y;
+
 
    			var max = maxScore(events);
 
-   			var xS = d3.time.scale().domain([getDate(start), getDate(end)]).range([l,l+w]);
-   			var yS = d3.scale.linear().domain([0, max]).range([t+100,t+h - 20]);
-   			console.log(max);
+            var seg = h/12;
+
+
+   			var xS = d3.time.scale().domain([getDate(start), getDate(end)]).range([l,w]);
+   			var yS = d3.scale.linear().domain([0, 4]).range([h - seg/2, h-(4*seg) - seg/2]);
+            var subYs = d3.scale.linear().domain([0,max]).range([15, seg-15]);
+   			//console.log(max);
    			//.log(xS);
    			//.log(start);
 
@@ -135,7 +145,20 @@ require_once 'app/facebook.php';
    								})
    								.attr("cy", function(d)
    								{
-   									return yS(d.score);
+   									 switch(d.source)
+                              {
+                                 case 'Twitter':
+                                    return yS(1); //Twitter blue
+                                 case 'Google Analytics':
+                                    return yS(0); //GA orange
+                                 case 'Facebook':
+                                    return yS(2); //FB blue
+                                 case 'Instagram':
+                                    return yS(3);  //IG brown
+                                 default:
+                                    return yS(4);
+                              }
+
    								})
    								.attr("r", "4")
    								.style("fill",function(d)
