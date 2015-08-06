@@ -61,6 +61,9 @@ function delegate($action)
 
 		//Events
 		case 'events' : $data = getEvents(); break;
+
+		//Statistics
+		case 'stats' : $data = getStatistics(); break;
 	}
 
 	if(!empty($data))

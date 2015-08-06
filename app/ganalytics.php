@@ -196,6 +196,22 @@ function getSettings()
 
 }
 
+function getReferrals()
+{
+  if(!isset($_GET["type"])) return null;
+
+      switch($_GET["type"])
+      {
+        case "facebook" : $data = FbReferrals(); break;
+        case "twitter"  : $data = TwitReferrals(); break;
+
+        //Not found
+        default: $data = null;  break;
+        }
+
+
+    return $data;
+}
 
 function getChart()
 {
@@ -212,7 +228,7 @@ function getChart()
         case "most-viewed"      : $chart = chartMostViewed($set); break;
         case "tos"              : $chart = chartTOS($set); break;
         case "hist-views"       : $chart = chartHistViews($set); break;
-        case "pageviews"        : $chart = chartPageviews($set); break;
+        case "dashboard"        : $chart = chartDashboard($set); break;
 
         //Not found
         default: $chart = null;  break;
@@ -422,7 +438,7 @@ function chartHistViews($settings)
   return $chart->toJSON();
 }
 
-function chartPageviews($settings)
+function chartDashboard($settings)
 {
   //Setup analytics
   $analytics = getAnalytics();
@@ -432,7 +448,7 @@ function chartPageviews($settings)
 
   try
   {
-    $data = invertData(runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"],"ga:pageviews","ga:date")->getRows());
+    $data = invertData(runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"],"ga:pageviews,ga:users","ga:date")->getRows());
   }
   catch (Exception $e)
   {
@@ -443,13 +459,33 @@ function chartPageviews($settings)
   //var_dump($data);
 
   //Form chart
-  $start = strtotime($data[0][0]) + 8*60*60;
+  date_default_timezone_set('UTC');
+  $start = strtotime($data[0][0]) ;
   $int = 1*24*60*60; //1 day
   $chart = new Highchart('areaspline');
   //$chart->addLegend();
   //$chart->disableTooltip();
   $chart->addPlotOption('fillOpacity',0.2);
-  $chart->addSeries($data[1],'Pageviews',$colors[3]);
+  $chart->addSeries($data[1],'Pageviews',$colors[0]);
+  $chart->addSeries($data[2],'Users',$colors[1]);
+
+  if(tryGet('twitter'))
+  {
+    $chart->addSeries(array(),'Twitter', 'rgb(80, 171, 241)',array('visible'=>false));
+  }
+  if(tryGet('fb'))
+  {
+    $chart->addSeries(array(),'Facebook', 'rgba(68,97,157, 1)',array('visible'=>false));
+  }
+  if(tryGet('ig'))
+  {
+    $chart->addSeries(array(),'Instagram', 'rgba(185,163,140, 1)',array('visible'=>false));
+  }
+  if(tryGet('ga'))
+  {
+    $chart->addSeries(array(),'High Traffic', 'rgba(247,153,28, 1)',array('visible'=>false));
+  }
+
   $chart->addTimestamps($start*1000,$int*1000);
 
   //print $chart->toJson();
@@ -478,12 +514,110 @@ function topSources($account = null, $count = 20)
 
   $analytics = getAnalytics();
 
-  $filter = "ga:pagePath!=/;ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
+  $filter = "ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$);ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:date,ga:hour,ga:source,ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
   return $data->getRows();
+}
+
+function FbReferrals($account = null, $count = 20)
+{
+  $tc = tryGET('count');
+  if($tc) $count = $tc;
 
 
+  $start = tryGET('start');
+  $end = tryGET('end');
 
+  if(!isset($start) || !isset($end)) return null;
+
+
+  $start = GoogleDate($start);
+  $end = GoogleDate($end);
+
+  if(!isset($account))
+  {
+    $account = $settings["Account"];
+  }
+
+  $analytics = getAnalytics();
+
+  $filter = "ga:fullReferrer=@facebook,ga:source=@facebook"; //Filter out direct sources and homepage views to get more interesting content
+  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
+  return $data->getRows();
+}
+
+function TwitReferrals($account = null, $count = 20)
+{
+  $tc = tryGET('count');
+  if($tc) $count = $tc;
+
+
+  $start = tryGET('start');
+  $end = tryGET('end');
+
+  if(!isset($start) || !isset($end)) return null;
+
+
+  $start = GoogleDate($start);
+  $end = GoogleDate($end);
+
+  if(!isset($account))
+  {
+    $account = $settings["Account"];
+  }
+
+  $analytics = getAnalytics();
+
+  $filter = "ga:fullReferrer=@twit,ga:source=@twit"; //Filter out direct sources and homepage views to get more interesting content
+  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
+  return $data->getRows();
+}
+
+function getStatistics()
+{
+   $start = tryGET('start');
+  $end = tryGET('end');
+
+  if(!isset($start) || !isset($end)) return null;
+
+
+  $start = GoogleDate($start);
+  $end = GoogleDate($end);
+
+  $settings = getSettings();
+
+  if(!isset($account))
+  {
+    $account = $settings["Account"];
+  }
+
+  $analytics = getAnalytics();
+
+  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews,ga:avgSessionDuration,ga:pageviewsPerSession");
+
+  $data = $data->getRows();
+
+  $result = [];
+
+  $result['users'] = $data[0][0];
+  $result['pageviews'] = $data[0][1];
+  $result['tos'] = $data[0][2];
+  $result['pps'] = $data[0][3];
+
+
+  $count = 5;
+  $filter="ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$)";
+  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
+  $data = $data->getRows();
+
+  $result['toppages'] = array();
+
+  foreach ($data as $key => $r) {
+    $result['toppages'][$key] = $r[0] . $r[1];
+  }
+
+
+  return $result;
 }
 
 

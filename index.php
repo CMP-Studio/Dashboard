@@ -1,227 +1,169 @@
 <?php
 require_once 'app/facebook.php';
-   $start = strtotime("-1 month -1 day 12:00am");
-   $end = strtotime("-1 day 12:00am");
-  // print "Start $start\nEnd $end";
 ?>
 
 <!DOCTYPE html>
-<head>
+<html lang="en" class='merriweather'>
+   <head>
+      <title>Digital Dashboard</title>
+   	<meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charset="utf-8">
+   	<meta http-equiv="content-type" content="text/html; charset=UTF8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="content-type" content="text/html; charset=UTF8">
+      <!-- Fonts -->
+      <script src="//use.typekit.net/bft4gbb.js"></script>
+      <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
-
-	<!-- jQuery -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-	<!-- Bootstrap -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-
-   <!-- Highcharts -->
-   <script src="http://code.highcharts.com/stock/highstock.js"></script>
-
-
-   <!-- D3 -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
-
-<!--Select2-->
-   <!--<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>-->
-
-   <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
-   <script>
-   	$(document).ready(function (){ 
-
-   		var loc = "csc";
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css"/>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"  />
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+      <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
 
 
-   		var url = "./app/ajax.php?action=chart&location=" + loc + "&chart=pageviews&end=<?php print $end; ?>&start=<?php print $start; ?>";
-   		$.getJSON(url, function(cdata) 
-   		{
-   			console.log(cdata);
-   			
-            //setupTooltip();
+   	
 
-		   		url = "./app/ajax.php?action=events&location=" + loc + "&end=<?php print $end; ?>&start=<?php print $start; ?>";
-               console.log(url);
-				$.getJSON(url, function(edata) 
-		   		{
-                  $('#main-chart .chart').highcharts(cdata);
-		   			console.log(edata);
-		   			events(edata);
-		   		})
-		   		.fail(function() {
-		   			alert("Failure - Events");
-		   		});
-	   		})
-	   		.fail(function() {
-	   			alert("Failure - Chart");
-	   		});
+   </head>
+   <body class='tk-merriweather'>
+      <div id='container'>
+         <?php print getFBEmbeedScript(); ?>
+        <div id='dialog'></div>
 
-   		$("#tweet").dialog({
-   			autoOpen: false,
-   			minWidth: 600,
-   			position: { my: "center top", at: "center top", of: window }
-   		})
+        <header id='topbar'>
+           <div id='studiobar' class='clearfix'>
+               <h1>Innovation Studio Digital Dahsboard</h1>
+            </div>
+            <div id='musebar'>
+               <div id='cmp' class='fifth'>
 
+               </div>
+               <a href='#' id='cmoa' class='fifth active'>
+                  <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa.png'>
+                  <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/warhol_white.png'>
+               </a>
+               <a href='#' id='cmnh' class='fifth'>
+                  <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh.png'>
+                  <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/warhol_white.png'>
+               </a>
+               <a href='#' id='csc' class='fifth'>
+                  <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc.png'>
+                  <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/warhol_white.png'>
+               </a>
+               <a href='#' id='warhol' class='fifth'>
+                  <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
+                  <img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
+               </a>
+            </div>
+        </header>
 
-   		function maxScore(events)
-   		{
-   			var max = -999999;
-   			for (var i = events.length - 1; i >= 0; i--) {
-   				var e = events[i];
+        <div id='content'>
+           <div id='pane1' class='clearfix'>
+               <h2 class='title'>Web Traffic</h2>
+               <div id='chart'>
+                  
+               </div>
+                  
 
-   				if(e.score > max) max = e.score;
-   			};
-   			return max;
-   		}
-
-         function setupTooltip()
-         {
-            var tt = d3.select('.highcharts-tooltip');
-            tt.style('display','none');
-
-            var markers = d3.select('.highcharts-markers').selectAll('path');
-            markers.style('cursor','hand');
-            markers.on('click', function()
-            {
-               tt.style('display',null);
-            })
-            .on('mouseleave', function()
-            {
-               tt.style('display','none');
-            })
-
-
-         }
-   		
-   		function events(data)
-   		{
-   			var svg = d3.select("#highcharts-0 svg");
-
-   			var layer = svg.insert("g",".highcharts-tooltip").attr("id","events");
-
-   			var events = data.events;
-   			var start = data.start;
-   			var end = data.end;
-
-   			var axis = d3.select(".highcharts-yaxis-labels").node();
-   			var box = axis.getBBox();
-
-            var h = box.height;
-            var t = box.y;
-
-            var axis = d3.select(".highcharts-series-group").node();
-            var box = axis.getBBox();
-
-   			var w = box.width;
-   			var l = box.x;
-
-
-
-   			var max = maxScore(events);
-
-            var seg = h/12;
-
-
-   			var xS = d3.time.scale().domain([getDate(start), getDate(end)]).range([l,w]);
-   			var yS = d3.scale.linear().domain([0, 4]).range([h - seg/2, h-(4*seg) - seg/2]);
-            var subYs = d3.scale.linear().domain([0,max]).range([15, seg-15]);
-   			//console.log(max);
-   			//.log(xS);
-   			//.log(start);
-
-   			var circles =  layer.selectAll("circle")
-   								.data(events)
-   								.enter()
-   								.append("circle")
-   								.attr("cx", function(d) {
-   									//.log(getDate(d.timestamp));
-   									return xS(getDate(d.timestamp))
-   								})
-   								.attr("cy", function(d)
-   								{
-   									 switch(d.source)
-                              {
-                                 case 'Twitter':
-                                    return yS(1); //Twitter blue
-                                 case 'Google Analytics':
-                                    return yS(0); //GA orange
-                                 case 'Facebook':
-                                    return yS(2); //FB blue
-                                 case 'Instagram':
-                                    return yS(3);  //IG brown
-                                 default:
-                                    return yS(4);
-                              }
-
-   								})
-   								.attr("r", "4")
-   								.style("fill",function(d)
-                           {
-                              switch(d.source)
-                              {
-                                 case 'Twitter':
-                                    return "rgba(80,171,241,1)"; //Twitter blue
-                                 case 'Google Analytics':
-                                    return "rgba(247,153,28, 1)"; //GA orange
-                                 case 'Facebook':
-                                    return "rgba(68,97,157, 1)"; //FB blue
-                                 case 'Instagram':
-                                    return "rgba(185,163,140, 1)"  //IG brown
-                                 default:
-                                    return "rgba(255,255,255,1)";
-                              }
-
-                           })
-   								.style("cursor","hand")
-   								.on('click',function(d)
-   									{
-   										//.log(d);
-   										$("#tweet").html(d.html);
-   										$("#tweet").dialog("option","title",d.title);
-   										$("#tweet").dialog("open");
-   									})
-   								.on('mouseenter', function(d){
-   									//console.log(this);
-   									d3.select(this).attr("r","6");
-   								})
-   								.on('mouseleave', function(d)
-   								{
-   									d3.select(this).attr("r","4");
-   								})
-   								;
-   		}
-
-   		function getDate(d) {
-		    return new Date(d);
-		}
-
-
-
-   	});
-   </script>
-</head>
-<body>
-<?php print getFBEmbeedScript(); ?>
-  <div id='topbar'>
-
-  </div>
-  <div id='content'>
-    <div id='chart-container'>
-      <div id='main-chart'>
-        <div class='chart'>
-
+             <div id='infopane'>
+             <div id='timespan-picker'>
+               <label class='left-label' for='timespan'>Stats for </label>
+                  <select id='timespan'>
+                     <option value='ly'>Last Year</option>
+                     <option value='l3m'>Previous 3 Months</option>
+                     <option value='lm' selected="selected">Last Month</option>
+                     <option value='lw'>Last Week</option>
+                  </select>
+               </div>
+                  <div id='infotext'>
+                     <p><!-- Spacer --></p>
+                     <p>From <span id='start-date'>July 1</span> to <span id='end-date'>July 31</span> the <span id='museum-text'>Carnegie Museum of Art</span> had <span id='museum-users'>86,234</span> people visit their websites.
+                       Those users viewed <span id='pageviews'>212,345</span> pages.
+                     </p>
+                     <p>During that time, visitors spent an average of <span id='time-on-site'>74</span> seconds using the website, 
+                     viewing an average of <span id='pages-per-visit'>2.4</span> pages per visit.
+                     </p>
+                     <p><!-- Spacer --></p>
+                     <p>The most popular pages during that period were:</p>
+                     <p>
+                     <ol id='topPages'>
+                     </ol>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div id='pane2' class='clearfix'>
+               <h2 class='title'>Social Media Last Month</h2>
+               <div id='social-holder'>
+               <!-- Auto generate -->
+                  <div class=' col-md-4 col-xs-12'>
+                     <div id='first' class='twitter social-pane panel panel-default'>
+                        <div class='social-title panel-heading clearfix'>
+                           <div class='logo' title='Twitter'></div>
+                           <h3 class='panel-title'>@Dippy_the_Dino</h3>
+                        </div> 
+                        <div class='social-body panel-body'>
+                           <h4>Total Followers: <b>895,435</b></h4>
+                           <h4>Change in Followers: <i class='fa fa-chevron-up'></i> <b>2,201</b></h4>
+                           <h4>Top Pages Visited From Twitter</h4>
+                           <div class='social-urls'>
+                              <ol>
+                                 <li>www.carnegiemnh.org/dippy</li>
+                                 <li>www.carnegiemnh.org/dippy2</li>
+                                 <li>www.carnegiemnh.org/dippy3</li>
+                                 <li>www.carnegiemnh.org/dippy4</li>
+                                 <li>www.carnegiemnh.org/dippy5</li>
+                              </ol>
+                           </div>
+                           <h4>Top Tweet</h4>
+                           <div class='social-embeed'>
+                              <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Happy birthday <a href="https://twitter.com/hashtag/AndyWarhol?src=hash">#AndyWarhol</a>! In honor of the pop icon&#39;s 87th b-day I &quot;Warholized&quot; this pic of myself. <a href="https://twitter.com/TheWarholMuseum">@TheWarholMuseum</a> <a href="http://t.co/6FNisBLGGo">pic.twitter.com/6FNisBLGGo</a></p>&mdash; Dippy the Dinosaur (@Dippy_the_Dino) <a href="https://twitter.com/Dippy_the_Dino/status/629312367545982976">August 6, 2015</a></blockquote>
+                              <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- End auto generate -->
+            </div>
         </div>
-
       </div>
-    </div>
-  </div>
-<div id='tweet'>
 
-</div>
-</body>
+      <!-- Javascript -->
+
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      
+
+      <!-- Bootstrap -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      
+
+      <!-- jQuery UI -->
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+      <!-- Highcharts -->
+      <script src="http://code.highcharts.com/stock/highstock.js"></script>
+
+
+      <!-- D3 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
+
+
+      <!--Select2-->
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+      <!--Moment-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+      <!--Numeral-->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+      
+      <!--Load account info-->
+      <?php require_once 'load.php' ?>
+
+   </body>
+</html>

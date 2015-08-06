@@ -137,7 +137,7 @@ class Highchart
 
 	}
 
-	public function addSeries($data, $name='', $color='')
+	public function addSeries($data, $name='', $color='', $options = array())
 	{
 		$newSeries = array();
 		$newSeries['data'] = $this->correctData($data);
@@ -148,6 +148,10 @@ class Highchart
 		if(!empty($color))
 		{
 		$newSeries['color'] = $color;
+		}
+		foreach ($options as $key => $value) 
+		{
+				$newSeries[$key] = $value;
 		}
 
 		array_push($this->chart['series'],$newSeries);

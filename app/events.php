@@ -43,6 +43,8 @@ function getEvents()
 {
 	$start = tryGET('start');
 	$end = tryGET('end');
+	$lt = false;
+	if(tryGet('longterm')) $lt = true;
 	$loc = strtolower (tryGET('location'));
 
 	//Get accounts
@@ -61,8 +63,10 @@ function getEvents()
 		switch($type)
 		{
 			case 'twitter': 
-				//print "Twitter!";
-				$te = topTweetEvents($id);
+				if(!$lt)
+				{
+					$te = topTweetEvents($id);
+				}
 				break;
 
 			case 'google analytics':
@@ -70,11 +74,17 @@ function getEvents()
 				break;
 
 			case 'facebook' :
-				$te = fbEvents($id);
+				if(!$lt)
+				{
+					$te = fbEvents($id);
+				}
 				break;
 
 			case 'instagram' :
-				$te = igEvents($id);
+				if(!$lt)
+				{
+					$te = igEvents($id);
+				}
 				break;
 		}
 		if(isset($te))

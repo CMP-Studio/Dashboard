@@ -1,0 +1,515 @@
+<script>
+$(document).ready(function (){ 
+
+   //Defaults
+   var timespan = getLastMonth();
+   var museum = 'cmoa';
+
+   
+
+   loadAnalytics(museum, timespan.start, timespan.end);
+
+   //Select timespan 
+   $("#timespan").select2({
+      width: '40%',
+      minimumResultsForSearch: 50
+   });
+
+   $("#dialog").dialog({
+      autoOpen: false,
+      minWidth: 600,
+      position: { my: "center top", at: "center center", of: '#musebar' }
+   });
+   $('#dialog').parent().css({position:"fixed"});
+
+   $('#timespan').change(function ()
+   {
+      var t = null;
+      switch($( this ).val())
+      {
+
+         case 'lw':
+            t = getLastWeek();
+            break;
+         case 'l3m':
+            t= getLast3Months();
+            break;
+         case 'lm':
+            t = getLastMonth();
+            break;
+         case 'ly':
+            t= getLastYear();
+            break;
+      }
+      timespan = t;
+      loadAnalytics(museum, timespan.start, timespan.end);
+   });
+
+   //Select museum
+   $('#cmoa').click(function()
+   {
+      museum='cmoa';
+      setActiveMuseum(museum);
+      loadAnalytics(museum, timespan.start, timespan.end);
+   });
+   $('#cmnh').click(function()
+   {
+      museum='cmnh';
+      setActiveMuseum(museum);
+      loadAnalytics(museum, timespan.start, timespan.end);
+   });
+   $('#warhol').click(function()
+   {
+      museum='warhol';
+      setActiveMuseum(museum);
+      loadAnalytics(museum, timespan.start, timespan.end);
+   });
+   $('#csc').click(function()
+   {
+      museum='csc';
+      setActiveMuseum(museum);
+      loadAnalytics(museum, timespan.start, timespan.end);
+   });
+
+   function setActiveMuseum(loc)
+   {
+      $('#cmp').removeClass('active');
+      $('#csc').removeClass('active');
+      $('#cmoa').removeClass('active');
+      $('#cmnh').removeClass('active');
+      $('#warhol').removeClass('active');
+
+      $('#' + loc).addClass('active');
+
+   }
+
+   
+   //Load the data         
+
+   function loadAnalytics(loc, start, end)
+   {
+      $('#chart').html("<img src='/resources/img/loader.gif' class='loader'>");
+      var adata = getActs();
+      
+      var srcs = getSources(adata, loc);
+
+      var url = "./app/ajax.php?action=chart&chart=dashboard&location="  + loc + "&end=" + end + "&start=" + start;
+
+      var social = true;
+
+
+      if(moment.unix(start).isBefore( moment.unix(end).subtract('32','days') )) social = false;
+
+      if(social)
+      {
+         if('twitter' in srcs)
+         {
+            url += "&twitter=1";
+         }
+         if('facebook' in srcs)
+         {
+            url += "&fb=1";
+         }
+         if('instagram' in srcs)
+         {
+            url += "&ig=1";
+         }
+         
+         if('google analytics' in srcs)
+         {
+            url += "&ga=1";
+         }
+      }
+		$.getJSON(url, function(cdata) 
+		{
+         if(social)
+         {
+
+   	   	url = "./app/ajax.php?action=events&location=" + loc + "&end=" + end + "&start=" + start;
+
+
+   			$.getJSON(url, function(edata) 
+   	   	{
+               $('.loader').remove();
+               $('#chart').highcharts(cdata);
+               setupTooltip();
+               setupLegend();
+      			events(edata, srcs);
+
+   	   	})
+   	   	.fail(function() {
+   	   		console.error("Failure - Events");
+               $('.loader').remove();
+   	   	});
+         }
+         else
+         {
+               $('.loader').remove();
+               $('#chart').highcharts(cdata);
+               setupLegend();
+         }
+         
+   	})
+   	.fail(function() {
+   		console.error("Failure - Chart");
+         $('.loader').remove();
+   	});
+
+      var url = "./app/ajax.php?action=stats&location=" + loc + "&end=" + end + "&start=" + start;
+      $.getJSON(url).done(function (data){
+         
+         var start_s = moment.unix(start).format("MMMM D, YYYY");
+         var end_s = moment.unix(end).format("MMMM D, YYYY");
+         var mus_s = museumTxt(loc);
+         var users = numeral(data.users).format('0,0');
+         var pv = numeral(data.pageviews).format('0,0');
+         var secs = numeral(data.tos).format('0,0.00');
+         var pps = numeral(data.pps).format('0,0.00');
+
+         var pages = data.toppages;
+
+         $('#start-date').text(start_s);
+         $('#end-date').text(end_s);
+         $('#museum-text').text(mus_s);
+         $('#museum-users').text(users);
+         $('#pageviews').text(pv);
+         $('#time-on-site').text(secs);
+         $('#pages-per-visit').text(pps);
+
+
+         $("#topPages").empty();
+         for (var i = pages.length - 1; i >= 0; i--) {
+            var p = pages[i];
+            $("#topPages").prepend("<li><a href='//" + p + "' target='_blank'>" + p + "</a></li>" )
+         }
+
+         $('#infotext').css('display','block');
+
+
+      });
+   }
+
+    function getSources(acts, loc)
+   {
+      var locaccts = acts.location[loc].accounts;
+      var srcs = {};
+      var c = 0;
+
+      for (var i = locaccts.length - 1; i >= 0; i--) {
+         var a = locaccts[i];
+         if(a.type in srcs)
+         {
+         }
+         else
+         {
+            srcs[a.type] = c;
+            c++;
+         } 
+      };
+
+      srcs['total-length'] = c;
+
+      return srcs;
+   }
+
+   function museumTxt(loc)
+   {
+      switch(loc)
+      {
+         case 'cmoa': 
+            return 'Carnegie Museum of Art';
+            break;
+         case 'warhol': 
+            return 'Andy Warhol Museum';
+            break;
+         case 'csc': 
+            return 'Carnegie Science Center';
+            break;
+         case 'cmnh': 
+            return 'Carnegie Museum of Natural History';
+            break;
+      }
+   }
+
+	function maxScore(events)
+	{
+		var max = -999999;
+		for (var i = events.length - 1; i >= 0; i--) {
+			var e = events[i];
+
+			if(e.score > max) max = e.score;
+		};
+		return max;
+	}
+
+   function setupTooltip()
+   {
+      var tt = d3.select('.highcharts-tooltip');
+      tt.style('display','none');
+
+      var markers = d3.selectAll('.highcharts-markers').selectAll('path');
+      markers.style('cursor','hand');
+      markers.on('click', function()
+      {
+         tt.style('display',null);
+      })
+      .on('mouseleave', function()
+      {
+         tt.style('display','none');
+      })
+   }
+
+   function setupLegend()
+   {
+      var analytics = false;
+      var twit = false;
+      var fb = false;
+      var ig = false;
+
+      $(".highcharts-legend-item text:contains(High Traffic)").parent().click(function()
+      {
+         if(analytics)
+         {
+            $('.Google-Analytics').attr('display','none');
+         }
+         else
+         {
+            $('.Google-Analytics').attr('display',null);
+         }
+         analytics = !analytics;
+      });
+
+      $(".highcharts-legend-item text:contains(Instagram)").parent().click(function()
+      {
+         if(ig)
+         {
+            $('.Instagram').attr('display','none');
+         }
+         else
+         {
+            $('.Instagram').attr('display',null);
+         }
+         ig = !ig;
+      });
+
+      $(".highcharts-legend-item text:contains(Facebook)").parent().click(function()
+      {
+         if(fb)
+         {
+            $('.Facebook').attr('display','none');
+         }
+         else
+         {
+            $('.Facebook').attr('display',null);
+         }
+         fb = !fb;
+      });
+
+      $(".highcharts-legend-item text:contains(Twitter)").parent().click(function()
+      {
+         if(twit)
+         {
+            $('.Twitter').attr('display','none');
+         }
+         else
+         {
+            $('.Twitter').attr('display',null);
+         }
+         twit = !twit;
+      });
+
+
+   }
+
+   function getLastYear()
+   {
+      var start = moment().subtract(1,'years').startOf('year');
+      var end = moment().subtract(1,'years').endOf('year');
+
+      var time = {};
+      time['start'] = start.unix();
+      time['end'] = end.unix();
+
+      return time;
+
+   }
+      function getLast3Months()
+   {
+      var start = moment().subtract(4,'months').startOf('month');
+      var end = moment().subtract(1,'months').endOf('month');
+
+      var time = {};
+      time['start'] = start.unix();
+      time['end'] = end.unix();
+
+      return time;
+
+   }
+
+   function getLastMonth()
+   {
+      var start = new Date();
+      start.setDate(1);
+      start.setMonth(start.getMonth() - 1);
+      start.setHours(0);
+      start.setMinutes(0);
+      start.setSeconds(0);
+      start.setMilliseconds(0);
+
+      var end = new Date();
+      end.setDate(0);
+      end.setHours(0);
+      end.setMinutes(0);
+      end.setSeconds(0);
+      end.setMilliseconds(0);
+
+      var time = {};
+      time['start'] = start.getTime() / 1000;
+      time['end'] = end.getTime() / 1000;
+
+      return time;
+   }
+   function getLastWeek()
+   {
+
+      var start = moment().subtract(8,'days');
+      var end = moment().subtract(1,'days');
+
+      end.hours(0);
+      end.minutes(0);
+      end.seconds(0);
+      end.milliseconds(0);
+
+      start.hours(0);
+      start.minutes(0);
+      start.seconds(0);
+      start.milliseconds(0);
+
+
+      var time = {};
+      time['start'] = start.unix();
+      time['end'] = end.unix();
+
+      return time;
+
+   }
+
+  
+	
+	function events(data, srcs)
+	{
+		var svg = d3.select(".highcharts-container svg");
+      //var eSvg = d3.select('#events-svg');
+
+		var eSvg = svg.insert("g",".highcharts-tooltip").attr("id","events");
+
+		var events = data.events;
+		var start = data.start;
+		var end = data.end;
+
+
+      var sbox = svg.select('.highcharts-series-group').node().getBBox();
+
+      var h = sbox.height;
+      var l = $('.highcharts-series-group').position().left;
+
+      var t = h/4;
+
+
+      var axis = d3.select(".highcharts-markers.highcharts-tracker").node();
+      var box = axis.getBBox();
+
+      var p = $(".highcharts-markers.highcharts-tracker").position();
+
+		var w = box.width;
+
+		var max = maxScore(events);
+
+
+
+
+
+		var xS = d3.scale.linear().domain([start, end]).range([l,w+l]);
+		var yS = d3.scale.linear().domain([0, srcs['total-length'] - 1]).range([t,h-t]);
+
+
+      //eSvg.append("line").attr('x1',xS(start)).attr('x2',xS(start)).attr('y1',yS(0)).attr('y2',yS(srcs['total-length'] - 1)).attr('stroke','black').attr('stroke-width',1);
+      //eSvg.append("line").attr('x1',xS(end)).attr('x2',xS(end)).attr('y1',yS(0)).attr('y2',yS(srcs['total-length'] - 1)).attr('stroke','black').attr('stroke-width',1);
+
+		var circles =  eSvg.selectAll("circle")
+							.data(events)
+							.enter()
+							.append("circle")
+							.attr("cx", function(d) {
+								//.log(getDate(d.timestamp));
+								return xS(d.timestamp)
+							})
+							.attr("cy", function(d)
+							{
+
+                        var i = srcs[d.source.toLowerCase()];
+                        return yS(i);
+							})
+							.attr("r", "4")
+                     .attr("class", function(d)
+                     {
+                        return d.source.replace(" ","-");
+                     })
+							.style("fill",function(d)
+                     {
+                        switch(d.source)
+                        {
+                           case 'Twitter':
+                              return "rgba(80,171,241,1)"; //Twitter blue
+                           case 'Google Analytics':
+                              return "rgba(247,153,28, 1)"; //GA orange
+                           case 'Facebook':
+                              return "rgba(68,97,157, 1)"; //FB blue
+                           case 'Instagram':
+                              return "rgba(185,163,140, 1)"  //IG brown
+                           default:
+                              return "rgba(255,255,255,1)";
+                        }
+
+                     })
+							.style("cursor","hand")
+							.on('click',function(d)
+								{
+									//.log(d);
+									$("#dialog").html(d.html);
+									$("#dialog").dialog("option","title",d.title);
+									$("#dialog").dialog("open");
+								})
+							.on('mouseenter', function(d){
+								d3.select(this).attr("r","6");
+							})
+							.on('mouseleave', function(d)
+							{
+								d3.select(this).attr("r","4");
+							});
+      
+      $('.Google-Analytics').attr('display','none');
+      $('.Instagram').attr('display','none');
+      $('.Facebook').attr('display','none');
+      $('.Twitter').attr('display','none');
+
+	}
+
+
+
+
+	function getDate(d) {
+    return new Date(d);
+   }
+
+   function getActs()
+   {
+      var json = <?php print file_get_contents('./app/config/accounts.json'); ?>;
+
+      return json;
+   }
+
+
+
+});
+</script>
