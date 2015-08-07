@@ -13,7 +13,11 @@ Blue/grey: rgb(77,102,132)
 }
 body, html
 {
-  overflow: auto;
+
+}
+a
+{
+  color: #1f496e
 }
 
 .clearfix {
@@ -231,10 +235,7 @@ p span
   padding-left:10px;
 }
 
-#topPages a
-{
-  color: #1f496e
-}
+
 
 /* Social Panes */
 .social-pane
@@ -257,11 +258,22 @@ p span
 .social-title h3
 {
     line-height:40px;
-    font-size: 24px;
+    font-size: 20px;
+}
+
+.social-title a:focus, a:hover 
+{
+  text-decoration: none;
+
 }
 .fa-chevron-up
 {
   color:rgb(29,157,115);
+}
+
+.fa-chevron-down
+{
+  color:rgb(194, 29 ,48);
 }
 
 .social-title .logo
@@ -302,11 +314,39 @@ p span
 
 }
 
-.twitter .social-title
+.twitter .panel-heading 
 {
-  color:white;
+  color:black;
   background-color: rgb(80,171,241);
   
+}
+
+/* IG  specific */
+.instagram .panel-heading
+{
+    color: black;
+    background-color: rgb(185,163,140)
+}
+
+.instagram .logo
+{
+
+  background-image: url('../img/instagram.png');
+
+}
+
+/* FB  specific */
+.facebook .panel-heading
+{
+    color: white;
+    background-color: rgb(68,97,157)
+}
+
+.facebook .logo
+{
+
+  background-image: url('../img/facebook.png');
+
 }
 
 

@@ -1,5 +1,7 @@
 <?php
 require_once 'utils/api.php';
+require_once 'utils/sql.php';
+
 require_once 'twitter.php';
 require_once 'facebook.php';
 require_once 'ganalytics.php';
@@ -9,43 +11,18 @@ require_once 'instagram.php';
 /* This file is used to generate social media 'badges' unlike other api files this one will simply output the HTML for simplicity*/
 
 
-
-/* Goal is to create this automatically
-
-<div class=' col-md-4 col-xs-12'>
-     <div class='twitter social-pane panel panel-default'>
-        <div class='social-title panel-heading clearfix'>
-           <div class='logo' title='Twitter'></div>
-           <h3 class='panel-title'>@Dippy_the_Dino</h3>
-        </div> 
-        <div class='social-body panel-body'>
-           <h4>Total Followers: <b>895,435</b></h4>
-           <h4>Change in Followers: <i class='fa fa-chevron-up'></i> <b>2,201</b></h4>
-           <h4>Top Pages Visited From Twitter</h4>
-           <div class='social-urls'>
-              <ol>
-                 <li>www.carnegiemnh.org/dippy</li>
-                 <li>www.carnegiemnh.org/dippy2</li>
-                 <li>www.carnegiemnh.org/dippy3</li>
-                 <li>www.carnegiemnh.org/dippy4</li>
-                 <li>www.carnegiemnh.org/dippy5</li>
-              </ol>
-           </div>
-           <h4>Top Tweet</h4>
-           <div class='social-embeed'>
-              <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Happy birthday <a href="https://twitter.com/hashtag/AndyWarhol?src=hash">#AndyWarhol</a>! In honor of the pop icon&#39;s 87th b-day I &quot;Warholized&quot; this pic of myself. <a href="https://twitter.com/TheWarholMuseum">@TheWarholMuseum</a> <a href="http://t.co/6FNisBLGGo">pic.twitter.com/6FNisBLGGo</a></p>&mdash; Dippy the Dinosaur (@Dippy_the_Dino) <a href="https://twitter.com/Dippy_the_Dino/status/629312367545982976">August 6, 2015</a></blockquote>
-              <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-           </div>
-        </div>
-     </div>
-  </div>
-</div>
-
-*/
-
-function generateBadge()
+function generateSocialBadge()
 {
-
+	if(isset($_GET['location']))
+	{
+		$result = array('html' => getAccountsFromLocation($_GET['location']) );
+		return $result;
+		 
+	}
+	else
+	{
+		return null;
+	}
 
 	
 
@@ -58,20 +35,187 @@ function getAccountsFromLocation($loc)
 	
 	//Get accounts
 	$accounts = json_decode(file_get_contents('config/accounts.json'), true);
+
+	//if(!isset($accounts['location'][$loc])) return null;
+
 	$locAccounts = $accounts['location'][$loc]['accounts'];
 
 	$html = '';
 
 	foreach ($locAccounts as $key => $a) 
 	{
-		$html += getBadgeHTML($a);
+
+		if($a['type'] != 'google analytics')
+		{
+			$html .= getBadgeHTML($a);
+		}
+		
 	}
-	
+
 	return $html;
+}
+
+function getFollowers($id, $timestamp)
+{
+	$date = sqlSafe(date('Y-m-d', $timestamp));
+	$id = sqlSafe($id);
+
+	$query = "SELECT followers FROM account_stats WHERE user_id = $id AND record_date = $date";
+	$result = readQuery($query);
+
+	if($row = $result->fetch_row())
+	{
+		return $row[0];
+	}
+	return null;
+}
+function getFollowerChange($id, $timestamp, $current)
+{
+	if(isset($current))
+	{
+		$date = sqlSafe(date('Y-m-d', $timestamp)); 
+		$id = sqlSafe($id);
+
+		$query = "SELECT followers FROM account_stats WHERE user_id = $id AND record_date = $date";
+		$result = readQuery($query);
+		if($row = $result->fetch_row())
+		{
+			return $current - $row[0];
+		}
+	}
+	return null;
+
+}
+
+function getTopRefferalPagesByType($type)
+{
+	switch($type)
+	{
+		case 'twitter':
+			$refFilter = "(^twitter|^t.co)";
+			break;
+		case 'facebook':
+			$refFilter = "^(m\.|l\.|lm\.|.\.|)facebook";
+			break;
+		case 'instagram':
+			$refFilter = "instagram";
+			break;
+		default:
+			$refFilter = null;
+	}
+
+	$refs = getReferrals(5, $refFilter);
+
+	return $refs;
+
 
 }
 
 function getBadgeHTML($acctInfo)
 {
-	$html = "<div class=' col-md-4 col-xs-12'>\n";
+	// Gather variables
+	$a = $acctInfo;
+	$typeclass = str_replace(" ","-",$a['type']);
+
+	$start = tryGET('start');
+	$end = tryGET('end');
+
+	
+	$followers = getFollowers($a['id'], $end);
+	$change = getFollowerChange($a['id'], $start, $followers);
+	$toppages = getTopRefferalPagesByType($a['type']);
+
+	if(!isset($change))
+	{
+		$dirclass = '';
+		$change = '?';
+	}
+	else if($change > 0)
+	{
+		$dirclass = 'fa-chevron-up';
+		$change = number_format($change);
+	}
+	else if($change < 0)
+	{
+		$dirclass = 'fa-chevron-down';
+		$change *= -1;
+		$change = number_format($change);
+	}
+	else
+	{
+		$dirclass = 'fa-minus';
+		$change = 'No Change';
+	}
+
+	if(!isset($followers))
+	{
+		$followers = '?';
+	}
+	else
+	{
+		$followers = number_format($followers);
+	}
+
+	
+
+	
+	switch($a['type'])
+	{
+		case 'twitter':
+			$postname = "Tweet";
+			break;
+		case 'facebook':
+			$postname = "Post";
+			break;
+		case 'instagram':
+			$postname = "Image";
+			break;
+		default:
+			$postname = "Post";
+	}
+	
+	$embeedHtml = "Embed goes here";
+
+	//Create the html
+
+	$html = "\n\n<!-- Start Social Badge -->\n\n";
+
+	$html .= "<div class=' col-md-4 col-xs-12'>\n";
+	$html .= "\t<div class='" . $typeclass . " social-pane panel panel-default'>\n";
+	$html .= "\t\t<a class='social-title' target='_blank' href='" . $a['url'] . "'>\n";
+	$html .= "\t\t\t<div class='panel-heading clearfix'>\n";
+	$html .= "\t\t\t\t<div class='logo' title='" . $a['type'] . "'></div>\n";
+	$html .= "\t\t\t\t<h3 class='panel-title'>" . $a['username'] . "</h3>\n";
+	$html .= "\t\t\t</div>\n";
+	$html .= "\t\t</a>\n";
+	$html .= "\t\t<div class='social-body panel-body'>\n";
+	$html .= "\t\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
+	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
+	$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($a['type']) . "</h4>\n";
+	$html .= "\t\t\t<div class='social-urls'>\n";
+	$html .= "\t\t\t\t<ol>\n";
+
+	foreach ($toppages as $key => $u) 
+	{
+		$html .= "\t\t\t\t\t<li><a target='_blank' href='//$u'>$u</a></li>\n";
+	}
+	$html .= "\t\t\t\t</ol>\n";
+	$html .= "\t\t\t</div>\n";
+	if(count($toppages) <= 0)
+	{
+		$html .= "\t\t\t<h5>None :(</h5>\n";
+	}
+	$html .= "\t\t\t<h4>Top $postname</h4>\n";
+	$html .= "\t\t\t<div class='social-embeed'>\n";
+	$html .= "\t\t\t\t$embeedHtml\n";
+	$html .= "\t\t\t</div>\n";
+	$html .= "\t\t</div>\n";
+	$html .= "\t</div>\n";
+	$html .= "</div>\n";
+
+
+	$html .= "\n\n<!-- End Social Badge -->\n\n";
+
+	return $html;
+
 }

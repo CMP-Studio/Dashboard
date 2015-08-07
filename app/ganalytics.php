@@ -196,22 +196,7 @@ function getSettings()
 
 }
 
-function getReferrals()
-{
-  if(!isset($_GET["type"])) return null;
 
-      switch($_GET["type"])
-      {
-        case "facebook" : $data = FbReferrals(); break;
-        case "twitter"  : $data = TwitReferrals(); break;
-
-        //Not found
-        default: $data = null;  break;
-        }
-
-
-    return $data;
-}
 
 function getChart()
 {
@@ -514,16 +499,19 @@ function topSources($account = null, $count = 20)
 
   $analytics = getAnalytics();
 
-  $filter = "ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$);ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
+  $filter = "ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org;ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:date,ga:hour,ga:source,ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
   return $data->getRows();
 }
 
-function FbReferrals($account = null, $count = 20)
+
+
+function getReferrals($count = 20, $refFilter = null, $account=null)
 {
   $tc = tryGET('count');
   if($tc) $count = $tc;
 
+  $settings = getSettings();
 
   $start = tryGET('start');
   $end = tryGET('end');
@@ -541,36 +529,27 @@ function FbReferrals($account = null, $count = 20)
 
   $analytics = getAnalytics();
 
-  $filter = "ga:fullReferrer=@facebook,ga:source=@facebook"; //Filter out direct sources and homepage views to get more interesting content
-  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
-  return $data->getRows();
-}
-
-function TwitReferrals($account = null, $count = 20)
-{
-  $tc = tryGET('count');
-  if($tc) $count = $tc;
-
-
-  $start = tryGET('start');
-  $end = tryGET('end');
-
-  if(!isset($start) || !isset($end)) return null;
-
-
-  $start = GoogleDate($start);
-  $end = GoogleDate($end);
-
-  if(!isset($account))
+  if(isset($refFilter))
   {
-    $account = $settings["Account"];
+    $filter = "ga:source=~$refFilter";
+  }
+  else
+  {
+    $filter = '';
   }
 
-  $analytics = getAnalytics();
+  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter)->getRows();
+  
+  $refPages = array();
+  if(isset($data))
+  {
+    foreach ($data as $key => $r) 
+    {
+      $refPages[$key] = $r[0] . $r[1];
+    }
+  }
 
-  $filter = "ga:fullReferrer=@twit,ga:source=@twit"; //Filter out direct sources and homepage views to get more interesting content
-  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
-  return $data->getRows();
+  return $refPages;
 }
 
 function getStatistics()
@@ -606,7 +585,7 @@ function getStatistics()
 
 
   $count = 5;
-  $filter="ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$)";
+  $filter="ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org";
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
   $data = $data->getRows();
 

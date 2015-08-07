@@ -3,6 +3,7 @@
 require_once 'twitter.php';
 require_once 'ganalytics.php';
 require_once 'events.php';
+require_once 'social.php';
 require_once "utils/cache.php";
 /* 
 This is the main application file
@@ -64,6 +65,9 @@ function delegate($action)
 
 		//Statistics
 		case 'stats' : $data = getStatistics(); break;
+
+		//Social badge
+		case 'social' : $data = generateSocialBadge(); break;
 	}
 
 	if(!empty($data))

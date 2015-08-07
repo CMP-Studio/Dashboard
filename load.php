@@ -4,6 +4,7 @@ $(document).ready(function (){
    //Defaults
    var timespan = getLastMonth();
    var museum = 'cmoa';
+   var lastrequest = null;
 
    
 
@@ -15,12 +16,17 @@ $(document).ready(function (){
       minimumResultsForSearch: 50
    });
 
+   //Dialog
    $("#dialog").dialog({
       autoOpen: false,
       minWidth: 600,
       position: { my: "center top", at: "center center", of: '#musebar' }
    });
    $('#dialog').parent().css({position:"fixed"});
+
+   //Social timespan
+   $("#social-start").text(moment().subtract(1, 'month').startOf('month').format("MMMM D, YYYY"));
+   $("#social-end").text(moment().startOf('month').format("MMMM D, YYYY"));
 
    $('#timespan').change(function ()
    {
@@ -88,6 +94,10 @@ $(document).ready(function (){
 
    function loadAnalytics(loc, start, end)
    {
+      //These two should equal unless another AJAX is called
+      lastrequest = Date.now();
+      var myrequest = Date.now();
+
       $('#chart').html("<img src='/resources/img/loader.gif' class='loader'>");
       var adata = getActs();
       
@@ -130,11 +140,18 @@ $(document).ready(function (){
 
    			$.getJSON(url, function(edata) 
    	   	{
-               $('.loader').remove();
-               $('#chart').highcharts(cdata);
-               setupTooltip();
-               setupLegend();
-      			events(edata, srcs);
+               if(lastrequest == myrequest)
+               {
+                  $('.loader').remove();
+                  $('#chart').highcharts(cdata);
+                  setupTooltip();
+                  setupLegend();
+         			events(edata, srcs);
+               }
+               else
+               {
+                  console.info('AJAX load canceled: Not most recent call');
+               }
 
    	   	})
    	   	.fail(function() {
@@ -144,9 +161,16 @@ $(document).ready(function (){
          }
          else
          {
+            if(lastrequest == myrequest)
+            {
                $('.loader').remove();
                $('#chart').highcharts(cdata);
                setupLegend();
+            }
+            else
+            {
+               console.info('AJAX load canceled: Not most recent call');
+            }
          }
          
    	})
@@ -154,10 +178,17 @@ $(document).ready(function (){
    		console.error("Failure - Chart");
          $('.loader').remove();
    	});
-
+      $('#infotext').hide();
       var url = "./app/ajax.php?action=stats&location=" + loc + "&end=" + end + "&start=" + start;
       $.getJSON(url).done(function (data){
-         
+
+         if(lastrequest != myrequest)
+         {
+            console.info('AJAX load canceled: Not most recent call');
+            return;
+         }
+
+
          var start_s = moment.unix(start).format("MMMM D, YYYY");
          var end_s = moment.unix(end).format("MMMM D, YYYY");
          var mus_s = museumTxt(loc);
@@ -183,9 +214,27 @@ $(document).ready(function (){
             $("#topPages").prepend("<li><a href='//" + p + "' target='_blank'>" + p + "</a></li>" )
          }
 
-         $('#infotext').css('display','block');
+         $('#infotext').show();
 
 
+      });
+
+      var s_start = moment().subtract(1, 'month').startOf('month').unix();
+      var s_end = moment().startOf('month').unix();
+      var url = "./app/ajax.php?action=social&location=" + loc + "&start=" + s_start + "&end=" + s_end;
+      $('#social-holder').empty();
+      $.getJSON(url).done(function(data)
+      {
+         if(lastrequest != myrequest)
+         {
+            console.info('AJAX load canceled: Not most recent call');
+            return;
+         }
+
+         $('#social-holder').html(data.html);
+      }).fail(function()
+      {
+         console.error("Failure - Social");
       });
    }
 
