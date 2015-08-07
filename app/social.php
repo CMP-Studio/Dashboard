@@ -110,6 +110,57 @@ function getTopRefferalPagesByType($type)
 
 
 }
+function getTopPostEmbedded($id, $type)
+{
+	switch($type)
+	{
+		case 'twitter':
+			//Twitter
+			$post = topTweets($id, 1);
+			if(isset($post[0]))
+			{
+				$embed = tweetEmbeed($post[0]->id_str);
+				return $embed->html;
+			}
+			else
+			{
+				return "<script>console.warn('Twit: Top post not found')</script>";
+			}
+		break;
+
+		case 'facebook':
+			//FB
+			$post = getTopFBPosts($id, 1);
+			if(isset($post[0]))
+			{
+				return FBembeed(getFBlink($post[0]));
+			}
+			else
+			{
+				return "<script>console.warn('FB: Top post not found')</script>";
+			}
+		break;
+
+		case 'instagram':
+			$post = getTopIGMedia($id);
+			if(isset($post[0]))
+			{
+				$embed = igEmbed($post[0]->link);
+				return $embed->html;
+			}
+			else
+			{
+				return "<script>console.warn('IG: Top post not found')</script>";
+			}
+
+		break;
+	}
+	
+
+
+
+	return null;
+}
 
 function getBadgeHTML($acctInfo)
 {
@@ -124,6 +175,7 @@ function getBadgeHTML($acctInfo)
 	$followers = getFollowers($a['id'], $end);
 	$change = getFollowerChange($a['id'], $start, $followers);
 	$toppages = getTopRefferalPagesByType($a['type']);
+	$embeedHtml = getTopPostEmbedded($a['id'], $a['type']);
 
 	if(!isset($change))
 	{
@@ -174,7 +226,7 @@ function getBadgeHTML($acctInfo)
 			$postname = "Post";
 	}
 	
-	$embeedHtml = "Embed goes here";
+	
 
 	//Create the html
 

@@ -27,18 +27,56 @@ function getFBEmbeedScript()
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.2&appId=$clientID\";
+  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=$clientID&version=v2.3\"; 
   fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>";
+  }(document, 'script', 'facebook-jssdk'));
+
+    
+    try
+    {
+      FB.init({
+        appID: '$clientID',
+        version : 'v2.3',
+        status : true,
+        xfbml : true
+      });
+    }
+    catch(e)
+    {}
+  
+
+</script>";
+
+//&version=v2.2
 
   return $fbScript;
+}
+function getFBlink($post)
+{
+  $fullID = $post->id;
+  $ids = explode("_", $fullID);
+  return "https://www.facebook.com/" . $ids[0] . "/posts/" . $ids[1];
+
 }
 function FBEmbeed($link)
 {
 
   
 
-  $post = "<div class='fb-post' data-width='500' data-href='$link'></div><script type=\"text/javascript\"> FB.XFBML.parse(); </script>";
+  $post = "<div class='fb-post' data-width='300' data-href='$link'></div><script type=\"text/javascript\"> 
+  try{ 
+
+    var w = $(\"div[data-href='$link']\").parent().width();
+    $(\"div[data-href='$link']\").attr('data-width',w);
+    FB.XFBML.parse(); 
+
+    $(\"div[data-href='$link']\").parent().on('resize', function(){
+      var w = $(\"div[data-href='$link']\").parent().width();
+      $(\"div[data-href='$link']\").attr('data-width',w);
+      FB.XFBML.parse(); 
+    });
+
+  } catch(e) {console.warn(e.message);} </script>";
 
   return  $post;
 

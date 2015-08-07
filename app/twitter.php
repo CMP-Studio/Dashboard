@@ -83,7 +83,7 @@ function tweetSort($a, $b)
 {
   //Sort higher score to lower
 
-  $rtVal = 2;
+  $rtVal = 1;
   $favVal = 1;
 
   $rtA = $a->retweet_count;

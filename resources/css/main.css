@@ -50,6 +50,7 @@ a
   left:0;
   position: fixed;
   width:100%;
+  background-color: rgb(222,73,47);
 
   z-index:999;
 }
@@ -294,6 +295,7 @@ p span
 }
 .social-embeed
 {
+  width:100%;
   display:inline-block;
   text-align: center;
 }

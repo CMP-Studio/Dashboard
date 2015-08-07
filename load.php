@@ -19,10 +19,10 @@ $(document).ready(function (){
    //Dialog
    $("#dialog").dialog({
       autoOpen: false,
-      minWidth: 600,
+      minWidth: 500,
       position: { my: "center top", at: "center center", of: '#musebar' }
    });
-   $('#dialog').parent().css({position:"fixed"});
+  // $('#dialog').parent().css({position:"fixed"});
 
    //Social timespan
    $("#social-start").text(moment().subtract(1, 'month').startOf('month').format("MMMM D, YYYY"));
