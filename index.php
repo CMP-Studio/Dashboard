@@ -23,7 +23,7 @@
          <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
 
 
-      	
+
 
       </head>
       <body class='tk-merriweather'>
@@ -36,10 +36,11 @@
                   <h1>Innovation Studio Digital Dahsboard</h1>
                </div>
                <div id='musebar'>
-                  <div id='cmp' class='fifth'>
-
-                  </div>
-                  <a href='#' id='cmoa' class='fifth active'>
+                  <a href='#' id='cmp' class='fifth active'>
+                     <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/cmoa.png'>
+                     <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/warhol_white.png'>
+                  </a>
+                  <a href='#' id='cmoa' class='fifth'>
                      <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa.png'>
                      <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/warhol_white.png'>
                   </a>
@@ -62,9 +63,9 @@
                <div id='pane1' class='clearfix'>
                   <h2 class='title'>Web Traffic</h2>
                   <div id='chart'>
-                     
+
                   </div>
-                     
+
 
                   <div id='infopane'>
                       <div id='timespan-picker'>
@@ -82,7 +83,7 @@
                               <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
                                 Those users viewed <span id='pageviews'>212,345</span> pages.
                               </p>
-                              <p>During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website, 
+                              <p>During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
                               viewing an average of <span id='pages-per-visit'></span> pages per visit.
                               </p>
                               <p><!-- Spacer --></p>
@@ -96,7 +97,7 @@
                   </div>
                   <div id='pane2' class='clearfix'>
                      <h2 class='title'>Social Media From <span id='social-start'></span> To <span id='social-end'></span></h2>
-                     <div id='social-holder'>               
+                     <div id='social-holder'>
                      </div>
                   </div>
                </div>
@@ -105,11 +106,11 @@
 
          <!-- jQuery -->
          <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-         
+
 
          <!-- Bootstrap -->
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-         
+
 
          <!-- jQuery UI -->
          <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -124,7 +125,7 @@
 
 
          <!--Select2-->
-         
+
          <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
          <!--Moment-->
@@ -132,7 +133,7 @@
 
          <!--Numeral-->
          <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
-         
+
          <!--Load account info-->
          <?php require_once 'load.php' ?>
 

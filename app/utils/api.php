@@ -45,10 +45,13 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
   	curl_setopt($curl,	CURLOPT_URL				, $url);
   	curl_setopt($curl,	CURLOPT_POST			, 1);
   	curl_setopt($curl,	CURLOPT_POSTFIELDS		, $params);
-  	curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
+    if(isset($headers))
+    {
+  	   curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
+    }
   	curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
   	curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
-  	curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl); //Because API SSLs are sometimes broken
+  	curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl); 
 
 
   	if( ! $result = curl_exec($curl))

@@ -30,7 +30,7 @@ function getTopIGMedia($userID, $count=10)
 	return $result;
 
 
-	
+
 
 }
 
@@ -53,6 +53,9 @@ function igSort($a, $b)
   {
     return 0;
   }
+
+	$a->score = $likesA;
+	$b->score = $likesB;
 
   return ($likesA > $likesB) ? -1 : 1;
 

@@ -5,7 +5,7 @@ require_once 'facebook.php';
 require_once 'ganalytics.php';
 require_once 'instagram.php';
 
-/* This file contains functions that are across the different APIs and other data sources to generate 'event' items for timelines. */ 
+/* This file contains functions that are across the different APIs and other data sources to generate 'event' items for timelines. */
 
 
 
@@ -21,7 +21,8 @@ require_once 'instagram.php';
 				source: e.g. twitter
 				source_url: e.g. twitter.com/id/post*
 				timestamp: time in ms since epoch
-				score: an arbitrary number of rank (lower is better)
+				points: an arbitrary number for ranking (higher is better)
+				score: default rank (lower is better)
 				html: html code (+ JS and CSS) to render the event
 			}
 
@@ -53,19 +54,34 @@ function getEvents()
 	//print_r($accounts);
 
 	$events = array();
-	
-	foreach ($locAccounts as $key => $act) 
+
+	foreach ($locAccounts as $key => $act)
 	{
 		$type = $act['type'];
-		$id = $act["id"];
+		$import = false;
+		if(isset($act["import"]))
+		{
+			$locArr = $act["locations"];
+			$import = true;
+		}
+		else {
+			$id = $act["id"];
+		}
 		//print $id;
 		$te = array();
 		switch($type)
 		{
-			case 'twitter': 
+			case 'twitter':
 				if(!$lt)
 				{
-					$te = topTweetEvents($id);
+					if($import)
+					{
+						$te = getMultipleEvents($locArr, $type);
+					}
+					else
+					{
+						$te = topTweetEvents($id);
+					}
 				}
 				break;
 
@@ -76,14 +92,28 @@ function getEvents()
 			case 'facebook' :
 				if(!$lt)
 				{
-					$te = fbEvents($id);
+					if($import)
+					{
+						$te = getMultipleEvents($locArr, $type);
+					}
+					else
+					{
+						$te = fbEvents($id);
+					}
 				}
 				break;
 
 			case 'instagram' :
 				if(!$lt)
 				{
-					$te = igEvents($id);
+					if($import)
+					{
+						$te = getMultipleEvents($locArr, $type);
+					}
+					else
+					{
+						$te = igEvents($id);
+					}
 				}
 				break;
 		}
@@ -93,13 +123,52 @@ function getEvents()
 		}
 	}
 
-	
+
 	usort($events, "sortEvents");
 	$json = array("events" => $events);
 	$json["start"] = $start * 1000;
 	$json["end"] = $end * 1000;
 
 	return $json;
+}
+
+function getMultipleEvents($locations, $type)
+{
+	$result = array();
+	$accounts = json_decode(file_get_contents('config/accounts.json'), true);
+	foreach ($locations as $key => $loc)
+	{
+		if(!isset($accounts['location'][$loc])) continue;
+		$locAccounts = $accounts['location'][$loc]['accounts'];
+
+		foreach ($locAccounts as $key => $act)
+		{
+				if($act["type"] != $type) continue;
+
+				$id = $act["id"];
+
+				$temp = array();
+				switch ($type)
+				{
+					case 'twitter':
+						$temp = topTweetEvents($id);
+						break;
+						
+					case 'facebook' :
+						$temp = fbEvents($id);
+						break;
+
+					case 'instagram' :
+						$temp = igEvents($id);
+						break;
+				}
+				$result = array_merge($result, $temp);
+
+		}
+
+	}
+
+	return $result;
 }
 
 function topTweetEvents($account)
@@ -109,7 +178,7 @@ function topTweetEvents($account)
 
 	$tevents = array();
 
-	foreach ($tweets as $key => $t) 
+	foreach ($tweets as $key => $t)
 	{
 		$teve = array();
 
@@ -171,7 +240,7 @@ function fbEvents($account)
 	$events = getTopFBPosts($account);
 	$tevents = array();
 
-	foreach ($events as $key => $d) 
+	foreach ($events as $key => $d)
 	{
 		$teve = array();
 
@@ -197,7 +266,7 @@ function fbEvents($account)
 	}
 	return $tevents;
 
-	
+
 }
 
 function igEvents($account)
@@ -205,7 +274,7 @@ function igEvents($account)
 	$events = getTopIGMedia($account);
 	$tevents = array();
 
-	foreach ($events as $key => $d) 
+	foreach ($events as $key => $d)
 	{
 		$teve = array();
 
@@ -218,6 +287,7 @@ function igEvents($account)
 		$teve['type'] = "Top Instagram Posts";
 		$teve['source'] = "Instagram";
 		$teve['score'] = $key;
+		$teve['points'] = $d->score;
 		$teve['timestamp'] = $time*1000;
 
 		$embed = igEmbed($d->link);

@@ -1,16 +1,16 @@
 <script>
-$(document).ready(function (){ 
+$(document).ready(function (){
 
    //Defaults
    var timespan = getLastMonth();
-   var museum = 'cmoa';
+   var museum = 'cmp';
    var lastrequest = null;
 
-   
+
 
    loadAnalytics(museum, timespan.start, timespan.end);
 
-   //Select timespan 
+   //Select timespan
    $("#timespan").select2({
       width: '40%',
       minimumResultsForSearch: 50
@@ -52,6 +52,12 @@ $(document).ready(function (){
    });
 
    //Select museum
+   $('#cmp').click(function()
+   {
+      museum='cmp';
+      setActiveMuseum(museum);
+      loadAnalytics(museum, timespan.start, timespan.end);
+   });
    $('#cmoa').click(function()
    {
       museum='cmoa';
@@ -89,8 +95,8 @@ $(document).ready(function (){
 
    }
 
-   
-   //Load the data         
+
+   //Load the data
 
    function loadAnalytics(loc, start, end)
    {
@@ -100,7 +106,7 @@ $(document).ready(function (){
 
       $('#chart').html("<img src='/resources/img/loader.gif' class='loader'>");
       var adata = getActs();
-      
+
       var srcs = getSources(adata, loc);
 
       var url = "./app/ajax.php?action=chart&chart=dashboard&location="  + loc + "&end=" + end + "&start=" + start;
@@ -124,21 +130,23 @@ $(document).ready(function (){
          {
             url += "&ig=1";
          }
-         
+
          if('google analytics' in srcs)
          {
             url += "&ga=1";
          }
       }
-		$.getJSON(url, function(cdata) 
+		$.getJSON(url, function(cdata)
 		{
+
+      console.log(cdata);
          if(social)
          {
 
    	   	url = "./app/ajax.php?action=events&location=" + loc + "&end=" + end + "&start=" + start;
 
 
-   			$.getJSON(url, function(edata) 
+   			$.getJSON(url, function(edata)
    	   	{
                if(lastrequest == myrequest)
                {
@@ -147,6 +155,7 @@ $(document).ready(function (){
                   setupTooltip();
                   setupLegend();
          			events(edata, srcs);
+              console.log(edata);
                }
                else
                {
@@ -172,7 +181,7 @@ $(document).ready(function (){
                console.info('AJAX load canceled: Not most recent call');
             }
          }
-         
+
    	})
    	.fail(function() {
    		console.error("Failure - Chart");
@@ -253,7 +262,7 @@ $(document).ready(function (){
          {
             srcs[a.type] = c;
             c++;
-         } 
+         }
       };
 
       srcs['total-length'] = c;
@@ -265,16 +274,16 @@ $(document).ready(function (){
    {
       switch(loc)
       {
-         case 'cmoa': 
+         case 'cmoa':
             return 'Carnegie Museum of Art';
             break;
-         case 'warhol': 
+         case 'warhol':
             return 'Andy Warhol Museum';
             break;
-         case 'csc': 
+         case 'csc':
             return 'Carnegie Science Center';
             break;
-         case 'cmnh': 
+         case 'cmnh':
             return 'Carnegie Museum of Natural History';
             break;
       }
@@ -443,8 +452,8 @@ $(document).ready(function (){
 
    }
 
-  
-	
+
+
 	function events(data, srcs)
 	{
 		var svg = d3.select(".highcharts-container svg");
@@ -536,7 +545,7 @@ $(document).ready(function (){
 							{
 								d3.select(this).attr("r","4");
 							});
-      
+
       $('.Google-Analytics').attr('display','none');
       $('.Instagram').attr('display','none');
       $('.Facebook').attr('display','none');
