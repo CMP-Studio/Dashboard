@@ -24,6 +24,7 @@ require_once 'instagram.php';
 				points: an arbitrary number for ranking (higher is better)
 				score: default rank (lower is better)
 				html: html code (+ JS and CSS) to render the event
+				url: A link to the post/image/etc.
 			}
 
 		]
@@ -132,7 +133,7 @@ function getEvents()
 	return $json;
 }
 
-function getMultipleEvents($locations, $type)
+function getMultipleEvents($locations, $type, $count = 10)
 {
 	$result = array();
 	$accounts = json_decode(file_get_contents('config/accounts.json'), true);
@@ -151,30 +152,52 @@ function getMultipleEvents($locations, $type)
 				switch ($type)
 				{
 					case 'twitter':
-						$temp = topTweetEvents($id);
+						$temp = topTweetEvents($id, $count);
 						break;
-						
+
 					case 'facebook' :
-						$temp = fbEvents($id);
+						$temp = fbEvents($id, $count);
 						break;
 
 					case 'instagram' :
-						$temp = igEvents($id);
+						$temp = igEvents($id, $count);
 						break;
 				}
 				$result = array_merge($result, $temp);
+
+
+
+
 
 		}
 
 	}
 
-	return $result;
+	usort($result, "scoreSort");
+
+	$slice = array_slice($result, 0, $count);
+
+	return $slice;
 }
 
-function topTweetEvents($account)
+function scoreSort($a, $b)
+{
+	$pointA = $a['points'];
+	$pointB = $b['points'];
+
+	if($pointA == $pointB)
+	{
+		return 0;
+	}
+
+	return ($pointA > $pointB) ? -1 : 1;
+
+}
+
+function topTweetEvents($account, $count = 10)
 {
 
-	$tweets = topTweets($account, 10);
+	$tweets = topTweets($account, $count);
 
 	$tevents = array();
 
@@ -192,6 +215,8 @@ function topTweetEvents($account)
 		$teve['source'] = "Twitter";
 		$teve['html'] = $ebed->html;
 		$teve['score'] = $key;
+		$teve['url'] = "https://twitter.com/statuses/" . $t->id_str;
+		$teve['points'] = $t->score;
 		$teve['timestamp'] = $time*1000;
 
 
@@ -201,9 +226,9 @@ function topTweetEvents($account)
 	return $tevents;
 
 }
-function gaEvents($account)
+function gaEvents($account, $count = 10)
 {
-	$events = topSources($account);
+	$events = topSources($account, $count);
 
 	$tevents = array();
 
@@ -213,16 +238,18 @@ function gaEvents($account)
 		$time = $d[0] . " " . $d[1] .":00";
 		$ts = strtotime($time);
 		$sdate = date("l F jS",$ts);
+		$url = 'http://' . $d[3] . $d[4];
 
 		$teve['timestamp'] = $ts*1000;
 		$teve['title'] = "High traffic point on $sdate";
 		$teve['type'] = "Web Traffic";
 		$teve['source'] = "Google Analytics";
 		$teve['score'] = $key;
+		$teve['url'] = $url;
 
 
 		$source = $d[2];
-		$url = 'http://' . $d[3] . $d[4];
+
 		$users = $d[6];
 		$title = $d[5];
 		//Now generate the html
@@ -235,9 +262,9 @@ function gaEvents($account)
 	return $tevents;
 }
 
-function fbEvents($account)
+function fbEvents($account, $count = 10)
 {
-	$events = getTopFBPosts($account);
+	$events = getTopFBPosts($account, $count);
 	$tevents = array();
 
 	foreach ($events as $key => $d)
@@ -250,15 +277,19 @@ function fbEvents($account)
 		$teve['title'] = "Post from $sdate";
 		$teve['type'] = "Top Facebook Posts";
 		$teve['source'] = "Facebook";
-		if(isset($d->actions[0]))
+
+		$link = getFBlink($d);
+		if($link)
 		{
-			$teve['html'] = FBembeed($d->actions[0]->link);
+			$teve['html'] = FBembeed($link);
+			$teve['url'] = $link;
 		}
 		else
 		{
-			continue;
+
 		}
 		$teve['score'] = $key;
+		$teve['points'] = $d->score;
 		$teve['timestamp'] = $time*1000;
 
 		array_push($tevents, $teve);
@@ -269,9 +300,9 @@ function fbEvents($account)
 
 }
 
-function igEvents($account)
+function igEvents($account, $count = 10)
 {
-	$events = getTopIGMedia($account);
+	$events = getTopIGMedia($account, $count);
 	$tevents = array();
 
 	foreach ($events as $key => $d)
@@ -289,6 +320,7 @@ function igEvents($account)
 		$teve['score'] = $key;
 		$teve['points'] = $d->score;
 		$teve['timestamp'] = $time*1000;
+		$teve['url'] = $d->link;
 
 		$embed = igEmbed($d->link);
 

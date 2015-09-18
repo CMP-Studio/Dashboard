@@ -109,7 +109,7 @@ $(document).ready(function (){
 
       var srcs = getSources(adata, loc);
 
-      var url = "./app/ajax.php?action=chart&chart=dashboard&location="  + loc + "&end=" + end + "&start=" + start;
+      var Curl = "./app/ajax.php?action=chart&chart=dashboard&location="  + loc + "&end=" + end + "&start=" + start;
 
       var social = true;
 
@@ -120,33 +120,33 @@ $(document).ready(function (){
       {
          if('twitter' in srcs)
          {
-            url += "&twitter=1";
+            Curl += "&twitter=1";
          }
          if('facebook' in srcs)
          {
-            url += "&fb=1";
+            Curl += "&fb=1";
          }
          if('instagram' in srcs)
          {
-            url += "&ig=1";
-         }
-
-         if('google analytics' in srcs)
-         {
-            url += "&ga=1";
+            Curl += "&ig=1";
          }
       }
-		$.getJSON(url, function(cdata)
+      if('google analytics' in srcs)
+      {
+         Curl += "&ga=1";
+      }
+
+		$.getJSON(Curl, function(cdata)
 		{
 
       console.log(cdata);
-         if(social)
-         {
-
-   	   	url = "./app/ajax.php?action=events&location=" + loc + "&end=" + end + "&start=" + start;
 
 
-   			$.getJSON(url, function(edata)
+   	   	var Eurl = "./app/ajax.php?action=events&location=" + loc + "&end=" + end + "&start=" + start;
+
+        if(!social) Eurl += "&longterm=1";
+
+   			$.getJSON(Eurl, function(edata)
    	   	{
                if(lastrequest == myrequest)
                {
@@ -164,10 +164,10 @@ $(document).ready(function (){
 
    	   	})
    	   	.fail(function() {
-   	   		console.error("Failure - Events");
+   	   		console.error("Failure - Events: " + Eurl);
                $('.loader').remove();
    	   	});
-         }
+         /*}
          else
          {
             if(lastrequest == myrequest)
@@ -180,11 +180,11 @@ $(document).ready(function (){
             {
                console.info('AJAX load canceled: Not most recent call');
             }
-         }
+         }*/
 
    	})
    	.fail(function() {
-   		console.error("Failure - Chart");
+   		console.error("Failure - Chart: " + Curl);
          $('.loader').remove();
    	});
       $('#infotext').hide();
@@ -534,7 +534,7 @@ $(document).ready(function (){
 							.on('click',function(d)
 								{
 									//.log(d);
-									$("#dialog").html(d.html);
+									$("#dialog").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>");
 									$("#dialog").dialog("option","title",d.title);
 									$("#dialog").dialog("open");
 								})

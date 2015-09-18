@@ -83,7 +83,7 @@ function tweetSort($a, $b)
 {
   //Sort higher score to lower
 
-  $rtVal = 1;
+  $rtVal = 2;
   $favVal = 1;
 
   $rtA = $a->retweet_count;
@@ -95,6 +95,9 @@ function tweetSort($a, $b)
   $favsB = $b->favorite_count;
 
   $scoreB = $rtB*$rtVal + $favsB*$favVal;
+
+	$a->score = $scoreA;
+	$b->score = $scoreB;
 
   if($scoreA == $scoreB) return 0;
 
@@ -133,7 +136,7 @@ function getTweetsByDate($user, $start=0, $end=0)
 	  	$len = count($tweets);
 
 	  		$last = $tweets[$len - 1];
-	
+
 
 
 	  	$lastDate = strtotime($last->created_at);

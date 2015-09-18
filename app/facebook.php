@@ -27,11 +27,11 @@ function getFBEmbeedScript()
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=$clientID&version=v2.3\"; 
+  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=$clientID&version=v2.3\";
   fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-    
+
     try
     {
       FB.init({
@@ -43,7 +43,7 @@ function getFBEmbeedScript()
     }
     catch(e)
     {}
-  
+
 
 </script>";
 
@@ -61,19 +61,19 @@ function getFBlink($post)
 function FBEmbeed($link)
 {
 
-  
 
-  $post = "<div class='fb-post' data-width='300' data-href='$link'></div><script type=\"text/javascript\"> 
-  try{ 
+
+  $post = "<div class='fb-post' data-width='300' data-href='$link'></div><script type=\"text/javascript\">
+  try{
 
     var w = $(\"div[data-href='$link']\").parent().width();
     $(\"div[data-href='$link']\").attr('data-width',w);
-    FB.XFBML.parse(); 
+    FB.XFBML.parse();
 
     $(\"div[data-href='$link']\").parent().on('resize', function(){
       var w = $(\"div[data-href='$link']\").parent().width();
       $(\"div[data-href='$link']\").attr('data-width',w);
-      FB.XFBML.parse(); 
+      FB.XFBML.parse();
     });
 
   } catch(e) {console.warn(e.message);} </script>";
@@ -124,7 +124,7 @@ function getTopFBPosts($account, $count=10)
 
  function fbSort($a, $b)
   {
-    $share = 1;
+    $share = 2;
     $likes = 1;
 
     $likesB = 0;
@@ -152,6 +152,9 @@ function getTopFBPosts($account, $count=10)
 
     $pointA = $likesA*$likes + $shareA*$share;
     $pointB = $likesB*$likes + $shareB*$share;
+
+    $a->score = $pointA;
+    $b->score = $pointB;
 
     if($pointA == $pointB)
     {
