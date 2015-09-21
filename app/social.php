@@ -444,7 +444,7 @@ function getMultiTopPosts($acts, $type, $count=5)
 		}
 		$posts = array_merge($posts, $tPosts);
 	}
-	usort($posts, "scoreSort");
+	usort($posts, "scoreSortSocial");
 
 	return array_splice($posts, 0, $count);
 	/*
@@ -458,7 +458,7 @@ function getMultiTopPosts($acts, $type, $count=5)
 }
 
 
-function scoreSort($a, $b)
+function scoreSortSocial($a, $b)
 {
 	$pointA = $a['points'];
 	$pointB = $b['points'];
