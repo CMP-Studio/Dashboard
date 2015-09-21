@@ -25,7 +25,7 @@ function generateSocialBadge()
 
 			if($a['type'] != 'google analytics')
 			{
-				if(isset($a['import'])
+				if(isset($a['import']))
 				{
 					$html .= getMultiBadgeHTML($a);
 				}
