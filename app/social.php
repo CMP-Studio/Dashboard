@@ -294,7 +294,7 @@ function getBadgeHTML($acctInfo)
 function getMultiBadgeHTML($act)
 {
 	$imports = $act["locations"];
-	$typ = $act["type"];
+	$type = $act["type"];
 
 	$start = tryGET('start');
 	$end = tryGET('end');
@@ -336,6 +336,7 @@ function getMultiBadgeHTML($act)
 	if(!$hasChange)
 	{
 		$change = '?';
+		$dirclass = '';
 	}
 	else if($change > 0)
 	{
