@@ -64,7 +64,7 @@ function storeInCache($datasetName, $data)
 		else
 		{
 			//Insert
-			if($sql->query("Insert into datacache (dataset, data, updated) values ('$dsn', '$data', '$now')") == TRUE)
+			if($sql->query("INSERT into datacache (dataset, data, updated) values ('$dsn', '$data', '$now')") == TRUE)
 			{
 				return true;
 			}

@@ -15,7 +15,28 @@ function generateSocialBadge()
 {
 	if(isset($_GET['location']))
 	{
-		$result = array('html' => getAccountsFromLocation($_GET['location']) );
+		$accts = getAccountsFromLocation($_GET['location']);
+
+		$html = '';
+
+		foreach ($locAccounts as $key => $a)
+		{
+
+			if($a['type'] != 'google analytics')
+			{
+				if($a['import'])
+				{
+					$html .= getMultiBadgeHTML($a);
+				}
+				else {
+					$html .= getBadgeHTML($a);
+				}
+
+			}
+
+		}
+
+		$result = array('html' =>  $html);
 		return $result;
 
 	}
@@ -30,6 +51,8 @@ function generateSocialBadge()
 
 }
 
+
+
 function getAccountsFromLocation($loc)
 {
 
@@ -40,19 +63,8 @@ function getAccountsFromLocation($loc)
 
 	$locAccounts = $accounts['location'][$loc]['accounts'];
 
-	$html = '';
+	return $locAccounts;
 
-	foreach ($locAccounts as $key => $a)
-	{
-
-		if($a['type'] != 'google analytics')
-		{
-			$html .= getBadgeHTML($a);
-		}
-
-	}
-
-	return $html;
 }
 
 function getFollowers($id, $timestamp)
@@ -149,7 +161,7 @@ function getTopPostEmbedded($id, $type)
 		break;
 
 		case 'instagram':
-			$post = getTopIGMedia($id);
+			$post = getTopIGMedia($id, 1);
 			if(isset($post[0]))
 			{
 				$embed = igEmbed($post[0]->link);
@@ -277,4 +289,202 @@ function getBadgeHTML($acctInfo)
 
 	return $html;
 
+}
+
+function getMultiBadgeHTML($act)
+{
+	$imports = $act["locations"];
+	$typ = $act["type"];
+
+	$start = tryGET('start');
+	$end = tryGET('end');
+
+	$followers = 0;
+	$hasFollowers = false;
+
+	$change = 0;
+	$hasChange = false;
+
+	$acts = array();
+
+	foreach ($imports as $key => $imp)
+	{
+		$act = getImportAct($imp, $type);
+
+		if(!isset($act)) continue;
+		$acts[] = $act;
+		//Followers
+		$tFollow = getFollowers($act["id"], $start);
+		if(isset($tFollow))
+		{
+			$followers += $tFollow;
+			$hasFollowers = true;
+		}
+		// Change in followers (delta)
+		$tChange = getFollowerChange($act["id"], $end, $tFollow);
+		if(isset($tChange))
+		{
+			$change += $tChange;
+			$hasChange = true;
+		}
+	}
+
+	if(!$hasFollowers)
+	{
+		$followers = '?';
+	}
+	if(!$hasChange)
+	{
+		$change = '?';
+	}
+	else if($change > 0)
+	{
+		$dirclass = 'fa-chevron-up';
+		$change = number_format($change);
+	}
+	else if($change < 0)
+	{
+		$dirclass = 'fa-chevron-down';
+		$change *= -1;
+		$change = number_format($change);
+	}
+	else
+	{
+		$dirclass = 'fa-minus';
+		$change = 'No Change';
+	}
+
+
+	$toppages = getTopRefferalPagesByType($type);
+	$topposts = getMultiTopPosts($acts, $type);
+
+
+	$typeclass = str_replace(" ","-",$type);
+	switch($type)
+	{
+		case 'twitter':
+			$postname = "Tweets";
+			break;
+		case 'facebook':
+			$postname = "Posts";
+			break;
+		case 'instagram':
+			$postname = "Images";
+			break;
+		default:
+			$postname = "Posts";
+	}
+
+
+	$html = "\n\n<!-- Start Social Badge -->\n\n";
+
+	$html .= "<div class=' col-md-4 col-xs-12'>\n";
+	$html .= "\t<div class='" . $typeclass . " social-pane panel panel-default'>\n";
+
+	$html .= "\t\t\t<div class='panel-heading clearfix'>\n";
+	$html .= "\t\t\t\t<div class='logo' title='" . $type . "'></div>\n";
+	$html .= "\t\t\t\t<h3 class='panel-title'>" . ucfirst($type) . "</h3>\n";
+	$html .= "\t\t\t</div>\n";
+
+	$html .= "\t\t<div class='social-body panel-body'>\n";
+	$html .= "\t\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
+	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
+	if(count($toppages) > 0)
+	{
+		$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($a['type']) . "</h4>\n";
+		$html .= "\t\t\t<div class='social-urls'>\n";
+		$html .= "\t\t\t\t<ol>\n";
+
+		foreach ($toppages as $key => $u)
+		{
+			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$u'>$u</a></li>\n";
+		}
+		$html .= "\t\t\t\t</ol>\n";
+		$html .= "\t\t\t</div>\n";
+
+	/*	$html .= "\t\t\t<h5>None :(</h5>\n"; */
+	}
+	$html .= "\t\t\t<h4>Top $postname</h4>\n";
+	$html .= "\t\t\t<div class='top-posts'>\n";
+	$html .= "\t\t\t\t<ol>\n";
+		foreach ($topposts as $key => $p) {
+			$url = $p->url;
+			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$url'>$url</a></li>\n";
+		}
+		$html .= "\t\t\t\t</ol>\n";
+	$html .= "\t\t\t</div>\n";
+	$html .= "\t\t</div>\n";
+	$html .= "\t</div>\n";
+	$html .= "</div>\n";
+
+
+	$html .= "\n\n<!-- End Social Badge -->\n\n";
+
+	return $html;
+
+}
+
+function getMultiTopPosts($acts, $type, $count=5)
+{
+	$posts = array();
+	foreach ($acts as $key => $a)
+	{
+		$tPosts = array();
+		switch($type)
+		{
+			case 'twitter':
+				$tPosts = topTweets($id, $count);
+				break;
+			case 'facebook':
+				$tPosts = getTopFBPosts($id, $count);
+				break;
+			case: 'instagram':
+				$tPosts = getTopIGMedia($id, $count);
+				break;
+		}
+		$posts = array_merge($posts, $tPosts);
+	}
+	usort($posts, "scoreSort");
+
+	return array_splice($posts, 0, $count);
+	/*
+	$rPosts = array();
+	for ($i=0; $i < $count ; $i++)
+	{
+		$rPosts[$i] = $posts[$i];
+	}
+	return $rPosts;
+	*/
+}
+
+
+function scoreSort($a, $b)
+{
+	$pointA = $a['points'];
+	$pointB = $b['points'];
+
+	if($pointA == $pointB)
+	{
+		return 0;
+	}
+
+	return ($pointA > $pointB) ? -1 : 1;
+
+}
+
+function getImportAct($loc, $type)
+{
+	$accounts = json_decode(file_get_contents('config/accounts.json'), true);
+
+	if(!isset($accounts["location"][$loc])) return null;
+	$iacts = $accounts["location"][$loc]["accounts"];
+
+	foreach ($iacts as $key => $a)
+	{
+		if($a['type'] == $type)
+		{
+			return $a;
+		}
+	}
+	return null;
 }
