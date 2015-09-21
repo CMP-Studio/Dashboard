@@ -213,7 +213,13 @@ function topTweetEvents($account, $count = 10)
 		$teve['title'] = "Tweet from $sdate";
 		$teve['type'] = "Top Tweets";
 		$teve['source'] = "Twitter";
-		$teve['html'] = $ebed->html;
+		if(isset($ebed->html))
+		{
+			$teve['html'] = $ebed->html;
+		}
+		else {
+			$teve['html'] = null;
+		}
 		$teve['score'] = $key;
 		$teve['url'] = "https://twitter.com/statuses/" . $t->id_str;
 		$teve['points'] = $t->score;
