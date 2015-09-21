@@ -47,6 +47,7 @@ function escape($data)
 function storeInCache($datasetName, $data)
 {
 	$sql = getSql();
+	$now = date("Y-m-d H:i:s");
 
 	if($sql != null)
 	{
@@ -55,7 +56,7 @@ function storeInCache($datasetName, $data)
 		if(cacheExists($datasetName))
 		{
 			//Update
-			if($sql->query("UPDATE datacache SET data = '$data' WHERE dataset = '$dsn'") == TRUE)
+			if($sql->query("UPDATE datacache SET data = '$data', updated = '$now'  WHERE dataset = '$dsn'") == TRUE)
 			{
 				return true;
 			}
@@ -63,7 +64,7 @@ function storeInCache($datasetName, $data)
 		else
 		{
 			//Insert
-			if($sql->query("Insert into datacache (dataset, data) values ('$dsn', '$data')") == TRUE)
+			if($sql->query("Insert into datacache (dataset, data, updated) values ('$dsn', '$data', '$now')") == TRUE)
 			{
 				return true;
 			}
