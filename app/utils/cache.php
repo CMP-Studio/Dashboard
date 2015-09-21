@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/sqlConfig.php';
+require_once __DIR__ . '\..\config\sqlConfig.php';
 
 $cacheLimit = 40*24*60*60; //40 days
 
@@ -18,7 +18,7 @@ function loadFromCache($datasetName)
 		$dsn = $sql->real_escape_string($datasetName);
 
 
-		
+
 		$query = "SELECT data, updated FROM datacache WHERE dataset = '$dsn'";
 		if ($result = $sql->query($query))
 		{
@@ -35,7 +35,7 @@ function loadFromCache($datasetName)
 			//valid!
 			return $row['data'];
 		}
-		
+
 	}
 	return null;
 }
@@ -46,7 +46,7 @@ function escape($data)
 
 function storeInCache($datasetName, $data)
 {
-	$sql = getSql();	
+	$sql = getSql();
 
 	if($sql != null)
 	{
@@ -76,7 +76,7 @@ function storeInCache($datasetName, $data)
 // Check if cache is valid - run automatically with load
 function checkCache($datasetName)
 {
-	
+
 	global $cacheLimit;
 	//cleanCache();
 
@@ -107,9 +107,9 @@ function checkCache($datasetName)
 // Check if cache exists (does not check validity) used in store to determine update vs. insert for store
 function cacheExists($datasetName)
 {
-	
+
 	$sql = getSql();
-	
+
 	if($sql != null)
 	{
 		$dsn = $sql->real_escape_string($datasetName);
