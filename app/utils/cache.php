@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '\..\config\sqlConfig.php';
+require_once __DIR__ . '/../config/sqlConfig.php';
 
 $cacheLimit = 40*24*60*60; //40 days
 

@@ -5,7 +5,7 @@ require_once 'ganalytics.php';
 require_once 'events.php';
 require_once 'social.php';
 require_once "utils/cache.php";
-/* 
+/*
 This is the main application file
 It handles all the AJAX calls from other web pages
 Most of the functions should be handled in other files but this will delegate calls to those files.
@@ -17,7 +17,7 @@ if (is_ajax() || true) //Remove TRUE when done testing
 
   if (isset($_GET["action"]) && !empty($_GET["action"])) //Checks if action value exists
   	{
-  		
+
   		header('Content-type: application/x-javascript');
     	delegate($_GET["action"]);
 
@@ -35,22 +35,22 @@ function is_ajax()
 function delegate($action)
 {
 	//cleanCache();
-	
-	$ds = dataSetName($_GET);
-	
 
-    	
+	$ds = dataSetName($_GET);
+
+
+
     $data = loadFromCache($ds);
-    
-    
-    
+
+
+
     if($data)
     {
     	echo $data;
     	exit(0);
     }
 
-    
+
 
 	switch($action)
 	{
@@ -74,6 +74,11 @@ function delegate($action)
 	{
 
 		$val = storeInCache($ds, output($data));
+    if(!$val)
+    {
+      print "{'error':'cache error'}";
+      exit(0);
+    }
 
 	}
 	//var_dump($data);
@@ -101,7 +106,7 @@ function output($data)
 	{
 		return json_encode($data);
 	}
-	
+
 }
 
 function dataSetName($settings)
