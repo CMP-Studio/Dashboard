@@ -462,8 +462,8 @@ function getMultiTopPosts($acts, $type, $count=5)
 
 function scoreSortSocial($a, $b)
 {
-	$pointA = $a['points'];
-	$pointB = $b['points'];
+	$pointA = $a->points;
+	$pointB = $b->points;
 
 	if($pointA == $pointB)
 	{
