@@ -123,7 +123,11 @@ function getTopPostEmbedded($id, $type)
 			if(isset($post[0]))
 			{
 				$embed = tweetEmbeed($post[0]->id_str);
-				return $embed->html;
+				if(isset($embed->html))
+				{
+					return $embed->html;
+				}
+				return "<script>console.warn('Twit: Can't embed tweet')</script>";
 			}
 			else
 			{
