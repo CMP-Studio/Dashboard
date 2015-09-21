@@ -468,6 +468,7 @@ function events(data, srcs)
   var start = data.start;
   var end = data.end;
 
+ if(!events) return;
 
   var sbox = svg.select('.highcharts-series-group').node().getBBox();
 
