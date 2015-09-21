@@ -6,6 +6,7 @@ require_once 'twitter.php';
 require_once 'facebook.php';
 require_once 'ganalytics.php';
 require_once 'instagram.php';
+require_once 'events.php';
 
 
 /* This file is used to generate social media 'badges' unlike other api files this one will simply output the HTML for simplicity*/
@@ -435,13 +436,13 @@ function getMultiTopPosts($acts, $type, $count=5)
 		switch($type)
 		{
 			case 'twitter':
-				$tPosts = topTweets($id, $count);
+				$tPosts = topTweetEvents($id, $count);
 				break;
 			case 'facebook':
-				$tPosts = getTopFBPosts($id, $count);
+				$tPosts = fbEvents($id, $count);
 				break;
 			case 'instagram':
-				$tPosts = getTopIGMedia($id, $count);
+				$tPosts = igEvents($id, $count);
 				break;
 		}
 		$posts = array_merge($posts, $tPosts);
