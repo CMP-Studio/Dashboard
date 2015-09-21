@@ -5,7 +5,7 @@ require_once 'utils/sql.php';
 require_once 'twitter.php';
 require_once 'facebook.php';
 require_once 'ganalytics.php';
-require_once 'instagram.php'; 
+require_once 'instagram.php';
 
 
 /* This file is used to generate social media 'badges' unlike other api files this one will simply output the HTML for simplicity*/
@@ -17,14 +17,14 @@ function generateSocialBadge()
 	{
 		$result = array('html' => getAccountsFromLocation($_GET['location']) );
 		return $result;
-		 
+
 	}
 	else
 	{
 		return null;
 	}
 
-	
+
 
 
 
@@ -32,7 +32,7 @@ function generateSocialBadge()
 
 function getAccountsFromLocation($loc)
 {
-	
+
 	//Get accounts
 	$accounts = json_decode(file_get_contents('config/accounts.json'), true);
 
@@ -42,14 +42,14 @@ function getAccountsFromLocation($loc)
 
 	$html = '';
 
-	foreach ($locAccounts as $key => $a) 
+	foreach ($locAccounts as $key => $a)
 	{
 
 		if($a['type'] != 'google analytics')
 		{
 			$html .= getBadgeHTML($a);
 		}
-		
+
 	}
 
 	return $html;
@@ -61,11 +61,14 @@ function getFollowers($id, $timestamp)
 	$id = sqlSafe($id);
 
 	$query = "SELECT followers FROM account_stats WHERE user_id = $id AND record_date = $date";
-	$result = readQuery($query);
 
-	if($row = $result->fetch_row())
+	$result = readQuery($query);
+	if($result)
 	{
-		return $row[0];
+		if($row = $result->fetch_row())
+		{
+			return $row[0];
+		}
 	}
 	return null;
 }
@@ -73,7 +76,7 @@ function getFollowerChange($id, $timestamp, $current)
 {
 	if(isset($current))
 	{
-		$date = sqlSafe(date('Y-m-d', $timestamp)); 
+		$date = sqlSafe(date('Y-m-d', $timestamp));
 		$id = sqlSafe($id);
 
 		$query = "SELECT followers FROM account_stats WHERE user_id = $id AND record_date = $date";
@@ -155,7 +158,7 @@ function getTopPostEmbedded($id, $type)
 
 		break;
 	}
-	
+
 
 
 
@@ -171,7 +174,7 @@ function getBadgeHTML($acctInfo)
 	$start = tryGET('start');
 	$end = tryGET('end');
 
-	
+
 	$followers = getFollowers($a['id'], $end);
 	$change = getFollowerChange($a['id'], $start, $followers);
 	$toppages = getTopRefferalPagesByType($a['type']);
@@ -208,9 +211,9 @@ function getBadgeHTML($acctInfo)
 		$followers = number_format($followers);
 	}
 
-	
 
-	
+
+
 	switch($a['type'])
 	{
 		case 'twitter':
@@ -225,8 +228,8 @@ function getBadgeHTML($acctInfo)
 		default:
 			$postname = "Post";
 	}
-	
-	
+
+
 
 	//Create the html
 
@@ -247,7 +250,7 @@ function getBadgeHTML($acctInfo)
 	$html .= "\t\t\t<div class='social-urls'>\n";
 	$html .= "\t\t\t\t<ol>\n";
 
-	foreach ($toppages as $key => $u) 
+	foreach ($toppages as $key => $u)
 	{
 		$html .= "\t\t\t\t\t<li><a target='_blank' href='//$u'>$u</a></li>\n";
 	}
