@@ -446,7 +446,7 @@ function getMultiTopPosts($acts, $type, $count=5)
 				$tPosts = igEvents($id, $count);
 				break;
 		}
-		foreach ($tPosts as $key => $p) {
+		foreach ($tPosts as $key => &$p) {
 			$p['username'] = $a['username'];
 		}
 
