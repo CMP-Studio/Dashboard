@@ -226,7 +226,7 @@ function topTweetEvents($account, $count = 10)
 		$teve['points'] = $t->score;
 
 		$teve['timestamp'] = $time*1000;
-		$teve['username'] = '@' . $t->user->screen_name;
+	//	$teve['username'] = '@' . $t->user->screen_name;
 
 
 		array_push($tevents, $teve);
@@ -301,7 +301,7 @@ function fbEvents($account, $count = 10)
 		$teve['score'] = $key;
 		$teve['points'] = $d->score;
 		$teve['timestamp'] = $time*1000;
-		$teve['username'] = $d->from->name;
+		//$teve['username'] = $d->from->name;
 
 		array_push($tevents, $teve);
 
@@ -342,7 +342,7 @@ function igEvents($account, $count = 10)
 		$embed = igEmbed($d->link);
 
 		$teve['html'] = $embed->html;
-		$teve["username"] = $d->from->username;
+	//	$teve["username"] = $d->from->username;
 
 
 		array_push($tevents, $teve);
