@@ -324,7 +324,13 @@ function igEvents($account, $count = 10)
 		$teve['type'] = "Top Instagram Posts";
 		$teve['source'] = "Instagram";
 		$teve['score'] = $key;
-		$teve['points'] = $d->score;
+		if(isset($d->score))
+		{
+			$teve['points'] = $d->score;
+		}
+		else {
+			$teve['points'] = 0;
+		}
 		$teve['timestamp'] = $time*1000;
 		$teve['url'] = $d->link;
 
