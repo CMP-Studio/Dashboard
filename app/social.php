@@ -382,12 +382,12 @@ function getMultiBadgeHTML($act)
 
 	$html .= "<div class=' col-md-4 col-xs-12'>\n";
 	$html .= "\t<div class='" . $typeclass . " social-pane panel panel-default'>\n";
-
+	$html .= "\t\t<div class='social-title'>\n";
 	$html .= "\t\t\t<div class='panel-heading clearfix'>\n";
 	$html .= "\t\t\t\t<div class='logo' title='" . $type . "'></div>\n";
 	$html .= "\t\t\t\t<h3 class='panel-title'>" . ucfirst($type) . "</h3>\n";
 	$html .= "\t\t\t</div>\n";
-
+	$html .= "\t\t</div>\n";
 	$html .= "\t\t<div class='social-body panel-body'>\n";
 	$html .= "\t\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
 	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
