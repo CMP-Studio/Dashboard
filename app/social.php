@@ -407,11 +407,11 @@ function getMultiBadgeHTML($act)
 	/*	$html .= "\t\t\t<h5>None :(</h5>\n"; */
 	}
 	$html .= "\t\t\t<h4>Top $postname</h4>\n";
-	$html .= "\t\t\t<div class='top-posts'>\n";
+	$html .= "\t\t\t<div class='social-urls'>\n";
 	$html .= "\t\t\t\t<ol>\n";
 		foreach ($topposts as $key => $p) {
 			$url = $p["url"];
-			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$url'>$url</a></li>\n";
+			$html .= "\t\t\t\t\t<li><a target='_blank' href='$url'>$url</a></li>\n";
 		}
 		$html .= "\t\t\t\t</ol>\n";
 	$html .= "\t\t\t</div>\n";
