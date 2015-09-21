@@ -431,7 +431,7 @@ function getMultiTopPosts($acts, $type, $count=5)
 	foreach ($acts as $key => $a)
 	{
 		$tPosts = array();
-		$id = $a["id"];
+		$id = $a->id;
 		switch($type)
 		{
 			case 'twitter':
