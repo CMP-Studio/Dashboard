@@ -19,7 +19,7 @@ require_once 'instagram.php';
 				title: event title
 				type: event type
 				source: e.g. twitter
-				username: The account username (gets from accounts.json not external)
+				username: The account username
 				source_url: e.g. twitter.com/id/post*
 				timestamp: time in ms since epoch
 				points: an arbitrary number for ranking (higher is better)
@@ -224,8 +224,9 @@ function topTweetEvents($account, $count = 10)
 		$teve['score'] = $key;
 		$teve['url'] = "https://twitter.com/statuses/" . $t->id_str;
 		$teve['points'] = $t->score;
+
 		$teve['timestamp'] = $time*1000;
-		$teve['username'] = $account['username'];
+		$teve['username'] = '@' . $t->user->screen_name;
 
 
 		array_push($tevents, $teve);
@@ -254,7 +255,7 @@ function gaEvents($account, $count = 10)
 		$teve['source'] = "Google Analytics";
 		$teve['score'] = $key;
 		$teve['url'] = $url;
-		$teve['username'] = $account['username'];
+
 
 
 		$source = $d[2];
@@ -300,7 +301,7 @@ function fbEvents($account, $count = 10)
 		$teve['score'] = $key;
 		$teve['points'] = $d->score;
 		$teve['timestamp'] = $time*1000;
-		$teve['username'] = $account['username'];
+		$teve['username'] = $d->from->name;
 
 		array_push($tevents, $teve);
 
@@ -341,7 +342,7 @@ function igEvents($account, $count = 10)
 		$embed = igEmbed($d->link);
 
 		$teve['html'] = $embed->html;
-
+		$teve["username"] = $d->from->username;
 
 
 		array_push($tevents, $teve);
