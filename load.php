@@ -243,7 +243,7 @@ $(document).ready(function (){
          $('#social-holder').html(data.html);
       }).fail(function()
       {
-         console.error("Failure - Social");
+         console.error("Failure - Social: " + url);
       });
    }
 
