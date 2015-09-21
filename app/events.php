@@ -19,6 +19,7 @@ require_once 'instagram.php';
 				title: event title
 				type: event type
 				source: e.g. twitter
+				username: The account username (gets from accounts.json not external)
 				source_url: e.g. twitter.com/id/post*
 				timestamp: time in ms since epoch
 				points: an arbitrary number for ranking (higher is better)
@@ -224,6 +225,7 @@ function topTweetEvents($account, $count = 10)
 		$teve['url'] = "https://twitter.com/statuses/" . $t->id_str;
 		$teve['points'] = $t->score;
 		$teve['timestamp'] = $time*1000;
+		$teve['username'] = $account['username'];
 
 
 		array_push($tevents, $teve);
@@ -252,6 +254,7 @@ function gaEvents($account, $count = 10)
 		$teve['source'] = "Google Analytics";
 		$teve['score'] = $key;
 		$teve['url'] = $url;
+		$teve['username'] = $account['username'];
 
 
 		$source = $d[2];
@@ -297,6 +300,7 @@ function fbEvents($account, $count = 10)
 		$teve['score'] = $key;
 		$teve['points'] = $d->score;
 		$teve['timestamp'] = $time*1000;
+		$teve['username'] = $account['username'];
 
 		array_push($tevents, $teve);
 

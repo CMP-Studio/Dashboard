@@ -365,16 +365,16 @@ function getMultiBadgeHTML($act)
 	switch($type)
 	{
 		case 'twitter':
-			$postname = "Tweets";
+			$postname = "Tweet";
 			break;
 		case 'facebook':
-			$postname = "Posts";
+			$postname = "Post";
 			break;
 		case 'instagram':
-			$postname = "Images";
+			$postname = "Image";
 			break;
 		default:
-			$postname = "Posts";
+			$postname = "Post";
 	}
 
 
@@ -406,12 +406,13 @@ function getMultiBadgeHTML($act)
 
 	/*	$html .= "\t\t\t<h5>None :(</h5>\n"; */
 	}
-	$html .= "\t\t\t<h4>Top $postname</h4>\n";
+	$html .= "\t\t\t<h4>Top " . $postname ."s</h4>\n";
 	$html .= "\t\t\t<div class='social-urls'>\n";
 	$html .= "\t\t\t\t<ol>\n";
 		foreach ($topposts as $key => $p) {
 			$url = $p["url"];
-			$html .= "\t\t\t\t\t<li><a target='_blank' href='$url'>$url</a></li>\n";
+			$user = $p['username'];
+			$html .= "\t\t\t\t\t<li><a target='_blank' href='$url'>$user's $postname</a></li>\n";
 		}
 		$html .= "\t\t\t\t</ol>\n";
 	$html .= "\t\t\t</div>\n";
@@ -445,6 +446,7 @@ function getMultiTopPosts($acts, $type, $count=5)
 				$tPosts = igEvents($id, $count);
 				break;
 		}
+
 		$posts = array_merge($posts, $tPosts);
 	}
 	usort($posts, "scoreSortSocial");
