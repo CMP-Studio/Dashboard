@@ -438,7 +438,7 @@ function getMultiTopPosts($acts, $type, $count=5)
 			case 'facebook':
 				$tPosts = getTopFBPosts($id, $count);
 				break;
-			case: 'instagram':
+			case 'instagram':
 				$tPosts = getTopIGMedia($id, $count);
 				break;
 		}
