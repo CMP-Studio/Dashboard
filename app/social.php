@@ -19,7 +19,7 @@ function generateSocialBadge()
 
 		$html = '';
 
-		foreach ($locAccounts as $key => $a)
+		foreach ($accts as $key => $a)
 		{
 
 			if($a['type'] != 'google analytics')
