@@ -393,7 +393,7 @@ function getMultiBadgeHTML($act)
 	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
 	if(count($toppages) > 0)
 	{
-		$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($a['type']) . "</h4>\n";
+		$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($type) . "</h4>\n";
 		$html .= "\t\t\t<div class='social-urls'>\n";
 		$html .= "\t\t\t\t<ol>\n";
 
@@ -410,7 +410,7 @@ function getMultiBadgeHTML($act)
 	$html .= "\t\t\t<div class='top-posts'>\n";
 	$html .= "\t\t\t\t<ol>\n";
 		foreach ($topposts as $key => $p) {
-			$url = $p->url;
+			$url = $p["url"];
 			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$url'>$url</a></li>\n";
 		}
 		$html .= "\t\t\t\t</ol>\n";
@@ -463,8 +463,8 @@ function getMultiTopPosts($acts, $type, $count=5)
 
 function scoreSortSocial($a, $b)
 {
-	$pointA = $a->points;
-	$pointB = $b->points;
+	$pointA = $a["points"];
+	$pointB = $b["points"];
 
 	if($pointA == $pointB)
 	{
