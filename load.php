@@ -580,7 +580,7 @@ function mobile_menu()
 var shown = false;
 function menu_toggle()
 {
-  if(shown)
+  if($(".fifth.museum").css("display"))
   {
     $(".fifth.museum").css("display",null);
     shown = false
