@@ -418,6 +418,10 @@ p span
     visibility: visible;
     width:100%;
   }
+  .museum-toggle-target
+  {
+    height: 0%;
+  }
 
 
 }

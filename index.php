@@ -56,26 +56,29 @@
                </div>
                <div id='musebar'>
                  <div class='museum-toggle'></div>
-                  <a href='#' id='cmp' class='fifth museum active'>
-                     <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/cmoa.png'>
-                     <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/warhol_white.png'>
-                  </a>
-                  <a href='#' id='cmoa' class='fifth museum'>
-                     <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa.png'>
-                     <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/warhol_white.png'>
-                  </a>
-                  <a href='#' id='cmnh' class='fifth museum'>
-                     <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh.png'>
-                     <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/warhol_white.png'>
-                  </a>
-                  <a href='#' id='csc' class='fifth museum'>
-                     <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc.png'>
-                     <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/warhol_white.png'>
-                  </a>
-                  <a href='#' id='warhol' class='fifth museum'>
-                     <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
-                     <img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
-                  </a>
+                 <div class='museum-toggle-target'>
+                    <a href='#' id='cmp' class='fifth museum active'>
+                       <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/cmoa.png'>
+                       <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/warhol_white.png'>
+                    </a>
+                    <a href='#' id='cmoa' class='fifth museum'>
+                       <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa.png'>
+                       <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/warhol_white.png'>
+                    </a>
+                    <a href='#' id='cmnh' class='fifth museum'>
+                       <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh.png'>
+                       <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/warhol_white.png'>
+                    </a>
+                    <a href='#' id='csc' class='fifth museum'>
+                       <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc.png'>
+                       <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/warhol_white.png'>
+                    </a>
+                    <a href='#' id='warhol' class='fifth museum'>
+                       <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
+                       <img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
+                    </a>
+                    <div class='clearfix'></div>
+                  </div>
                   <div class='clearfix'></div>
                </div>
            </header>
