@@ -580,15 +580,15 @@ function mobile_menu()
 var shown = false;
 function menu_toggle()
 {
-  if($(".fifth.museum").css("display"))
+  if($(".fifth.museum").attr("display-toggle") == "show")
   {
     $(".fifth.museum").css("display",null);
-    shown = false
+    $(".fifth.museum").attr("display-toggle", null)
   }
   else {
     {
         $(".fifth.museum").css("display","block");
-        shown = true;
+        $(".fifth.museum").attr("display-toggle", "show")
     }
   }
 }
