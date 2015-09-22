@@ -422,6 +422,9 @@ p span
   .museum.active i
   {
     display:inline;
+    line-height: 7vh;
+    color:white;
+    padding-left:2px;
   }
 
 
