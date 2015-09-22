@@ -393,11 +393,7 @@ p span
 
 
 /* Small screens */
-.museum-toggle
-{
-  display: none;
 
-}
 @media only screen and (max-width:850px) {
 
   #infopane
@@ -413,16 +409,13 @@ p span
   {
     width:100%;
   }
-  .museum-toggle
-  {
-    display:block;
-    cursor: pointer;
-    width:100%;
-  }
-  .museum-toggle-target
+  .museum.fifth
   {
     display:none;
-
+  }
+  .museum.fifth.active
+  {
+    display:block;
   }
 
 

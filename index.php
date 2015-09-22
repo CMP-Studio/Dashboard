@@ -55,10 +55,7 @@
                   </div>
                </div>
                <div id='musebar'>
-                 <div class='museum-toggle fifth'>
-                   Toggle
-                 </div>
-                 <div class='museum-toggle-target'>
+
                     <a href='#' id='cmp' class='fifth museum active'>
                        <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/cmoa.png'>
                        <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/warhol_white.png'>
@@ -81,8 +78,6 @@
                     </a>
                     <div class='clearfix'></div>
                   </div>
-                  <div class='clearfix'></div>
-               </div>
            </header>
 
            <div id='content'>
