@@ -51,36 +51,41 @@ require_once 'app/facebook.php';
           <h1 class='header-title'>Digital Dashboard</h1>
         </div>
         <div class='fifth'>
-          
+
         </div>
       </div>
       <div id='musebar'>
         <div class='fifth museum active'>
           <a href='#' id='cmp'>
+            <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/cmoa.png'>
           </a>
           <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/warhol_white.png'>
         </div>
         <div class='fifth museum'>
           <a href='#' id='cmoa'>
+            <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa.png'>
           </a>
           <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/warhol_white.png'>
         </div>
         <div class='fifth museum'>
           <a href='#' id='cmnh'>
+            <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh.png'>
           </a>
           <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/warhol_white.png'>
         </div>
         <div class='fifth museum'>
           <a href='#' id='csc'>
+            <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc.png'>
           </a>
           <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/warhol_white.png'>
         </div>
         <div class='fifth museum'>
           <a href='#' id='warhol'>
+            <i class="fa fa-bars"></i>
             <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
           </a>
           <img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>

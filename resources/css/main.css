@@ -393,7 +393,9 @@ p span
 
 
 /* Small screens */
-
+.museum i{
+  display:none;
+  }
 @media only screen and (max-width:850px) {
 
   #infopane
@@ -416,6 +418,10 @@ p span
   .museum.fifth.active
   {
     display:block;
+  }
+  .museum.active i
+  {
+    display:inline;
   }
 
 
