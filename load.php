@@ -573,8 +573,8 @@ function mobile_menu()
 {
 
 
-  $(".fifth.museum.active").click(menu_toggle);
-  $(".fifth.museum a").click(menu_toggle);
+  //$(".fifth.museum.active").click(menu_toggle);
+  $(".fifth.museum").click(menu_toggle);
 
 }
 var shown = false;
