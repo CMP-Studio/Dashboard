@@ -589,6 +589,7 @@ function menu_toggle()
         $(".museum-toggle-target").css("display","block");
         shown = true;
     }
+  }
 }
 
 function getActs()
