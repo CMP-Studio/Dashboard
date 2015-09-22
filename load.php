@@ -573,20 +573,22 @@ function mobile_menu()
 {
   var shown = false;
 
-  $(".museum-toggle").click(function() {
-    if(shown)
-    {
-      $(".museum-toggle-target").css("display","none");
-      shown = false
-    }
-    else {
-      {
-          $(".museum-toggle-target").css("display","block");
-          shown = true;
-      }
-    }
-  });
+  $(".museum-toggle").click(menu_toggle);
+  $(".museum-toggle-target a").click(menu_toggle);
 
+}
+function menu_toggle()
+{
+  if(shown)
+  {
+    $(".museum-toggle-target").css("display","none");
+    shown = false
+  }
+  else {
+    {
+        $(".museum-toggle-target").css("display","block");
+        shown = true;
+    }
 }
 
 function getActs()
