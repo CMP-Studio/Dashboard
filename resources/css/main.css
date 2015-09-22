@@ -5,11 +5,11 @@ Orange: rgb(222,73,47)
 Blue/grey: rgb(77,102,132)
 */
 
-*  
-    { 
-    margin: 0; 
-    padding: 0; 
-    border: 0; 
+*
+    {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 body, html
 {
@@ -75,7 +75,20 @@ a
   width: 100%;
   z-index:999;
   background-color: #777777;
-  
+
+}
+.studio-logo
+{
+  max-height:100%;
+  padding: 3px;
+}
+.header-title
+{
+  padding:3px;
+  color:white;
+  line-height:100%;
+  font-size: 6vh;
+
 }
 .fifth
 {
@@ -262,7 +275,7 @@ p span
     font-size: 20px;
 }
 
-.social-title a:focus, a:hover 
+.social-title a:focus, a:hover
 {
   text-decoration: none;
 
@@ -316,11 +329,11 @@ p span
 
 }
 
-.twitter .panel-heading 
+.twitter .panel-heading
 {
   color:black;
   background-color: rgb(80,171,241);
-  
+
 }
 
 /* IG  specific */
@@ -363,7 +376,7 @@ p span
 }
 
 /* Small screens */
-@media only screen and (max-width:850px) { 
+@media only screen and (max-width:850px) {
 
   #infopane
   {
@@ -376,9 +389,3 @@ p span
   }
 
 }
-
-
-
-
-
-
