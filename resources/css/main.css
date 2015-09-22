@@ -75,7 +75,10 @@ a
 }
 .studio-logo
 {
+  padding-top: 5%;
+  
   max-height:50%;
+  float:left;
 
 }
 .header-title
@@ -85,7 +88,8 @@ a
   color:white;
   line-height:100%;
   font-size: 6vmin;
-  float:right;
+  float:left;
+  margin:0;
 
 }
 .fifth
