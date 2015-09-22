@@ -573,8 +573,8 @@ function mobile_menu()
 {
 
 
-  $(".museum-toggle").click(menu_toggle);
-  $(".museum-toggle-target a").click(menu_toggle);
+  $(".fifth.museum.active").click(menu_toggle);
+  $(".fifth.museum a").click(menu_toggle);
 
 }
 var shown = false;
@@ -582,12 +582,13 @@ function menu_toggle()
 {
   if(shown)
   {
-    $(".museum-toggle-target").css("display","none");
+    $(".fifth.museum").css("display","none");
+    $(".fifth.museum.active").css("display","block");
     shown = false
   }
   else {
     {
-        $(".museum-toggle-target").css("display","block");
+        $(".fifth.museum").css("display","block");
         shown = true;
     }
   }
