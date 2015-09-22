@@ -424,7 +424,8 @@ p span
     display:inline;
     line-height: 7vh;
     color:white;
-    padding-left:2px;
+    padding-left:1vmin;
+    font-size: 4vmin;
   }
 
 
