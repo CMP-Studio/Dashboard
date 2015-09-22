@@ -75,10 +75,6 @@ a
 }
 .studio-logo
 {
-  padding-top: 10px;
-  padding-left:10px;
-  max-height:50%;
-  float:left;
 
 }
 .header-title
@@ -99,7 +95,8 @@ a
   float:left;
   position: relative;
   cursor: pointer;
-  background-color: #777777;
+  
+
 }
 .fifth img
 {
