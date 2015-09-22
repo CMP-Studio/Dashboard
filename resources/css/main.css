@@ -90,7 +90,7 @@ cursor: pointer;
 .fifth
 {
   width: 20%;
-  height: 5vh;
+  height: 7vh;
   float:left;
   position: relative;
   cursor: pointer;
@@ -102,7 +102,7 @@ cursor: pointer;
   width:60%;
   height: 100%;
   float:left;
-  height: 5vh;
+  height: 7vh;
 
   display:flex;
   justify-content: center;
