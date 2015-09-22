@@ -56,7 +56,7 @@
                </div>
                <div id='musebar'>
                  <div class='museum-toggle fifth'>
-
+                   Toggle
                  </div>
                  <div class='museum-toggle-target'>
                     <a href='#' id='cmp' class='fifth museum active'>
