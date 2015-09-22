@@ -573,7 +573,7 @@ function mobile_menu()
 {
   var shown = false;
 
-  $(".museum-toggle-target").click(function() {
+  $(".museum-toggle").click(function() {
     if(shown)
     {
       $(".museum-toggle-target").css("display","none");
