@@ -75,8 +75,8 @@ a
 }
 .studio-logo
 {
-  padding-top: 5%;
-  
+  padding-top: 10px;
+
   max-height:50%;
   float:left;
 
@@ -87,7 +87,7 @@ a
   padding-right:10px;
   color:white;
   line-height:100%;
-  font-size: 6vmin;
+  font-size: 4vmin;
   float:left;
   margin:0;
 
