@@ -395,7 +395,7 @@ p span
 /* Small screens */
 .museum-toggle
 {
-  visibility: hidden;
+  display: none;
 
 }
 @media only screen and (max-width:850px) {
@@ -415,12 +415,14 @@ p span
   }
   .museum-toggle
   {
-    visibility: visible;
+    display:block;
+    cursor: pointer;
     width:100%;
   }
   .museum-toggle-target
   {
-    visibility: hidden;
+    display:none;
+
   }
 
 

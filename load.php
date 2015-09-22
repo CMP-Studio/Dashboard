@@ -583,12 +583,12 @@ function mobile_menu()
   $(".museum-target").click(function() {
     if(shown)
     {
-      $(".museum-target").css("visibility","hidden");
+      $(".museum-target").css("display","none");
       shown = false
     }
     else {
       {
-          $(".museum-target").css("visibility","visible");
+          $(".museum-target").css("display","block");
           shown = true;
       }
     }
