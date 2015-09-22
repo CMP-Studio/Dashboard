@@ -55,6 +55,7 @@
                   </div>
                </div>
                <div id='musebar'>
+                 <div class='museum-toggle'></div>
                   <a href='#' id='cmp' class='fifth museum active'>
                      <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/cmoa.png'>
                      <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/warhol_white.png'>
@@ -75,6 +76,7 @@
                      <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
                      <img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
                   </a>
+                  <div class='clearfix'></div>
                </div>
            </header>
 

@@ -118,7 +118,7 @@ cursor: pointer;
   left: 0;
   right: 0;
   bottom: 0;
-  max-height:90%;
+  max-height:80%;
   max-width:90%;
 }
 .active .logo
