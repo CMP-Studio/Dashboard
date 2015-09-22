@@ -571,12 +571,13 @@ function getDate(d) {
 
 function mobile_menu()
 {
-  var shown = false;
+
 
   $(".museum-toggle").click(menu_toggle);
   $(".museum-toggle-target a").click(menu_toggle);
 
 }
+var shown = false;
 function menu_toggle()
 {
   if(shown)
