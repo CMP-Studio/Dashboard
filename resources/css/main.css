@@ -44,7 +44,7 @@ a
 #topbar
 {
 
-  height: 15%;
+  /* height: 15%; */
   top:0;
   right:0;
   left:0;
@@ -57,7 +57,7 @@ a
 #studiobar
 {
   position: relative;
-  height:50%;
+  /* height:50%; */
   width: 100%;
   background-color: rgb(222,73,47);
 
@@ -67,7 +67,7 @@ a
 #musebar
 {
   position: relative;
-  height:50%;
+  /* height:50%; */
   width: 100%;
   z-index:999;
   background-color: #ABABAB;
@@ -390,7 +390,13 @@ p span
   z-index:9999;
 }
 
+
 /* Small screens */
+.museum-toggle
+{
+  visibility: hidden;
+
+}
 @media only screen and (max-width:850px) {
 
   #infopane
@@ -406,5 +412,11 @@ p span
   {
     width:100%;
   }
+  .museum-toggle
+  {
+    visibility: visible;
+    width:100%;
+  }
+
 
 }
