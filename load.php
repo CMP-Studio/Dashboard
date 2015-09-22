@@ -8,6 +8,8 @@ $(document).ready(function (){
   var museum = 'cmp';
   var lastrequest = null;
 
+  mobile_menu();
+
 
 
   loadAnalytics(museum, timespan.start, timespan.end);
