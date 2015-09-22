@@ -104,8 +104,11 @@ cursor: pointer;
   width:60%;
   height: 100%;
   float:left;
-  position: relative;
-  text-align:center;
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
 
 }
 .fifth img
