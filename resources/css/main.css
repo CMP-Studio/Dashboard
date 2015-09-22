@@ -84,10 +84,12 @@ a
 }
 .header-title
 {
-  padding:3px;
+  padding-left:10px;
+  padding-right:10px;
   color:white;
   line-height:100%;
   font-size: 6vh;
+  float:left;
 
 }
 .fifth
