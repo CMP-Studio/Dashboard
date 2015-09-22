@@ -1,6 +1,8 @@
 <script>
 $(document).ready(function (){
 
+
+
   //Defaults
   var timespan = getLastMonth();
   var museum = 'cmp';
@@ -569,6 +571,27 @@ function getActs()
   var json = <?php print file_get_contents('./app/config/accounts.json'); ?>;
 
   return json;
+}
+
+
+function mobile_menu()
+{
+  var shown = false;
+
+  $(".museum-target").click(function() {
+    if(shown)
+    {
+      $(".museum-target").css("visibility","hidden");
+      shown = false
+    }
+    else {
+      {
+          $(".museum-target").css("visibility","visible");
+          shown = true;
+      }
+    }
+  });
+
 }
 
 

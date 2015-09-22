@@ -420,8 +420,7 @@ p span
   }
   .museum-toggle-target
   {
-    position: absolute;
-    top: -100vh;
+    visibility: hidden;
   }
 
 
