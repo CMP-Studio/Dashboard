@@ -582,8 +582,7 @@ function menu_toggle()
 {
   if(shown)
   {
-    $(".fifth.museum").css("display","none");
-    $(".fifth.museum.active").css("display","block");
+    $(".fifth.museum").css("display",null);
     shown = false
   }
   else {
