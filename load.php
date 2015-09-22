@@ -568,6 +568,27 @@ function getDate(d) {
   return new Date(d);
 }
 
+
+function mobile_menu()
+{
+  var shown = false;
+
+  $(".museum-toggle-target").click(function() {
+    if(shown)
+    {
+      $(".museum-toggle-target").css("display","none");
+      shown = false
+    }
+    else {
+      {
+          $(".museum-toggle-target").css("display","block");
+          shown = true;
+      }
+    }
+  });
+
+}
+
 function getActs()
 {
   var json = <?php print file_get_contents('./app/config/accounts.json'); ?>;
@@ -576,25 +597,6 @@ function getActs()
 }
 
 
-function mobile_menu()
-{
-  var shown = false;
-
-  $(".museum-target").click(function() {
-    if(shown)
-    {
-      $(".museum-target").css("display","none");
-      shown = false
-    }
-    else {
-      {
-          $(".museum-target").css("display","block");
-          shown = true;
-      }
-    }
-  });
-
-}
 
 
 
