@@ -331,7 +331,7 @@ p span
 }
 .social-urls a
 {
-  text-overflow: ellipsis;
+      word-wrap: break-word;
 }
 
 
