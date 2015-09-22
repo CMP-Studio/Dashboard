@@ -582,7 +582,7 @@ function menu_toggle()
 {
   if($(".fifth.museum").attr("display-toggle") == "show")
   {
-    $(".fifth.museum").css("display",null);
+    $(".fifth.museum").removeAttr('style');
     $(".fifth.museum").attr("display-toggle", null)
   }
   else {
