@@ -44,8 +44,15 @@
             <header id='topbar'>
                <div id='studiobar' class='clearfix'>
 
-                  <a href='//studio.carnegiemuseums.org' class='fifth'><img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/></a>
-                  <h1 class='header-title'>Digital Dashboard</h1>
+                  <a href='//studio.carnegiemuseums.org' class='fifth'>
+                    <img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/>
+                  </a>
+                  <div class='three-fifth'>
+                    <h1 class='header-title'>Digital Dashboard</h1>
+                  </div>
+                  <div class='fifth'>
+
+                  </div>
                </div>
                <div id='musebar'>
                   <a href='#' id='cmp' class='fifth active'>

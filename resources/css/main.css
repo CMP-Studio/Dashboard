@@ -75,7 +75,7 @@ a
 }
 .studio-logo
 {
-
+cursor: pointer;
 }
 .header-title
 {
@@ -86,6 +86,7 @@ a
   font-size: 4vmin;
   float:left;
   margin:0;
+  cursor: default;
 
 }
 .fifth
@@ -95,7 +96,16 @@ a
   float:left;
   position: relative;
   cursor: pointer;
-  
+
+
+}
+.three-fifth
+{
+  width:60%;
+  height: 100%;
+  float:left;
+  position: relative;
+  text-align:center;
 
 }
 .fifth img
