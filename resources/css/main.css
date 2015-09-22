@@ -79,8 +79,6 @@ cursor: pointer;
 }
 .header-title
 {
-  padding-left:10px;
-  padding-right:10px;
   color:white;
   line-height:100%;
   font-size: 4vmin;
@@ -329,6 +327,7 @@ p span
   text-align:left;
   padding-left:10%;
   padding-right:10%;
+  text-overflow: ellipsis;
 }
 
 
