@@ -63,11 +63,7 @@ a
 
   z-index:999;
 }
-#studiobar h1
-{
-  font-size: 30px;
-  padding-left:1%;
-}
+
 #musebar
 {
   position: relative;
@@ -80,7 +76,7 @@ a
 .studio-logo
 {
   max-height:50%;
-  padding: 25%;
+
 }
 .header-title
 {
@@ -88,7 +84,7 @@ a
   padding-right:10px;
   color:white;
   line-height:100%;
-  font-size: 6vh;
+  font-size: 6vmin;
   float:right;
 
 }
