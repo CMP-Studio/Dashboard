@@ -162,6 +162,12 @@ transform: translateY(-50%);
 {
   color:white;
   font-size: 3vh;
+  margin: auto;
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
 }
 
 .btn-clear
