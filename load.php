@@ -3,9 +3,7 @@ $(document).ready(function (){
 
 
 //No #
-if (location.href.indexOf("#") > -1) {
-    location.assign(location.href.replace(/\/?#/, "/"));
-}
+
 
   //Defaults
   var timespan = getLastMonth();
@@ -93,6 +91,10 @@ if (location.href.indexOf("#") > -1) {
 
   function setActiveMuseum(loc)
   {
+    if (location.href.indexOf("#") > -1) {
+        location.assign(location.href.replace(/\/?#/, "/"));
+    }
+    
     $('#cmp').parent().removeClass('active');
     $('#csc').parent().removeClass('active');
     $('#cmoa').parent().removeClass('active');
