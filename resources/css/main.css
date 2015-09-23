@@ -135,7 +135,7 @@ transform: translateY(-50%);
   margin:0 auto;
   top:50%;
   transform: translateY(-50%);
-  float:left;
+
 
 
   max-width:70%;
@@ -501,12 +501,17 @@ p span
   }
   .museum.active i
   {
-      float:left;
+    position:absolute;
     display:inline;
     line-height: 7vmax;
     color:white;
-    padding-left:5vw;
+    left:5%;
     font-size: 3vmax;
+  }
+  .help-btn i
+  {
+    font-size: 3vmax;
+    line-height: 7vmax;
   }
 
 
