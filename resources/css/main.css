@@ -146,6 +146,10 @@ cursor: pointer;
 
 .btn-clear:hover
 {
+  background-color: rgba(0,0,0,0.1);
+}
+.btn-clear:active
+{
   background-color: rgba(0,0,0,0.2);
 }
 
