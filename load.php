@@ -60,30 +60,35 @@ $(document).ready(function (){
   //Select museum
   $('#cmp').click(function()
   {
+    if($(this).hasClass('active')) { return; }
     museum='cmp';
     setActiveMuseum(museum);
     loadAnalytics(museum, timespan.start, timespan.end);
   });
   $('#cmoa').click(function()
   {
+    if($(this).hasClass('active')) { return; }
     museum='cmoa';
     setActiveMuseum(museum);
     loadAnalytics(museum, timespan.start, timespan.end);
   });
   $('#cmnh').click(function()
   {
+    if($(this).hasClass('active')) { return; }
     museum='cmnh';
     setActiveMuseum(museum);
     loadAnalytics(museum, timespan.start, timespan.end);
   });
   $('#warhol').click(function()
   {
+    if($(this).hasClass('active')) { return; }
     museum='warhol';
     setActiveMuseum(museum);
     loadAnalytics(museum, timespan.start, timespan.end);
   });
   $('#csc').click(function()
   {
+    if($(this).hasClass('active')) { return; }
     museum='csc';
     setActiveMuseum(museum);
     loadAnalytics(museum, timespan.start, timespan.end);
