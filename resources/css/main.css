@@ -76,6 +76,8 @@ a
 .studio-logo
 {
 cursor: pointer;
+max-width:90%;
+max-height:90%;
 }
 .header-title
 {
@@ -94,6 +96,8 @@ cursor: pointer;
   float:left;
   position: relative;
   cursor: pointer;
+  padding-bottom:1vh;
+  padding-top: 1vh;
 
 
 }
@@ -113,6 +117,7 @@ cursor: pointer;
 
 
 }
+
 .museum img
 {
   position: absolute;

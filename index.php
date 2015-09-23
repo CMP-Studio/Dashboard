@@ -56,10 +56,10 @@ require_once 'app/facebook.php';
       </div>
       <div id='musebar'>
         <div class='fifth museum active'>
-          <a href='#' id='cmp'>
+          <div href='#' id='cmp'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
-          </a>
+          </div>
           <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
         </div>
         <div class='fifth museum'>
