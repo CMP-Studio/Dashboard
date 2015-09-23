@@ -51,7 +51,7 @@ require_once 'app/facebook.php';
 
         </div>
         <div class='fifth help'>
-          <button class="btn btn-default"><i class="fa fa-question-circle"></i></button>
+          <button class="btn btn-default btn-clear"><i class="fa fa-question-circle"></i></button>
         </div>
       </div>
       <div id='musebar'>
