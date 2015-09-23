@@ -410,6 +410,8 @@ p span
   .museum
   {
     width:100%;
+    padding-left:10%;
+    padding-right: 10%;
   }
   .museum.fifth
   {
