@@ -162,11 +162,12 @@ transform: translateY(-50%);
 {
 
   font-size: 3vh;
-  right:10%;
+
 
   position: relative;
+  right:50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%, -50%);
 
 }
 .help-btn i
