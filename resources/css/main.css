@@ -97,8 +97,11 @@ max-height:100%;
   float:left;
   position: relative;
   cursor: pointer;
-  padding-bottom:1vh;
-  padding-top: 1vh;
+
+  padding-bottom:10%;
+  padding-top: 10%;
+  padding-left: 20%;
+  padding-right:20%;
 
 
 }
