@@ -67,21 +67,21 @@ require_once 'app/facebook.php';
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa.png'>
           </div>
-          <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/warhol_white.png'>
+          <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
         </div>
         <div class='fifth museum'>
           <div id='cmnh'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh.png'>
           </div>
-          <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/warhol_white.png'>
+          <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
         </div>
         <div class='fifth museum'>
           <div id='csc'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc.png'>
           </div>
-          <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/warhol_white.png'>
+          <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
         </div>
         <div class='fifth museum'>
           <div id='warhol'>
