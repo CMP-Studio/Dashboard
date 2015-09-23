@@ -89,6 +89,11 @@ max-height:90%;
   cursor: default;
 
 }
+.museum-switcher
+{
+  height:100%;
+  width:100%;
+}
 .fifth
 {
   width: 20%;

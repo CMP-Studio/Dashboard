@@ -56,34 +56,34 @@ require_once 'app/facebook.php';
       </div>
       <div id='musebar'>
         <div class='fifth museum active'>
-          <div href='#' id='cmp'>
+          <div class='museum-switcher' id='cmp'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
           </div>
           <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
         </div>
         <div class='fifth museum'>
-          <div id='cmoa'>
+          <div class='museum-switcher' id='cmoa'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
           </div>
           <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
         </div>
         <div class='fifth museum'>
-          <div id='cmnh'>
+          <div class='museum-switcher' id='cmnh'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
           </div>
           <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
         </div>
         <div class='fifth museum'>
-          <div id='csc'>
+          <div class='museum-switcher' id='csc'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
           </div>
           <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
         </div>
-        <div class='fifth museum'>
+        <div class='museum-switcher' class='fifth museum'>
           <div id='warhol'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
