@@ -83,8 +83,8 @@ require_once 'app/facebook.php';
           </div>
           <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
         </div>
-        <div class='museum-switcher' class='fifth museum'>
-          <div id='warhol'>
+        <div  class='fifth museum'>
+          <div class='museum-switcher' id='warhol'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
           </div>
