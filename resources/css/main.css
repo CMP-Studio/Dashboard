@@ -514,6 +514,15 @@ p span
     font-size: 3vmax;
 
   }
+  .three-fifth
+  {
+    width:0;
+  }
+  .studio
+  {
+    margin-left: 20%;
+    width:60%;
+  }
 
 
 }

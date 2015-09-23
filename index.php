@@ -44,7 +44,7 @@ require_once 'app/facebook.php';
     <header id='topbar'>
       <div id='studiobar' class='clearfix'>
 
-        <a href='//studio.carnegiemuseums.org' class='fifth'>
+        <a href='//studio.carnegiemuseums.org' class='studio fifth'>
           <img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/>
         </a>
         <div class='three-fifth'>
