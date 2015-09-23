@@ -96,13 +96,13 @@ $(document).ready(function (){
         location.assign(location.href.replace(/\/?#/, "/"));
     }*/
 
-    $('#cmp').parent().removeClass('active');
-    $('#csc').parent().removeClass('active');
-    $('#cmoa').parent().removeClass('active');
-    $('#cmnh').parent().removeClass('active');
-    $('#warhol').parent().removeClass('active');
+    $('#cmp').removeClass('active');
+    $('#csc').removeClass('active');
+    $('#cmoa').removeClass('active');
+    $('#cmnh').removeClass('active');
+    $('#warhol').removeClass('active');
 
-    $('#' + loc).parent().addClass('active');
+    $('#' + loc).addClass('active');
 
   }
 
