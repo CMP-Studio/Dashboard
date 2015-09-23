@@ -96,8 +96,8 @@ max-height:90%;
   float:left;
   position: relative;
   cursor: pointer;
-  padding-bottom:2vh;
-  padding-top: 2vh;
+  padding-bottom:1vh;
+  padding-top: 1vh;
 
 
 }
@@ -107,8 +107,8 @@ max-height:90%;
   height: 100%;
   float:left;
   height: 7vh;
-  padding-bottom: 2vh;
-  padding-top: 2vh;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
 
 
   display:flex;
@@ -120,12 +120,7 @@ max-height:90%;
 
 .museum img
 {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
   max-height:70%;
   max-width:90%;
 }
