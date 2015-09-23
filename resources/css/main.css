@@ -76,8 +76,8 @@ a
 .studio-logo
 {
 cursor: pointer;
-max-width:90%;
-max-height:90%;
+max-width:100%;
+max-height:100%;
 }
 .header-title
 {
@@ -89,11 +89,7 @@ max-height:90%;
   cursor: default;
 
 }
-.museum-switcher
-{
-  max-height:100%;
-  max-width:100%;
-}
+
 .fifth
 {
   width: 20%;
@@ -126,8 +122,8 @@ max-height:90%;
 .museum img
 {
 
-  max-height:70%;
-  max-width:90%;
+  max-height:100%;
+  max-width:100%;
 }
 .active .logo
 {
