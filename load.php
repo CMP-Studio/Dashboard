@@ -285,6 +285,9 @@ function museumTxt(loc)
 {
   switch(loc)
   {
+    case 'cmp':
+    return 'Carnegie Museum of Pittsburgh';
+    break;
     case 'cmoa':
     return 'Carnegie Museum of Art';
     break;
