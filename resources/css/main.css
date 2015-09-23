@@ -113,7 +113,7 @@ cursor: pointer;
 
 
 }
-.fifth img
+.museum img
 {
   position: absolute;
   margin: auto;
@@ -159,6 +159,8 @@ cursor: pointer;
 {
   background-color: rgba(0,0,0,0.1);
 }
+
+
 
 
 /* Content */
@@ -452,7 +454,7 @@ p span
   {
     display:none;
   }
-  .museum.fifth img
+  .museum img
   {
     max-width:50%;
   }
