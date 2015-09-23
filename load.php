@@ -2,6 +2,10 @@
 $(document).ready(function (){
 
 
+//No #
+if (location.href.indexOf("#") > -1) {
+    location.assign(location.href.replace(/\/?#/, "/"));
+}
 
   //Defaults
   var timespan = getLastMonth();
