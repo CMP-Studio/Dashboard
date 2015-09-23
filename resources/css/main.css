@@ -415,6 +415,10 @@ p span
   {
     height: 7vmax;
   }
+  .header-title
+  {
+    font-size: 4vmax;
+  }
   #content
   {
     margin-top: 14vmax;
