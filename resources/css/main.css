@@ -158,16 +158,20 @@ transform: translateY(-50%);
   background-color:rgb(77,102,132);
 }
 
-.help button
+.help-btn
 {
-  color:white;
+
   font-size: 3vh;
-  margin: auto;
+  right:10%;
 
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 
+}
+.help-btn i
+{
+    color:white;
 }
 
 .btn-clear
