@@ -51,7 +51,7 @@ require_once 'app/facebook.php';
 
         </div>
         <div class='fifth help'>
-          <button class="btn btn-default btn-clear"><i class="fa fa-question-circle"></i></button>
+          <button class="btn btn-clear"><i class="fa fa-question-circle"></i></button>
         </div>
       </div>
       <div id='musebar'>
@@ -59,7 +59,7 @@ require_once 'app/facebook.php';
 
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
-          
+
           <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
         </div>
         <div class='fifth museum' id='cmoa'>
