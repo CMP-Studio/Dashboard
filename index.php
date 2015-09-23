@@ -48,10 +48,10 @@ require_once 'app/facebook.php';
           <img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/>
         </a>
         <div class='three-fifth'>
-          <h1 class='header-title'>Digital Dashboard</h1>
-        </div>
-        <div class='fifth'>
 
+        </div>
+        <div class='fifth help'>
+          <button class="btn btn-default"><i class="fa fa-question-circle"></i></button>
         </div>
       </div>
       <div id='musebar'>
