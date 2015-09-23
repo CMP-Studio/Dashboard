@@ -166,6 +166,7 @@ transform: translateY(-50%);
 
   position: relative;
   float:right;
+  margin-right:10%;
   top: 50%;
   transform: translateY(-50%);
 
