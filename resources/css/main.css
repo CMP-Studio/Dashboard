@@ -75,8 +75,11 @@ a
 }
 .studio-logo
 {
+  position: relative;
+  display:block;
+
 cursor: pointer;
-max-width:75%;
+max-width:70%;
 margin:0 auto;
 top:50%;
 transform: translateY(-50%);
@@ -134,7 +137,7 @@ transform: translateY(-50%);
   transform: translateY(-50%);
 
 
-  max-width:75%;
+  max-width:70%;
 
 }
 .active .logo
