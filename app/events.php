@@ -199,7 +199,7 @@ function topTweetEvents($account, $count = 10)
 {
 
 	$tweets = topTweets($account, $count);
-
+if(!isset($tweets)) return array();
 	$tevents = array();
 
 	foreach ($tweets as $key => $t)
@@ -241,6 +241,8 @@ function gaEvents($account, $count = 10)
 
 	$tevents = array();
 
+if(!isset($events)) return array();
+
 	foreach ($events as $key => $d) {
 		$teve = array();
 		//Form timestamp
@@ -276,6 +278,7 @@ function fbEvents($account, $count = 10)
 {
 	$events = getTopFBPosts($account, $count);
 	$tevents = array();
+	if(!isset($events)) return array();
 
 	foreach ($events as $key => $d)
 	{
@@ -315,6 +318,7 @@ function igEvents($account, $count = 10)
 {
 	$events = getTopIGMedia($account, $count);
 	$tevents = array();
+	if(!isset($events)) return array();
 
 	foreach ($events as $key => $d)
 	{
