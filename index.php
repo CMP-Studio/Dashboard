@@ -63,31 +63,31 @@ require_once 'app/facebook.php';
           <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
         </div>
         <div class='fifth museum'>
-          <a href='#' id='cmoa'>
+          <div id='cmoa'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa.png'>
-          </a>
+          </div>
           <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/warhol_white.png'>
         </div>
         <div class='fifth museum'>
-          <a href='#' id='cmnh'>
+          <div id='cmnh'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh.png'>
-          </a>
+          </div>
           <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/warhol_white.png'>
         </div>
         <div class='fifth museum'>
-          <a href='#' id='csc'>
+          <div id='csc'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc.png'>
-          </a>
+          </div>
           <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/warhol_white.png'>
         </div>
         <div class='fifth museum'>
-          <a href='#' id='warhol'>
+          <div id='warhol'>
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
-          </a>
+          </div>
           <img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
         </div>
 
