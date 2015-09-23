@@ -76,8 +76,9 @@ a
 .studio-logo
 {
 cursor: pointer;
-max-width:100%;
+max-width:80%;
 max-height:100%;
+margin-left:20%;
 }
 .header-title
 {
