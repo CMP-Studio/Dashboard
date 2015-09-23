@@ -135,6 +135,7 @@ transform: translateY(-50%);
   margin:0 auto;
   top:50%;
   transform: translateY(-50%);
+  float:left;
 
 
   max-width:70%;
@@ -500,6 +501,7 @@ p span
   }
   .museum.active i
   {
+      float:left;
     display:inline;
     line-height: 7vmax;
     color:white;
