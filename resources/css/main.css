@@ -103,6 +103,9 @@ cursor: pointer;
   height: 100%;
   float:left;
   height: 7vh;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+
 
   display:flex;
   justify-content: center;
