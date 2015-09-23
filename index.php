@@ -58,9 +58,9 @@ require_once 'app/facebook.php';
         <div class='fifth museum active'>
           <a href='#' id='cmp'>
             <i class="fa fa-bars"></i>
-            <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/cmoa.png'>
+            <img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
           </a>
-          <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/warhol_white.png'>
+          <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
         </div>
         <div class='fifth museum'>
           <a href='#' id='cmoa'>
