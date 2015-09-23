@@ -122,9 +122,11 @@ max-height:100%;
 
 .museum img
 {
+  position: relative;
   display:block;
 
-  margin:50% auto;
+  margin:0 auto;
+  top:10%;
 
   max-height:80%;
   max-width:60%;
