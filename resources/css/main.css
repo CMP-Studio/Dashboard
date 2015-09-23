@@ -162,7 +162,7 @@ transform: translateY(-50%);
 .help-btn
 {
 
-  font-size: 3vh;
+
 
 
   position: relative;
@@ -174,6 +174,7 @@ transform: translateY(-50%);
 }
 .help-btn i
 {
+    font-size: 3vh;
     color:white;
 }
 
@@ -511,7 +512,7 @@ p span
   .help-btn i
   {
     font-size: 3vmax;
-    
+
   }
 
 
