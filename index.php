@@ -62,11 +62,11 @@ require_once 'app/facebook.php';
           </div>
           <img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
         </div>
-        <div class='fifth museum'>
-          <div class='museum-switcher' id='cmoa'>
+        <div class='fifth museum' id='cmoa'>
+
             <i class="fa fa-bars"></i>
             <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
-          </div>
+          
           <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
         </div>
         <div class='fifth museum'>
