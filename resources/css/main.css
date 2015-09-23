@@ -165,9 +165,9 @@ transform: translateY(-50%);
 
 
   position: relative;
-  right:50%;
+  float:right;
   top: 50%;
-  transform: translateY(-50%, -50%);
+  transform: translateY(-50%);
 
 }
 .help-btn i
