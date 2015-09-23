@@ -81,7 +81,7 @@ cursor: pointer;
 {
   color:white;
   line-height:100%;
-  font-size: 4vmin;
+  font-size: 4vh;
   float:left;
   margin:0;
   cursor: default;
@@ -90,7 +90,7 @@ cursor: pointer;
 .fifth
 {
   width: 20%;
-  height: 7vh;
+  height: 7vmax;
   float:left;
   position: relative;
   cursor: pointer;
@@ -102,7 +102,7 @@ cursor: pointer;
   width:60%;
   height: 100%;
   float:left;
-  height: 7vh;
+  height: 7vmax;
 
   display:flex;
   justify-content: center;
@@ -426,10 +426,10 @@ p span
   .museum.active i
   {
     display:inline;
-    line-height: 7vh;
+    line-height: 7max;
     color:white;
-    padding-left:4vmin;
-    font-size: 4vmin;
+    padding-left:4vh;
+    font-size: 4vh;
   }
 
 
