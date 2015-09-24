@@ -108,7 +108,7 @@ function error($error, $from = null)
 //Cache all API calls
 function APIdsName($url, $params)
 {
-  $dataset = "url=$url;";
+  $dataset = "type=api;url=$url;";
   foreach ($params as $key => $value) {
     $dataset .= "$key=$value;";
   }
