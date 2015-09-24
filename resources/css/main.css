@@ -216,7 +216,8 @@ transform: translateY(-50%);
 {
   width: 100%;
   height: auto;
-  text-align: center;
+  text-align: left;
+  padding-left:3%;
   padding-top: 1vh;
 
 

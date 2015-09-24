@@ -97,7 +97,7 @@ require_once 'app/facebook.php';
 
     <div id='content'>
       <div id='pane1' class='clearfix'>
-        <h2 class='title'>Web Traffic</h2>
+        <h2 class='title'>Web Activity</h2>
         <div id='chart'>
 
         </div>
