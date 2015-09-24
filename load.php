@@ -586,7 +586,7 @@ console.log(yS(1));
     setTimeout(function(){
       $("#socialmedia").hide();
       $("#infotext").show();
-    }, 1000);
+    }, 5000);
   //  d3.select(this).attr("r","4");
   });
 
