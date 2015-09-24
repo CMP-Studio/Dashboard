@@ -572,7 +572,7 @@ function getStatistics()
 
   $analytics = getAnalytics();
 
-  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews,ga:avgSessionDuration,ga:pageviewsPerSession,ga:pageTitle");
+  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews,ga:avgSessionDuration,ga:pageviewsPerSession");
 
   $data = $data->getRows();
 
@@ -582,18 +582,18 @@ function getStatistics()
   $result['pageviews'] = $data[0][1];
   $result['tos'] = $data[0][2];
   $result['pps'] = $data[0][3];
-	$result['title'] = $data[0][4];
+
 
 
   $count = 5;
   $filter= ""; //"ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org";
-  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
+  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
   $data = $data->getRows();
 
   $result['toppages'] = array();
 
   foreach ($data as $key => $r) {
-    $result['toppages'][$key] = $r[0] . $r[1];
+    $result['toppages'][$key] = array("url" => $r[0] . $r[1], "title" => $r[2]);
   }
 
 

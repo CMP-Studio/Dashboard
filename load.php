@@ -241,7 +241,7 @@ $.getJSON(url).done(function (data){
   $("#topPages").empty();
   for (var i = pages.length - 1; i >= 0; i--) {
     var p = pages[i];
-    $("#topPages").prepend("<li><a href='//" + p + "' target='_blank'>" + p + "</a></li>" )
+    $("#topPages").prepend("<li><a href='//" + p.url + "' target='_blank'>" + p.title + "</a></li>" )
   }
 
   $('#infotext').show();
