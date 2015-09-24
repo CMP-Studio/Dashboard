@@ -496,7 +496,7 @@ function events(data, srcs)
 
   var sbox = svg.select('.highcharts-series-group').node().getBBox();
 
-  var h = 150;
+  var h = 50;
   var l = $('.highcharts-series-group').position().left;
 
   var t = 0;
@@ -542,7 +542,7 @@ function events(data, srcs)
   {
       return yS(1);
   })
-  .attr("stroke-width", "2")
+  .attr("stroke-width", "1")
   .attr("class", function(d)
   {
     return d.source.replace(" ","-");

@@ -128,7 +128,7 @@ function getGAAccountByLoc()
   $accounts = json_decode(file_get_contents('config/accounts.json'), true);
   $locAccounts = $accounts['location'][$loc]['accounts'];
 
-  foreach ($locAccounts as $key => $act) 
+  foreach ($locAccounts as $key => $act)
   {
     $type = $act['type'];
     $id = $act["id"];
@@ -539,11 +539,11 @@ function getReferrals($count = 20, $refFilter = null, $account=null)
   }
 
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter)->getRows();
-  
+
   $refPages = array();
   if(isset($data))
   {
-    foreach ($data as $key => $r) 
+    foreach ($data as $key => $r)
     {
       $refPages[$key] = $r[0] . $r[1];
     }
@@ -572,7 +572,7 @@ function getStatistics()
 
   $analytics = getAnalytics();
 
-  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews,ga:avgSessionDuration,ga:pageviewsPerSession");
+  $data = runQuery($analytics, $account , $start, $end, "ga:users,ga:pageviews,ga:avgSessionDuration,ga:pageviewsPerSession,ga:pageTitle");
 
   $data = $data->getRows();
 
@@ -582,10 +582,11 @@ function getStatistics()
   $result['pageviews'] = $data[0][1];
   $result['tos'] = $data[0][2];
   $result['pps'] = $data[0][3];
+	$result['title'] = $data[0][4];
 
 
   $count = 5;
-  $filter="ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org";
+  $filter= ""; //"ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org";
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter);
   $data = $data->getRows();
 

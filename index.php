@@ -98,17 +98,27 @@ require_once 'app/facebook.php';
     <div id='content'>
       <div id='pane1' class='clearfix'>
         <h2 class='title'>Web Activity</h2>
+        <div id='timespan-picker'>
+          <h3 class='sr-only'>Stats for the selected timespan</h3>
+          <label class='left-label' for='timespan'>Stats for </label>
+          <select id='timespan'>
+            <option value='lw'>Last Week</option>
+            <option value='lm' selected="selected">Last Month</option>
+            <option value='l3m'>Previous 3 Months</option>
+            <option value='ly'>Last Year</option>
+          </select>
+        </div>
+        <div id='chart'>
+
+        </div>
+
+
+
+        <div id='socialmedia'>
+
+        </div>
         <div id='infopane'>
-          <div id='timespan-picker'>
-            <h3 class='sr-only'>Stats for the selected timespan</h3>
-            <label class='left-label' for='timespan'>Stats for </label>
-            <select id='timespan'>
-              <option value='lw'>Last Week</option>
-              <option value='lm' selected="selected">Last Month</option>
-              <option value='l3m'>Previous 3 Months</option>
-              <option value='ly'>Last Year</option>
-            </select>
-          </div>
+
           <div id='infotext'>
             <p><!-- Spacer --></p>
             <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
@@ -124,15 +134,6 @@ require_once 'app/facebook.php';
               </ol>
             </p>
           </div>
-        </div>
-        <div id='chart'>
-          
-        </div>
-
-
-
-        <div id='socialmedia'>
-
         </div>
 
 
