@@ -6,7 +6,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
 
   $cache = APIcache($url, $params);
-  
+
   if(isset($cache))
   {
     $result = $cache;
@@ -22,8 +22,6 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
     {
       $url = $url . "?" . $params;
     }
-
-    $cache = APIcache($url);
 
 
     curl_setopt($curl,	CURLOPT_URL				, $url);
@@ -128,7 +126,8 @@ function error($error, $from = null)
 function APIdsName($url, $params)
 {
   $dataset = "type=api;url=$url;";
-  if(isset($params)){
+  if(isset($params) && is_array($params))
+  {
     foreach ($params as $key => $value) {
       $dataset .= "KEY:$key=$value;";
     }
