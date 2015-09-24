@@ -2,6 +2,10 @@
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
+  $cache = APIcache($url, $params);
+
+  if(isset($cache)) return $cache;
+
   $curl = curl_init();
 
   $params = http_build_query($params);
@@ -32,12 +36,17 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
   {
     return $result;
   }
+  APIstore($url, $params, $data);
   return $data;
 
 }
 
 function postAPI($url, $params=null, $headers=null, $ssl=true)
 {
+    $cache = APIcache($url, $params);
+
+    if(isset($cache)) return $cache;
+
   	$curl = curl_init();
 
     $params = http_build_query($params);
@@ -51,7 +60,7 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
     }
   	curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
   	curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
-  	curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl); 
+  	curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl);
 
 
   	if( ! $result = curl_exec($curl))
@@ -66,6 +75,7 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
     {
       return $result;
     }
+    APIstore($url, $params, $data);
     return $data;
 }
 
@@ -94,6 +104,33 @@ function error($error, $from = null)
   print json_encode($err);
 
   exit();
+}
+//Cache all API calls
+function APIdsName($url, $params)
+{
+  $dataset = "url=$url;";
+  foreach ($params as $key => $value) {
+    $dataset .= "$key=$value;";
+  }
+
+  return $dataset;
+}
+
+function APIcache($url, $params)
+{
+  $ds = APIdsName($url, $params);
+  if($checkCache($ds))
+  {
+    return loadFromCache($ds);
+  }
+
+  return null;
+}
+
+function APIstore($url, $params, $data)
+{
+  $ds = APIdsName($url, $params);
+  storeInCache($ds, $data);
 }
 
 
