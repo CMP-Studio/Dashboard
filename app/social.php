@@ -140,7 +140,7 @@ function getTopPostEmbedded($id, $type)
 				{
 					return $embed->html;
 				}
-				return "<script>console.warn('Twit: Can't embed tweet')</script>";
+				return "<script>console.warn('Twit: Can\'t embed tweet')</script>";
 			}
 			else
 			{
