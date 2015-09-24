@@ -268,7 +268,7 @@ transform: translateY(-50%);
 
 #infopane
 {
-  width: 29%;
+ /*  width: 29%; */
   /*height: 60vh;*/
   /*float: left;*/
   padding:1%;
