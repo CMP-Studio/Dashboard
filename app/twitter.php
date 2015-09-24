@@ -59,14 +59,14 @@ function tweetEmbeed($tid = null)
 		}
 		else
 		{
-			$tid = null;
+			return null;
 		}
 	}
 
 	$token = getTwitterToken();
 	$headers = array("Authorization: Bearer " . $token);
 	$url = "https://api.twitter.com/1.1/statuses/oembed.json";
-	$params = array("align"=>"center","id"=>$tid);
+	$params = array("id"=>$tid);
 
 	$tweet = getAPI($url, $params, $headers);
 
