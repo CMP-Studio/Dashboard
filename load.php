@@ -517,6 +517,8 @@ function events(data, srcs)
 
   var xS = d3.scale.linear().domain([start, end]).range([l,w+l]);
   var yS = d3.scale.linear().domain([0, 1]).range([t,h-t]);
+console.log(yS(0));
+console.log(yS(1));
 
 
   //eSvg.append("line").attr('x1',xS(start)).attr('x2',xS(start)).attr('y1',yS(0)).attr('y2',yS(srcs['total-length'] - 1)).attr('stroke','black').attr('stroke-width',1);
@@ -536,6 +538,7 @@ function events(data, srcs)
   })
   .attr("y1", function(d)
   {
+
       return yS(0);
   }).attr("y1", function(d)
   {
@@ -546,7 +549,7 @@ function events(data, srcs)
   {
     return d.source.replace(" ","-");
   })
-  .style("fill",function(d)
+  .style("stroke",function(d)
   {
     switch(d.source)
     {
