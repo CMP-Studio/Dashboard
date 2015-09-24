@@ -540,11 +540,11 @@ console.log(yS(1));
   {
 
       return yS(0);
-  }).attr("y1", function(d)
+  }).attr("y2", function(d)
   {
       return yS(1);
   })
-  .attr("stroke-width", "1")
+  .attr("stroke-width", "2")
   .attr("class", function(d)
   {
     return d.source.replace(" ","-");
