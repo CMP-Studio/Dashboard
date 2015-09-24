@@ -30,7 +30,7 @@ $(document).ready(function (){
   $("#help-panel").dialog({
     autoOpen: false
   });
-  $("#help-btn").click(function(){
+  $(".help-btn").click(function(){
     $("#help-panel").dialog("open");
   })
 
