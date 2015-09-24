@@ -138,6 +138,9 @@ require_once 'app/facebook.php';
       </div>
     </div>
   </div>
+  <div id="help-panel" title="About this Dashboard">
+    <p>This dashboard includes a summary of information from the Carnegie Museums of Pittsburgh various web assets.</p>
+  </div>
   <!-- Javascript -->
 
   <!-- jQuery -->

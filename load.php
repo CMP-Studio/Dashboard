@@ -2,9 +2,6 @@
 $(document).ready(function (){
 
 
-//No #
-
-
   //Defaults
   var timespan = getLastMonth();
   var museum = 'cmp';
@@ -28,7 +25,15 @@ $(document).ready(function (){
     minWidth: 500,
     position: { my: "center top", at: "center center", of: '#musebar' }
   });
-  // $('#dialog').parent().css({position:"fixed"});
+
+  //Help dialog
+  $("#help-panel").dialog({
+    autoOpen: false
+  });
+  $("#help-btn").click(function(){
+    $("#help-panel").dialog("open");
+  })
+
 
   //Social timespan
   $("#social-start").text(moment().subtract(1, 'month').startOf('month').format("MMMM D, YYYY"));
