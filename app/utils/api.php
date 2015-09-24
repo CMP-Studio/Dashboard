@@ -4,41 +4,51 @@ require_once "cache.php";
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
+
   $cache = APIcache($url, $params);
-
-  if(isset($cache)) return $cache;
-
-  $curl = curl_init();
-
-  $params = http_build_query($params);
-
-  if(isset($params))
+  
+  if(isset($cache))
   {
-    $url = $url . "?" . $params;
+    $result = $cache;
   }
-
-
-  curl_setopt($curl,	CURLOPT_URL				, $url);
-  if(isset($headers))  curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
-  curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
-  curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
-  curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl); //Because API SSLs are sometimes broken
-
-
-  if( ! $result = curl_exec($curl))
+  else
   {
-    var_dump(curl_error($curl));
-    return NULL;
-  }
 
-  curl_close($curl);
+    $curl = curl_init();
+
+    $params = http_build_query($params);
+
+    if(isset($params))
+    {
+      $url = $url . "?" . $params;
+    }
+
+    $cache = APIcache($url);
+
+
+    curl_setopt($curl,	CURLOPT_URL				, $url);
+    if(isset($headers))  curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
+    curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
+    curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
+    curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl); //Because API SSLs are sometimes broken
+
+
+    if( ! $result = curl_exec($curl))
+    {
+      var_dump(curl_error($curl));
+      return NULL;
+    }
+
+    curl_close($curl);
+    APIstore($url, $params, $result);
+  }
 
   $data = json_decode($result);
   if($data == NULL)
   {
     return $result;
   }
-  APIstore($url, $params, $data);
+
   return $data;
 
 }
@@ -47,37 +57,44 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
 {
   $cache = APIcache($url, $params);
 
-  if(isset($cache)) return $cache;
-
-  $curl = curl_init();
-
-  $params = http_build_query($params);
-
-  curl_setopt($curl,	CURLOPT_URL				, $url);
-  curl_setopt($curl,	CURLOPT_POST			, 1);
-  curl_setopt($curl,	CURLOPT_POSTFIELDS		, $params);
-  if(isset($headers))
+  if(isset($cache))
   {
-    curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
+    $result = $cache;
   }
-  curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
-  curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
-  curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl);
-
-
-  if( ! $result = curl_exec($curl))
+  else
   {
-    var_dump(curl_error($curl));
-    return NULL;
-  }
 
-  curl_close($curl);
+    $curl = curl_init();
+
+    $params = http_build_query($params);
+
+    curl_setopt($curl,	CURLOPT_URL				, $url);
+    curl_setopt($curl,	CURLOPT_POST			, 1);
+    curl_setopt($curl,	CURLOPT_POSTFIELDS		, $params);
+    if(isset($headers))
+    {
+      curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
+    }
+    curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
+    curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
+    curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl);
+
+
+    if( ! $result = curl_exec($curl))
+    {
+      var_dump(curl_error($curl));
+      return NULL;
+    }
+
+    curl_close($curl);
+    APIstore($url, $params, $result);
+  }
   $data = json_decode($result);
   if($data == NULL)
   {
     return $result;
   }
-  APIstore($url, $params, $data);
+
   return $data;
 }
 
@@ -113,10 +130,10 @@ function APIdsName($url, $params)
   $dataset = "type=api;url=$url;";
   if(isset($params)){
     foreach ($params as $key => $value) {
-      $dataset .= "$key=$value;";
+      $dataset .= "KEY:$key=$value;";
     }
   }
-  
+
   return $dataset;
 }
 
