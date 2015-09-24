@@ -500,7 +500,7 @@ function events(data, srcs)
   var h = 50;
   var l = $('.highcharts-series-group').position().left;
 
-  var t = 0;
+  var t = 25;
 
 
   var axis = d3.select(".highcharts-markers.highcharts-tracker").node();
