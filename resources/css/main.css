@@ -270,8 +270,12 @@ transform: translateY(-50%);
 {
   width: 29%;
   /*height: 60vh;*/
-  float: left;
+  /*float: left;*/
   padding:1%;
+}
+#socialmedia
+{
+  float: left;
 }
 
 

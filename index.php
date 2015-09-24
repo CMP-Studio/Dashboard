@@ -98,11 +98,6 @@ require_once 'app/facebook.php';
     <div id='content'>
       <div id='pane1' class='clearfix'>
         <h2 class='title'>Web Activity</h2>
-        <div id='chart'>
-
-        </div>
-
-
         <div id='infopane'>
           <div id='timespan-picker'>
             <h3 class='sr-only'>Stats for the selected timespan</h3>
@@ -113,9 +108,6 @@ require_once 'app/facebook.php';
               <option value='l3m'>Previous 3 Months</option>
               <option value='ly'>Last Year</option>
             </select>
-          </div>
-          <div id='socialmedia'>
-
           </div>
           <div id='infotext'>
             <p><!-- Spacer --></p>
@@ -132,6 +124,16 @@ require_once 'app/facebook.php';
               </ol>
             </p>
           </div>
+        <div id='chart'>
+
+        </div>
+
+
+
+          <div id='socialmedia'>
+
+          </div>
+
         </div>
       </div>
       <div id='pane2' class='clearfix'>

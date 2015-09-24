@@ -496,7 +496,7 @@ function events(data, srcs)
 
   var sbox = svg.select('.highcharts-series-group').node().getBBox();
 
-  var h = sbox.height;
+  var h = 150;
   var l = $('.highcharts-series-group').position().left;
 
   var t = 0;
@@ -517,8 +517,6 @@ function events(data, srcs)
 
   var xS = d3.scale.linear().domain([start, end]).range([l,w+l]);
   var yS = d3.scale.linear().domain([0, 1]).range([t,h-t]);
-console.log(yS(0));
-console.log(yS(1));
 
 
   //eSvg.append("line").attr('x1',xS(start)).attr('x2',xS(start)).attr('y1',yS(0)).attr('y2',yS(srcs['total-length'] - 1)).attr('stroke','black').attr('stroke-width',1);
@@ -576,9 +574,9 @@ console.log(yS(1));
   })
   .on('mouseenter', function(d){
   //  d3.select(this).attr("r","6");
-    $("#socialmedia").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>")
+    $("#socialmedia").html(d.html + "<br><a target='_blank' href='" + d.url + "'>Permalink</a>")
     $("#socialmedia").show();
-    $("#infotext").hide();
+    //$("#infotext").hide();
 
   })
   .on('mouseleave', function(d)
