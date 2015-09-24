@@ -117,7 +117,7 @@ require_once 'app/facebook.php';
         <div id='socialmedia'>
 
         </div>
-        <div class="clearfix"></div>
+
         <div id='infopane'>
 
           <div id='infotext'>
@@ -135,7 +135,7 @@ require_once 'app/facebook.php';
           </div>
         </div>
 
-
+        <div class="clearfix"></div>
       </div>
       <div id='pane2' class='clearfix'>
         <h2 class='title'>Social Media From <span id='social-start'></span> To <span id='social-end'></span></h2>

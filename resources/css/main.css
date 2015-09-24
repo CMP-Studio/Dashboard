@@ -268,10 +268,13 @@ transform: translateY(-50%);
 
 #infopane
 {
+
  /*  width: 29%; */
   /*height: 60vh;*/
-  /*float: left;*/
-  padding:1%;
+  float: left;
+  padding-left: 20%;
+  padding-right:20%;
+  width:30%;
 }
 #socialmedia
 {
