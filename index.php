@@ -140,6 +140,8 @@ require_once 'app/facebook.php';
   </div>
   <div id="help-panel" title="About this Dashboard">
     <p>This dashboard includes a summary of information from the Carnegie Museums of Pittsburgh various web assets.</p>
+    <p>Web activity shows a timeline of events that occured during the selected timespan including how many people viewed pages on our websites, popular social media posts, and pages that recived a spike in traffic.</p>
+    <p>The Social Media section shows the post(s) viewers responded to the most and the pages that they went to after seeing a post.  It also keeps a track of our followers and the change of followers month to month.</p>
   </div>
   <!-- Javascript -->
 
