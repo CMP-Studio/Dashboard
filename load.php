@@ -566,20 +566,26 @@ console.log(yS(1));
     }
 
   })
-  .style("cursor","hand")
+  //.style("cursor","hand")
   .on('click',function(d)
   {
     //.log(d);
-    $("#dialog").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>");
-    $("#dialog").dialog("option","title",d.title);
-    $("#dialog").dialog("open");
+    //$("#dialog").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>");
+    //$("#dialog").dialog("option","title",d.title);
+    //$("#dialog").dialog("open");
   })
   .on('mouseenter', function(d){
-    d3.select(this).attr("r","6");
+  //  d3.select(this).attr("r","6");
+    $("#social-holder").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>")
+    $("#social-holder").show();
+    $("#infotext").hide();
+
   })
   .on('mouseleave', function(d)
   {
-    d3.select(this).attr("r","4");
+    $("#social-holder").hide();
+    $("#infotext").show();
+  //  d3.select(this).attr("r","4");
   });
 
   $('.Google-Analytics').attr('display','none');

@@ -111,8 +111,11 @@ require_once 'app/facebook.php';
               <option value='lw'>Last Week</option>
               <option value='lm' selected="selected">Last Month</option>
               <option value='l3m'>Previous 3 Months</option>
-              <option value='ly'>Last Year</option>              
+              <option value='ly'>Last Year</option>
             </select>
+          </div>
+          <div id='socialmedia'>
+
           </div>
           <div id='infotext'>
             <p><!-- Spacer --></p>
