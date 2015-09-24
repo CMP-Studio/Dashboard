@@ -576,14 +576,14 @@ console.log(yS(1));
   })
   .on('mouseenter', function(d){
   //  d3.select(this).attr("r","6");
-    $("#social-holder").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>")
-    $("#social-holder").show();
+    $("#socialmedia").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>")
+    $("#socialmedia").show();
     $("#infotext").hide();
 
   })
   .on('mouseleave', function(d)
   {
-    $("#social-holder").hide();
+    $("#socialmedia").hide();
     $("#infotext").show();
   //  d3.select(this).attr("r","4");
   });
