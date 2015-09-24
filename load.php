@@ -583,10 +583,12 @@ console.log(yS(1));
   })
   .on('mouseleave', function(d)
   {
+    /*
     setTimeout(function(){
       $("#socialmedia").hide();
       $("#infotext").show();
     }, 10000);
+    */
   //  d3.select(this).attr("r","4");
   });
 
