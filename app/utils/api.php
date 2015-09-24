@@ -121,7 +121,7 @@ function APIdsName($url, $params)
 function APIcache($url, $params)
 {
   $ds = APIdsName($url, $params);
-  if($checkCache($ds))
+  if(checkCache($ds))
   {
     return loadFromCache($ds);
   }
