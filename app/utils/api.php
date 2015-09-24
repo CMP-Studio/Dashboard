@@ -26,10 +26,10 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
 
   if( ! $result = curl_exec($curl))
-    {
-        var_dump(curl_error($curl));
-        return NULL;
-    }
+  {
+    var_dump(curl_error($curl));
+    return NULL;
+  }
 
   curl_close($curl);
 
@@ -45,40 +45,40 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
 function postAPI($url, $params=null, $headers=null, $ssl=true)
 {
-    $cache = APIcache($url, $params);
+  $cache = APIcache($url, $params);
 
-    if(isset($cache)) return $cache;
+  if(isset($cache)) return $cache;
 
-  	$curl = curl_init();
+  $curl = curl_init();
 
-    $params = http_build_query($params);
+  $params = http_build_query($params);
 
-  	curl_setopt($curl,	CURLOPT_URL				, $url);
-  	curl_setopt($curl,	CURLOPT_POST			, 1);
-  	curl_setopt($curl,	CURLOPT_POSTFIELDS		, $params);
-    if(isset($headers))
-    {
-  	   curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
-    }
-  	curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
-  	curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
-  	curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl);
+  curl_setopt($curl,	CURLOPT_URL				, $url);
+  curl_setopt($curl,	CURLOPT_POST			, 1);
+  curl_setopt($curl,	CURLOPT_POSTFIELDS		, $params);
+  if(isset($headers))
+  {
+    curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
+  }
+  curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
+  curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
+  curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl);
 
 
-  	if( ! $result = curl_exec($curl))
-      {
-          var_dump(curl_error($curl));
-  		      return NULL;
-      }
+  if( ! $result = curl_exec($curl))
+  {
+    var_dump(curl_error($curl));
+    return NULL;
+  }
 
-  	curl_close($curl);
-  	$data = json_decode($result);
-    if($data == NULL)
-    {
-      return $result;
-    }
-    APIstore($url, $params, $data);
-    return $data;
+  curl_close($curl);
+  $data = json_decode($result);
+  if($data == NULL)
+  {
+    return $result;
+  }
+  APIstore($url, $params, $data);
+  return $data;
 }
 
 function tryGET($var)
@@ -111,10 +111,12 @@ function error($error, $from = null)
 function APIdsName($url, $params)
 {
   $dataset = "type=api;url=$url;";
-  foreach ($params as $key => $value) {
-    $dataset .= "$key=$value;";
+  if(isset($params)){
+    foreach ($params as $key => $value) {
+      $dataset .= "$key=$value;";
+    }
   }
-
+  
   return $dataset;
 }
 
@@ -140,4 +142,4 @@ function APIstore($url, $params, $data)
 
 
 
- ?>
+?>
