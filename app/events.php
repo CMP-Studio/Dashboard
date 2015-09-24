@@ -219,7 +219,7 @@ if(!isset($tweets)) return array();
 			$teve['html'] = $ebed->html;
 		}
 		else {
-			$teve['html'] = null;
+			$teve['html'] = "<script>console.warn('Twit: " . serialize($ebed) . "')</script>";
 		}
 		$teve['score'] = $key;
 		$teve['url'] = "https://twitter.com/statuses/" . $t->id_str;

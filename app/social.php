@@ -140,7 +140,7 @@ function getTopPostEmbedded($id, $type)
 				{
 					return $embed->html;
 				}
-				return "<script>console.warn('Twit: " . var_dump($embed) . "')</script>";
+				return "<script>console.warn('Twit: " . serialize($embed) . "')</script>";
 			}
 			else
 			{
