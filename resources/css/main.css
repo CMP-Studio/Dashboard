@@ -79,7 +79,8 @@ a
   display:block;
 
 cursor: pointer;
-max-width:70%;
+max-width:65%;
+max-height:100%;
 margin:0 auto;
 top:50%;
 transform: translateY(-50%);
