@@ -1,4 +1,6 @@
 <?php
+require_once "cache.php";
+
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
