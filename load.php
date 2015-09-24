@@ -499,7 +499,7 @@ function events(data, srcs)
   var h = sbox.height;
   var l = $('.highcharts-series-group').position().left;
 
-  var t = h/4;
+  var t = 0;
 
 
   var axis = d3.select(".highcharts-markers.highcharts-tracker").node();
@@ -516,7 +516,7 @@ function events(data, srcs)
 
 
   var xS = d3.scale.linear().domain([start, end]).range([l,w+l]);
-  var yS = d3.scale.linear().domain([0, srcs['total-length'] - 1]).range([t,h-t]);
+  var yS = d3.scale.linear().domain([0, 1]).range([t,h-t]);
 
 
   //eSvg.append("line").attr('x1',xS(start)).attr('x2',xS(start)).attr('y1',yS(0)).attr('y2',yS(srcs['total-length'] - 1)).attr('stroke','black').attr('stroke-width',1);
@@ -525,18 +525,23 @@ function events(data, srcs)
   var circles =  eSvg.selectAll("circle")
   .data(events)
   .enter()
-  .append("circle")
-  .attr("cx", function(d) {
+  .append("line")
+  .attr("x1", function(d) {
     //.log(getDate(d.timestamp));
-    return xS(d.timestamp)
+    return xS(d.timestamp);
   })
-  .attr("cy", function(d)
+  .attr("x2", function(d) {
+    //.log(getDate(d.timestamp));
+    return xS(d.timestamp);
+  })
+  .attr("y1", function(d)
   {
-
-    var i = srcs[d.source.toLowerCase()];
-    return yS(i);
+      return yS(0);
+  }).attr("y1", function(d)
+  {
+      return yS(1);
   })
-  .attr("r", "4")
+  .attr("stroke-width", "1")
   .attr("class", function(d)
   {
     return d.source.replace(" ","-");
