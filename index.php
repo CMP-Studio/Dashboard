@@ -117,6 +117,7 @@ require_once 'app/facebook.php';
         <div id='socialmedia'>
 
         </div>
+        <div id="clearfix"></div>
         <div id='infopane'>
 
           <div id='infotext'>

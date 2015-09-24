@@ -217,6 +217,7 @@ $.getJSON(url).done(function (data){
     console.info('AJAX load canceled: Not most recent call');
     return;
   }
+  console.log(data);
 
 
   var start_s = moment.unix(start).format("MMMM D, YYYY");
