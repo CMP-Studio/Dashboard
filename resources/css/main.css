@@ -13,7 +13,7 @@ Blue/grey: rgb(77,102,132)
 }
 body, html
 {
-
+  height:100%;
 }
 a
 {
@@ -214,6 +214,7 @@ transform: translateY(-50%);
 .top-spacer
 {
   height:15%;
+  width: 100%;
 }
 
 /* Content */
