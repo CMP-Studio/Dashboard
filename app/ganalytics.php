@@ -637,7 +637,7 @@ function getTopDeviations($account = null, $count = null)
  $filter="ga:pageviews>24"; //More than 1 pageview an hour to cut down on outliers and processing
  $dims = "ga:hostname,ga:pagePath,ga:date";
  $metric = "ga:pageviews";
- $sort = "ga:hostname,ga:pagePath"
+ $sort = "ga:hostname,ga:pagePath";
  $count = 10000; //max
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
  $data = $data->getRows();
