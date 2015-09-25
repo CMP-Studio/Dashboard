@@ -122,10 +122,8 @@ require_once 'app/facebook.php';
           </p>
 
           <p class='no-pg-space'>The most popular pages during that period were:</p>
-          <p>
             <ol id='topPages'>
             </ol>
-          </p>
         </div>
       </div>
 
