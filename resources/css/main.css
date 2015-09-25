@@ -513,17 +513,14 @@ p span
   }
   .fifth
   {
-    height: 7vmax;
+
   }
   .three-fifth
   {
-    height: 7vmax;
+
   }
 
-  .header-title
-  {
-    font-size: 5vmin;
-  }
+
 
   .museum
   {
@@ -534,7 +531,7 @@ p span
   {
     display:none;
   }
-  .museum img
+  .fifth img
   {
     max-width:50%;
     max-height: 80%;
