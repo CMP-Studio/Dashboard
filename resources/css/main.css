@@ -511,6 +511,7 @@ p span
   {
     height: 7vmax;
   }
+
   .header-title
   {
     font-size: 5vmin;
@@ -551,6 +552,15 @@ p span
   {
     font-size: 3vmax;
 
+  }
+  #infotext
+  {
+    width:100%;
+  }
+  #timespan-picker
+  {
+    padding-left:5%;
+    padding-right:5%;
   }
   .three-fifth
   {
