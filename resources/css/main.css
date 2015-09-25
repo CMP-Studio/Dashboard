@@ -506,6 +506,7 @@ p span
   .museum img
   {
     max-width:50%;
+    max-height: 80%;
   }
   .museum.fifth.active
   {
