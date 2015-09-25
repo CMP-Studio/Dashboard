@@ -211,14 +211,16 @@ transform: translateY(-50%);
 }
 
 
-
+.top-spacer
+{
+  height:15%;
+}
 
 /* Content */
 #content
 {
     position: relative;
     width:100%;
-    top:15%;
     display:block;
     left: 0;
     background-color: rgb(232,232,232);
@@ -252,7 +254,7 @@ transform: translateY(-50%);
 #chart
 {
   float:left;
-  height:69vh;
+  height:70%;
   width:70%;
   position: relative;
 }
