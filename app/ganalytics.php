@@ -704,7 +704,7 @@ function mean($values)
 {
 	$sum = array_sum($values);
 	$count = count($values);
-	$mean = $sum / ($count * 24);  //We're cheating here a bit by using days instead of hours.  This however flatens out the nights
+	$mean = $sum / ($count * 24.0);  //We're cheating here a bit by using days instead of hours.  This however flatens out the nights
 }
 
 function stdev($mean, $values)
