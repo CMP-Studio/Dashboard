@@ -653,7 +653,7 @@ function getTopDeviations($account = null, $count = null)
 			{
 				$mean = mean($tvals);
 				$sd = stdev($mean, $tvals);
-				$stdevs[$path] = array('mean' => $mean, 'stdev' => $sd );
+				$stdevs[$path] = array('mean' => $mean, 'stdev' => $sd, $values => $tvals );
 			}
 			$tvals = array();
 			$path = $row[0] . $row[1];
@@ -683,7 +683,7 @@ function getTopDeviations($account = null, $count = null)
 		$d = substr($row[0],6,2);
 		$time = "$y-$m-$d " . $row[1] .":00";
 		$ts = strtotime($time);
-		$result[] = array('path' => $path, 'title' => $row[4], 'mean' => $sd['mean'], 'stdev' => $sd['stdev'], 'pageviews' => $row[5], 'z' => $z, 'timestamp' => $ts, "time" => $time);
+		$result[] = array('path' => $path, 'title' => $row[4], 'mean' => $sd['mean'], 'stdev' => $sd['stdev'], 'pageviews' => $row[5], 'z' => $z, 'timestamp' => $ts, "time" => $time, $values => $sd['values']);
  }
 
  usort($result, "zsort");
