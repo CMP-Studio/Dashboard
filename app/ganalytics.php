@@ -642,23 +642,21 @@ function getTopDeviations($account = null, $count = null)
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
  $data = $data->getRows();
 
- $stdevs = array();
+ $values = array();
  $path = '';
  $tvals = array();
  foreach ($data as $key => $row)
  {
- 		if($row[0] . $row[1] != $path)
-		{
-			if(!empty($tvals))
-			{
-				$mean = mean($tvals);
-				$sd = stdev($mean, $tvals);
-				$stdevs[$path] = array('mean' => $mean, 'stdev' => $sd, 'values' => $tvals );
-			}
-			$tvals = array();
-			$path = $row[0] . $row[1];
-		}
-		$tvals[] = $row[3];
+	 if(!isset($values[$row[0] . $row[1]])) $values[$row[0] . $row[1]] = array();
+	 $values[$row[0] . $row[1]][] = $row[3];
+ }
+
+ foreach ($values as $key => $val)
+ {
+ 		$mean = mean($val);
+		$sd = stdev($mean, $val);
+		$stdevs[$key] = array('mean' => $mean, 'stdev' => $sd, 'values' => $val );
+
  }
 
 
