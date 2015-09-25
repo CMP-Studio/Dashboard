@@ -25,6 +25,11 @@ a
   clear:both;
 }
 
+.no-pg-space
+{
+  margin-bottom: 0;
+}
+
 .merriweather
 {
   font-family:"merriweather"

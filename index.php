@@ -121,7 +121,7 @@ require_once 'app/facebook.php';
             viewing an average of <span id='pages-per-visit'></span> pages per visit.
           </p>
 
-          <p>The most popular pages during that period were:</p>
+          <p class='no-pg-space'>The most popular pages during that period were:</p>
           <p>
             <ol id='topPages'>
             </ol>
