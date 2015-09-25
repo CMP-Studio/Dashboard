@@ -219,6 +219,7 @@ transform: translateY(-50%);
     position: relative;
     width:100%;
     top:15%;
+    display:block;
     left: 0;
     background-color: rgb(232,232,232);
 
