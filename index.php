@@ -110,9 +110,24 @@ require_once 'app/facebook.php';
             <option value='ly'>Last Year</option>
           </select>
         </div>
+        <div id='chart-holder'>
         <div id='chart'>
 
         </div>
+        <div id='infotext'>
+          <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
+            Those users viewed <span id='pageviews'>212,345</span> pages.
+          During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
+            viewing an average of <span id='pages-per-visit'></span> pages per visit.
+          </p>
+
+          <p>The most popular pages during that period were:</p>
+          <p>
+            <ol id='topPages'>
+            </ol>
+          </p>
+        </div>
+      </div>
 
 
 
@@ -120,22 +135,6 @@ require_once 'app/facebook.php';
 
         </div>
 
-        <div id='infopane'>
-
-          <div id='infotext'>
-            <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
-              Those users viewed <span id='pageviews'>212,345</span> pages.
-            During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
-              viewing an average of <span id='pages-per-visit'></span> pages per visit.
-            </p>
-
-            <p>The most popular pages during that period were:</p>
-            <p>
-              <ol id='topPages'>
-              </ol>
-            </p>
-          </div>
-        </div>
 
         <div class="clearfix"></div>
       </div>

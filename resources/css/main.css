@@ -255,10 +255,15 @@ transform: translateY(-50%);
 }
 #chart
 {
-  float:left;
+
   height:70%;
   width:70%;
+
+}
+#chart-holder
+{
   position: relative;
+  float:left;
 }
 
 .highcharts-legend-item text
@@ -282,14 +287,7 @@ transform: translateY(-50%);
   height:24vh;
 }
 
-#infopane
-{
 
-  float: left;
-  margin-left: 10%;
-  margin-right:2%;
-  width:45%;
-}
 #socialmedia
 {
   width:25%;
@@ -340,6 +338,7 @@ p span
 #infotext
 {
   display:none;
+  margin-left:20%;
 }
 
 #topPages
