@@ -53,6 +53,7 @@ a
 
   height: 14%;
   max-height: 250px;
+  min-height:80px;
   top:0;
   right:0;
   left:0;
@@ -223,6 +224,7 @@ transform: translateY(-50%);
 {
   height:15%;
   max-height: 250px;
+  min-height: 80px;
   width: 100%;
 }
 
