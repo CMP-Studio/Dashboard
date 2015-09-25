@@ -256,13 +256,14 @@ transform: translateY(-50%);
 #chart
 {
 
-  height:70%;
-  width:70%;
+  height:500px;
+  width:100%;
 
 }
 #chart-holder
 {
   position: relative;
+  width:70%;
   float:left;
 }
 
@@ -492,9 +493,13 @@ p span
     width:100%;
     padding: 20px;
   }
-  #chart
+  #chart-holder
   {
     width:100%;
+  }
+  #chart
+  {
+    height:400px;
   }
   .fifth
   {
