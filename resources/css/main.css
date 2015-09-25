@@ -138,11 +138,11 @@ transform: translateY(-50%);
   top:50%;
 
 
-  -ms-transform: translateY (85px);
--webkit-transform: translateY (85px);
--moz-transform: translateY (85px);
--o-transform: translateY (85px);
-transform: translateY(85px);
+  -ms-transform: translateY(50%);
+-webkit-transform: translateY(50%);
+-moz-transform: translateY(50%);
+-o-transform: translateY(50%);
+transform: translateY(50%);
 
 
 
