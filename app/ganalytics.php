@@ -600,6 +600,127 @@ function getStatistics()
   return $result;
 }
 
+function getTopDeviations($account = null, $count = null)
+{
+	$pcount = $count;
+	$qcount = tryGET('count');
+
+	$vcount = 10;
+	if(isset($pcount))
+	{
+		$vcount = $pcount;
+	}
+	else if(isset($qcount))
+	{
+		$vcount = $qcount;
+	}
+  if($vcount > 100) $vcount = 100;
+
+	$settings = getSettings();
+
+	if(!isset($account))
+	{
+		$account = $settings["Account"];
+	}
+
+	$start = tryGET('start');
+ $end = tryGET('end');
+
+ if(!isset($start) || !isset($end)) return null;
+ $start = GoogleDate($start);
+ $end = GoogleDate($end);
+
+
+
+ $analytics = getAnalytics();
+
+ $filter="ga:pageviews>24"; //More than 1 pageview an hour to cut down on outliers and processing
+ $dims = "ga:hostname,ga:pagePath,ga:date";
+ $metric = "ga:pageviews";
+ $sort = "ga:hostname,ga:pagePath"
+ $count = 10000; //max
+ $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
+ $data = $data->getRows();
+
+ $stdevs = array();
+ $path = '';
+ $tvals = array();
+ foreach ($data as $key => $row)
+ {
+ 		if($row[0] . $row[1] != $path)
+		{
+			if(!empty($tvals))
+			{
+				$mean = mean($tvals);
+				$sd = stdev($mean, $tvals)
+				$stdevs[$path] = array('mean' => $mean, 'stdev' => $sd );
+			}
+			$tvals = array();
+			$path = $row[0] . $row[1];
+		}
+		$tvals[] = $row[4];
+ }
+
+
+
+ $count = 100 * $vcount;
+ $filter = "";
+ $dims = "ga:date,ga:hour,ga:hostname,ga:pagePath,ga:pageTitle";
+ $metric = "ga:pageviews";
+ $sort = "-ga:pageviews";
+ $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
+ $data = $data->getRows();
+
+ $result = array();
+ foreach ($data as $key => $row)
+ {
+	  $path = $row[2] . $row[3];
+	 	$sd = $stdevs[$path];
+		$z = zscore($sd['stdev'], $sd['mean'], $row[5]);
+		$time = $d[0] . " " . $d[1] .":00";
+		$ts = strtotime($time);
+		$result[] = array('path' => $path, 'title' => $row[4], 'mean' => $sd['mean'], 'stdev' => $sd['stdev'], 'pageviews' => $row[5], 'z' => $z, 'timestamp' => $ts);
+ }
+
+ usort($result, "zsort");
+ $ret = array_splice($result, 0, $vcount);
+
+ return $ret;
+
+}
+function zsort($a, $b)
+{
+	if($a['z'] == $b['z']) return 0;
+
+	return ($a['z'] > $b['z']) ? -1 : 1;
+
+}
+
+function mean($values)
+{
+	$sum = array_sum($values);
+	$count = count($values);
+	$mean = $sum / ($count * 24);  //We're cheating here a bit by using days instead of hours.  This however flatens out the nights
+}
+
+function stdev($mean, $values)
+{
+	$svar = 0;
+	foreach ($values as $key => $value)
+	{
+		$hv = $value / 24;
+		$svar += pow($hv - $mean, 2);
+	}
+	$var = $svar / $count;
+	$stdev = pow($var, 0.5);
+	return $stdev;
+}
+
+function zscore($stdev, $mean, $val)
+{
+	return ($val - $mean) / $stdev;
+}
+
 
 
 

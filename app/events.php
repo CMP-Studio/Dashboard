@@ -237,7 +237,7 @@ if(!isset($tweets)) return array();
 }
 function gaEvents($account, $count = 10)
 {
-	$events = topSources($account, $count);
+	$events = getTopDeviations($account, $count);
 
 	$tevents = array();
 
@@ -246,10 +246,10 @@ if(!isset($events)) return array();
 	foreach ($events as $key => $d) {
 		$teve = array();
 		//Form timestamp
-		$time = $d[0] . " " . $d[1] .":00";
-		$ts = strtotime($time);
-		$sdate = date("l F jS",$ts);
-		$url = 'http://' . $d[3] . $d[4];
+		$ts = $d['timestamp'];
+
+		$sdate = date("l F jS g:i a",$ts);
+		$url = 'http://' . $d['path'];
 
 		$teve['timestamp'] = $ts*1000;
 		$teve['title'] = "High traffic point on $sdate";
@@ -258,14 +258,12 @@ if(!isset($events)) return array();
 		$teve['score'] = $key;
 		$teve['url'] = $url;
 
-
-
-		$source = $d[2];
-
-		$users = $d[6];
-		$title = $d[5];
 		//Now generate the html
-		$teve['html'] = "<div class='ga-event'><table class='refTbl'><tr class='source'><th>Source</th><td>$source</td></tr><tr class='url'><th>Page</th><td><a href='$url'>$title</a></td></tr><tr class='views'><th>Pageviews</th><td>$users</td></tr></table></div>";
+		$title = $d['title'];
+		$pv = number_format($d['pageviews']);
+		$m = number_format($d['mean']);
+		$z = d['z'];
+		$teve['html'] = "<p>The page <a href='$url' target='_blank'>$title</a> has an unusually high number of views at $pv views at $sdate.  The page unusually has $m views/hour. [The Z-Score is $z]</p>";
 
 		array_push($tevents, $teve);
 
