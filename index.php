@@ -95,7 +95,7 @@ require_once 'app/facebook.php';
       </div>
     </header>
     <div class="top-spacer">
-        <p> </p>
+        &nbsp;
     </div>
     <div id='content'>
       <div id='pane1' class='clearfix'>
