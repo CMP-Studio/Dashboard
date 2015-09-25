@@ -265,7 +265,8 @@ if(!isset($events)) return array();
 		$z = $d['z'];
 		$sd = $d['stdev'];
 		$time = $d['time'];
-		$teve['html'] = "<p>$time: The page <a href='$url' target='_blank'>$title</a> has an unusually high number of views at $pv views at $sdate.  The page unusually has $m views/hour. [The Z-Score is $z / Standard Deviation is $sd]</p>";
+		$vals = json_encode($d['values']);
+		$teve['html'] = "<p>$time: The page <a href='$url' target='_blank'>$title</a> has an unusually high number of views at $pv views at $sdate.  The page unusually has $m views/hour. [The Z-Score is $z / Standard Deviation is $sd]</p><script>console.log($vals);</script>";
 
 		array_push($tevents, $teve);
 
