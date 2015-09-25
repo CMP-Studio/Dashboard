@@ -634,7 +634,7 @@ function getTopDeviations($account = null, $count = null)
 
  $analytics = getAnalytics();
 
- $filter="ga:pageviews>24"; //More than 1 pageview an hour to cut down on outliers and processing
+ $filter=""; //More than 1 pageview an hour to cut down on outliers and processing
  $dims = "ga:hostname,ga:pagePath,ga:date";
  $metric = "ga:pageviews";
  $sort = "ga:hostname,ga:pagePath";
@@ -675,6 +675,7 @@ function getTopDeviations($account = null, $count = null)
  foreach ($data as $key => $row)
  {
 	  $path = $row[2] . $row[3];
+		if(!isset($stdevs[$path])) continue;
 	 	$sd = $stdevs[$path];
 		$z = zscore($sd['stdev'], $sd['mean'], $row[5]);
 		$y = substr($row[0],0,4);
