@@ -674,6 +674,7 @@ function getTopDeviations($account = null, $count = null)
  {
 	  $path = $row[2] . $row[3];
 		if(!isset($stdevs[$path])) continue;
+		if($sd['mean'] <= 0) continue;
 	 	$sd = $stdevs[$path];
 		$z = zscore($sd['stdev'], $sd['mean'], $row[5]);
 		$y = substr($row[0],0,4);
