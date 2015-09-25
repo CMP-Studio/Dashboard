@@ -555,7 +555,9 @@ p span
   }
   #infotext
   {
-    width:100%;
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
   }
   #timespan-picker
   {
