@@ -584,6 +584,7 @@ p span
 
 
 }
+
 @media only screen and (max-width:480px) {
   .fifth img
   {
@@ -591,4 +592,19 @@ p span
     max-height: 80%;
   }
 
+}
+
+@media only screen and (max-height:480px)
+{
+  #chart
+  {
+    height:350px;
+  }
+}
+@media only screen and (max-height:350px)
+{
+  #chart
+  {
+    height:300px;
+  }
 }
