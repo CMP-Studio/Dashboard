@@ -522,6 +522,7 @@ p span
   .museum
   {
     width:100%;
+    background-color: #ABABAB;
   }
   .museum.fifth
   {
@@ -534,6 +535,7 @@ p span
   }
   .museum.fifth.active
   {
+    background-color:rgb(77,102,132);
     display:block;
   }
   .museum.active i
