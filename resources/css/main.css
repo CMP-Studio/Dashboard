@@ -44,7 +44,7 @@ a
 #topbar
 {
 
-  /* height: 15%; */
+  height: 14%;
   top:0;
   right:0;
   left:0;
@@ -57,19 +57,19 @@ a
 #studiobar
 {
   position: relative;
-  /* height:50%; */
+  height:50%;
   width: 100%;
   background-color: rgb(222,73,47);
 
-  z-index:999;
+
 }
 
 #musebar
 {
   position: relative;
-  /* height:50%; */
+   height:50%;
   width: 100%;
-  z-index:999;
+
   background-color: #ABABAB;
 
 }
@@ -102,7 +102,7 @@ transform: translateY(-50%);
 .fifth
 {
   width: 20%;
-  height: 7vh;
+  height: 100%;
   float:left;
   position: relative;
   cursor: pointer;
@@ -111,15 +111,26 @@ transform: translateY(-50%);
 
 
 }
+.fifth img
+{
+  position: relative;
+top:50%;
+
+
+-ms-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+-moz-transform: translateY(-50%);
+-o-transform: translateY(-50%);
+transform: translateY(-50%);
+}
 
 .three-fifth
 {
   width:60%;
   height: 100%;
   float:left;
-  height: 7vh;
-  padding-bottom: 1vh;
-  padding-top: 1vh;
+  height: 100%;
+
 
 
   display:flex;
@@ -131,18 +142,12 @@ transform: translateY(-50%);
 
 .museum img
 {
-  position: relative;
+
   display:block;
 
   margin:0 auto;
-  top:50%;
 
 
-  -ms-transform: translateY(-50%);
--webkit-transform: translateY(-50%);
--moz-transform: translateY(-50%);
--o-transform: translateY(-50%);
-transform: translateY(-50%);
 
 
 
