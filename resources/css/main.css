@@ -285,15 +285,16 @@ transform: translateY(-50%);
 #infopane
 {
 
- /*  width: 29%; */
-  /*height: 60vh;*/
   float: left;
   margin-left: 10%;
-  margin-right:20%;
-  width:40%;
+  margin-right:2%;
+  width:45%;
 }
 #socialmedia
 {
+  width:25%;
+  margin-left:2%;
+  margin-right:2%;
   float: left;
 }
 
