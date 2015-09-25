@@ -658,7 +658,7 @@ function getTopDeviations($account = null, $count = null)
 			$tvals = array();
 			$path = $row[0] . $row[1];
 		}
-		$tvals[] = $row[4];
+		$tvals[] = $row[3];
  }
 
 
@@ -705,6 +705,7 @@ function mean($values)
 
 function stdev($mean, $values)
 {
+	$count = count($values);
 	$svar = 0;
 	foreach ($values as $key => $value)
 	{
