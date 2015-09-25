@@ -558,8 +558,7 @@ p span
   }
   #timespan-picker
   {
-    padding-left:5%;
-    padding-right:5%;
+    padding:0;
   }
   .three-fifth
   {
