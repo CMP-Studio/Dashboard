@@ -652,7 +652,7 @@ function getTopDeviations($account = null, $count = null)
 			if(!empty($tvals))
 			{
 				$mean = mean($tvals);
-				$sd = stdev($mean, $tvals)
+				$sd = stdev($mean, $tvals);
 				$stdevs[$path] = array('mean' => $mean, 'stdev' => $sd );
 			}
 			$tvals = array();
