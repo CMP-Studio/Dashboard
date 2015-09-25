@@ -262,7 +262,7 @@ if(!isset($events)) return array();
 		$title = $d['title'];
 		$pv = number_format($d['pageviews']);
 		$m = number_format($d['mean']);
-		$z = d['z'];
+		$z = $d['z'];
 		$teve['html'] = "<p>The page <a href='$url' target='_blank'>$title</a> has an unusually high number of views at $pv views at $sdate.  The page unusually has $m views/hour. [The Z-Score is $z]</p>";
 
 		array_push($tevents, $teve);
