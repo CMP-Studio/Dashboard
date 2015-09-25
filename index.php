@@ -94,11 +94,10 @@ require_once 'app/facebook.php';
         <div class='clearfix'></div>
       </div>
     </header>
-
+    <div class="top-spacer">
+        <p> </p>
+    </div>
     <div id='content'>
-      <div class="top-spacer">
-          <p> </p>
-      </div>
       <div id='pane1' class='clearfix'>
         <h2 class='title'>Web Activity</h2>
         <div id='timespan-picker'>
