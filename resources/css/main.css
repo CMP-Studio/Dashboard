@@ -231,6 +231,7 @@ transform: translateY(-50%);
     display:block;
     left: 0;
     background-color: rgb(232,232,232);
+    overflow-y: scroll;
 
 }
 
@@ -301,6 +302,7 @@ transform: translateY(-50%);
   margin-left:2%;
   margin-right:2%;
   float: left;
+  overflow: hidden;
 }
 
 
