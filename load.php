@@ -297,7 +297,7 @@ function museumTxt(loc)
   switch(loc)
   {
     case 'cmp':
-    return 'Carnegie Museum of Pittsburgh';
+    return 'Carnegie Museums of Pittsburgh';
     break;
     case 'cmoa':
     return 'Carnegie Museum of Art';
@@ -500,7 +500,7 @@ function events(data, srcs)
   var h = 25;
   var l = $('.highcharts-series-group').position().left;
 
-  var t = 15;
+  var t = 0;
 
 
   var axis = d3.select(".highcharts-markers.highcharts-tracker").node();
