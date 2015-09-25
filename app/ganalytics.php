@@ -677,7 +677,10 @@ function getTopDeviations($account = null, $count = null)
 	  $path = $row[2] . $row[3];
 	 	$sd = $stdevs[$path];
 		$z = zscore($sd['stdev'], $sd['mean'], $row[5]);
-		$time = $row[0] . " " . $row[1] .":00";
+		$y = substr($row[0],0,4);
+		$m = substr($row[0],4,2);
+		$d = substr($row[0],6,2);
+		$time = "$y-$m-$d " . $row[1] .":00";
 		$ts = strtotime($time);
 		$result[] = array('path' => $path, 'title' => $row[4], 'mean' => $sd['mean'], 'stdev' => $sd['stdev'], 'pageviews' => $row[5], 'z' => $z, 'timestamp' => $ts, "time" => $time);
  }
