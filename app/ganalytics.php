@@ -655,6 +655,7 @@ function getTopDeviations($account = null, $count = null)
  {
  		$mean = mean($val);
 		$sd = stdev($mean, $val);
+		if($sd == 0) continue; //Let's not deal with how this is even possible for right now
 		$stdevs[$key] = array('mean' => $mean, 'stdev' => $sd, 'values' => $val );
 
  }
@@ -733,6 +734,7 @@ function stdev($mean, $values)
 
 function zscore($stdev, $mean, $val)
 {
+	if($stdev == 0) $stdev = 0.000000001;
 	return ($val - $mean) / $stdev;
 }
 
