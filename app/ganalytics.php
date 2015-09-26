@@ -673,7 +673,7 @@ function getTopDeviations($account = null, $count = null)
  foreach ($data as $key => $row)
  {
 	  $path = $row[2] . $row[3];
-		if(!isset($stdevs[$path])) continue;
+		//if(!isset($stdevs[$path])) continue;
 		if($sd['mean'] <= 0) continue;
 	 	$sd = $stdevs[$path];
 		$z = zscore($sd['stdev'], $sd['mean'], $row[5]);
@@ -683,7 +683,7 @@ function getTopDeviations($account = null, $count = null)
 		$time = "$y-$m-$d " . $row[1] .":00";
 		$ts = strtotime($time);
 		$result[] = array('path' => $path, 'title' => $row[4], 'mean' => $sd['mean'], 'stdev' => $sd['stdev'], 'pageviews' => $row[5], 'z' => $z, 'timestamp' => $ts, "time" => $time
-		, "values" => $sd['stdev']);
+		, "values" => $sd['values']);
  }
 
  usort($result, "zsort");
