@@ -648,7 +648,7 @@ function getTopDeviations($account = null, $count = null)
  foreach ($data as $key => $row)
  {
 	 if(!isset($values[$row[0] . $row[1]])) $values[$row[0] . $row[1]] = array();
-	 $values[$row[0] . $row[1]][] = floatval($row[3]);
+	array_push($values[$row[0] . $row[1]] , floatval($row[3]));
  }
 
  foreach ($values as $key => $val)
