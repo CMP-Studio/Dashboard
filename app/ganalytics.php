@@ -712,12 +712,9 @@ function a_sum($values)
 function mean($values)
 {
 	$sum = a_sum($values);
-	var_dump($values);
-	var_dump($sum);
 	$count = count($values);
 	$mean = floatval($sum) / floatval($count * 24.0);  //We're cheating here a bit by using days instead of hours.  This however flatens out the nights
-	var_dump($mean);
-	var_dump(floatval($count * 24.0));
+	return $mean;
 }
 
 function stdev($mean, $values)
