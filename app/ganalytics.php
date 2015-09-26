@@ -700,11 +700,20 @@ function zsort($a, $b)
 
 }
 
+function a_sum($values)
+{
+	$sum = 0;
+	foreach ($values as $key => $value) {
+		$sum += floatval($value);
+	}
+	return $sum;
+}
+
 function mean($values)
 {
-	$sum = array_sum($values);
+	$sum = a_sum($values);
 	$count = count($values);
-	$mean = $sum / ($count * 24.0);  //We're cheating here a bit by using days instead of hours.  This however flatens out the nights
+	$mean = floatval($sum) / floatval($count * 24.0);  //We're cheating here a bit by using days instead of hours.  This however flatens out the nights
 }
 
 function stdev($mean, $values)
