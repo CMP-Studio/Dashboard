@@ -20,6 +20,17 @@ a
 {
   color: #1f496e
 }
+p{
+  line-height:22px;
+  font-size: 14px;
+  text-indent:0;
+  margin-bottom:25px;
+}
+ol
+{
+  margin-top: 0;
+  margin-bottom: 2em;
+}
 
 .clearfix {
   overflow: auto;
@@ -322,10 +333,11 @@ transform: translateY(-50%);
 
 #timespan-picker
 {
-  text-align:center;
+  text-align:left;
   width:100%;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 2em;
 
 }
 
@@ -358,7 +370,7 @@ p span
 {
 
   word-wrap: break-word;
-  padding-left:10px;
+  padding-left:3em;
 }
 
 
