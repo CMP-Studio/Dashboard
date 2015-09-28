@@ -94,12 +94,10 @@ function getFollowerChange($id, $timestamp, $current)
 		$date = sqlSafe(date('Y-m-d', $timestamp));
 		$id = sqlSafe($id);
 
-		$query = "SELECT followers FROM account_stats WHERE user_id = $id AND record_date = $date";
-		$result = readQuery($query);
-		if($row = $result->fetch_row())
-		{
-			return $current - $row[0];
-		}
+		$result = getFollowers($id, $timestamp);
+
+			return $current - $result;
+		
 	}
 	return null;
 
