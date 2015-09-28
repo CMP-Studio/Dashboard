@@ -44,13 +44,13 @@ require_once 'app/facebook.php';
     <header id='topbar'>
       <div id='studiobar' class='clearfix'>
 
-        <a href='//studio.carnegiemuseums.org' class='studio fifth'>
+        <a href='//studio.carnegiemuseums.org' class='studio-bar studio fifth'>
           <img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/>
         </a>
-        <div class='three-fifth'>
+        <div class='three-fifth studio-bar'>
 
         </div>
-        <div class='fifth help'>
+        <div class='fifth studio-bar help'>
           <button class="btn btn-clear help-btn"><i class="fa fa-question-circle"></i></button>
         </div>
       </div>

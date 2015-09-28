@@ -565,14 +565,9 @@ p span
   {
     padding:0;
   }
-  .three-fifth
+  .studio-bar
   {
-    width:0;
-  }
-  .studio
-  {
-    margin-left: 20%;
-    width:60%;
+    width:33%;
   }
   #socialmedia
   {
