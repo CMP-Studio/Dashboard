@@ -39,7 +39,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
     }
 
     curl_close($curl);
-    APIstore($url, $params, $result);
+    // APIstore($url, $params, $result);
   }
 
   $data = json_decode($result);
@@ -87,7 +87,7 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
     }
 
     curl_close($curl);
-    APIstore($url, $params, $result);
+  //  APIstore($url, $params, $result);
   }
   $data = json_decode($result);
   if($data == NULL)
