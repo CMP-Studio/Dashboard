@@ -301,14 +301,15 @@ transform: translateY(-50%);
 */
 #text-holder
 {
+    width:30%;
     float: left;
 }
 
 #socialmedia
 {
-  width:25%;
-  margin-left:2%;
-  margin-right:2%;
+  width:80%;
+  margin-left:5%;
+  margin-right:5%;
 
   overflow: hidden;
 }
@@ -356,7 +357,7 @@ p span
 #infotext
 {
   display:none;
-  margin-left:10%;
+  margin-left:5%;
   width:80%;
 }
 
