@@ -15,7 +15,7 @@ main();
 
 function main()
 {
-  var_dump(fbStats("38014611787"));
+  var_dump(igStats("186517711"));
 }
 
 
@@ -40,6 +40,17 @@ function fbStats($id)
 
   return array("followers" => $info->likes);
 
+
+}
+
+function igStats($id)
+{
+  $client = getIGClientID();
+  $url = "https://api.instagram.com/v1/users/$id";
+  $params = array("client_id" => $client);
+  $info = getAPI($url, $params);
+
+  return array("followers" => $info->data->counts->followed_by);
 
 }
 
