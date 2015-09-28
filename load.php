@@ -497,10 +497,10 @@ function events(data, srcs)
 
   var sbox = svg.select('.highcharts-series-group').node().getBBox();
 
-  var h = 25;
+  var h = sbox.y + sbox.height;
   var l = $('.highcharts-series-group').position().left;
 
-  var t = 5;
+  var t = 0;
 
 
   var axis = d3.select(".highcharts-markers.highcharts-tracker").node();
