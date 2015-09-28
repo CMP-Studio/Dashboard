@@ -11,7 +11,10 @@ function getTopIGMedia($userID, $count=10)
 
 	$params = array("min_timestamp" => $start, "max_timestamp" => $end, "count" => "200", "client_id" => getIGClientID());
 
-	$media = getAPI($url, $params)->data;
+	$res = getAPI($url, $params);
+
+	if(!isset($res->data)) return null;
+	$media = $res->data;
 
 	usort($media, "igSort");
 
