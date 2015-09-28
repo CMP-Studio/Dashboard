@@ -84,8 +84,9 @@ function saveStats($stats, $id, $type)
   $query = "INSERT INTO account_stats (`user_id`, `act_type`, `record_date`, `followers`)
   VALUES ($id, $type, $date, $followers)";
 
+  var_dump($query);
   $result = writeQuery($query);
-  var_dump($result);
+
 }
 
 
