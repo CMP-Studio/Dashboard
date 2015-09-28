@@ -261,9 +261,9 @@ if(!isset($events)) return array();
 		//Now generate the html
 		$title = $d['title'];
 		$pv = number_format($d['pageviews']);
-		$m = number_format($d['mean']);
-		$z = $d['z'];
-		$sd = $d['stdev'];
+		$m = number_format($d['mean'], 2);
+		$z = number_format($d['z'], 2);
+		$sd = number_format($d['stdev'], 2);
 		$time = $d['time'];
 		$vals = json_encode($d['values']);
 		$teve['html'] = "<p>$time: The page <b><a href='$url' target='_blank'>$title</a></b> has an unusually high number of views at $pv views at $sdate.  The page unusually has $m views/hour. [The Z-Score is $z / Standard Deviation is $sd]</p><script>console.log($vals);</script>";

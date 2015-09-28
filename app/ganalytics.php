@@ -627,6 +627,8 @@ function getTopDeviations($account = null, $count = null)
  $end = tryGET('end');
 
  if(!isset($start) || !isset($end)) return null;
+$ndays = getDays($start, $end);
+
  $start = GoogleDate($start);
  $end = GoogleDate($end);
 
@@ -637,7 +639,7 @@ function getTopDeviations($account = null, $count = null)
  $filter=""; //More than 1 pageview an hour to cut down on outliers and processing
  $dims = "ga:hostname,ga:pagePath,ga:date";
  $metric = "ga:pageviews";
- $sort = "ga:hostname,ga:pagePath";
+ $sort = "-ga:pageviews";
  $count = 10000; //max
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
  $data = $data->getRows();
@@ -653,7 +655,12 @@ function getTopDeviations($account = null, $count = null)
 
  foreach ($values as $key => $val)
  {
+	 	$rem = $ndays - count($val);
+		for ($i=0; $i < $rem; $i++) {
+			array_push($val, 0);
+		}
  		$mean = mean($val);
+		if($mean < 1) continue; //Aviod super low page averages
 		$sd = stdev($mean, $val);
 		if($sd == 0) continue; //Let's not deal with how this is even possible for right now
 		$stdevs[$key] = array('mean' => $mean, 'stdev' => $sd, 'values' => $val );
@@ -692,6 +699,13 @@ function getTopDeviations($account = null, $count = null)
 
  return $ret;
 
+}
+
+function getDays($start, $end)
+{
+	$span = $end - $start;
+	$days = 24*60*60*1000; //Hours in ms
+	return round($span / $days);
 }
 function zsort($a, $b)
 {
