@@ -185,8 +185,6 @@ function getTweetsByDate($user, $start=0, $end=0)
 	 return $getTweets;
 
 }
-
-
 function getTwitterToken()
 {
 	$url = "https://api.twitter.com/oauth2/token";
@@ -209,5 +207,8 @@ function getTwitterToken()
 
 	return NULL;
 }
+
+
+
 
 ?>

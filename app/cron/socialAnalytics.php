@@ -31,6 +31,29 @@ function twitStats($id)
 
 }
 
+function getTwitterToken()
+{
+	$url = "https://api.twitter.com/oauth2/token";
+	$cred = getBearerCred();
+
+	$headers = array(
+	"Authorization: Basic $cred",
+	"Content-Type: application/x-www-form-urlencoded;charset=UTF-8",
+	"Accept-Encoding: gzip");
+
+	$params = array("grant_type" => "client_credentials");
+
+	$data = postAPI($url, $params, $headers);
+
+
+	if(isset($data->access_token))
+	{
+		return $data->access_token;
+	}
+
+	return NULL;
+}
+
 
 
 
