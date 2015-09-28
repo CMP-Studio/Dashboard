@@ -4,12 +4,12 @@ ini_set('display_startup_errors',1);
 error_reporting(-1);
 
 //Utils
-require_once "../utils/sql.php";
-require_once "../utils/api.php";
+require_once __DIR__ . "/../utils/sql.php";
+require_once __DIR__ . "/../utils/api.php";
 //Configs
-require_once "../config/igConfig.php";
-require_once "../config/fbConfig.php";
-require_once "../config/twitConfig.php";
+require_once __DIR__ . "/../config/igConfig.php";
+require_once __DIR__ . "/../config/fbConfig.php";
+require_once __DIR__ . "/../config/twitConfig.php";
 
 main();
 
