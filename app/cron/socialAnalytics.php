@@ -15,7 +15,40 @@ main();
 
 function main()
 {
-  var_dump(igStats("186517711"));
+  var_dump(loadAccounts());
+}
+
+function loadAccounts()
+{
+  $fb = array();
+  $ig = array();
+  $twit = array();
+  $accounts = json_decode(file_get_contents('../config/accounts.json'));
+  $locations = $accounts->location;
+
+  foreach ($locations as $key => $loc)
+  {
+    $accts = $loc->accounts;
+    foreach ($accts as $key => $act)
+    {
+      if(isset($act->import)) continue; //Skip imports
+      switch($act->type)
+      {
+        case "instagram":
+          $ig[] = $act->id;
+        break;
+        case "facebook":
+          $fb[] = $act->id;
+        break;
+        case "twitter":
+          $twit[] = $act->id;
+        break;
+      }
+    }
+  }
+  $accounts = array("facebook" => $fb, "instagram" => $ig, "twitter" => $twit);
+  return $accounts;
+
 }
 
 
