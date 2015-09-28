@@ -29,7 +29,7 @@ function main()
   print "\nTwit:\n";
   foreach ($twit as $key => $id)
   {
-    $stats = twitStats($i);
+    $stats = twitStats($id);
     saveStats($stats,$id,"twitter");
   }
   print "\nIG:\n";
