@@ -15,7 +15,23 @@ main();
 
 function main()
 {
-  var_dump(loadAccounts());
+  $acts = loadAccounts();
+  $fb = $acts['facebook'];
+  $ig = $acts['instagram'];
+  $twit = $acts['twitter'];
+
+  foreach ($fb as $key => $id)
+  {
+    var_dump(fbStats($id));
+  }
+  foreach ($twit as $key => $id)
+  {
+    var_dump(twitStats($id));
+  }
+  foreach ($ig as $key => $id)
+  {
+    var_dump(igStats($id));
+  }
 }
 
 function loadAccounts()
