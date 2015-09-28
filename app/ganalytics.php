@@ -468,7 +468,7 @@ function chartDashboard($settings)
   }
   if(tryGet('ga'))
   {
-    $chart->addSeries(array(),'High Traffic', 'rgba(247,153,28, 1)',array('visible'=>false));
+    $chart->addSeries(array(),'Anomalies', 'rgba(247,153,28, 1)',array('visible'=>false));
   }
 
   $chart->addTimestamps($start*1000,$int*1000);

@@ -352,7 +352,7 @@ function setupLegend()
   var fb = false;
   var ig = false;
 
-  $(".highcharts-legend-item text:contains(High Traffic)").parent().click(function()
+  $(".highcharts-legend-item text:contains(Anomalies)").parent().click(function()
   {
     if(analytics)
     {
