@@ -23,17 +23,20 @@ function main()
  print "<pre>FB:\n";
   foreach ($fb as $key => $id)
   {
-    var_dump(fbStats($id));
+    $stats = fbStats($id);
+    saveStats($stats,$id,"facebook");
   }
   print "\nTwit:\n";
   foreach ($twit as $key => $id)
   {
-    var_dump(twitStats($id));
+    $stats = twitStats($i));
+    saveStats($stats,$id,"twitter");
   }
   print "\nIG:\n";
   foreach ($ig as $key => $id)
   {
-    var_dump(igStats($id));
+    $stats = igStats($id);
+    saveStats($stats,$id,"instagram");
   }
   print "</pre>";
 }
@@ -69,6 +72,20 @@ function loadAccounts()
   $accounts = array("facebook" => $fb, "instagram" => $ig, "twitter" => $twit);
   return $accounts;
 
+}
+
+function saveStats($stats, $id, $type)
+{
+  $date = sqlSafe(date('Y-m-d'));
+  $followers = sqlSafe($stats['followers']);
+  $id = sqlSafe($id);
+  $type = sqlSafe($type);
+
+  $query = "INSERT INTO account_stats (`user_id`, `act_type`, `record_date`, `followers`)
+  VALUES ($id, $type, $date, $followers)";
+
+  $result = writeQuery($query);
+  var_dump($result);
 }
 
 

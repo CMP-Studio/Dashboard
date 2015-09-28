@@ -70,10 +70,12 @@ function getAccountsFromLocation($loc)
 
 function getFollowers($id, $timestamp)
 {
-	$date = sqlSafe(date('Y-m-d', $timestamp));
+	$day = 24*60*60;
+	$sdate = sqlSafe(date('Y-m-d', $timestamp));
+	$edate = sqlSafe(date('Y-m-d', $timestamp + $day));
 	$id = sqlSafe($id);
 
-	$query = "SELECT followers FROM account_stats WHERE user_id = $id AND record_date = $date";
+	$query = "SELECT followers FROM account_stats WHERE user_id = $id AND (record_date BETWEEN $sdate AND $edate)";
 
 	$result = readQuery($query);
 	if($result)
