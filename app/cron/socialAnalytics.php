@@ -76,7 +76,7 @@ function loadAccounts()
 
 function saveStats($stats, $id, $type)
 {
-  $date = sqlSafe(date('Y-m-d'));
+  $date = sqlSafe(date("Y-m-d H:i:s"));
   $followers = sqlSafe($stats['followers']);
   $id = sqlSafe($id);
   $type = sqlSafe($type);
