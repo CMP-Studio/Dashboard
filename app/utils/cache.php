@@ -141,13 +141,14 @@ function dropCache()
 
 }
 
-function cleanCache()
+function cleanCache($timespan = null)
 {
 	global $cacheLimit;
+	if(!isset($timespan)) $timespan = $cacheLimit;
 	$sql = getSql();
 	if($sql != null)
 	{
-		$date = date("Y-m-d H:i:s" ,time() - $cacheLimit);
+		$date = date("Y-m-d H:i:s" ,time() - $timespan);
 		$query = "delete from datacache where updated < '$date'";
 
 		if($sql->query($query))
