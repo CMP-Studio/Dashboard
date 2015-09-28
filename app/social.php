@@ -97,7 +97,7 @@ function getFollowerChange($id, $timestamp, $current)
 		$result = getFollowers($id, $timestamp);
 
 			return $current - $result;
-		
+
 	}
 	return null;
 
@@ -269,7 +269,9 @@ function getBadgeHTML($acctInfo)
 
 	foreach ($toppages as $key => $u)
 	{
-		$html .= "\t\t\t\t\t<li><a target='_blank' href='//$u'>$u</a></li>\n";
+		$url = $u['url'];
+		$title = $u['title'];
+		$html .= "\t\t\t\t\t<li><a target='_blank' href='//$url'>$title</a></li>\n";
 	}
 	$html .= "\t\t\t\t</ol>\n";
 	$html .= "\t\t\t</div>\n";
@@ -399,7 +401,9 @@ function getMultiBadgeHTML($act)
 
 		foreach ($toppages as $key => $u)
 		{
-			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$u'>$u</a></li>\n";
+			$url = $u['url'];
+			$title = $u['title'];
+			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$url'>$title</a></li>\n";
 		}
 		$html .= "\t\t\t\t</ol>\n";
 		$html .= "\t\t\t</div>\n";

@@ -538,14 +538,14 @@ function getReferrals($count = 20, $refFilter = null, $account=null)
     $filter = '';
   }
 
-  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath","-ga:pageviews",$count,$filter)->getRows();
+  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter)->getRows();
 
   $refPages = array();
   if(isset($data))
   {
     foreach ($data as $key => $r)
     {
-      $refPages[$key] = $r[0] . $r[1];
+      $refPages[$key] = array("url" => $r[0] . $r[1], "title" => $r[2]);
     }
   }
 
