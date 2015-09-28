@@ -15,7 +15,7 @@ main();
 
 function main()
 {
-  var_dump(twitStats("30018600"));
+  var_dump(fbStats("38014611787"));
 }
 
 
@@ -30,6 +30,20 @@ function twitStats($id)
   return array("followers" => $info->followers_count);
 
 }
+
+function fbStats($id)
+{
+  $token = getFBToken();
+  $url = "https://graph.facebook.com/$id";
+  $params = array($token[0] => $token[1]);
+  $info = getAPI($url,$params);
+
+  return array("followers" => $info->likes);
+
+
+}
+
+/******************************* Tokens! ****************************/
 
 function getTwitterToken()
 {
@@ -52,6 +66,21 @@ function getTwitterToken()
 	}
 
 	return NULL;
+}
+
+function getFBToken()
+{
+ $url = "https://graph.facebook.com/oauth/access_token";
+ $params = array(
+   "client_id" => getFBClientID(),
+   "client_secret" => getFBClientSecret(),
+   "grant_type" => "client_credentials"
+ );
+
+ $token = getAPI($url,$params);
+ $token = explode('=', $token);
+
+ return $token;
 }
 
 
