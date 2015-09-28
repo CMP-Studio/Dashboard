@@ -46,7 +46,7 @@ function loadAccounts()
   $fb = array();
   $ig = array();
   $twit = array();
-  $accounts = json_decode(file_get_contents('../config/accounts.json'));
+  $accounts = json_decode(file_get_contents(__DIR__ . '/../config/accounts.json'));
   $locations = $accounts->location;
 
   foreach ($locations as $key => $loc)
