@@ -88,6 +88,8 @@ function getTopFBPosts($account, $count=10)
   $end = tryGet('end');
   $token = getFBToken();
 
+  if(!isset($token)) return null;  //No token
+
   $url = "https://graph.facebook.com/$account/posts";
 
       $params = array(

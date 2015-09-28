@@ -43,7 +43,7 @@ function topTweets($user = null, $count = 20)
 		usort($tweets, "tweetSort");
 
 		$tweets = array_splice($tweets, 0, $count);
-		//var_dump($tweets);
+
 		return $tweets;
 	}
 

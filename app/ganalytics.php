@@ -201,7 +201,7 @@ function getSettings()
 function getChart()
 {
   $set = getSettings();
-  //var_dump($set);
+
   if(!isset($_GET["chart"])) return null;
 
       switch($_GET["chart"])
@@ -441,7 +441,7 @@ function chartDashboard($settings)
   }
 
 
-  //var_dump($data);
+
 
   //Form chart
   date_default_timezone_set('UTC');

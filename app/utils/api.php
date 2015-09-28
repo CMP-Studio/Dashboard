@@ -33,7 +33,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
     if( ! $result = curl_exec($curl))
     {
-      var_dump(curl_error($curl));
+      print json_encode(array("error" => curl_error($curl), "type" => "curl error");
       return NULL;
     }
 
@@ -80,7 +80,7 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
 
     if( ! $result = curl_exec($curl))
     {
-      var_dump(curl_error($curl));
+      print json_encode(array("error" => curl_error($curl), "type" => "curl error");
       return NULL;
     }
 

@@ -81,7 +81,7 @@ function delegate($action)
     }
 
 	}
-	//var_dump($data);
+	
 	echo output($data);
 	exit(0);
 

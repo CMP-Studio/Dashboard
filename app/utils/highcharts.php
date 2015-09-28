@@ -149,7 +149,7 @@ class Highchart
 		{
 		$newSeries['color'] = $color;
 		}
-		foreach ($options as $key => $value) 
+		foreach ($options as $key => $value)
 		{
 				$newSeries[$key] = $value;
 		}
@@ -228,7 +228,7 @@ class Highchart
 		$ddS = -1;
 		for($i = 0; $i < $ns; $i++)
 		{
-			var_dump($ser[$i]['name'] . " ?= " . $seriesName);
+			
 			if($ser[$i]['name'] == $seriesName)
 			{
 				$ddS = $i;
