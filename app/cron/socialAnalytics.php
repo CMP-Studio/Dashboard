@@ -12,7 +12,7 @@ require_once "../config/fbConfig.php";
 require_once "../config/twitConfig.php";
 
 main();
- 
+
 function main()
 {
   $acts = loadAccounts();
@@ -20,18 +20,22 @@ function main()
   $ig = $acts['instagram'];
   $twit = $acts['twitter'];
 
+ print "<pre>FB:\n";
   foreach ($fb as $key => $id)
   {
     var_dump(fbStats($id));
   }
+  print "\nTwit:\n";
   foreach ($twit as $key => $id)
   {
     var_dump(twitStats($id));
   }
+  print "\nIG:\n";
   foreach ($ig as $key => $id)
   {
     var_dump(igStats($id));
   }
+  print "</pre>";
 }
 
 function loadAccounts()
