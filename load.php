@@ -173,7 +173,7 @@ $(document).ready(function (){
         {
           $('.loader').remove();
           $('#chart').highcharts(cdata);
-        //  setupTooltip();
+          setupTooltip();
           setupLegend();
           events(edata, srcs);
           console.log(edata);
