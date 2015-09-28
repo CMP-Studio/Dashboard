@@ -99,7 +99,7 @@ function getTopFBPosts($account, $count=10)
     );
 
     $result = getAPI($url,$params);
-
+    if(!isset($result->data)) return array();
     $rdata = $result->data;
 
     usort($rdata, 'fbSort');
