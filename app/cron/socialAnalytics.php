@@ -12,7 +12,7 @@ require_once "../config/fbConfig.php";
 require_once "../config/twitConfig.php";
 
 main();
-
+ 
 function main()
 {
   $acts = loadAccounts();
