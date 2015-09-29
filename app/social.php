@@ -76,7 +76,7 @@ function getFollowers($id, $timestamp)
 	$id = sqlSafe($id);
 
 	$query = "SELECT followers FROM account_stats WHERE user_id = $id AND (record_date BETWEEN $sdate AND $edate)";
-  print $query;
+  //print $query;
 	$result = readQuery($query);
 	if($result)
 	{
@@ -89,14 +89,13 @@ function getFollowers($id, $timestamp)
 }
 function getFollowerChange($id, $start, $end)
 {
-	$dateS = sqlSafe(date('Y-m-d', $start));
-	$dateE = sqlSafe(date('Y-m-d', $end));
 
-	$countS = getFollowers($id, $dateS);
+
+	$countS = getFollowers($id, $start);
 
 	if(!isset($countS)) return null;
 
-	$countE = getFollowers($id, $dateE);
+	$countE = getFollowers($id, $end);
 
 	if(!isset($countE)) return null;
 
