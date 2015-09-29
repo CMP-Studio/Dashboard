@@ -456,15 +456,15 @@ function chartDashboard($settings)
 
   if(tryGet('twitter'))
   {
-    $chart->addSeries(array(),'Twitter', 'rgb(80, 171, 241)',array('visible'=>false));
+    $chart->addSeries(array(),'Tweets', 'rgb(80, 171, 241)',array('visible'=>false));
   }
   if(tryGet('fb'))
   {
-    $chart->addSeries(array(),'Facebook', 'rgba(68,97,157, 1)',array('visible'=>false));
+    $chart->addSeries(array(),'Facebook Posts', 'rgba(68,97,157, 1)',array('visible'=>false));
   }
   if(tryGet('ig'))
   {
-    $chart->addSeries(array(),'Instagram', 'rgba(185,163,140, 1)',array('visible'=>false));
+    $chart->addSeries(array(),'Instagram Images', 'rgba(185,163,140, 1)',array('visible'=>false));
   }
   if(tryGet('ga'))
   {

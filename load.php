@@ -391,7 +391,7 @@ function setupLegend()
     fb = !fb;
   });
 
-  $(".highcharts-legend-item text:contains(Twitter)").parent().click(function()
+  $(".highcharts-legend-item text:contains(Tweets)").parent().click(function()
   {
     if(twit)
     {
