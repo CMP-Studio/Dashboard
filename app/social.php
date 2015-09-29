@@ -71,8 +71,8 @@ function getAccountsFromLocation($loc)
 function getFollowers($id, $timestamp)
 {
 	$day = 24*60*60;
-	$sdate = sqlSafe(date('Y-m-d', $timestamp));
-	$edate = sqlSafe(date('Y-m-d', $timestamp + $day));
+	$sdate = sqlSafe(date('Y-m-d', $timestamp - $day/2));
+	$edate = sqlSafe(date('Y-m-d', $timestamp + $day/2));
 	$id = sqlSafe($id);
 
 	$query = "SELECT followers FROM account_stats WHERE user_id = $id AND (record_date BETWEEN $sdate AND $edate)";
@@ -87,19 +87,22 @@ function getFollowers($id, $timestamp)
 	}
 	return null;
 }
-function getFollowerChange($id, $timestamp, $current)
+function getFollowerChange($id, $start, $end)
 {
-	if(isset($current))
-	{
-		$date = sqlSafe(date('Y-m-d', $timestamp));
-		$id = sqlSafe($id);
+	$dateS = sqlSafe(date('Y-m-d', $start));
+	$dateE = sqlSafe(date('Y-m-d', $end));
 
-		$result = getFollowers($id, $timestamp);
+	$countS = getFollowers($id, $dateS);
 
-			return $current - $result;
+	if(!isset($countS)) return null;
 
-	}
-	return null;
+	$countE = getFollowers($id, $dateE);
+
+	if(!isset($countE)) return null;
+
+
+
+	return $countE - $countS;
 
 }
 
@@ -193,7 +196,7 @@ function getBadgeHTML($acctInfo)
 
 
 	$followers = getFollowers($a['id'], $end);
-	$change = getFollowerChange($a['id'], $start, $followers);
+	$change = getFollowerChange($a['id'], $start, $end);
 	$toppages = getTopRefferalPagesByType($a['type']);
 	$embeedHtml = getTopPostEmbedded($a['id'], $a['type']);
 
@@ -317,14 +320,14 @@ function getMultiBadgeHTML($act)
 		if(!isset($act)) continue;
 		$acts[] = $act;
 		//Followers
-		$tFollow = getFollowers($act["id"], $start);
+		$tFollow = getFollowers($act["id"], $end);
 		if(isset($tFollow))
 		{
 			$followers += $tFollow;
 			$hasFollowers = true;
 		}
 		// Change in followers (delta)
-		$tChange = getFollowerChange($act["id"], $end, $tFollow);
+		$tChange = getFollowerChange($act["id"], $start, $end);
 		if(isset($tChange))
 		{
 			$change += $tChange;
