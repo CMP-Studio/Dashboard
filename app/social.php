@@ -76,7 +76,7 @@ function getFollowers($id, $timestamp)
 	$id = sqlSafe($id);
 
 	$query = "SELECT followers FROM account_stats WHERE user_id = $id AND (record_date BETWEEN $sdate AND $edate)";
-
+  print $query;
 	$result = readQuery($query);
 	if($result)
 	{
