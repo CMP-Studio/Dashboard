@@ -1,9 +1,3 @@
-/*
-Colors:
-Off white: rgb(232,232,232)
-Orange: rgb(222,73,47)
-Blue/grey: rgb(77,102,132)
-*/
 
 *
     {
@@ -72,6 +66,7 @@ ol
   width:100%;
 }
 
+
 /* Options */
 .nav-float
 {
@@ -85,4 +80,26 @@ ol
     position: relative;
     top:10px;
   }
+}
+
+/* Options - Museums */
+.museums.active
+{
+  background-color: #4d6684;
+}
+.museums > img.active
+{
+    display:none;
+}
+.museums > img.inactive
+{
+  display:block;
+}
+.museums.active > img.active
+{
+  display:block;
+}
+.museums.active > img.inactive
+{
+  display:none;
 }
