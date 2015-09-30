@@ -103,7 +103,7 @@ ol
 
 }
 
-.nav-spacer
+.nav-spacer > *
 {
   margin-top:2px;
   margin-bottom:2px;
