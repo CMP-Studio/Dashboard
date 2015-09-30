@@ -48,7 +48,7 @@ require_once 'app/facebook.php';
     <header class='navbar-fixed-top'>
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid row">
-          <div class="col-xs-1">
+          <div class="col-xs-1 hidden-sm hidden-md hidden-lg">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#side-nav" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -70,7 +70,7 @@ require_once 'app/facebook.php';
           <div class="col-md-5ths hidden-sm hidden-xs">
             &nbsp;
           </div>
-          <div class="col-md-5ths col-sm-4 col-xs-6">
+          <div class="col-md-5ths col-sm-4 col-xs-5">
             <button class="btn btn-default help-btn"><i class="fa fa-question-circle"></i></button>
           </div>
         </div>
