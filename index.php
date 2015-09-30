@@ -104,7 +104,6 @@ require_once 'app/facebook.php';
           </li>
           <li role="presentation">
             <div id='timespan-picker'>
-              <label class='left-label' for='timespan'>Stats for </label>
               <select id='timespan'>
                 <option value='lw'>Last Week</option>
                 <option value='lm' selected="selected">Last Month</option>
