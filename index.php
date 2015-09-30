@@ -56,12 +56,12 @@ require_once 'app/facebook.php';
               <span class="icon-bar"></span>
             </button>
           </div>
-          <div class="col-lg-1 col-md-3 col-sm-4 col-xs-6">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
             <a class="navbar-brand " href="http://studio.carnegiemuseums.org/">
               <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
         </div>
-          <div class="col-lg-10 col-md-8 col-sm-7 hidden-xs">
+          <div class="col-lg-9 col-md-8 col-sm-7 hidden-xs">
             &nbsp;
           </div>
           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3">
@@ -77,7 +77,7 @@ require_once 'app/facebook.php';
 
     <div class="container-fluid row">
       <!-- Options  (floating)-->
-      <div class="nav-float col-lg-1 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
+      <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" id= "cmp" class="active museum">
               <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
@@ -101,13 +101,13 @@ require_once 'app/facebook.php';
           </li>
         </ul>
       </div>
-      <div class="col-lg-1 col-md-3 col-sm-4 col-xs-12" >
+      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
         <!-- A spacing fixer for floating -->
         <div class="hidden-xs">
           &nbsp;
         </div>
       </div>
-      <div class="col-lg-11 col-md-9 col-sm-8 col-xs-12">
+      <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
         <!-- The actual content -->
         <div id='content'>
           <div id='pane1' class='clearfix'>
