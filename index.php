@@ -100,7 +100,7 @@ require_once 'app/facebook.php';
               <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
           </li>
           <li role="presentation" class="nav-spacer">
-            <h2>Timespan</h2>
+            <p>Timespan</p>
           </li>
           <li role="presentation">
             <div class='timespan-picker'>
