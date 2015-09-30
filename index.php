@@ -53,7 +53,7 @@ require_once 'app/facebook.php';
             </a>
           </div>
         </div>
-        <nav class="navbar-default">
+        <nav class="navbar navbar-default ">
         <div  class="container-fluid">
           <div class="navbar-header">
             Test
