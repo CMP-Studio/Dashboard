@@ -48,9 +48,15 @@ require_once 'app/facebook.php';
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand col-md-5ths" href="http://studio.carnegiemuseums.org/">
+            <a class="navbar-brand col-md-5ths col-sm-4 col-xs-4" href="http://studio.carnegiemuseums.org/">
               <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
+            <div class="col-md-5ths col-sm-4 col-xs-4">
+
+            </div>
+            <div class="col-md-5ths col-sm-4 col-xs-4">
+              <button class="btn btn-clear help-btn"><i class="fa fa-question-circle"></i></button>
+            </div>
           </div>
         </div>
       </nav>
