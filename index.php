@@ -86,8 +86,10 @@ require_once 'app/facebook.php';
       <div class="nav-float col-lg-3 col-md-4 col-sm-5 col-xs-12 collapse in" id="side-nav">
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" class="active museum">
-            <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
-            <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
+            <div id= "cmp">
+              <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
+              <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
+            </div>
           </li>
           <li role="presentation" class="museum" >
 
