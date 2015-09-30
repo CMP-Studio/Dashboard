@@ -55,7 +55,7 @@ require_once 'app/facebook.php';
 
             </div>
             <div class="col-md-5ths col-sm-4 col-xs-4">
-              <button class="btn btn-clear help-btn"><i class="fa fa-question-circle"></i></button>
+              <button class="btn btn-default help-btn"><i class="fa fa-question-circle"></i></button>
             </div>
           </div>
         </div>
