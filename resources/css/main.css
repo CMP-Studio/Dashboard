@@ -66,3 +66,15 @@ ol
 {
   padding:0;
 }
+.spacer
+{
+  height:65px;
+  width:100%;
+}
+
+/* Options */
+.float-nav
+{
+  position: fixed;
+  top:70px;
+}
