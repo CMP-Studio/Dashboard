@@ -20,6 +20,9 @@ require_once 'app/facebook.php';
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"  />
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <!-- Studio Theme -->
+  <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-studio.css" />
   <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
 
   <!-- Google Analytics -->

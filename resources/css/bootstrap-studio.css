@@ -1,0 +1,24 @@
+/* Colors */
+.darkgrey-bg
+{
+  background-color:#3d3d3d;
+}
+.grey-bg
+{
+  background-color: #777777
+}
+.orange-bg
+{
+  background-color:#de492f;
+}
+.blue-bg
+{
+  background-color:#4d6684;
+}
+
+
+/* Navbars */
+.navbar-default, .navbar-inverse
+{
+  background-image:none;
+}
