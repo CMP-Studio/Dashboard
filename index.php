@@ -45,7 +45,7 @@ require_once 'app/facebook.php';
     <div id='dialog'></div>
 
     <header class='navbar-fixed-top'>
-      <nav class='navbar navbar-inverse'>
+      <nav class='navbar navbar-inverse navbar-nomargin'>
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand col-md-5ths" href="http://studio.carnegiemuseums.org/">

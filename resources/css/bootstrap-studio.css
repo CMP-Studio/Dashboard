@@ -22,6 +22,10 @@
 {
   background-image:none;
 }
+.navbar-nomargin
+{
+  margin-bottom: 0;
+}
 
 /* Grid modification */
 .col-xs-5ths,
