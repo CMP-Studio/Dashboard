@@ -67,7 +67,10 @@ ol
 /* Navbar */
 .navbar-brand
 {
-  padding:0;
+  padding-top:0;
+  padding-bottom: 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .spacer
 {
