@@ -81,14 +81,20 @@ require_once 'app/facebook.php';
 
     <div class="container-fluid row">
       <!-- Options  (floating)-->
-      <div class=" col-md-2" id="side-nav">
-        <ul class="nav nav-pills nav-stacked">
-          <li role="presentation" class="active">Carnegie Museums of Pittsburgh</li>
-          <li role="presentation" class="active">Carnegie Museums of Art</li>
-          <li role="presentation" class="active">Carnegie Museums of Natural History</li>
-          <li role="presentation" class="active">Carnegie Science Center</li>
-          <li role="presentation" class="active">The Andy Warhol Museum</li>
-        </ul>
+
+      <div class=" col-md-2 " id="side-nav">
+        <div class="hidden-sm hidden-xs">
+          &nbsp;
+        </div>
+        <div class="nav-float">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><a href='#'>Carnegie Museums of Pittsburgh</a></li>
+            <li role="presentation" ><a href='#'>Carnegie Museums of Art</a></li>
+            <li role="presentation" ><a href='#'>Carnegie Museums of Natural History</a></li>
+            <li role="presentation" ><a href='#'>Carnegie Science Center</a></li>
+            <li role="presentation" ><a href='#'>The Andy Warhol Museum</a></li>
+          </ul>
+        </div>
       </div>
       <div class="col-md-10">
         <!-- The actual content -->
