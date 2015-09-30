@@ -136,3 +136,14 @@ ol
 {
   display:none;
 }
+
+/* Options - Time */
+
+.timespan-picker
+{
+  padding-left:5%;
+  width:90%;
+  padding-right:5%;
+  margin-top:4px;
+  margin-bottom:4px;
+}
