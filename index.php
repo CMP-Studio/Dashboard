@@ -44,7 +44,18 @@ require_once 'app/facebook.php';
     <?php print getFBEmbeedScript(); ?>
     <div id='dialog'></div>
 
-    <header id='topbar'>
+    <header>
+      <nav class='navbar navbar-inverse navbar-fixed-top'>
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="http://studio.carnegiemuseums.org/">
+              <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png">
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--
       <div id='studiobar' class='clearfix'>
 
         <a href='//studio.carnegiemuseums.org' class='studio-bar studio fifth'>
@@ -96,7 +107,7 @@ require_once 'app/facebook.php';
 
         <div class='clearfix'></div>
       </div>
-    </header>
+    -->
     <div class="top-spacer">
         &nbsp;
     </div>
