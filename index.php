@@ -54,6 +54,13 @@ require_once 'app/facebook.php';
           </div>
         </div>
       </nav>
+      <nav class='navbar navbar-default navbar-fixed-top'>
+        <div class="container-fluid">
+          <div class="navbar-header">
+
+          </div>
+        </div>
+      </nav>
     </header>
     <!--
       <div id='studiobar' class='clearfix'>
