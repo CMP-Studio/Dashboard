@@ -83,7 +83,7 @@ require_once 'app/facebook.php';
 
     <div class="container-fluid row">
       <!-- Options  (floating)-->
-      <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
+      <div class="nav-float col-lg-3 col-md-4 col-sm-5 col-xs-12 collapse in" id="side-nav">
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" class="active"><a href='#'>Carnegie Museums of Pittsburgh</a></li>
           <li role="presentation" ><a href='#'>Carnegie Museums of Art</a></li>
@@ -92,13 +92,13 @@ require_once 'app/facebook.php';
           <li role="presentation" ><a href='#'>The Andy Warhol Museum</a></li>
         </ul>
       </div>
-      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
+      <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12" >
         <!-- A spacing fixer for floating -->
         <div class="hidden-xs">
           &nbsp;
         </div>
       </div>
-      <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
+      <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
         <!-- The actual content -->
         <div id='content'>
           <div id='pane1' class='clearfix'>
