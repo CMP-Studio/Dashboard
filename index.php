@@ -53,7 +53,7 @@ require_once 'app/facebook.php';
             <div class="col-md-5ths hidden-sm">
                 &nbsp;
             </div>
-            <div class="col-md-5ths hidden-sm">
+            <div class="col-md-5ths col-sm-4 col-xs-4">
                 &nbsp;
             </div>
             <div class="col-md-5ths hidden-sm">
