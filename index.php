@@ -47,7 +47,15 @@ require_once 'app/facebook.php';
     <header class='navbar-fixed-top'>
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid row">
-            <a class="navbar-brand col-md-5ths col-sm-4 col-xs-6" href="http://studio.carnegiemuseums.org/">
+            <div class="hidden-med hidden-sm col-xs-4">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#side-nav" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+            </div>
+            <a class="navbar-brand col-md-5ths col-sm-4 col-xs-4" href="http://studio.carnegiemuseums.org/">
               <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
             <div class="col-md-5ths hidden-sm hidden-xs">
@@ -59,18 +67,20 @@ require_once 'app/facebook.php';
             <div class="col-md-5ths hidden-sm hidden-xs">
                 &nbsp;
             </div>
-            <div class="col-md-5ths col-sm-4 col-xs-6">
+            <div class="col-md-5ths col-sm-4 col-xs-4">
               <button class="btn btn-default help-btn"><i class="fa fa-question-circle"></i></button>
         </div>
       </nav>
-        <nav class="navbar navbar-default navbar-no-borderradius">
-        <div  class="container-fluid">
-          <div class="navbar-header">
-            Test
-          </div>
-        </div>
-      </nav>
     </header>
+    <div class="collapse" id="side-nav">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="active">Carnegie Museums of Pittsburgh</li>
+        <li role="presentation" class="active">Carnegie Museums of Art</li>
+        <li role="presentation" class="active">Carnegie Museums of Natural History</li>
+        <li role="presentation" class="active">Carnegie Science Center</li>
+        <li role="presentation" class="active">The Andy Warhol Museum</li>
+      </ul>
+    </div>
     <!--
       <div id='studiobar' class='clearfix'>
 
