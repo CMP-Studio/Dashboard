@@ -15,7 +15,7 @@ $(document).ready(function (){
 
   //Select timespan
   $("#timespan").select2({
-    width: '40%',
+    width: '100%',
     minimumResultsForSearch: 50
   });
 
