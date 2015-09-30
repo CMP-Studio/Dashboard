@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=ee6e064149bf4f23b437)
- * Config saved to config.json and https://gist.github.com/ee6e064149bf4f23b437
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=f2c493f7cbae9eef1b1a)
+ * Config saved to config.json and https://gist.github.com/f2c493f7cbae9eef1b1a
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -1091,7 +1091,7 @@ body {
   font-family: "merriweather", Georgia, "Times New Roman", Times, serif;
   font-size: 14px;
   line-height: 1.57;
-  color: #707070;
+  color: #3d3d3d;
   background-color: #f8f8f8;
 }
 input,
@@ -2914,7 +2914,7 @@ select[multiple].input-lg {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #b0b0b0;
+  color: #7d7d7d;
 }
 @media (min-width: 768px) {
   .form-inline .form-group {
@@ -5074,7 +5074,7 @@ a.thumbnail.active {
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #707070;
+  color: #3d3d3d;
 }
 .alert {
   padding: 15px;
