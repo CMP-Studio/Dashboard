@@ -81,7 +81,7 @@ require_once 'app/facebook.php';
 
     <div class="container-fluid row">
       <!-- Options  (floating)-->
-      <div class="float-nav col-md-2" id="side-nav">
+      <div class=" col-md-2" id="side-nav">
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" class="active">Carnegie Museums of Pittsburgh</li>
           <li role="presentation" class="active">Carnegie Museums of Art</li>
