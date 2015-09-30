@@ -46,17 +46,17 @@ require_once 'app/facebook.php';
 
     <header class='navbar-fixed-top'>
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
-        <div class="container-fluid">
+        <div class="container-fluid row">
             <a class="navbar-brand col-md-5ths col-sm-4 col-xs-4" href="http://studio.carnegiemuseums.org/">
               <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
-            <div class="col-md-5ths hidden-sm">
+            <div class="col-md-5ths hidden-sm hidden-xs">
                 &nbsp;
             </div>
             <div class="col-md-5ths col-sm-4 col-xs-4">
                 &nbsp;
             </div>
-            <div class="col-md-5ths hidden-sm">
+            <div class="col-md-5ths hidden-sm hidden-xs">
                 &nbsp;
             </div>
             <div class="col-md-5ths col-sm-4 col-xs-4">
