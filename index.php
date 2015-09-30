@@ -48,13 +48,15 @@ require_once 'app/facebook.php';
     <header class='navbar-fixed-top'>
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid row">
-          <div class="col-md-5ths col-sm-4 col-xs-6">
+          <div class="col-xs-1">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#side-nav" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
+          </div>
+          <div class="col-md-5ths col-sm-4 col-xs-6">
             <a class="navbar-brand " href="http://studio.carnegiemuseums.org/">
               <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
@@ -82,11 +84,11 @@ require_once 'app/facebook.php';
     <div class="container-fluid row">
       <!-- Options  (floating)-->
 
-      <div class=" col-md-2 col-xs-12" >
+      <div class=" col-sm-4 col-xs-12" >
         <div class="hidden-xs">
           &nbsp;
         </div>
-        <div class="nav-float col-md-2 col-xs-12 collapse in" id="side-nav">
+        <div class="nav-float col-sm-4 col-xs-12 collapse in" id="side-nav">
           <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active"><a href='#'>Carnegie Museums of Pittsburgh</a></li>
             <li role="presentation" ><a href='#'>Carnegie Museums of Art</a></li>
@@ -96,7 +98,7 @@ require_once 'app/facebook.php';
           </ul>
         </div>
       </div>
-      <div class="col-md-10 col-xs-12">
+      <div class="col-sm-8 col-xs-12">
         <!-- The actual content -->
         <div id='content'>
           <div id='pane1' class='clearfix'>
