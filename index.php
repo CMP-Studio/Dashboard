@@ -82,8 +82,8 @@ require_once 'app/facebook.php';
     <div class="container-fluid row">
       <!-- Options  (floating)-->
 
-      <div class=" col-md-2 " id="side-nav">
-        <div class="hidden-sm hidden-xs">
+      <div class=" col-md-2 col-xs-12" id="side-nav">
+        <div class="hidden-xs">
           &nbsp;
         </div>
         <div class="nav-float">
@@ -96,7 +96,7 @@ require_once 'app/facebook.php';
           </ul>
         </div>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10 col-xs-12">
         <!-- The actual content -->
         <div id='content'>
           <div id='pane1' class='clearfix'>
