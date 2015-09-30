@@ -85,35 +85,25 @@ require_once 'app/facebook.php';
       <!-- Options  (floating)-->
       <div class="nav-float col-lg-3 col-md-4 col-sm-5 col-xs-12 collapse in" id="side-nav">
         <ul class="nav nav-pills nav-stacked">
-          <li role="presentation" class="active museum">
-            <div id= "cmp">
+          <li role="presentation" id= "cmp" class="active museum">
               <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
               <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
-            </div>
           </li>
-          <li role="presentation" class="museum" >
-            <div id="cmoa">
+          <li role="presentation" id="cmoa" class="museum" >
               <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
               <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
-            </div>
           </li>
-          <li role="presentation" class="museum">
-            <div id="cmnh">
+          <li role="presentation" id="cmnh" class="museum">
               <img class='logo inactive' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
               <img class='logo active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
-            </div>
           </li>
-          <li role="presentation" class="museum">
-            <div id="csc">
+          <li role="presentation" id="csc" class="museum">
               <img class='logo inactive' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
               <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
-            </div>
           </li>
-          <li role="presentation" class="museum">
-            <div id="warhol">
+          <li role="presentation" id="warhol" class="museum">
               <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
               <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
-            </div>
           </li>
         </ul>
       </div>
