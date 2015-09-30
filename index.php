@@ -92,16 +92,28 @@ require_once 'app/facebook.php';
             </div>
           </li>
           <li role="presentation" class="museum" >
-
+            <div id="cmoa">
+              <img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
+              <img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
+            </div>
           </li>
           <li role="presentation" class="museum">
-
+            <div id="cmnh">
+              <img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
+              <img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
+            </div>
           </li>
           <li role="presentation" class="museum">
-
+            <div id="csc">
+              <img class='logo' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
+              <img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
+            </div>
           </li>
           <li role="presentation" class="museum">
-
+            <div id="warhol">
+              <img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
+              <img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
+            </div>
           </li>
         </ul>
       </div>
