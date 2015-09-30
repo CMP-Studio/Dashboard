@@ -71,87 +71,87 @@ require_once 'app/facebook.php';
           <div class="col-md-5ths col-sm-4 col-xs-4">
             <button class="btn btn-default help-btn"><i class="fa fa-question-circle"></i></button>
           </div>
-        </nav>
-      </header>
-
-      <div class="spacer">
-        &nbsp;
-      </div>
-
-      <div class="container-fluid row">
-        <!-- Options  (floating)-->
-        <div class="collapse float-nav col-md-2" id="side-nav">
-          <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active">Carnegie Museums of Pittsburgh</li>
-            <li role="presentation" class="active">Carnegie Museums of Art</li>
-            <li role="presentation" class="active">Carnegie Museums of Natural History</li>
-            <li role="presentation" class="active">Carnegie Science Center</li>
-            <li role="presentation" class="active">The Andy Warhol Museum</li>
-          </ul>
         </div>
-        <div class="col-md-10">
-          <!-- The actual content -->
-          <div id='content'>
-            <div id='pane1' class='clearfix'>
-              <h2 class='title'>Web Activity</h2>
-              <div id='chart-holder'>
+      </nav>
+    </header>
 
-                <div id='chart'>
+    <div class="spacer">
+      &nbsp;
+    </div>
 
-                </div>
+    <div class="container-fluid row">
+      <!-- Options  (floating)-->
+      <div class="collapse float-nav col-md-2" id="side-nav">
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active">Carnegie Museums of Pittsburgh</li>
+          <li role="presentation" class="active">Carnegie Museums of Art</li>
+          <li role="presentation" class="active">Carnegie Museums of Natural History</li>
+          <li role="presentation" class="active">Carnegie Science Center</li>
+          <li role="presentation" class="active">The Andy Warhol Museum</li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <!-- The actual content -->
+        <div id='content'>
+          <div id='pane1' class='clearfix'>
+            <h2 class='title'>Web Activity</h2>
+            <div id='chart-holder'>
+
+              <div id='chart'>
 
               </div>
 
-
-              <div id="text-holder">
-                <div id='timespan-picker'>
-                  <h3 class='sr-only'>Stats for the selected timespan</h3>
-                  <label class='left-label' for='timespan'>Stats for </label>
-                  <select id='timespan'>
-                    <option value='lw'>Last Week</option>
-                    <option value='lm' selected="selected">Last Month</option>
-                    <option value='l3m'>Previous 3 Months</option>
-                    <option value='ly'>Last Year</option>
-                  </select>
-                </div>
-
-                <div id='infotext'>
-                  <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
-                    Those users viewed <span id='pageviews'>212,345</span> pages.
-                    During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
-                    viewing an average of <span id='pages-per-visit'></span> pages per visit.
-                  </p>
-
-                  <p class='no-pg-space'>The most popular pages during that period were:</p>
-                  <ol id='topPages'>
-                  </ol>
-                </div>
-                <div id='socialmedia'>
-
-                </div>
-              </div>
-
-
-              <div class="clearfix"></div>
             </div>
-            <div id='pane2' class='clearfix'>
-              <h2 class='title'>Social Media From <span id='social-start'></span> To <span id='social-end'></span></h2>
-              <div id='social-holder'>
+
+
+            <div id="text-holder">
+              <div id='timespan-picker'>
+                <h3 class='sr-only'>Stats for the selected timespan</h3>
+                <label class='left-label' for='timespan'>Stats for </label>
+                <select id='timespan'>
+                  <option value='lw'>Last Week</option>
+                  <option value='lm' selected="selected">Last Month</option>
+                  <option value='l3m'>Previous 3 Months</option>
+                  <option value='ly'>Last Year</option>
+                </select>
               </div>
+
+              <div id='infotext'>
+                <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
+                  Those users viewed <span id='pageviews'>212,345</span> pages.
+                  During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
+                  viewing an average of <span id='pages-per-visit'></span> pages per visit.
+                </p>
+
+                <p class='no-pg-space'>The most popular pages during that period were:</p>
+                <ol id='topPages'>
+                </ol>
+              </div>
+              <div id='socialmedia'>
+
+              </div>
+            </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+          <div id='pane2' class='clearfix'>
+            <h2 class='title'>Social Media From <span id='social-start'></span> To <span id='social-end'></span></h2>
+            <div id='social-holder'>
             </div>
           </div>
         </div>
-
       </div>
     </div>
+  </div>
 
-    <!--
-    <div id='studiobar' class='clearfix'>
+  <!--
+  <div id='studiobar' class='clearfix'>
 
-    <a href='//studio.carnegiemuseums.org' class='studio-bar studio fifth'>
-    <img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/>
-  </a>
-  <div class='three-fifth studio-bar'>
+  <a href='//studio.carnegiemuseums.org' class='studio-bar studio fifth'>
+  <img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/>
+</a>
+<div class='three-fifth studio-bar'>
 
 </div>
 <div class='fifth studio-bar help'>
