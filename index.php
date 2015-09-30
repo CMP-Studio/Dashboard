@@ -45,7 +45,7 @@ require_once 'app/facebook.php';
     <div id='dialog'></div>
 
     <header class='navbar-fixed-top'>
-      <nav class='navbar navbar-inverse navbar-nomargin'>
+      <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand col-md-5ths" href="http://studio.carnegiemuseums.org/">
@@ -54,7 +54,7 @@ require_once 'app/facebook.php';
           </div>
         </div>
       </nav>
-        <nav class="navbar navbar-default ">
+        <nav class="navbar navbar-default navbar-no-borderradius">
         <div  class="container-fluid">
           <div class="navbar-header">
             Test

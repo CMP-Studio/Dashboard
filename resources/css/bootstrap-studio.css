@@ -22,9 +22,13 @@
 {
   background-image:none;
 }
-.navbar-nomargin
+.navbar-no-margin
 {
   margin-bottom: 0;
+}
+.navbar-no-borderradius
+{
+ border-radius: 0;
 }
 
 /* Grid modification */
