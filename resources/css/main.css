@@ -83,6 +83,13 @@ ol
 }
 
 /* Options - Museums */
+.museum div
+{
+  position: relative;
+  width:100%;
+  height:100%;
+}
+
 .museum.active
 {
   background-color: #4d6684;
