@@ -44,8 +44,8 @@ require_once 'app/facebook.php';
     <?php print getFBEmbeedScript(); ?>
     <div id='dialog'></div>
 
-    <header>
-      <nav class='navbar navbar-inverse navbar-fixed-top'>
+    <header class='navbar-fixed-top'>
+      <nav class='navbar navbar-inverse'>
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand col-md-5ths" href="http://studio.carnegiemuseums.org/">
@@ -53,6 +53,7 @@ require_once 'app/facebook.php';
             </a>
           </div>
         </div>
+      </nav>
         <nav class="navbar navbar-default ">
         <div  class="container-fluid">
           <div class="navbar-header">
