@@ -99,6 +99,9 @@ require_once 'app/facebook.php';
               <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
               <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
           </li>
+          <li role="presentation" class="nav-spacer">
+            <h2>Timespan</h2>
+          </li>
         </ul>
       </div>
       <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
