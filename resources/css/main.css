@@ -83,23 +83,23 @@ ol
 }
 
 /* Options - Museums */
-.museums.active
+.museum.active
 {
   background-color: #4d6684;
 }
-.museums > img.active
+.museum > img.active
 {
     display:none;
 }
-.museums > img.inactive
+.museum > img.inactive
 {
   display:block;
 }
-.museums.active > img.active
+.museum.active > img.active
 {
   display:block;
 }
-.museums.active > img.inactive
+.museum.active > img.inactive
 {
   display:none;
 }
