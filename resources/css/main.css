@@ -87,19 +87,19 @@ ol
 {
   background-color: #4d6684;
 }
-.museum > img.active
+.museum  img.active
 {
     display:none;
 }
-.museum > img.inactive
+.museum  img.inactive
 {
   display:block;
 }
-.museum.active > img.active
+.museum.active  img.active
 {
   display:block;
 }
-.museum.active > img.inactive
+.museum.active  img.inactive
 {
   display:none;
 }
