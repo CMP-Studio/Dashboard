@@ -102,6 +102,17 @@ require_once 'app/facebook.php';
           <li role="presentation" class="nav-spacer">
             <h2>Timespan</h2>
           </li>
+          <li role="presentation">
+            <div id='timespan-picker'>
+              <label class='left-label' for='timespan'>Stats for </label>
+              <select id='timespan'>
+                <option value='lw'>Last Week</option>
+                <option value='lm' selected="selected">Last Month</option>
+                <option value='l3m'>Previous 3 Months</option>
+                <option value='ly'>Last Year</option>
+              </select>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
@@ -125,16 +136,7 @@ require_once 'app/facebook.php';
 
 
             <div id="text-holder">
-              <div id='timespan-picker'>
-                <h3 class='sr-only'>Stats for the selected timespan</h3>
-                <label class='left-label' for='timespan'>Stats for </label>
-                <select id='timespan'>
-                  <option value='lw'>Last Week</option>
-                  <option value='lm' selected="selected">Last Month</option>
-                  <option value='l3m'>Previous 3 Months</option>
-                  <option value='ly'>Last Year</option>
-                </select>
-              </div>
+
 
               <div id='infotext'>
                 <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
