@@ -103,7 +103,7 @@ require_once 'app/facebook.php';
             <h2>Timespan</h2>
           </li>
           <li role="presentation">
-            <div id='timespan-picker'>
+            <div class='timespan-picker'>
               <select id='timespan'>
                 <option value='lw'>Last Week</option>
                 <option value='lm' selected="selected">Last Month</option>
