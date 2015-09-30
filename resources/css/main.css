@@ -92,17 +92,15 @@ ol
 }
 
 /* Options - Museums */
-.museum div
+.museum
 {
-  position: relative;
-  width:100%;
-  height:100%;
   cursor: pointer;
 }
 
 .museum.active
 {
   background-color: #4d6684;
+  border-radius: 4px;
 }
 .museum  img.active
 {
