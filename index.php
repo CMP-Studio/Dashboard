@@ -48,7 +48,7 @@ require_once 'app/facebook.php';
     <header class='navbar-fixed-top'>
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid row">
-          <div class="col-xs-2 hidden-sm hidden-md hidden-lg">
+          <div class="col-xs-4 hidden-sm hidden-md hidden-lg">
             <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#side-nav" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -56,7 +56,7 @@ require_once 'app/facebook.php';
               <span class="icon-bar"></span>
             </button>
           </div>
-          <div class="col-lg-3 col-md-4 col-sm-5 col-xs-8">
+          <div class="col-lg-3 col-md-4 col-sm-5 col-xs-4">
             <a class="navbar-brand " href="http://studio.carnegiemuseums.org/">
               <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
@@ -64,7 +64,7 @@ require_once 'app/facebook.php';
           <div class="col-lg-8 col-md-7 col-sm-6 hidden-xs">
             &nbsp;
           </div>
-          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
+          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-4">
             <button class="btn btn-default help-btn"><i class="fa fa-question-circle"></i></button>
           </div>
         </div>
