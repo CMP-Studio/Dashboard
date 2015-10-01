@@ -78,11 +78,11 @@ require_once 'app/facebook.php';
     <div class="container-fluid row">
       <!-- Options  (floating)-->
       <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
-        <div id="option-toggle" class="options-toggle grey-bg" data-toggle="collapse" data-target="#options-panel" aria-expanded="true">
-          <i class="fa fa-angle-double-up close"></i>
+        <div id="option-toggle" class="options-toggle grey-bg" > <!-- data-toggle="collapse" data-target="#options-panel" aria-expanded="true" -->
+          <p><i class="fa fa-angle-double-up close"></i></p>
           <!--<i class="fa fa-angle-double-up open"></i>-->
         </div>
-        <ul id="options-panel" class="nav nav-pills nav-stacked collapse in">
+        <ul id="options-panel" class="nav nav-pills nav-stacked">
           <li role="presentation" id= "cmp" class="active museum">
               <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
               <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
