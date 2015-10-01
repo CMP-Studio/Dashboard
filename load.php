@@ -661,7 +661,10 @@ function optionsToggle()
       $("#options-panel").slideUp('slow', function() {
         $("#options-spacer").hide();
         $("#main-content").css("width", "100%");
-        $("#options-toggle").children().filter(".fa-angle-double-up").removeClass("fa-angle-double-up").addClass("fa-angle-double-down");
+        $("#options-toggle").children()
+        .filter("i")
+        .removeClass("fa-angle-double-up")
+        .addClass("fa-angle-double-down");
         $(this).attr("data-toggle","false");
       });
     }
@@ -675,7 +678,10 @@ function optionsToggle()
       $("#options-panel").slideDown('slow', function() {
         $("#options-spacer").show();
         $("#main-content").attr("style",null);
-        $("#options-toggle").children().filter(".fa-angle-double-down").removeClass("fa-angle-double-down").addClass("fa-angle-double-up");
+        $("#options-toggle").children()
+        .filter("i")
+        .removeClass("fa-angle-double-down")
+        .addClass("fa-angle-double-up");
         $(this).attr("data-toggle","true");
       });
     }
