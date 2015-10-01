@@ -112,7 +112,22 @@ require_once 'app/facebook.php';
               </select>
             </div>
           </li>
+          <li role="presentation" class="nav-spacer">
+            <p>Social Media</p>
+          </li>
+          <li class="twitter social-select" role="presentation">
+            <i class="fa fa-check"></i>Twitter
+          </li>
+          <li class="facebook social-select" role="presentation">
+            <i class="fa fa-check"></i>Facebook
+          </li>
+          <li class="instagram social-select" role="presentation">
+            <i class="fa fa-check"></i>Insstagram
+          </li>
         </ul>
+        <li>
+
+        </li>
       </div>
       <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
         <!-- A spacing fixer for floating -->

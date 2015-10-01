@@ -7,7 +7,7 @@ $(document).ready(function (){
   var museum = 'cmp';
   var lastrequest = null;
 
-  mobile_menu();
+  mobileMenu();
 
 
 
@@ -606,16 +606,16 @@ function getDate(d) {
 }
 
 
-function mobile_menu()
+function mobileMenu()
 {
 
 
   //$(".fifth.museum.active").click(menu_toggle);
-  $(".fifth.museum").click(menu_toggle);
+  $(".fifth.museum").click(menuToggle);
 
 }
 var shown = false;
-function menu_toggle()
+function menuToggle()
 {
   if($(".fifth.museum").attr("display-toggle") == "show")
   {
@@ -628,6 +628,23 @@ function menu_toggle()
         $(".fifth.museum").attr("display-toggle", "show")
     }
   }
+}
+
+function socialToggle()
+{
+    $(".social-select").click(function()
+  {
+    if($(this).attr("data-toggle") == "true")
+    {
+      $(this).removeClass("active");
+      $(this).attr("data-toggle", "false");
+    }
+    else
+    {
+      $(this).addClass("active");
+      $(this).attr("data-toggle", "true");
+    }
+  })
 }
 
 function getActs()
