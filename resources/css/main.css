@@ -37,6 +37,21 @@ ol
   font-family:"merriweather"
 }
 
+/* Social Media Colors */
+.twitter
+{
+  background-color: rgb(80,171,241);
+}
+.facebook
+{
+  background-color: rgb(68,97,157);
+}
+
+.instagram
+{
+  background-color: rgb(185,163,140);
+}
+
 
 /* Images */
 .logo
@@ -153,6 +168,13 @@ ol
 {
   cursor: pointer;
   text-align: center;
+  background: none;
+}
+.social-select.active
+{
+  border-radius: 4px;
+  color:white;
+  background: inherit;
 }
 .social-select i
 {
