@@ -676,13 +676,13 @@ function optionsToggle()
     {
       $("#options-spacer").show();
       $("#main-content").attr("style",null);
-      $("#options-toggle").children()
-      .filter("i")
-      .removeClass("fa-angle-double-down")
-      .addClass("fa-angle-double-up");
+
       $("#options-toggle").attr("data-toggle","disabled");
       $("#options-panel").slideDown('slow', function() {
-
+        $("#options-toggle").children()
+        .filter("i")
+        .removeClass("fa-angle-double-down")
+        .addClass("fa-angle-double-up");
         $("#options-toggle").attr("data-toggle","true");
       });
     }
