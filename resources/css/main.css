@@ -107,6 +107,7 @@ ol
     margin-bottom:10px;
     text-align: center;
     color: white;
+    z-index: -100; /* Keep on top */
 
 }
 .nav-float
