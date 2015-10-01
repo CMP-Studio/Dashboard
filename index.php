@@ -85,7 +85,7 @@ require_once 'app/facebook.php';
       <!-- Options  (floating)-->
       <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
         <div id="options-toggle" class="options-toggle grey-bg" data-toggle="true" > <!-- data-toggle="collapse" data-target="#options-panel" aria-expanded="true" -->
-          <p><i class="fa fa-angle-double-up"></i></p>
+          <i class="fa fa-angle-double-up"></i>
           <!--<i class="fa fa-angle-double-up open"></i>-->
         </div>
         <ul id="options-panel" class="nav nav-pills nav-stacked">

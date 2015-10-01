@@ -107,13 +107,14 @@ ol
     margin-bottom:10px;
     text-align: center;
     color: white;
-    z-index: 1000000000000; /* Keep on top */
+
 
 }
 .nav-float
 {
   position: fixed;
   top:65px;
+  z-index: 1000000000000; /* Keep on top */
 }
 
 @media screen and (max-width: 767px ) {
