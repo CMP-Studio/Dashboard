@@ -183,59 +183,7 @@ require_once 'app/facebook.php';
     </div>
   </div>
 
-  <!--
-  <div id='studiobar' class='clearfix'>
 
-  <a href='//studio.carnegiemuseums.org' class='studio-bar studio fifth'>
-  <img class='studio-logo' src='/resources/img/Innovation-Studio-text.png' alt='Innovation Studio Logo'/>
-</a>
-<div class='three-fifth studio-bar'>
-
-</div>
-<div class='fifth studio-bar help'>
-<button class="btn btn-clear help-btn"><i class="fa fa-question-circle"></i></button>
-</div>
-</div>
-<div id='musebar'>
-<div id='cmp' class='fifth museum active'>
-
-<i class="fa fa-bars"></i>
-<img class='logo' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
-
-<img class='active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
-</div>
-<div class='fifth museum' id='cmoa'>
-
-<i class="fa fa-bars"></i>
-<img class='logo' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
-
-<img class='active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
-</div>
-<div id='cmnh' class='fifth museum'>
-
-<i class="fa fa-bars"></i>
-<img class='logo' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
-
-<img class='active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
-</div>
-<div class='fifth museum' id='csc'>
-
-<i class="fa fa-bars"></i>
-<img class='logo' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
-
-<img class='active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
-</div>
-<div  class='fifth museum' id='warhol'>
-
-<i class="fa fa-bars"></i>
-<img class='logo' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
-
-<img class='active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
-</div>
-
-<div class='clearfix'></div>
-</div>
--->
 
 
 <div id="help-panel" title="About this Dashboard">
