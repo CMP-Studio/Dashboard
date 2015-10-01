@@ -162,12 +162,20 @@ ol
 
 .timespan-picker
 {
-  padding-left:5%;
-  width:90%;
-  padding-right:5%;
+  width:70%;
+
+  margin-left:auto;
+  margin-right:auto;
+
   margin-top:4px;
   margin-bottom:4px;
 }
+@media screen and (max-width: 767px ) {
+  .timespan-picker
+  {
+    width:35%;
+  }
+
 
 /* Options - Social */
 .social-select
