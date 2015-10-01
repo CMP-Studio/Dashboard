@@ -38,16 +38,16 @@ ol
 }
 
 /* Social Media Colors */
-.twitter
+.twitter-fill
 {
   background-color: rgb(80,171,241);
 }
-.facebook
+.facebook-fill
 {
   background-color: rgb(68,97,157);
 }
 
-.instagram
+.instagram-fill
 {
   background-color: rgb(185,163,140);
 }
@@ -168,13 +168,11 @@ ol
 {
   cursor: pointer;
   text-align: center;
-  background: none;
 }
 .social-select.active
 {
   border-radius: 4px;
   color:white;
-  background: inherit;
 }
 .social-select i
 {
@@ -183,4 +181,18 @@ ol
 .social-select.active i
 {
   display:inline;
+}
+
+.social-select.active.twitter
+{
+  background-color: rgb(80,171,241);
+}
+.social-select.active.facebook
+{
+  background-color: rgb(68,97,157);
+}
+
+.social-select.active.instagram
+{
+  background-color: rgb(185,163,140);
 }
