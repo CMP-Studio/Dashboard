@@ -152,6 +152,12 @@ ol
   display:none;
 }
 
+@media screen and (max-width: 767px ) {
+  .museum.logo
+  {
+    max-width:35%;
+  }
+
 /* Options - Time */
 
 .timespan-picker
