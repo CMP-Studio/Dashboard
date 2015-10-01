@@ -153,7 +153,7 @@ ol
 }
 
 @media screen and (max-width: 767px ) {
-  .museum.logo
+  .museum .logo
   {
     max-width:35%;
   }
