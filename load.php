@@ -11,6 +11,9 @@ $(document).ready(function (){
   //mobileMenu();
   socialToggle();
   optionsToggle();
+  $("#chart").resize(function() {
+    $(this).redraw();
+  })
 
 
 
