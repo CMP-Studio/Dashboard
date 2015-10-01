@@ -152,6 +152,7 @@ ol
 .social-select
 {
   cursor: pointer;
+  text-align: center;
 }
 .social-select i
 {

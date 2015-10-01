@@ -7,7 +7,9 @@ $(document).ready(function (){
   var museum = 'cmp';
   var lastrequest = null;
 
+//Setup functions
   mobileMenu();
+  socialToggle();
 
 
 
