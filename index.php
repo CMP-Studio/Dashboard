@@ -76,6 +76,12 @@ require_once 'app/facebook.php';
     </div>
 
     <div class="container-fluid row">
+      <div  id="options-spacer"  class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
+        <!-- A spacing fixer for floating -->
+        <div class="hidden-xs">
+          &nbsp;
+        </div>
+      </div>
       <!-- Options  (floating)-->
       <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
         <div id="options-toggle" class="options-toggle grey-bg" data-toggle="true" > <!-- data-toggle="collapse" data-target="#options-panel" aria-expanded="true" -->
@@ -130,12 +136,7 @@ require_once 'app/facebook.php';
           </li>
         </ul>
       </div>
-      <div  id="options-spacer"  class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
-        <!-- A spacing fixer for floating -->
-        <div class="hidden-xs">
-          &nbsp;
-        </div>
-      </div>
+
       <div id="main-content" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
         <!-- The actual content -->
         <div id='content'>

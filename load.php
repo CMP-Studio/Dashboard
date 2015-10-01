@@ -8,8 +8,9 @@ $(document).ready(function (){
   var lastrequest = null;
 
 //Setup functions
-  mobileMenu();
+  //mobileMenu();
   socialToggle();
+  optionsToggle();
 
 
 
