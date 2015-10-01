@@ -113,8 +113,8 @@ ol
 .nav-float
 {
   position: fixed;
-  top:65px;
-  z-index: 1000000000000; /* Keep on top */
+  top:67px;
+  z-index: 100000; /* Keep on top */
 }
 
 @media screen and (max-width: 767px ) {
