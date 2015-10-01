@@ -12,7 +12,7 @@ $(document).ready(function (){
   socialToggle();
   optionsToggle();
   $("#chart").resize(function() {
-    $(this).redraw();
+    $(this).highcharts().redraw();
   })
 
 
