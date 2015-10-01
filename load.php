@@ -11,11 +11,7 @@ $(document).ready(function (){
   //mobileMenu();
   socialToggle();
   optionsToggle();
-  $("#chart").resize(function() {
-    var w = $(this).width();
-    var h = $(this).height();
-    $(this).highcharts().setSize(w, h, true);
-  })
+
 
 
 
@@ -666,6 +662,7 @@ function optionsToggle()
       $("#options-panel").slideUp('slow', function() {
         $("#options-spacer").hide();
         $("#main-content").css("width", "100%");
+        chartResize();
         $("#options-toggle").children()
         .filter("i")
         .removeClass("fa-angle-double-up")
@@ -681,7 +678,7 @@ function optionsToggle()
     {
       $("#options-spacer").show();
       $("#main-content").attr("style",null);
-
+      chartResize();
       $("#options-toggle").attr("data-toggle","disabled");
       $("#options-panel").slideDown('slow', function() {
         $("#options-toggle").children()
@@ -692,6 +689,13 @@ function optionsToggle()
       });
     }
   });
+}
+
+function chartResize()
+{
+  var w = $("#chart").width();
+  var h = $("#chart").height();
+  $("#chart").highcharts().setSize(w, h, true);
 }
 
 function getActs()
