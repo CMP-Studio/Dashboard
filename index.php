@@ -49,7 +49,7 @@ require_once 'app/facebook.php';
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid row">
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
-            <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#side-nav" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#side-nav" aria-expanded="true">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -78,7 +78,11 @@ require_once 'app/facebook.php';
     <div class="container-fluid row">
       <!-- Options  (floating)-->
       <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
-        <ul class="nav nav-pills nav-stacked">
+        <div id="option-toggle" class="options-toggle grey-bg" data-toggle="collapse" data-target="#options-panel" aria-expanded="true">
+          <i class="fa fa-angle-double-up close"></i>
+          <!--<i class="fa fa-angle-double-up open"></i>-->
+        </div>
+        <ul id="options-panel" class="nav nav-pills nav-stacked collapse in">
           <li role="presentation" id= "cmp" class="active museum">
               <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
               <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
