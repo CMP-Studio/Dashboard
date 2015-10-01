@@ -649,6 +649,38 @@ function socialToggle()
   })
 }
 
+function optionsToggle()
+{
+  $("#options-toggle").click(function()
+  {
+    var open = $(this).attr("data-toggle");
+    if(open == "true")
+    {
+      $(this).attr("data-toggle","disabled");
+      $("#options-panel").slideUp('slow', function() {
+        $("#options-spacer").hide();
+        $("#main-content").css("width", "100%");
+        $("#options-toggle").children().filter(".fa-angle-double-up").removeClass("fa-angle-double-up").addClass("fa-angle-double-down");
+        $(this).attr("data-toggle","false");
+      });
+    }
+    else if(open == "disabled")
+    {
+
+    }
+    else
+    {
+      $(this).attr("data-toggle","disabled");
+      $("#options-panel").slideDown('slow', function() {
+        $("#options-spacer").show();
+        $("#main-content").attr("style",null);
+        $("#options-toggle").children().filter(".fa-angle-double-down").removeClass("fa-angle-double-down").addClass("fa-angle-double-up");
+        $(this).attr("data-toggle","true");
+      });
+    }
+  });
+}
+
 function getActs()
 {
   var json = <?php print file_get_contents('./app/config/accounts.json'); ?>;
