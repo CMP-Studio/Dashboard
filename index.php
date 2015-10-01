@@ -116,13 +116,13 @@ require_once 'app/facebook.php';
             <p>Social Media</p>
           </li>
           <li class="twitter social-select" role="presentation">
-            <i class="fa fa-check"></i> Twitter
+             Twitter <i class="fa fa-check"></i>
           </li>
           <li class="facebook social-select" role="presentation">
-            <i class="fa fa-check"></i> Facebook
+             Facebook <i class="fa fa-check"></i>
           </li>
           <li class="instagram social-select" role="presentation">
-            <i class="fa fa-check"></i> Instagram
+             Instagram <i class="fa fa-check"></i>
           </li>
         </ul>
       </div>
