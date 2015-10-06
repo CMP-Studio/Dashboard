@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../config/sqlConfig.php";
+require_once __DIR__ . "\..\config\sqlConfig.php";
 
 $errors = array();
 
@@ -51,7 +51,7 @@ function readQuery($query)
 function sqlSafe($data)
 {
 	$sql = getSQL();
-	return "'" . $sql->real_escape_string($data) . "'";
+	return "'" . $sql->real_escape_string($data) . "'"; 
 }
 
 function recConnError($sql)
