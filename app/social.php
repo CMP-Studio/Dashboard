@@ -188,48 +188,16 @@ function getBadgeHTML($acctInfo)
 {
 	// Gather variables
 	$a = $acctInfo;
-
-//Parse act info
-if(isset($a['id']))
-{
-	$id = $a['id'];
-}
-else {
-	return '';  //Can't continue without an ID
-}
-if(isset($a['url'] ))
-{
-	$url = $a['url'];
-}
-else {
-	$url = '';
-}
-if(isset($a['type'] ))
-{
-	$type = $a['type'];
-}
-else {
-	$type = '';
-}
-if(isset($a['username'] ))
-{
-	$username = $a['username'];
-}
-else {
-	$username = '';
-}
-
-
-	$typeclass = str_replace(" ","-",$type);
+	$typeclass = str_replace(" ","-",$a['type']);
 
 	$start = tryGET('start');
 	$end = tryGET('end');
 
 
-	$followers = getFollowers($id, $end);
-	$change = getFollowerChange($id, $start, $end);
-	$toppages = getTopRefferalPagesByType($type);
-	$embeedHtml = getTopPostEmbedded($id, $type);
+	$followers = getFollowers($a['id'], $end);
+	$change = getFollowerChange($a['id'], $start, $end);
+	$toppages = getTopRefferalPagesByType($a['type']);
+	$embeedHtml = getTopPostEmbedded($a['id'], $a['type']);
 
 	if(!isset($change))
 	{
@@ -265,7 +233,7 @@ else {
 
 
 
-	switch($type)
+	switch($a['type'])
 	{
 		case 'twitter':
 			$postname = "Tweet";
@@ -282,53 +250,37 @@ else {
 
 
 
-
-
-
 	//Create the html
 
 	$html = "\n\n<!-- Start Social Badge -->\n\n";
 
 	$html .= "<div class=' col-md-4 col-xs-12'>\n";
-	$html .= "\t<div class='$typeclass social-pane panel panel-default'>\n";
-	$html .= "\t\t<a class='social-title' target='_blank' href='$url'>\n";
+	$html .= "\t<div class='" . $typeclass . " social-pane panel panel-default'>\n";
+	$html .= "\t\t<a class='social-title' target='_blank' href='" . $a['url'] . "'>\n";
 	$html .= "\t\t\t<div class='panel-heading clearfix'>\n";
-	$html .= "\t\t\t\t<div class='logo' title='$type'></div>\n";
-	$html .= "\t\t\t\t<h3 class='panel-title'>$username</h3>\n";
+	$html .= "\t\t\t\t<div class='logo' title='" . $a['type'] . "'></div>\n";
+	$html .= "\t\t\t\t<h3 class='panel-title'>" . $a['username'] . "</h3>\n";
 	$html .= "\t\t\t</div>\n";
 	$html .= "\t\t</a>\n";
 	$html .= "\t\t<div class='social-body panel-body'>\n";
 	$html .= "\t\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
 	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
-	$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($type) . "</h4>\n";
-	if(count($toppages) >= 0)
+	$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($a['type']) . "</h4>\n";
+	$html .= "\t\t\t<div class='social-urls'>\n";
+	$html .= "\t\t\t\t<ol>\n";
+
+	foreach ($toppages as $key => $u)
 	{
-		$html .= "\t\t\t<div class='social-urls'>\n";
-		$html .= "\t\t\t\t<ol>\n";
-
-		foreach ($toppages as $key => $u)
-		{
-			if(isset($u['url']))
-			{
-				$purl = $u['url'];
-			}
-			else {
-				continue;
-			}
-			if(isset($u['title']))
-			{
-				$ptitle = $u['title'];
-			}
-			else
-			{
-				$ptitle = $purl;
-			}
-			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$purl'>$ptitle</a></li>\n";
-		}
-		$html .= "\t\t\t\t</ol>\n";
-		$html .= "\t\t\t</div>\n";
+		$url = $u['url'];
+		$title = $u['title'];
+		$html .= "\t\t\t\t\t<li><a target='_blank' href='//$url'>$title</a></li>\n";
 	}
-
+	$html .= "\t\t\t\t</ol>\n";
+	$html .= "\t\t\t</div>\n";
+	if(count($toppages) <= 0)
+	{
+		$html .= "\t\t\t<h5>None :(</h5>\n";
+	}
 	$html .= "\t\t\t<h4>Top $postname</h4>\n";
 	$html .= "\t\t\t<div class='social-embeed'>\n";
 	$html .= "\t\t\t\t$embeedHtml\n";
