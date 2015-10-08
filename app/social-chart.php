@@ -10,11 +10,49 @@ function generateSocialChart()
   $from = 1443657600;
   $to = 1446249600;
   $act = "19412366";
+  $intv = 24*60*60; //1 day
   $data = getFollowerData($act,$from,$to);
 
-  var_dump($data);
+  $nData = formatData($from, $intv, $to, $data);
+
+  var_dump($nData);
 
 
+}
+
+function formatData($start, $intv, $end, $data)
+{
+  $dataPt = array();
+  for ($i=$start; $i <= $end; $i+= $intv)
+  {
+    $min = $i;
+    $max = $i + $intv - 1;
+
+    $value = -1;
+    foreach (&$data as $key => $row)
+    {
+       $ts = strtotime($row["record_date"]);
+       if($ts >= $min && $ts <= $max)
+       {
+         //In range
+         $value = $row["followers"];
+         unset($row); //Remove from pool
+         break;
+       }
+       else if ($ts >= $max)
+       {
+         //Since the data is sorted by date asc then if the timestamp is more than the max we won't find a value
+         $value = 0;
+         break;
+       }
+    }
+    if($value < 0)
+    {
+      $value = 0;
+    }
+    $dataPt[] = $value;
+  }
+  return $dataPt;
 }
 
 
