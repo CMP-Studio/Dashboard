@@ -27,6 +27,7 @@ function getFollowerData($act, $to, $from)
 
   $query = "SELECT followers, record_date, act_type FROM account_stats WHERE (record_date BETWEEN $start AND $end) AND user_id = $user ORDER BY record_date ASC;";
 
+ print $query;
   $results = readQuery($query);
 
   return $results;
