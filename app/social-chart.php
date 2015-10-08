@@ -15,7 +15,14 @@ function generateSocialChart()
 
   $nData = formatData($from, $intv, $to, $data);
 
-  var_dump($nData);
+  $chart = new Highchart('areaspline');
+  $chart->addLegend();
+  $chart->addPlotOption('fillOpacity',0.2);
+  $chart->addSeries($nData, 'Twitter', "rgb(80,171,241)");
+  $chart->addTimestamps($from*1000,$intv*1000);
+
+
+  var_dump($chart->toJson());
 
 
 }
@@ -65,7 +72,6 @@ function getFollowerData($act, $from, $to)
 
   $query = "SELECT followers, record_date, act_type FROM account_stats WHERE (record_date BETWEEN $start AND $end) AND user_id = $user ORDER BY record_date ASC;";
 
- print $query;
   $results = readQuery($query);
 
   $data = array();
