@@ -19,7 +19,7 @@ function generateSocialChart()
 
 
 
-function getFollowerData($act, $to, $from)
+function getFollowerData($act, $from, $to)
 {
   $start = sqlSafe(date('Y-m-d H:i:s', $from));
   $end = sqlSafe(date('Y-m-d H:i:s', $to));
@@ -33,7 +33,7 @@ function getFollowerData($act, $to, $from)
   return $results;
 }
 
-function getCombinedFollowerData($type, $to, $from)
+function getCombinedFollowerData($type, $from, $to)
 {
   $start = sqlSafe(date('Y-m-d H:i:s', $from));
   $end = sqlSafe(date('Y-m-d H:i:s', $to));
