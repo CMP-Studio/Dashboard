@@ -9,7 +9,7 @@ function generateSocialChart()
 {
   $from = 1443657600;
   $to = 1446249600;
-  $act = "19412366";
+  $act = "761729947";
   $intv = 24*60*60; //1 day
   $data = getFollowerData($act,$from,$to);
 
