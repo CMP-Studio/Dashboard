@@ -9,22 +9,49 @@ function generateSocialChart()
 {
   $from = 1443657600;
   $to = 1446249600;
-  $act = "761729947";
   $intv = 24*60*60; //1 day
-  $data = getFollowerData($act,$from,$to);
 
-  $nData = formatData($from, $intv, $to, $data);
+
+  $acts = getAccountsByLoc("cmnh");
 
   $chart = new Highchart('areaspline');
   $chart->addLegend();
   $chart->addPlotOption('fillOpacity',0.2);
-  $chart->addSeries($nData, 'Twitter', "rgb(80,171,241)");
   $chart->addTimestamps($from*1000,$intv*1000);
+
+  foreach ($acts as $key => $act)
+  {
+    $type = $act['type'];
+    if($type ==  "google analytics") continue;
+    $color = "white";
+    switch($type)
+    {
+      case "twitter": $color = "rgb(80,171,241)"; break;
+      case "facebook": $color = "rgb(68,97,157)"; break;
+      case "instagram": $color = "rgb(185,163,140)"; break;
+    }
+    $name = $act['username'];
+    $id = $act['id'];
+    $data = getFollowerData($id,$from,$to);
+    $fData = formatData($from, $intv, $to, $data);
+
+    $chart->addSeries($fData, $name, $color);
+  }
+
+
+
 
 
   var_dump($chart->toJson());
 
 
+}
+
+function getAccountsByLoc($loc)
+{
+  $accounts = json_decode(file_get_contents('config/accounts.json'), true);
+  $locAccounts = $accounts['location'][$loc]['accounts'];
+  return $locAccounts;
 }
 
 function formatData($start, $intv, $end, $data)
