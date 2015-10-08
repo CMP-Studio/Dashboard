@@ -44,7 +44,13 @@ class Highchart
 		$newdata = array();
 		foreach($data as $d)
 		{
-			array_push($newdata, round(floatval($d),2));
+			if(empty($d))
+			{
+				array_push($newdata, null);
+			}
+			else {
+				array_push($newdata, round(floatval($d),2));
+			}
 		}
 
 		return $newdata;
@@ -228,7 +234,7 @@ class Highchart
 		$ddS = -1;
 		for($i = 0; $i < $ns; $i++)
 		{
-			
+
 			if($ser[$i]['name'] == $seriesName)
 			{
 				$ddS = $i;
