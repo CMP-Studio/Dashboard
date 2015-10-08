@@ -29,7 +29,7 @@ function formatData($start, $intv, $end, $data)
     $max = $i + $intv - 1;
 
     $value = -1;
-    foreach (&$data as $key => $row)
+    foreach ($data as $key => &$row)
     {
        $ts = strtotime($row["record_date"]);
        if($ts >= $min && $ts <= $max)
