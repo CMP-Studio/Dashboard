@@ -31,7 +31,7 @@ function getFollowerData($act, $from, $to)
   $results = readQuery($query);
 
   $data = array();
-  while ($row = $result->fetch_assoc())
+  while ($row = $results->fetch_assoc())
   {
     $data[] = $row;
   }
@@ -50,7 +50,7 @@ function getCombinedFollowerData($type, $from, $to)
   $results = readQuery($query);
 
   $data = array();
-  while ($row = $result->fetch_assoc())
+  while ($row = $results->fetch_assoc())
   {
     $data[] = $row;
   }
