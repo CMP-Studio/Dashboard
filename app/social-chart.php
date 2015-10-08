@@ -30,7 +30,13 @@ function getFollowerData($act, $from, $to)
  print $query;
   $results = readQuery($query);
 
-  return $results;
+  $data = array();
+  while ($row = $result->fetch_assoc())
+  {
+    $data[] = $row;
+  }
+
+  return $data;
 }
 
 function getCombinedFollowerData($type, $from, $to)
@@ -42,6 +48,12 @@ function getCombinedFollowerData($type, $from, $to)
   $query = "SELECT sum(followers) as followers, record_date FROM account_stats WHERE (record_date BETWEEN $start AND $end) AND act_type = $atype GROUP BY record_date ORDER BY record_date ASC;";
 
   $results = readQuery($query);
+
+  $data = array();
+  while ($row = $result->fetch_assoc())
+  {
+    $data[] = $row;
+  }
 
   return $results;
 }
