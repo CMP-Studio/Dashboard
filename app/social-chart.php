@@ -35,7 +35,7 @@ function formatData($start, $intv, $end, $data)
        if($ts >= $min && $ts <= $max)
        {
          //In range
-         $value = $row["followers"];
+         $value = intval($row["followers"]);
          unset($row); //Remove from pool
          break;
        }
