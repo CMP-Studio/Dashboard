@@ -14,7 +14,6 @@ function generateSocialChart()
   $data = getFollowerData($act,$from,$to);
 
   $nData = formatData($from, $intv, $to, $data);
-  var_dump($nData);
 
   $chart = new Highchart('areaspline');
   $chart->addLegend();
