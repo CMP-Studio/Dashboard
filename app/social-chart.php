@@ -35,7 +35,7 @@ function formatData($start, $intv, $end, $data)
     $min = $i;
     $max = $i + $intv - 1;
 
-    $value = 'null';
+    $value = "null";
     foreach ($data as $key => &$row)
     {
        $ts = strtotime($row["record_date"]);
@@ -49,7 +49,7 @@ function formatData($start, $intv, $end, $data)
        else if ($ts >= $max)
        {
          //Since the data is sorted by date asc then if the timestamp is more than the max we won't find a value
-         $value = 'null';
+         $value = "null";
          break;
        }
     }
