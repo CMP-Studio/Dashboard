@@ -97,6 +97,11 @@ ol
   color: white;
   font-size: 1.4em;
 }
+.help-btn:hover
+{
+  color:white;
+  font-size: 1.4em;
+}
 .spacer
 {
   height:67px;
