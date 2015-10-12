@@ -135,26 +135,33 @@ require_once 'app/facebook.php';
 
     <div id="main-content" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
       <!-- All content  should be in this div -->
-      <div id='infotext'>
-        <p>From <b><span id='start-date'></span> to <span id='end-date'></span></b> the <b><span id='museum-text'></span></b> had <b><span id='museum-users'></span></b> people visit their websites.
-          Those users viewed <b><span id='pageviews'></span></b> pages.
-          During that time, visitors spent an average of <b><span id='time-on-site'></span></b> seconds using the website,
-          viewing an average of <b><span id='pages-per-visit'></span></b> pages per visit.
-        </p>
-      </div>
-      <div id='chart-holder'>
-        <div id='chart'>
+      <div class="container-fluid">
+        <div class="row">
+          <div id='infotext' class="col-xs-12 col-sm-12">
+            <p>From <b><span id='start-date'></span> to <span id='end-date'></span></b> the <b><span id='museum-text'></span></b> had <b><span id='museum-users'></span></b> people visit their websites.
+              Those users viewed <b><span id='pageviews'></span></b> pages.
+              During that time, visitors spent an average of <b><span id='time-on-site'></span></b> seconds using the website,
+              viewing an average of <b><span id='pages-per-visit'></span></b> pages per visit.
+            </p>
+          </div>
         </div>
-      </div>
-      <div id='pop-pages'>
-        <p class='no-pg-space'>The most popular pages were:</p>
-        <ol id='topPages'>
-        </ol>
-      </div>
-      <div id='socialmedia'>
-      </div>
-      <h2 class='title'>Social Media From <span id='social-start'></span> To <span id='social-end'></span></h2>
-      <div id='social-holder'>
+        <div class="row">
+          <div id='chart' class="col-xs-12 col-sm-8">
+          </div>
+          <div id='socialmedia' class="col-xs-12 col-sm-4">
+          </div>
+        </div>
+        <div class="row">
+          <div id='pop-pages' class="col-xs-12 col-sm-12">
+            <p class='no-pg-space'>The most popular pages were:</p>
+            <ol id='topPages'>
+            </ol>
+          </div>
+        </div>
+        <div class="row" class="col-xs-12 col-sm-12">
+          <div id='social-holder'>
+          </div>
+        </div>
       </div>
       <!-- end main content -->
     </div>
