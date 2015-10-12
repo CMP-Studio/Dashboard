@@ -1,4 +1,6 @@
-
+/******************************
+        General Purpose
+******************************/
 *
     {
     margin: 0;
@@ -78,6 +80,9 @@ ol
   -o-transform: none;
   transform: none;
 }
+/******************************
+        Topbar
+******************************/
 
 /* Navbar */
 .navbar-brand
@@ -87,12 +92,20 @@ ol
   padding-left: 15px;
   padding-right: 15px;
 }
+.help-btn
+{
+  color: white;
+  font-size: 1.4em;
+}
 .spacer
 {
-  height:65px;
+  height:67px;
   width:100%;
 }
 
+/******************************
+        Sidebar
+******************************/
 
 /* Options */
 
