@@ -256,19 +256,19 @@ ol
 }
 
 /* Social */
-.social-title
+.social-pane .panel-heading
 {
   color:white;
 }
-.social-pane.instagram .social-title
+.social-pane.instagram .panel-heading
 {
     background-color: rgb(185,163,140);
 }
-.social-pane.facebook .social-title
+.social-pane.facebook .panel-heading
 {
     background-color: rgb(68,97,157);
 }
-.social-pane.twitter .social-title
+.social-pane.twitter .panel-heading
 {
     background-color: rgb(80,171,241);
 }
