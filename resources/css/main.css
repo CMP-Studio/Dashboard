@@ -93,6 +93,13 @@ ol
   padding-right: 15px;
 }
 
+.help-btn
+{
+    line-height: 65px;
+    font-size: 1.5em;
+    color:white;
+}
+
 .spacer
 {
   height:67px;
