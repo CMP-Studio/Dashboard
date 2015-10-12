@@ -65,7 +65,7 @@ require_once 'app/facebook.php';
             &nbsp;
           </div>
           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3">
-            <button class="btn-default help-btn">About</button>
+            <button class="btn btn-default help-btn">About</button>
           </div>
         </div>
       </nav>

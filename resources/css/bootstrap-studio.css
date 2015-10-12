@@ -16,6 +16,18 @@
   background-color:#4d6684;
 }
 
+/* Buttons */
+.btn
+{
+  color:inherit;
+  font-weight: normal;
+}
+.btn:hover
+{
+  color:inherit;
+  font-weight: normal;
+}
+
 
 /* Navbars */
 .navbar-default, .navbar-inverse
