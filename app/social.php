@@ -444,36 +444,36 @@ function getMultiBadgeHTML($act)
 	$html .= "\t\t<div class='panel-heading'>\n";
   $html .= "\t\t\t<h3 class='panel-title social-title'><i class='fa $faicon'></i> " . ucfirst($type) . "</h3>\n";
 	$html .= "\t\t</div>\n";
-	$html .= "\t</div>\n";
-	$html .= "\t<div class='social-body panel-body'>\n";
-	$html .= "\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
-	$html .= "\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
+	$html .= "\t\t<div class='social-body panel-body'>\n";
+	$html .= "\t\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
+	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
 	if(count($toppages) > 0)
 	{
-		$html .= "\t\t<h4>Top Pages Visited From " . ucfirst($type) . "</h4>\n";
-		$html .= "\t\t<div class='social-urls'>\n";
-		$html .= "\t\t\t<ol>\n";
+		$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($type) . "</h4>\n";
+		$html .= "\t\t\t<div class='social-urls'>\n";
+		$html .= "\t\t\t\t<ol>\n";
 
 		foreach ($toppages as $key => $u)
 		{
 			$url = $u['url'];
 			$title = $u['title'];
-			$html .= "\t\t\t\t<li><a target='_blank' href='//$url'>$title</a></li>\n";
+			$html .= "\t\t\t\t\t<li><a target='_blank' href='//$url'>$title</a></li>\n";
 		}
-		$html .= "\t\t\t</ol>\n";
-		$html .= "\t\t</div>\n";
+		$html .= "\t\t\t\t</ol>\n";
+		$html .= "\t\t\t</div>\n";
 
 	/*	$html .= "\t\t\t<h5>None :(</h5>\n"; */
 	}
-	$html .= "\t\t<h4>Top " . $postname ."s</h4>\n";
-	$html .= "\t\t<div class='social-urls'>\n";
-	$html .= "\t\t\t<ol>\n";
+	$html .= "\t\t\t<h4>Top " . $postname ."s</h4>\n";
+	$html .= "\t\t\t<div class='social-urls'>\n";
+	$html .= "\t\t\t\t<ol>\n";
 		foreach ($topposts as $key => $p) {
 			$url = $p["url"];
 			$user = $p['username'];
-			$html .= "\t\t\t\t<li><a target='_blank' href='$url'>$user's $postname</a></li>\n";
+			$html .= "\t\t\t\t\t<li><a target='_blank' href='$url'>$user's $postname</a></li>\n";
 		}
-		$html .= "\t\t\t</ol>\n";
+		$html .= "\t\t\t\t</ol>\n";
+	$html .= "\t\t\t</div>\n";
 	$html .= "\t\t</div>\n";
 	$html .= "\t</div>\n";
 	$html .= "</div>\n";
