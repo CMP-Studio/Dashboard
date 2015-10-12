@@ -257,15 +257,15 @@ ol
 
 /* Social */
 
-.social-pane.instagram #social-title
+.social-pane.instagram .social-title
 {
     background-color: rgb(185,163,140);
 }
-.social-pane.facebook #social-title
+.social-pane.facebook .social-title
 {
     background-color: rgb(68,97,157);
 }
-.social-pane.twitter #social-title
+.social-pane.twitter .social-title
 {
     background-color: rgb(80,171,241);
 }
