@@ -256,7 +256,10 @@ ol
 }
 
 /* Social */
-
+.social-title
+{
+  color:white;
+}
 .social-pane.instagram .social-title
 {
     background-color: rgb(185,163,140);
