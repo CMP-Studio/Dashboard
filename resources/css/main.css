@@ -254,3 +254,18 @@ ol
 {
   height:650px;
 }
+
+/* Social */
+
+.social-pane.instagram
+{
+    background-color: rgb(185,163,140);
+}
+.social-pane.facebook
+{
+    background-color: rgb(68,97,157);
+}
+.social-pane.twitter
+{
+    background-color: rgb(80,171,241);
+}
