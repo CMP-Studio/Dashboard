@@ -269,15 +269,19 @@ else {
 	{
 		case 'twitter':
 			$postname = "Tweet";
+			$faicon = "fa-twitter";
 			break;
 		case 'facebook':
 			$postname = "Post";
+			$faicon = "fa-facebook";
 			break;
 		case 'instagram':
 			$postname = "Image";
+			$faicon = "fa-instagram";
 			break;
 		default:
 			$postname = "Post";
+			$faicon = "";
 	}
 
 
@@ -293,8 +297,7 @@ else {
 	$html .= "\t<div class='$typeclass social-pane panel panel-default'>\n";
 	$html .= "\t\t<a class='social-title' target='_blank' href='$url'>\n";
 	$html .= "\t\t\t<div class='panel-heading clearfix'>\n";
-	$html .= "\t\t\t\t<div class='logo' title='$type'></div>\n";
-	$html .= "\t\t\t\t<h3 class='panel-title'>$username</h3>\n";
+	$html .= "\t\t\t\t<h3 class='panel-title'><i class='fa $faicon'></i> $username</h3>\n";
 	$html .= "\t\t\t</div>\n";
 	$html .= "\t\t</a>\n";
 	$html .= "\t\t<div class='social-body panel-body'>\n";
@@ -418,15 +421,19 @@ function getMultiBadgeHTML($act)
 	{
 		case 'twitter':
 			$postname = "Tweet";
+			$faicon = "fa-twitter";
 			break;
 		case 'facebook':
 			$postname = "Post";
+			$faicon = "fa-facebook";
 			break;
 		case 'instagram':
 			$postname = "Image";
+			$faicon = "fa-instagram";
 			break;
 		default:
 			$postname = "Post";
+			$faicon = "";
 	}
 
 
@@ -436,8 +443,7 @@ function getMultiBadgeHTML($act)
 	$html .= "\t<div class='" . $typeclass . " social-pane panel panel-default'>\n";
 	$html .= "\t\t<div class='social-title'>\n";
 	$html .= "\t\t\t<div class='panel-heading clearfix'>\n";
-	$html .= "\t\t\t\t<div class='logo' title='" . $type . "'></div>\n";
-	$html .= "\t\t\t\t<h3 class='panel-title'>" . ucfirst($type) . "</h3>\n";
+  $html .= "\t\t\t\t<h3 class='panel-title'><i class='fa $faicon'></i> " . ucfirst($type) . "</h3>\n";
 	$html .= "\t\t\t</div>\n";
 	$html .= "\t\t</div>\n";
 	$html .= "\t\t<div class='social-body panel-body'>\n";
