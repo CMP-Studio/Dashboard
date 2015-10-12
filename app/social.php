@@ -294,7 +294,7 @@ else {
 	$html = "\n\n<!-- Start Social Badge -->\n\n";
 
 	$html .= "<div class=' col-md-4 col-xs-12'>\n";
-	$html .= "\t<div class='$typeclass social-pane panel panel-default'>\n";
+	$html .= "\t<div class='$typeclass social-pane panel'>\n";
 	$html .= "\t\t<a target='_blank' href='$url'>\n";
 	$html .= "\t\t\t<div class='panel-heading'>\n";
 	$html .= "\t\t\t\t<h3 class='panel-title'><i class='fa $faicon'></i> $username</h3>\n";
@@ -440,7 +440,7 @@ function getMultiBadgeHTML($act)
 	$html = "\n\n<!-- Start Social Badge -->\n\n";
 
 	$html .= "<div class=' col-md-4 col-xs-12'>\n";
-	$html .= "\t<div class='" . $typeclass . " social-pane panel panel-default'>\n";
+	$html .= "\t<div class='" . $typeclass . " social-pane panel'>\n";
 	$html .= "\t\t<div class='panel-heading'>\n";
   $html .= "\t\t\t<h3 class='panel-title social-title'><i class='fa $faicon'></i> " . ucfirst($type) . "</h3>\n";
 	$html .= "\t\t</div>\n";
