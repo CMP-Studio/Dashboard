@@ -96,24 +96,11 @@ ol
 
 /* Options */
 
-.options-toggle
-{
-    width: 70%;
-    height: 20px;
-    cursor:pointer;
-    margin:auto;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    margin-bottom:10px;
-    text-align: center;
-    color: white;
 
-
-}
 .nav-float
 {
   position: fixed;
-  top:67px;
+  top:77px;
   z-index: 100000; /* Keep on top */
 }
 
