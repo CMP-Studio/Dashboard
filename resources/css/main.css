@@ -215,3 +215,13 @@ ol
 {
   background-color: rgb(185,163,140);
 }
+
+/*****************************
+              Content
+*****************************/
+#main-content
+{
+  padding-left:2%;
+  padding-right:2%;
+  padding-top:10px;
+}

@@ -136,10 +136,10 @@ require_once 'app/facebook.php';
     <div id="main-content" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
       <!-- All content  should be in this div -->
       <div id='infotext'>
-        <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
-          Those users viewed <span id='pageviews'></span> pages.
-          During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
-          viewing an average of <span id='pages-per-visit'></span> pages per visit.
+        <p>From <b><span id='start-date'></span> to <span id='end-date'></span></b> the <b><span id='museum-text'></span></b> had <b><span id='museum-users'></span></b> people visit their websites.
+          Those users viewed <b><span id='pageviews'></span></b> pages.
+          During that time, visitors spent an average of <b><span id='time-on-site'></span></b> seconds using the website,
+          viewing an average of <b><span id='pages-per-visit'></span></b> pages per visit.
         </p>
       </div>
       <div id='chart-holder'>
