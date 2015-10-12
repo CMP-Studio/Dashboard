@@ -60,7 +60,7 @@ require_once 'app/facebook.php';
             <a class="navbar-brand " href="http://studio.carnegiemuseums.org/">
               <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
-        </div>
+          </div>
           <div class="col-lg-9 col-md-8 col-sm-7 hidden-xs">
             &nbsp;
           </div>
@@ -84,31 +84,26 @@ require_once 'app/facebook.php';
       </div>
       <!-- Options  (floating)-->
       <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
-        <!--
-        <div id="options-toggle" class="options-toggle grey-bg hidden-xs" data-toggle="true" >
-            <i class="fa fa-angle-double-up"></i>
-        </div>
-      -->
         <ul id="options-panel" class="nav nav-pills nav-stacked">
           <li role="presentation" id= "cmp" class="active museum">
-              <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
-              <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
+            <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
+            <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
           </li>
           <li role="presentation" id="cmoa" class="museum" >
-              <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
-              <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
+            <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
+            <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
           </li>
           <li role="presentation" id="cmnh" class="museum">
-              <img class='logo inactive' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
-              <img class='logo active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
+            <img class='logo inactive' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
+            <img class='logo active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
           </li>
           <li role="presentation" id="csc" class="museum">
-              <img class='logo inactive' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
-              <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
+            <img class='logo inactive' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
+            <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
           </li>
           <li role="presentation" id="warhol" class="museum">
-              <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
-              <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
+            <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
+            <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
           </li>
           <li role="presentation" class="nav-spacer">
             <p>Timespan</p>
@@ -127,62 +122,44 @@ require_once 'app/facebook.php';
             <p>Social Media</p>
           </li>
           <li class="twitter social-select" role="presentation">
-             Twitter <i class="fa fa-check"></i>
+            Twitter <i class="fa fa-check"></i>
           </li>
           <li class="facebook social-select" role="presentation">
-             Facebook <i class="fa fa-check"></i>
+            Facebook <i class="fa fa-check"></i>
           </li>
           <li class="instagram social-select" role="presentation">
-             Instagram <i class="fa fa-check"></i>
+            Instagram <i class="fa fa-check"></i>
           </li>
         </ul>
       </div>
 
-      <div id="main-content" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
-        <!-- The actual content -->
-        <div id='content'>
-          <div id='pane1' class='clearfix'>
-            <h2 class='title'>Web Activity</h2>
-            <div id='chart-holder'>
-
-              <div id='chart'>
-
-              </div>
-
-            </div>
-
-
-            <div id="text-holder">
-
-
-              <div id='infotext'>
-                <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
-                  Those users viewed <span id='pageviews'></span> pages.
-                  During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
-                  viewing an average of <span id='pages-per-visit'></span> pages per visit.
-                </p>
-
-                <p class='no-pg-space'>The most popular pages during that period were:</p>
-                <ol id='topPages'>
-                </ol>
-              </div>
-              <div id='socialmedia'>
-
-              </div>
-            </div>
-
-
-            <div class="clearfix"></div>
-          </div>
-          <div id='pane2' class='clearfix'>
-            <h2 class='title'>Social Media From <span id='social-start'></span> To <span id='social-end'></span></h2>
-            <div id='social-holder'>
-            </div>
-          </div>
+    <div id="main-content" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
+      <!-- All content  should be in this div -->
+      <div id='infotext'>
+        <p>From <span id='start-date'></span> to <span id='end-date'></span> the <span id='museum-text'></span> had <span id='museum-users'></span> people visit their websites.
+          Those users viewed <span id='pageviews'></span> pages.
+          During that time, visitors spent an average of <span id='time-on-site'></span> seconds using the website,
+          viewing an average of <span id='pages-per-visit'></span> pages per visit.
+        </p>
+      </div>
+      <div id='chart-holder'>
+        <div id='chart'>
         </div>
       </div>
+      <div id='pop-pages'>
+        <p class='no-pg-space'>The most popular pages were:</p>
+        <ol id='topPages'>
+        </ol>
+      </div>
+      <div id='socialmedia'>
+      </div>
+      <h2 class='title'>Social Media From <span id='social-start'></span> To <span id='social-end'></span></h2>
+      <div id='social-holder'>
+      </div>
+      <!-- end main content -->
     </div>
   </div>
+</div>
 
 
 
