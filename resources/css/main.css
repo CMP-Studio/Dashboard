@@ -260,7 +260,7 @@ ol
 {
   color:white;
 }
-.social-pane > a:hover
+.panel-heading:hover
 {
   text-decoration: none;
 }
