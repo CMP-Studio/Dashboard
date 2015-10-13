@@ -260,6 +260,11 @@ ol
 {
   color:white;
 }
+.social-pane > a:hover
+{
+  text-decoration: none;
+}
+
 .social-pane.instagram .panel-heading
 {
     background-color: rgb(185,163,140);
