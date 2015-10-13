@@ -303,7 +303,7 @@ else {
 	$html .= "\t\t<div class='panel-body'>\n";
 	$html .= "\t\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
 	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
-	if(count($toppages) >= 0)
+	if(count($toppages) > 0)
 	{
 		$html .= "\t\t\t<h4>Top Pages Visited From " . ucfirst($type) . "</h4>\n";
 		$html .= "\t\t\t<div class='social-urls'>\n";
