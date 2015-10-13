@@ -259,6 +259,10 @@ ol
 .social-pane .panel-heading
 {
   color:white;
+
+}
+.social-pane .panel-title
+{
   font-size: 1.2em;
   line-height: 1.5em;
 }
