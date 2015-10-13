@@ -295,11 +295,11 @@ else {
 
 	$html .= "<div class=' col-md-4 col-xs-12'>\n";
 	$html .= "\t<div class='$typeclass social-pane panel'>\n";
-	$html .= "\t\t<a target='_blank' href='$url'>\n";
 	$html .= "\t\t\t<div class='panel-heading'>\n";
+	$html .= "\t\t<a target='_blank' href='$url'>\n";
 	$html .= "\t\t\t\t<h3 class='panel-title'><i class='fa $faicon'></i> $username</h3>\n";
-	$html .= "\t\t\t</div>\n";
 	$html .= "\t\t</a>\n";
+	$html .= "\t\t\t</div>\n";
 	$html .= "\t\t<div class='panel-body'>\n";
 	$html .= "\t\t\t<h4>Total Followers: <b>$followers</b></h4>\n";
 	$html .= "\t\t\t<h4>Change in Followers: <i class='fa $dirclass'></i> <b>$change</b></h4>\n";
