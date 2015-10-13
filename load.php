@@ -40,8 +40,10 @@ $(document).ready(function (){
 
 
   //Social timespan
+  /*
   $("#social-start").text(moment().subtract(1, 'month').startOf('month').format("MMMM D, YYYY"));
   $("#social-end").text(moment().startOf('month').format("MMMM D, YYYY"));
+  */
 
   $('#timespan').change(function ()
   {
@@ -256,7 +258,7 @@ $.getJSON(url).done(function (data){
 
 var s_start = moment().subtract(1, 'month').startOf('month').unix();
 var s_end = moment().startOf('month').unix();
-var url = "./app/ajax.php?action=social&location=" + loc + "&start=" + s_start + "&end=" + s_end;
+var url = "./app/ajax.php?action=social&location=" + loc + "&start=" + start + "&end=" + end;
 $('#social-holder').empty();
 $.getJSON(url).done(function(data)
 {
