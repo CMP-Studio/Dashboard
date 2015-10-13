@@ -260,8 +260,10 @@ ol
 {
   color:white;
 }
-.panel-heading:hover
+.panel-heading > a,
+.panel-heading > a:hover
 {
+  color:white;
   text-decoration: none;
 }
 
