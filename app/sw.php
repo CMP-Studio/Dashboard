@@ -1,7 +1,41 @@
 <?php
 print "<pre>";
 $xml = file_get_contents("test.xml");
-parseResult($xml);
+$data = parseResult($xml);
+
+$start = 1441065600;
+$end = 1443657600;
+$intv = 24*60*60; //1 day;
+$data = toHighcharts($data, $start, $end, $intv);
+
+var_dump($data);
+
+function toHighcharts($data, $start, $end, $intv)
+{
+  $return = array();
+
+  for ($t=$start; $t <= $end ; $t += $intv)
+  {
+    $val = 0;
+    foreach ($data as $date => $attend)
+    {
+      $ts = strtotime($date);
+      //Find right value
+      if($ts >= $t && $ts < $t + $intv)
+      {
+        //We found it
+        $val = $attend;
+      }
+      else if($ts >= $t + $intv)
+      {
+        break;
+      }
+    }
+    $return[] = $val;
+  }
+
+  return $return;
+}
 
 
 function getAttendQuery($loc, $start, $end)
@@ -32,7 +66,7 @@ function parseResult($result)
     $attend = $row->getAttribute('admissions');
     $data[$date] = $attend;
   }
-  var_dump($data);
+  return $data;
 
 }
 
