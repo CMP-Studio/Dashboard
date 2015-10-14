@@ -20,7 +20,7 @@ function parseResult($result)
 {
 
   var_dump($result);
-  $xml = simplexml_load_string($result);
+  $xml = simplexml_load_file("test.xml");
   var_dump($xml);
 }
 
