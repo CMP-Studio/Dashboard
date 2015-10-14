@@ -24,7 +24,7 @@ function toHighcharts($data, $start, $end, $intv)
       if($ts >= $t && $ts < $t + $intv)
       {
         //We found it
-        $val = $attend;
+        $val = intval($attend);
       }
       else if($ts >= $t + $intv)
       {
