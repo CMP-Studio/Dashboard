@@ -1,5 +1,5 @@
 <?php
-
+print "<pre>";
 $xml = file_get_contents("test.xml");
 parseResult($xml);
 
@@ -18,6 +18,7 @@ function getAttendQuery($loc, $start, $end)
 
 function parseResult($result)
 {
+
   var_dump($result);
   $xml = simplexml_load_string($result);
   var_dump($xml);
