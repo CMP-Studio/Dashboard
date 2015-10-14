@@ -25,6 +25,7 @@ function getAttendanceData($start = 1441065600, $end = 1443657599, $loc = '')
   $sstart = date('Y-m-d', $start);
   $send = date('Y-m-d', $end);
   $res = SOAPcall("select", getAttendQuery($lcode,$sstart, $send));
+  print_r($res);
   $data = parseResult($res);
   $intv = 24*60*60; //1 day;
   $data = toHighcharts($data, $start, $end, $intv);
@@ -92,7 +93,7 @@ function parseResult($result)
 {
 
   //Format result;
-  $res = substr($result, 4);
+  $res = substr($result, 4); //Get rid of 'OK :'
   $res = str_replace(array("\n", "\r", "\t"), '', $res);
   $res = trim(str_replace('"', "'", $res));
 
