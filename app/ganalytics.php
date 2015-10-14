@@ -1,5 +1,5 @@
 <?php
-require_once _DIR_ . '/sw.php';
+require_once __DIR__ . '/sw.php';
 /*
 
 This file will generate the JSON required to display an analytical chart
