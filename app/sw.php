@@ -4,7 +4,7 @@ $xml = file_get_contents("test.xml");
 $data = parseResult($xml);
 
 $start = 1441065600;
-$end = 1443657600;
+$end = 1443657599;
 $intv = 24*60*60; //1 day;
 $data = toHighcharts($data, $start, $end, $intv);
 
