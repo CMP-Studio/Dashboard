@@ -45,7 +45,7 @@ require_once 'app/facebook.php';
     <div id='dialog'></div>
 
     <!-- Header and navigation -->
-    <header class='navbar-fixed-top'>
+    <header class='navbar-fixed-top page-padding'>
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
         <div class="container-fluid row">
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
@@ -71,23 +71,27 @@ require_once 'app/facebook.php';
 
       </nav>
 
-      <nav class="navbar navbar-default navbar-no-borderradius museum-bar">
+      <nav class="navbar navbar-default navbar-no-borderradius museum-bar page-padding">
         <div  class="container-fluid row">
           <div class="col-sm-5ths museum">
             <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
             <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
           </div>
           <div class="col-sm-5ths">
-
+            <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
+            <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
           </div>
           <div class="col-sm-5ths">
-
+            <img class='logo inactive' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
+            <img class='logo active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
           </div>
           <div class="col-sm-5ths">
-
+            <img class='logo inactive' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
+            <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
           </div>
           <div class="col-sm-5ths">
-
+            <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
+            <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
           </div>
         </div>
       </nav>
@@ -95,141 +99,80 @@ require_once 'app/facebook.php';
     </header>
 
 
-    <div class="container-fluid row main-body">
-      <div  id="options-spacer"  class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
-        <!-- A spacing fixer for floating -->
-        <div class="hidden-xs">
-          &nbsp;
+    <div class="container-fluid row main-body page-padding">
+      <!-- All content  should be in this div -->
+      <div class="row">
+        <div id='infotext' class="col-xs-12 col-sm-12">
+          <p>From <b><span id='start-date'></span> to <span id='end-date'></span></b> the <b><span id='museum-text'></span></b> had <b><span id='museum-users'></span></b> people visit their websites.
+            Those users viewed <b><span id='pageviews'></span></b> pages.
+            During that time, visitors spent an average of <b><span id='time-on-site'></span></b> seconds using the website,
+            viewing an average of <b><span id='pages-per-visit'></span></b> pages per visit.
+          </p>
         </div>
       </div>
-      <!-- Options  (floating)-->
-      <div class="nav-float col-lg-2 col-md-3 col-sm-4 col-xs-12 collapse in" id="side-nav">
-        <ul id="options-panel" class="nav nav-pills nav-stacked">
-          <li role="presentation" id= "cmp" class="active museum">
-            <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
-            <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
-          </li>
-          <li role="presentation" id="cmoa" class="museum" >
-            <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
-            <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
-          </li>
-          <li role="presentation" id="cmnh" class="museum">
-            <img class='logo inactive' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
-            <img class='logo active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
-          </li>
-          <li role="presentation" id="csc" class="museum">
-            <img class='logo inactive' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
-            <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
-          </li>
-          <li role="presentation" id="warhol" class="museum">
-            <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
-            <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
-          </li>
-          <li role="presentation" class="nav-spacer">
-            <p>Timespan</p>
-          </li>
-          <li role="presentation">
-            <div class='timespan-picker'>
-              <select id='timespan'>
-                <option value='lw'>Last Week</option>
-                <option value='lm' selected="selected">Last Month</option>
-                <option value='l3m'>Previous 3 Months</option>
-                <option value='ly'>Last Year</option>
-              </select>
-            </div>
-          </li>
-          <li role="presentation" class="nav-spacer">
-            <p>Social Media</p>
-          </li>
-          <li class="twitter social-select" role="presentation">
-            Twitter <i class="fa fa-check"></i>
-          </li>
-          <li class="facebook social-select" role="presentation">
-            Facebook <i class="fa fa-check"></i>
-          </li>
-          <li class="instagram social-select" role="presentation">
-            Instagram <i class="fa fa-check"></i>
-          </li>
-        </ul>
+      <div class="row">
+        <div id='chart' class="col-xs-12 col-sm-8">
+        </div>
+        <div id='socialmedia' class="col-xs-12 col-sm-4">
+        </div>
+      </div>
+      <div class="row">
+        <div id='pop-pages' class="col-xs-12 col-sm-12">
+          <p class='no-pg-space'>The most popular pages were:</p>
+          <ol id='topPages'>
+          </ol>
+        </div>
+      </div>
+      <div class="row" class="col-xs-12 col-sm-12">
+        <div id='social-holder'>
+        </div>
       </div>
 
-      <div id="main-content" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
-        <!-- All content  should be in this div -->
-        <div class="container-fluid">
-          <div class="row">
-            <div id='infotext' class="col-xs-12 col-sm-12">
-              <p>From <b><span id='start-date'></span> to <span id='end-date'></span></b> the <b><span id='museum-text'></span></b> had <b><span id='museum-users'></span></b> people visit their websites.
-                Those users viewed <b><span id='pageviews'></span></b> pages.
-                During that time, visitors spent an average of <b><span id='time-on-site'></span></b> seconds using the website,
-                viewing an average of <b><span id='pages-per-visit'></span></b> pages per visit.
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div id='chart' class="col-xs-12 col-sm-8">
-            </div>
-            <div id='socialmedia' class="col-xs-12 col-sm-4">
-            </div>
-          </div>
-          <div class="row">
-            <div id='pop-pages' class="col-xs-12 col-sm-12">
-              <p class='no-pg-space'>The most popular pages were:</p>
-              <ol id='topPages'>
-              </ol>
-            </div>
-          </div>
-          <div class="row" class="col-xs-12 col-sm-12">
-            <div id='social-holder'>
-            </div>
-          </div>
-        </div>
-        <!-- end main content -->
-      </div>
+      <!-- end main content -->
     </div>
-  </div>
 
 
 
 
-  <div id="help-panel" title="About this Dashboard">
-    <p>This dashboard includes a summary of information from the Carnegie Museums of Pittsburgh various web assets.</p>
-    <p>Web activity shows a timeline of events that occured during the selected timespan including how many people viewed pages on our websites, popular social media posts, and pages that recived a spike in traffic.</p>
-    <p>The Social Media section shows the post(s) viewers responded to the most and the pages that they went to after seeing a post.  It also keeps a track of our followers and the change of followers month to month.</p>
-  </div>
-  <!-- Javascript -->
+    <div id="help-panel" title="About this Dashboard">
+      <p>This dashboard includes a summary of information from the Carnegie Museums of Pittsburgh various web assets.</p>
+      <p>Web activity shows a timeline of events that occured during the selected timespan including how many people viewed pages on our websites, popular social media posts, and pages that recived a spike in traffic.</p>
+      <p>The Social Media section shows the post(s) viewers responded to the most and the pages that they went to after seeing a post.  It also keeps a track of our followers and the change of followers month to month.</p>
+    </div>
+    <!-- Javascript -->
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-
-  <!-- Bootstrap -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 
-  <!-- jQuery UI -->
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-  <!-- Highcharts -->
-  <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <!-- jQuery UI -->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
-  <!-- D3 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
+    <!-- Highcharts -->
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
 
 
-  <!--Select2-->
+    <!-- D3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
-  <!--Moment-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <!--Select2-->
 
-  <!--Numeral-->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
-  <!--Load account info-->
-  <?php require_once 'load.php' ?>
+    <!--Moment-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 
-</body>
-</html>
+    <!--Numeral-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+
+    <!--Load account info-->
+    <?php require_once 'load.php' ?>
+
+  </body>
+  </html>

@@ -85,6 +85,13 @@ ol
   -o-transform: none;
   transform: none;
 }
+
+.page-padding
+{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
 /******************************
         Topbar
 ******************************/
@@ -106,18 +113,17 @@ ol
     cursor:pointer;
 }
 
-.spacer
-{
-  height:67px;
-  width:100%;
-}
 
 /******************************
-        Sidebar
+        Museumbar
 ******************************/
 
 /* Options */
+.museum-bar
+{
+  background-color: rgb(98,98,98);
 
+}
 
 .nav-float
 {
