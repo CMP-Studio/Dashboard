@@ -158,13 +158,14 @@ ol
 /* Options - Museums */
 .museum
 {
+  height:100%;
   cursor: pointer;
 }
 
 .museum.active
 {
   background-color: #4d6684;
-  border-radius: 4px;
+  
 }
 .museum  img.active
 {
