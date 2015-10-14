@@ -19,11 +19,8 @@ function getAttendQuery($loc, $start, $end)
 function parseResult($result)
 {
 
-  $xml  = simplexml_load_string($result);
-  $rows = $xml->children('rs', TRUE)->data->children('z', TRUE)->row;
-  foreach ($rows as $row) {
-    var_dump($row);
-  }
+  $xml  = simplexml_load_string(str_replace(array("\n", "\r", "\t"), '',$result));
+  var_dump($xml);
 }
 
  ?>
