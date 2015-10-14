@@ -36,6 +36,10 @@ ol
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.full-height
+{
+  height: 100%;
+}
 
 
 .no-pg-space
@@ -165,7 +169,7 @@ ol
 .museum.active
 {
   background-color: #4d6684;
-  
+
 }
 .museum  img.active
 {

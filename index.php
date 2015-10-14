@@ -71,8 +71,8 @@ require_once 'app/facebook.php';
 
       </nav>
 
-      <nav class="navbar navbar-default navbar-no-borderradius museum-bar page-padding">
-        <div  class="container-fluid row">
+      <nav class="navbar navbar-inverse navbar-no-border navbar-no-borderradius museum-bar page-padding">
+        <div class="container-fluid row full-height">
           <div id="cmp" class="col-sm-5ths museum active">
             <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
             <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>

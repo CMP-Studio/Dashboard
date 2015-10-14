@@ -31,6 +31,10 @@
 {
  border-radius: 0;
 }
+.navbar-no-border
+{
+  border: none;
+}
 
 /* Grid modification */
 .col-xs-5ths,
