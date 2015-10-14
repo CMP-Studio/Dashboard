@@ -442,7 +442,7 @@ function chartDashboard($settings)
     return json_encode($e);
   }
 
-	$att = getAttendanceData($settings["From"], $settings["To"], $setting["Location"]);
+	$att = getAttendanceData($settings["From"], $settings["To"], $settings["Location"]);
 
 
 
