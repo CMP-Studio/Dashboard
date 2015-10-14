@@ -1,4 +1,5 @@
 <?php
+require_once _DIR_ . '/sw.php';
 /*
 
 This file will generate the JSON required to display an analytical chart
@@ -160,6 +161,7 @@ function getSettings()
   $settings["Account"] = tryGet("account");
   $settings["From"] = tryGet("start");
   $settings["To"] = tryGet("end");
+	$setting["Location"] = tryGet("loc");
 
   //Validate settings
   if(empty($settings["Account"]))
@@ -440,6 +442,8 @@ function chartDashboard($settings)
     return json_encode($e);
   }
 
+	$att = getAttendanceData($settings["From"], $settings["To"], $setting["Location"]);
+
 
 
 
@@ -453,6 +457,7 @@ function chartDashboard($settings)
   $chart->addPlotOption('fillOpacity',0.2);
   $chart->addSeries($data[1],'Pageviews',$colors[0]);
   $chart->addSeries($data[2],'Users',$colors[1]);
+	$chart->addSeries($att, 'Attendance', 'green');
 
   if(tryGet('twitter'))
   {

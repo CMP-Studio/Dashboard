@@ -1,8 +1,6 @@
 <?php
-print "<pre>";
 
 
-var_dump(getAttendanceData());
 
 function getAttendanceData($start = 1441065600, $end = 1443657600, $loc = '')
 {
@@ -22,14 +20,13 @@ function getAttendanceData($start = 1441065600, $end = 1443657600, $loc = '')
       $lcode = '';
       break;
   }
-  $sstart = date('Y-m-d H:i:s', $start);
-  $send = date('Y-m-d H:i:s', $end);
-  $q = getAttendQuery($lcode,$sstart, $send);
-  print $q;
+  $tstart = strtotime($start);
+  $tend = strtotime($end);
+  $q = getAttendQuery($lcode,$start, $end);
   $res = SOAPcall("select", $q);
   $data = parseResult($res);
   $intv = 24*60*60; //1 day;
-  $data = toHighcharts($data, $start, $end, $intv);
+  $data = toHighcharts($data, $tstart, $tend, $intv);
   return $data;
 }
 
