@@ -21,7 +21,7 @@ function SOAPcall($func, $args)
   $soap = new SoapClient($url);
   $var = array("strFunc" => $func, "strArgs" => $args);
   $result = $soap->rInvoke($var);
-  var_dump($soap->rInvokeResult);
+  var_dump($result->rInvokeResult);
 
 }
 
