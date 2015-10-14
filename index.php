@@ -45,8 +45,8 @@ require_once 'app/facebook.php';
     <div id='dialog'></div>
 
     <!-- Header and navigation -->
-    <header class='navbar-fixed-top page-padding'>
-      <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius'>
+    <header class='navbar-fixed-top'>
+      <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius page-padding'>
         <div class="container-fluid row">
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
             <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#side-nav" aria-expanded="true">
