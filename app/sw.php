@@ -13,7 +13,14 @@ $data = toHighcharts($data, $start, $end, $intv);
 var_dump($data);
 */
 
-SOAPcall("select",getAttendQuery());
+$res = SOAPcall("select",getAttendQuery());
+$data = parseResult($res);
+$start = 1441065600;
+$end = 1443657599;
+$intv = 24*60*60; //1 day;
+$data = toHighcharts($data, $start, $end, $intv);
+var_dump($data);
+
 
 function SOAPcall($func, $args)
 {
@@ -21,7 +28,7 @@ function SOAPcall($func, $args)
   $soap = new SoapClient($url);
   $var = array("strFunc" => $func, "strArgs" => $args);
   $result = $soap->rInvoke($var);
-  var_dump($result->rInvokeResult);
+  return $result->rInvokeResult;
 
 }
 
