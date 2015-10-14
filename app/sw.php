@@ -19,9 +19,11 @@ function getAttendQuery($loc, $start, $end)
 function parseResult($result)
 {
 
-  var_dump($result);
-  $xml = simplexml_load_file("test.xml");
-  var_dump($xml);
+  $xml  = simplexml_load_string($result);
+  $rows = $xml->children('rs', TRUE)->data->children('z', TRUE)->row;
+  foreach ($rows as $row) {
+    var_dump($row);
+  }
 }
 
  ?>
