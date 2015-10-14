@@ -1,25 +1,38 @@
 <?php
 print "<pre>";
 
-/*
-$xml = file_get_contents("test.xml");
-$data = parseResult($xml);
 
-$start = 1441065600;
-$end = 1443657599;
-$intv = 24*60*60; //1 day;
-$data = toHighcharts($data, $start, $end, $intv);
+var_dump(getAttendanceData());
 
-var_dump($data);
-*/
+function getAttendanceData($start = 1441065600, $end = 1443657599, $loc = 'cmnh')
+{
+  $lcode = '';
+  switch ($loc) {
+    case 'cmnh':
+    case 'cmoa':
+      $lcode = 'O';
+      break;
+    case 'csc':
+      $lcode = 'S';
+      break;
+    case 'warhol':
+      $lcode = 'A';
+      break;
+    default:
+      $lcode = '';
+      break;
+  }
+  $sstart = date('Y-m-d', $start);
+  $send = date('Y-m-d', $end);
+  $res = SOAPcall("select", getAttendQuery($lcode,$sstart, $send));
+  $data = parseResult($res);
+  $intv = 24*60*60; //1 day;
+  $data = toHighcharts($data, $start, $end, $intv);
+  return $data;
+}
 
-$res = SOAPcall("select",getAttendQuery());
-$data = parseResult($res);
-$start = 1441065600;
-$end = 1443657599;
-$intv = 24*60*60; //1 day;
-$data = toHighcharts($data, $start, $end, $intv);
-var_dump($data);
+
+
 
 
 function SOAPcall($func, $args)
@@ -60,14 +73,14 @@ function toHighcharts($data, $start, $end, $intv)
 }
 
 
-function getAttendQuery($loc = '\'\'', $start = '\'2015-09-01\'', $end = '\'2015-10-01\'')
+function getAttendQuery($loc, $start, $end)
 {
 
   $query = "<params>cast(start_date as date) as AttendDate, cast(sum(t.quantity * i.admissions) as int) as Admissions
  from transact t
  left join items i on (i.department + i.category + i.item = t.department + t.category + t.item)
- where t.salespoint LIKE $loc + '%'
- and (start_date BETWEEN $start AND $end)
+ where t.salespoint LIKE '$loc' + '%'
+ and (start_date BETWEEN '$start' AND '$end')
  and i.admprconly = 0
  group by cast(start_date as date)
  order by cast(start_date as date)</params>";
