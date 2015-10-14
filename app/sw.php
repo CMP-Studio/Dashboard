@@ -78,7 +78,7 @@ function getAttendQuery($loc = '\'\'', $start = '\'2015-09-01\'', $end = '\'2015
 function parseResult($result)
 {
   //Format result;
-  $res = str_replace(array("\n", "\r", "\t"), '', $result);
+  $res = str_replace(array("\n", "\r", "\t", "OK: "), '', $result);
   $res = trim(str_replace('"', "'", $res));
 
   $doc = new DOMDocument;
