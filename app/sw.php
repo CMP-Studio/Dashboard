@@ -25,7 +25,11 @@ function parseResult($result)
   $doc = new DOMDocument;
   $doc->loadXML($res);
   $rows = $doc->getElementsByTagNameNS('#RowsetSchema', 'row');
-  var_dump($rows);
+  foreach ($rows as $row)
+  {
+    var_dump($row);
+  }
+
 }
 
  ?>
