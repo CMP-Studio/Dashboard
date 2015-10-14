@@ -48,7 +48,7 @@ function toHighcharts($data, $start, $end, $intv)
 {
   $return = array();
 
-  for ($t=$start; $t < $end ; $t += $intv)
+  for ($t=$start; $t <= $end ; $t += $intv)
   {
     $val = 0;
     foreach ($data as $date => $attend)
