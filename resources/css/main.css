@@ -241,6 +241,11 @@ ol
 /*****************************
               Content
 *****************************/
+.main-body
+{
+  margin-top: 152px;
+}
+
 #main-content
 {
   padding-left:2%;

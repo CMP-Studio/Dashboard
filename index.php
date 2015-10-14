@@ -94,11 +94,8 @@ require_once 'app/facebook.php';
 
     </header>
 
-    <div class="spacer">
-      &nbsp;
-    </div>
 
-    <div class="container-fluid row">
+    <div class="container-fluid row main-body">
       <div  id="options-spacer"  class="col-lg-2 col-md-3 col-sm-4 col-xs-12" >
         <!-- A spacing fixer for floating -->
         <div class="hidden-xs">
