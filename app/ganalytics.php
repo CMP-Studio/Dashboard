@@ -161,7 +161,7 @@ function getSettings()
   $settings["Account"] = tryGet("account");
   $settings["From"] = tryGet("start");
   $settings["To"] = tryGet("end");
-	$setting["Location"] = tryGet("loc");
+	$setting["Location"] = tryGet("location");
 
   //Validate settings
   if(empty($settings["Account"]))
