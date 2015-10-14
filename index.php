@@ -68,22 +68,24 @@ require_once 'app/facebook.php';
             <i class="fa fa-question-circle help-btn"></i>
           </div>
         </div>
-        <div class="container-fluid row">
-          <div class="col-sm-5ths museum">
-            <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
-            <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
-          </div>
-          <div class="col-sm-5ths museum">
 
+      </nav>
+      <nav class="navbar navbar-default navbar-no-borderradius">
+        <div  class="container-fluid row">
+          <div class="col-sm-5ths">
+            A
           </div>
-          <div class="col-sm-5ths museum">
-
+          <div class="col-sm-5ths">
+            B
           </div>
-          <div class="col-sm-5ths museum">
-
+          <div class="col-sm-5ths">
+            C
           </div>
-          <div class="col-sm-5ths museum">
-
+          <div class="col-sm-5ths">
+            D
+          </div>
+          <div class="col-sm-5ths">
+            E
           </div>
         </div>
       </nav>
