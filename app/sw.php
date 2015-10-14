@@ -4,7 +4,7 @@ print "<pre>";
 
 var_dump(getAttendanceData());
 
-function getAttendanceData($start = 1441065600, $end = 1443657599, $loc = '')
+function getAttendanceData($start = 1441065600, $end = 1443657600, $loc = '')
 {
   $lcode = '';
   switch ($loc) {
