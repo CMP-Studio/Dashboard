@@ -64,6 +64,8 @@ function getAttendQuery($loc = '\'\'', $start = '\'2015-09-01\'', $end = '\'2015
  and i.admprconly = 0
  group by cast(start_date as date)
  order by cast(start_date as date)</params>";
+
+ return $query;
 }
 
 function parseResult($result)
