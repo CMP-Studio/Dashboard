@@ -457,7 +457,7 @@ function chartDashboard($settings)
   $chart->addPlotOption('fillOpacity',0.2);
   $chart->addSeries($data[1],'Pageviews',$colors[0]);
   $chart->addSeries($data[2],'Users',$colors[1]);
-	$chart->addSeries($att, 'Attendance', 'green');
+	$chart->addSeries($att, 'Attendance', 'rgba(35,145,35,1)');
 
   if(tryGet('twitter'))
   {
