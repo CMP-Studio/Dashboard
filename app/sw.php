@@ -79,7 +79,7 @@ function getAttendQuery($loc, $start, $end)
  from transact t
  left join items i on (i.department + i.category + i.item = t.department + t.category + t.item)
  where t.salespoint LIKE '$loc' + '%'
- and (start_date BETWEEN '$start' AND '$end')
+ and (cast(start_date as date) BETWEEN '$start' AND '$end')
  and i.admprconly = 0
  group by cast(start_date as date)
  order by cast(start_date as date)</params>";
