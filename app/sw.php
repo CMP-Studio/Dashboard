@@ -22,6 +22,7 @@ function parseResult($result)
   $res = str_replace(array("\n", "\r", "\t"), '', $result);
   $res = trim(str_replace('"', "'", $res));
 
+  print $res;
   $xml  = simplexml_load_string($res);
   var_dump($xml);
 }
