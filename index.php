@@ -73,20 +73,21 @@ require_once 'app/facebook.php';
 
       <nav class="navbar navbar-default navbar-no-borderradius museum-bar">
         <div  class="container-fluid row">
-          <div class="col-sm-5ths">
-            A
+          <div class="col-sm-5ths museum">
+            <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
+            <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
           </div>
           <div class="col-sm-5ths">
-            B
+
           </div>
           <div class="col-sm-5ths">
-            C
+
           </div>
           <div class="col-sm-5ths">
-            D
+
           </div>
           <div class="col-sm-5ths">
-            E
+
           </div>
         </div>
       </nav>
