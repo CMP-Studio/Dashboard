@@ -1,4 +1,9 @@
 <?php
+
+$xml = file_get_contents("test.xml");
+parseResult($xml);
+
+
 function getAttendQuery($loc, $start, $end)
 {
   $query = "cast(start_date as date) as AttendDate, cast(sum(t.quantity * i.admissions) as int) as Admissions
