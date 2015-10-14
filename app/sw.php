@@ -18,8 +18,11 @@ function getAttendQuery($loc, $start, $end)
 
 function parseResult($result)
 {
+  //Format result;
+  $res = str_replace(array("\n", "\r", "\t"), '', $result);
+  $res = trim(str_replace('"', "'", $res));
 
-  $xml  = simplexml_load_string(str_replace(array("\n", "\r", "\t"), '',$result));
+  $xml  = simplexml_load_string($res);
   var_dump($xml);
 }
 
