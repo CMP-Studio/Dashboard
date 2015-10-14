@@ -70,7 +70,8 @@ require_once 'app/facebook.php';
         </div>
 
       </nav>
-      <nav class="navbar navbar-default navbar-no-borderradius">
+      <!--
+      <nav class="navbar navbar-default navbar-no-borderradius museum-bar">
         <div  class="container-fluid row">
           <div class="col-sm-5ths">
             A
@@ -89,6 +90,7 @@ require_once 'app/facebook.php';
           </div>
         </div>
       </nav>
+    -->
     </header>
 
     <div class="spacer">
