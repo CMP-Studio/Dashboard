@@ -25,10 +25,14 @@ function parseResult($result)
   $doc = new DOMDocument;
   $doc->loadXML($res);
   $rows = $doc->getElementsByTagNameNS('#RowsetSchema', 'row');
+  $data = array();
   foreach ($rows as $row)
   {
-    var_dump($row);
+    $date = $row->getAttribute('attenddate');
+    $attend = $row->getAttribute('admissions');
+    $data[$date] = $attend;
   }
+  var_dump($data);
 
 }
 
