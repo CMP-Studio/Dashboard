@@ -104,6 +104,13 @@ require_once 'app/facebook.php';
           </div>
 
         </div>
+        <div class="hidden-sm active-museum">
+          <img id="m-warhol" class='logo' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
+          <img id="m-csc" class='logo' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
+          <img id="m-cmnh" class='logo' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
+          <img id="m-cmoa" class='logo' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
+          <img id="m-cmp" class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
+        </div>
       </nav>
 
     </header>

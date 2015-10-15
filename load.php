@@ -107,10 +107,6 @@ $(document).ready(function (){
 
   function setActiveMuseum(loc)
   {
-    /*
-    if (location.href.indexOf("#") > -1) {
-        location.assign(location.href.replace(/\/?#/, "/"));
-    }*/
 
     $('#cmp').removeClass('active');
     $('#csc').removeClass('active');
@@ -118,7 +114,14 @@ $(document).ready(function (){
     $('#cmnh').removeClass('active');
     $('#warhol').removeClass('active');
 
+    $('#m-cmp').removeClass('active');
+    $('#m-csc').removeClass('active');
+    $('#m-cmoa').removeClass('active');
+    $('#m-cmnh').removeClass('active');
+    $('#m-warhol').removeClass('active');
+
     $('#' + loc).addClass('active');
+    $('#m-' + loc).addClass('active');
 
   }
 
