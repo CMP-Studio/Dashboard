@@ -104,7 +104,7 @@ require_once 'app/facebook.php';
           </div>
 
         </div>
-        <div class="hidden-sm active-museum">
+        <div class="hidden-sm hidden-md hidden-lg active-museum">
           <img id="m-warhol" class='logo' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
           <img id="m-csc" class='logo' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
           <img id="m-cmnh" class='logo' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
