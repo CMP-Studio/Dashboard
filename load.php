@@ -17,6 +17,12 @@ $(document).ready(function (){
 
   loadAnalytics(museum, timespan.start, timespan.end);
 
+  //Mobile menu
+  $("#museum-bar .museum, .active-museum").click(function()
+  {
+    $("#museum-bar").collapse('hide');
+  });
+
   //Select timespan
   $("#timespan").select2({
     width: '100%',

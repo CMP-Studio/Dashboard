@@ -49,7 +49,7 @@ require_once 'app/facebook.php';
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius page-padding'>
         <div class="container-fluid row">
           <div class="col-xs-2 hidden-sm hidden-md hidden-lg">
-            <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="true">
+            <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -76,7 +76,7 @@ require_once 'app/facebook.php';
         </div>
       </nav>
       <nav class="navbar navbar-inverse navbar-no-border navbar-no-borderradius museum-bar page-padding">
-        <div id="museum-bar" class="container-fluid row">
+        <div id="museum-bar" class="container-fluid row collapse">
 
           <div id="cmp" class="museum active col-sm-5ths">
             <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
