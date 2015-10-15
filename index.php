@@ -72,26 +72,36 @@ require_once 'app/facebook.php';
       </nav>
 
       <nav class="navbar navbar-inverse navbar-no-border navbar-no-borderradius museum-bar page-padding">
-        <div class="container-fluid row full-height">
-          <div id="cmp" class="col-sm-5ths museum active">
-            <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
-            <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
+        <div class="container-fluid row">
+          <div class="col-sm-5ths">
+            <div id="cmp" class="museum active">
+              <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
+              <img class='logo active' alt='Carnegie Museums of Pittsburgh (Active)' src='/resources/img/CMP_SIG_White.png'>
+            </div>
           </div>
-          <div id="cmoa" class="col-sm-5ths museum">
-            <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
-            <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
+          <div  class="col-sm-5ths">
+            <div id="cmoa" class="museum">
+              <img class='logo inactive' alt='Carnegie Museum of Art' src='/resources/img/cmoa_black.png'>
+              <img class='logo active' alt='Carnegie Museum of Art (Active)' src='/resources/img/cmoa_white.png'>
+            </div>
           </div>
-          <div id="cmnh" class="col-sm-5ths museum">
-            <img class='logo inactive' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
-            <img class='logo active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
+          <div  class="col-sm-5ths">
+            <div id="cmnh" class="museum">
+              <img class='logo inactive' alt='Carnegie Museum of Natural History' src='/resources/img/cmnh_black.png'>
+              <img class='logo active' alt='Carnegie Museum of Natural History (Active)' src='/resources/img/cmnh_white.png'>
+            </div>
           </div>
-          <div id="csc" class="col-sm-5ths museum">
-            <img class='logo inactive' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
-            <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
+          <div  class="col-sm-5ths">
+            <div id="csc" class="museum">
+              <img class='logo inactive' alt='Carnegie Science Center' src='/resources/img/csc_black.png'>
+              <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
+            </div>
           </div>
-          <div id="warhol" class="col-sm-5ths museum">
-            <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
-            <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
+          <div  class="col-sm-5ths">
+            <div id="warhol" class="museum">
+              <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
+              <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
+            </div>
           </div>
         </div>
       </nav>
