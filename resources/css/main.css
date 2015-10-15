@@ -29,6 +29,7 @@ ol
 }
 .v-center
 {
+  position: relative;
   top: 50%;
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -116,6 +117,11 @@ ol
   color:white;
   cursor:default
 
+}
+
+.timespan
+{
+  height: 65px;
 }
 
 /* Navbar */

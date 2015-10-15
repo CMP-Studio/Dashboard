@@ -63,7 +63,7 @@ require_once 'app/facebook.php';
             &nbsp;
           </div>
           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-            <div id='timespan-picker' class="v-center">
+            <div class="v-center timespan">
               <h3 class='sr-only'>Stats for the selected timespan</h3>
               <select id='timespan'>
                 <option value='lw'>Last Week</option>
