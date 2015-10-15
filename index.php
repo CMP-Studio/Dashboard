@@ -58,7 +58,7 @@ require_once 'app/facebook.php';
           </div>
           <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
             <a class="navbar-brand " href="http://studio.carnegiemuseums.org/">
-              <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo v-center">
+              <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
             </a>
           </div>
           <div class="col-lg-9 col-md-8 col-sm-7 hidden-xs">
