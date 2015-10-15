@@ -49,7 +49,7 @@ require_once 'app/facebook.php';
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius page-padding'>
         <div class="container-fluid row">
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
-            <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#side-nav" aria-expanded="true">
+            <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="true">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -57,23 +57,27 @@ require_once 'app/facebook.php';
             </button>
           </div>
           <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <!--
-            <a class="navbar-brand " href="http://studio.carnegiemuseums.org/">
-              <img alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-text.png" class="logo">
-            </a>
-          -->
             <h1 class="title">Digital Dashboard</h1>
           </div>
-          <div class="col-lg-9 col-md-8 col-sm-7 hidden-xs">
+          <div class="col-lg-7 col-md-6 col-sm-5 hidden-xs">
             &nbsp;
           </div>
-          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3">
-            <i class="fa fa-question-circle help-btn"></i>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <div id='timespan-picker'>
+              <h3 class='sr-only'>Stats for the selected timespan</h3>
+              <label class='left-label' for='timespan'>Stats for </label>
+              <select id='timespan'>
+                <option value='lw'>Last Week</option>
+                <option value='lm' selected="selected">Last Month</option>
+                <option value='l3m'>Previous 3 Months</option>
+                <option value='ly'>Last Year</option>
+              </select>
+            </div>
           </div>
         </div>
       </nav>
       <nav class="navbar navbar-inverse navbar-no-border navbar-no-borderradius museum-bar page-padding">
-        <div class="container-fluid row">
+        <div id="museum-bar" class="container-fluid row">
           <div class="col-sm-5ths">
             <div id="cmp" class="museum active">
               <img class='logo inactive' alt='Carnegie Museums of Pittsburgh' src='/resources/img/CMP_SIG_Grey.png'>
