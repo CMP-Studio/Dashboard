@@ -56,10 +56,10 @@ require_once 'app/facebook.php';
               <span class="icon-bar"></span>
             </button>
           </div>
-          <div class="col-lg-2 col-md-3 col-sm-4 hidden-xs">
+          <div class="col-lg-3 col-md-4 col-sm-5 hidden-xs">
             <h1 class="title">Digital Dashboard</h1>
           </div>
-          <div class="col-lg-8 col-md-7 col-sm-5 hidden-xs">
+          <div class="col-lg-7 col-md-6 col-sm-4 hidden-xs">
             &nbsp;
           </div>
           <div class="col-lg-2 col-md-2 col-sm-3 col-xs-9">
