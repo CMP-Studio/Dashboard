@@ -20,7 +20,14 @@ $(document).ready(function (){
   //Mobile menu
   $("#museum-bar .museum, .active-museum").click(function()
   {
-    $("#museum-bar").collapse('hide');
+    if($("#museum-bar-toggle").attr("aria-expanded") == "true")
+    {
+      $("#museum-bar").collapse('hide');
+    }
+    else
+    {
+      $("#museum-bar").collapse('show');
+    }
   });
 
   //Select timespan

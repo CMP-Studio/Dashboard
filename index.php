@@ -53,7 +53,7 @@ require_once 'app/facebook.php';
             <h1 class="title">Digital Dashboard</h1>
           </div>
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
-            <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="false">
+            <button id="museum-bar-toggle" type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
