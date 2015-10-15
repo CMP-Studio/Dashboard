@@ -124,6 +124,17 @@ ol
   height: 65px;
 }
 
+.timespan > .select2
+{
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 /* Navbar */
 .navbar-brand
 {
@@ -140,6 +151,8 @@ ol
     color:white;
     cursor:pointer;
 }
+
+
 
 
 /******************************
@@ -210,67 +223,6 @@ ol
 .museum.active  img.inactive
 {
   display:none;
-}
-
-@media screen and (max-width: 767px ) {
-  .museum .logo
-  {
-    max-width:35%;
-  }
-}
-
-/* Options - Time */
-
-.timespan-picker
-{
-  width:70%;
-
-  margin-left:auto;
-  margin-right:auto;
-
-  margin-top:4px;
-  margin-bottom:4px;
-}
-@media screen and (max-width: 767px ) {
-  .timespan-picker
-  {
-    width:35%;
-  }
-}
-
-
-/* Options - Social */
-.social-select
-{
-  cursor: pointer;
-  text-align: center;
-}
-.social-select.active
-{
-  border-radius: 4px;
-  color:white;
-}
-.social-select i
-{
-  display: none;
-}
-.social-select.active i
-{
-  display:inline;
-}
-
-.social-select.active.twitter
-{
-  background-color: rgb(80,171,241);
-}
-.social-select.active.facebook
-{
-  background-color: rgb(68,97,157);
-}
-
-.social-select.active.instagram
-{
-  background-color: rgb(185,163,140);
 }
 
 /*****************************
