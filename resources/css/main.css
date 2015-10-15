@@ -238,6 +238,10 @@ ol
     line-height: 20px;
     font-size: 1em;
   }
+  .timespan
+  {
+    height:45px;
+  }
 
 }
 
