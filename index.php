@@ -109,7 +109,7 @@ require_once 'app/facebook.php';
     </header>
 
 
-    <div class="container-fluid row main-body page-padding">
+    <div class="main-body page-padding">
       <!-- All content  should be in this div -->
       <div class="row">
         <div id='infotext' class="col-xs-12 col-sm-12">
