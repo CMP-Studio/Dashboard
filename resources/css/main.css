@@ -228,6 +228,10 @@ ol
   {
     display:none;
   }
+  .logo
+  {
+    max-height: 60px;
+  }
 }
 
 /*****************************
