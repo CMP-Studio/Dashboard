@@ -166,35 +166,7 @@ ol
 
 }
 
-.nav-float
-{
-  position: fixed;
-  top:77px;
 
-}
-
-@media screen and (max-width: 767px ) {
-  .nav-float
-  {
-    position: relative;
-    top:10px;
-  }
-}
-
-.nav-spacer
-{
-  border-top:1px solid #d3d3d3;
-  border-bottom:1px solid #d3d3d3;
-
-  text-align: center;
-
-}
-
-.nav-spacer > *
-{
-  margin-top:4px;
-  margin-bottom:4px;
-}
 
 /* Options - Museums */
 .museum
@@ -225,6 +197,15 @@ ol
   display:none;
 }
 
+@media screen and (max-width: 767px )
+{
+  .page-padding
+  {
+    padding-left:0%;
+    padding-right:0%;
+  }
+}
+
 /*****************************
               Content
 *****************************/
@@ -233,12 +214,6 @@ ol
   margin-top: 152px;
 }
 
-#main-content
-{
-  padding-left:2%;
-  padding-right:2%;
-  padding-top:10px;
-}
 
 /* Textual info */
 #infotext p
