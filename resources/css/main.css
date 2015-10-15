@@ -163,7 +163,6 @@ ol
 .museum-bar
 {
   background-color: rgb(175,175,175);
-
 }
 
 
@@ -207,6 +206,10 @@ ol
   .museum-bar
   {
     background: transparent;
+  }
+  .museum
+  {
+    background-color: rgb(175,175,175);
   }
 }
 
