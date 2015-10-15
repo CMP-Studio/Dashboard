@@ -224,6 +224,10 @@ ol
   {
     background-color: rgb(175,175,175);
   }
+  .museum.active
+  {
+    display:none;
+  }
 }
 
 /*****************************
