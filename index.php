@@ -68,9 +68,7 @@ require_once 'app/facebook.php';
             <i class="fa fa-question-circle help-btn"></i>
           </div>
         </div>
-
       </nav>
-
       <nav class="navbar navbar-inverse navbar-no-border navbar-no-borderradius museum-bar page-padding">
         <div class="container-fluid row">
           <div class="col-sm-5ths">
