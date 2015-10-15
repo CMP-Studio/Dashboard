@@ -48,6 +48,10 @@ require_once 'app/facebook.php';
     <header class='navbar-fixed-top'>
       <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius page-padding'>
         <div class="container-fluid row">
+
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
+            <h1 class="title">Digital Dashboard</h1>
+          </div>
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
             <button type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
@@ -55,9 +59,6 @@ require_once 'app/facebook.php';
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-          </div>
-          <div class="col-lg-4 col-md-5 col-sm-6 hidden-xs">
-            <h1 class="title">Digital Dashboard</h1>
           </div>
           <div class="col-lg-6 col-md-5 col-sm-3 hidden-xs">
             &nbsp;
