@@ -195,6 +195,10 @@ ol
 {
   display:none;
 }
+.active-museum
+{
+  height:65px;
+}
 .active-museum img
 {
   display:none;
