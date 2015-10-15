@@ -98,7 +98,7 @@ require_once 'app/facebook.php';
             <img class='logo active' alt='Carnegie Science Center (Active)' src='/resources/img/csc_white.png'>
           </div>
 
-          <div id="warhol" class="museum">
+          <div id="warhol" class="museum col-sm-5ths">
             <img class='logo inactive' alt='Andy Warhol Museum' src='/resources/img/warhol.png'>
             <img class='logo active' alt='Andy Warhol Museum (Active)' src='/resources/img/warhol_white.png'>
           </div>
