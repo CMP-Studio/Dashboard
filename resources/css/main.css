@@ -199,7 +199,7 @@ ol
 {
   display:none;
 }
-.active-museum.active
+.active-museum .active
 {
   display:block;
 }
