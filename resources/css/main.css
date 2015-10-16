@@ -259,7 +259,11 @@ ol
   }
   .logo
   {
-    max-height: 30px;
+    max-height: 40px;
+  }
+  .active-museum, .museum
+  {
+    height:42px;
   }
 }
 
