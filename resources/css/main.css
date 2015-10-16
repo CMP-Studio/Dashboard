@@ -257,6 +257,10 @@ ol
   {
     position: absolute;
   }
+  .logo
+  {
+    max-height: 30px;
+  }
 }
 
 
