@@ -152,6 +152,13 @@ ol
     cursor:pointer;
 }
 
+.navbar-toggle
+{
+  margin-top:12px;
+  margin-bottom: 5px;
+  padding: 4px 6px;
+}
+
 
 
 
@@ -235,8 +242,8 @@ ol
   .title
   {
     text-align: center;
-    line-height: 20px;
-    font-size: 1em;
+    line-height: 36px;
+    font-size: 24px;
   }
   .timespan
   {
