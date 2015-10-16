@@ -256,6 +256,7 @@ ol
   .navbar-fixed-top
   {
     position: absolute;
+    top:0;
   }
   .logo
   {
