@@ -126,6 +126,7 @@ ol
 
 .timespan > .select2
 {
+  /*
   position: relative;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -133,6 +134,7 @@ ol
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
+  */
 }
 
 /* Navbar */
