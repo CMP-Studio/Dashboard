@@ -126,7 +126,7 @@ ol
 
 .timespan > .select2
 {
-  line-height:65px;
+  margin-top:20px;
   /*
   position: relative;
   top: 50%;
@@ -254,7 +254,7 @@ ol
   }
   .timespan > .select2
   {
-    line-height: 45px;
+    margin-top:10px;
   }
 
 }
