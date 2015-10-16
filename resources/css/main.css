@@ -261,9 +261,10 @@ ol
   {
     max-height: 40px;
   }
-  .active-museum, .museum
+  .active-museum, .museum, .museum-bar
   {
     height:42px;
+    min-height: 40px;
   }
 }
 
