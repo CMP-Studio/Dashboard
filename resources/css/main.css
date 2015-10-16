@@ -126,6 +126,7 @@ ol
 
 .timespan > .select2
 {
+  line-height:65px;
   /*
   position: relative;
   top: 50%;
@@ -251,6 +252,10 @@ ol
   {
     height:45px;
   }
+  .timespan > .select2
+  {
+    line-height: 45px;
+  }
 
 }
 @media screen and (max-height: 500px )
@@ -279,6 +284,7 @@ ol
     line-height: 24px;
     font-size: 18px;
   }
+
 
 }
 
