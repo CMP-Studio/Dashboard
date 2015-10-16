@@ -251,6 +251,14 @@ ol
   }
 
 }
+@media screen and (max-height: 500px )
+{
+  .navbar-fixed-top
+  {
+    position: absolute;
+  }
+}
+
 
 /*****************************
               Content
