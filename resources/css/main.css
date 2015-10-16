@@ -271,6 +271,12 @@ ol
   {
     min-height: 40px;
   }
+  .title
+  {
+    text-align: center;
+    line-height: 24px;
+    font-size: 18px;
+  }
 
 }
 
