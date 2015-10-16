@@ -260,11 +260,7 @@ ol
 }
 @media screen and (max-height: 500px )
 {
-  .navbar-fixed-top
-  {
-    position: absolute;
-    top:0;
-  }
+
   .logo
   {
     max-height: 40px;
