@@ -78,11 +78,11 @@ stickyNav(smallHeight);
     var mainH = $(".main-body").offset().top - $("body").scrollTop();
     var headH = $("header").height();
     var relTop =  mainH - headH;
-    var minHeight = $('.active-museum').height();
+    var minOffset = $("#primary-nav").offset().top + $("#primary-nav").height();;
 
-    if(relTop + headH <= minHeight)
+    if(relTop < minOffset)
     {
-      relTop = minHeight - headH;
+      relTop = minOffset;
     }
     else if (relTop >= 0) //Don't change anything if relTop would prevent the header being below the top
     {
