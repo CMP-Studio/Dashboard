@@ -36,13 +36,15 @@ stickyNav(smallHeight);
       var relTop =  mainH - headH;
       var minHeight = $('#museum-bar').height();
 
+      console.log(relTop);
       if(relTop + headH <= minHeight)
       {
         relTop = minHeight - headH;
       }
-      else if (relTop > 0) //Don't change anything if relTop would prevent the header being below the top
+      else if (relTop >= 0) //Don't change anything if relTop would prevent the header being below the top
       {
           $("header").css({top : ""});
+
           return;
       }
       $("header").css({top : relTop + "px"});
