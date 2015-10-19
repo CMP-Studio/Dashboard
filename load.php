@@ -11,39 +11,7 @@ $(document).ready(function (){
 
   loadAnalytics(museum, timespan.start, timespan.end);
 
-  //Mobile menu
-  $("#museum-bar .museum, .active-museum").click(function()
-  {
-    if($("#museum-bar-toggle").attr("aria-expanded") == "true")
-    {
-      $("#museum-bar").collapse('hide');
-    }
-    else
-    {
-      $("#museum-bar").collapse('show');
-    }
-  });
 
-  //Select timespan
-  $("#timespan").select2({
-    width: '100%',
-    minimumResultsForSearch: 50
-  });
-
-  //Dialog
-  $("#dialog").dialog({
-    autoOpen: false,
-    minWidth: 500,
-    position: { my: "center top", at: "center center", of: '#musebar' }
-  });
-
-  //Help dialog
-  $("#help-panel").dialog({
-    autoOpen: false
-  });
-  $(".help-btn").click(function(){
-    $("#help-panel").dialog("open");
-  })
 
 
   //Social timespan
