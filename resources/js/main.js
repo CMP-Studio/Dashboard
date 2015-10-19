@@ -25,6 +25,7 @@ stickyNav(smallHeight);
           enabled = true;
         }
         else {
+          $("header").css({top : ""});
           enabled = false;
         }
     });
