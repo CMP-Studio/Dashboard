@@ -46,7 +46,7 @@ require_once 'app/facebook.php';
 
     <!-- Header and navigation -->
     <header class='navbar-fixed-top'>
-      <nav class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius page-padding'>
+      <nav id="primary-nav" class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius page-padding'>
         <div class="container-fluid row">
 
           <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
@@ -76,7 +76,7 @@ require_once 'app/facebook.php';
           </div>
         </div>
       </nav>
-      <nav class="navbar navbar-inverse navbar-no-margin navbar-no-border navbar-no-borderradius museum-bar page-padding">
+      <nav id="secondary-nav" class="navbar navbar-inverse navbar-no-margin navbar-no-border navbar-no-borderradius museum-bar page-padding">
         <div id="museum-bar" class="container-fluid row collapse navbar-collapse">
 
           <div id="cmp" class="museum active col-sm-5ths">

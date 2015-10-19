@@ -41,7 +41,7 @@ stickyNav(smallHeight);
     var mainH = $(".main-body").offset().top - $("body").scrollTop();
     var headH = $("header").height();
     var relTop =  mainH - headH;
-    var minHeight = $('.active-museum').height() + $('.active-museum').offset().top;
+    var minHeight = $('.active-museum').height() + $('.active-museum').offset().top - $("#primary-nav").height();;
 
     if(relTop + headH <= minHeight)
     {
