@@ -7,12 +7,6 @@ $(document).ready(function (){
   var museum = 'cmp';
   var lastrequest = null;
 
-//Setup functions
-  //mobileMenu();
-  socialToggle();
-  optionsToggle();
-
-
 
 
   loadAnalytics(museum, timespan.start, timespan.end);
@@ -628,93 +622,7 @@ function getDate(d) {
 }
 
 
-function mobileMenu()
-{
 
-
-  //$(".fifth.museum.active").click(menu_toggle);
-  $(".fifth.museum").click(menuToggle);
-
-}
-var shown = false;
-function menuToggle()
-{
-  if($(".fifth.museum").attr("display-toggle") == "show")
-  {
-    $(".fifth.museum").removeAttr('style');
-    $(".fifth.museum").attr("display-toggle", null)
-  }
-  else {
-    {
-        $(".fifth.museum").css("display","block");
-        $(".fifth.museum").attr("display-toggle", "show")
-    }
-  }
-}
-
-function socialToggle()
-{
-    $(".social-select").click(function()
-  {
-    if($(this).attr("data-toggle") == "true")
-    {
-      $(this).removeClass("active");
-      $(this).attr("data-toggle", "false");
-    }
-    else
-    {
-      $(this).addClass("active");
-      $(this).attr("data-toggle", "true");
-    }
-  })
-}
-
-function optionsToggle()
-{
-  $("#options-toggle").click(function()
-  {
-    var open = $("#options-toggle").attr("data-toggle");
-    if(open == "true")
-    {
-      $("#options-toggle").attr("data-toggle","disabled");
-      $("#options-panel").slideUp('slow', function() {
-        $("#options-spacer").hide();
-        $("#main-content").css("width", "100%");
-        chartResize();
-        $("#options-toggle").children()
-        .filter("i")
-        .removeClass("fa-angle-double-up")
-        .addClass("fa-angle-double-down");
-        $("#options-toggle").attr("data-toggle","false");
-      });
-    }
-    else if(open == "disabled")
-    {
-
-    }
-    else
-    {
-      $("#options-spacer").show();
-      $("#main-content").attr("style",null);
-      chartResize();
-      $("#options-toggle").attr("data-toggle","disabled");
-      $("#options-panel").slideDown('slow', function() {
-        $("#options-toggle").children()
-        .filter("i")
-        .removeClass("fa-angle-double-down")
-        .addClass("fa-angle-double-up");
-        $("#options-toggle").attr("data-toggle","true");
-      });
-    }
-  });
-}
-
-function chartResize()
-{
-  var w = $("#chart").width();
-  var h = $("#chart").height();
-  $("#chart").highcharts().setSize(w, h, true);
-}
 
 function getActs()
 {

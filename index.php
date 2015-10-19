@@ -189,6 +189,9 @@ require_once 'app/facebook.php';
     <!--Numeral-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 
+    <!-- Main JS script -->
+    <script src="/resources/js/main.js"></script>
+
     <!--Load account info-->
     <?php require_once 'load.php' ?>
 
