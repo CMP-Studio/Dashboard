@@ -10,7 +10,6 @@ $(document).ready(function()
     if($("#museum-bar-toggle").attr("aria-expanded") == "true")
     {
       $("#museum-bar").collapse('hide');
-      reposHeader();
     }
     else
     {
