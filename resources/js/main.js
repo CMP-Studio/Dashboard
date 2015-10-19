@@ -4,10 +4,8 @@ $(document).ready(function()
   var smallHeight = 500; //A small height in px (changes when sticky nav is active)
 
   //main
-  chartResize();
+stickyNav(smallHeight);
 
-  //I'm only using most of these functions to orgainze code FYI
-  //$("$chart").resize(chartResize);
   function chartResize()
   {
     var w = $("#chart").width();
