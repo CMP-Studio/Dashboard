@@ -20,7 +20,7 @@ $(document).ready(function()
     //Determine when stickynave should happen
     var enabled = false;
     if(screen.height <= maxHeight) enabled = true;
-    $(window).resize(function {
+    $(window).resize(function() {
         if(screen.height <= maxHeight)
         {
           enabled = true;
@@ -32,7 +32,7 @@ $(document).ready(function()
     //Now we get to the good stuff
     $(window).scroll(function() {
       if(!enabled) return;
-      
+
     })
 
 
