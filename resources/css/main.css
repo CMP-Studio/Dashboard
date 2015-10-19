@@ -241,6 +241,7 @@ ol
   .logo
   {
     max-height: 60px;
+    max-width:33%;
   }
   .title
   {
@@ -273,6 +274,7 @@ ol
   .museum-bar
   {
     min-height: 40px;
+    max-width:33%;
   }
   .title
   {
