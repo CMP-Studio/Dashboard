@@ -7,7 +7,7 @@ $(document).ready(function()
   chartResize();
 
   //I'm only using most of these functions to orgainze code FYI
-  $("$chart").resize(chartResize);
+  //$("$chart").resize(chartResize);
   function chartResize()
   {
     var w = $("#chart").width();
