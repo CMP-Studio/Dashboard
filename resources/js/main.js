@@ -22,6 +22,7 @@ stickyNav(smallHeight);
     $(window).resize(function() {
         if(screen.height <= maxHeight)
         {
+          reposHeader();
           enabled = true;
         }
         else {
@@ -32,26 +33,27 @@ stickyNav(smallHeight);
     //Now we get to the good stuff
     $(window).scroll(function() {
       if(!enabled) return;
-      var mainH = $(".main-body").offset().top - $("body").scrollTop();
-      var headH = $("header").height();
-      var relTop =  mainH - headH;
-      var minHeight = $('.active-museum').height();
+      reposHeader();
+    });
+  }
+  function reposHeader()
+  {
+    var mainH = $(".main-body").offset().top - $("body").scrollTop();
+    var headH = $("header").height();
+    var relTop =  mainH - headH;
+    var minHeight = $('.active-museum').height();
 
-      console.log(relTop);
-      if(relTop + headH <= minHeight)
-      {
-        relTop = minHeight - headH;
-      }
-      else if (relTop >= 0) //Don't change anything if relTop would prevent the header being below the top
-      {
-          $("header").css({top : ""});
+    if(relTop + headH <= minHeight)
+    {
+      relTop = minHeight - headH;
+    }
+    else if (relTop >= 0) //Don't change anything if relTop would prevent the header being below the top
+    {
+        $("header").css({top : ""});
 
-          return;
-      }
-      $("header").css({top : relTop + "px"});
-    })
-
-
+        return;
+    }
+    $("header").css({top : relTop + "px"});
   }
 
 
