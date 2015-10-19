@@ -17,6 +17,7 @@ stickyNav(smallHeight);
   {
     //Determine when stickynave should happen
     var enabled = false;
+
     if(screen.height <= maxHeight) enabled = true;
     $(window).resize(function() {
         if(screen.height <= maxHeight)
@@ -33,11 +34,18 @@ stickyNav(smallHeight);
       var mainH = $(".main-body").offset().top - $("body").scrollTop();
       var headH = $("header").height();
       var relTop =  mainH - headH;
-      if(relTop + headH <= 10)
+      var minHeight = $('#museum-bar').height();
+
+      if(relTop + headH <= minHeight)
       {
-        relTop = 10 - headH;
+        relTop = minHeight - headH;
       }
-      $("header").css({top : relTop + "px"})
+      else if (relTop > 0) //Don't change anything if relTop would prevent the header being below the top
+      {
+          $("header").css({top : ""});
+          return;
+      }
+      $("header").css({top : relTop + "px"});
     })
 
 
