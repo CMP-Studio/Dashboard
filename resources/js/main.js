@@ -78,7 +78,7 @@ stickyNav(smallHeight);
     var mainH = $(".main-body").offset().top - $("body").scrollTop();
     var headH = $("header").height();
     var relTop =  mainH - headH;
-    var minOffset = -1*($("#primary-nav").height());
+    var minOffset = -1*$("#primary-nav").outerHeight(false);
 
     if(relTop < minOffset)
     {
