@@ -73,12 +73,12 @@ stickyNav(smallHeight);
       reposHeader();
     });
   }
-  function reposHeader()
+  function reposHeader(min)
   {
     var mainH = $(".main-body").offset().top - $("body").scrollTop();
     var headH = $("header").height();
     var relTop =  mainH - headH;
-    var minOffset = -1*($("#primary-nav").offset().top + $("#primary-nav").height());
+    var minOffset = -1*($("#primary-nav").height());
 
     if(relTop < minOffset)
     {
