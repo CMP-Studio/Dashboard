@@ -76,7 +76,7 @@ require_once 'app/facebook.php';
           </div>
         </div>
       </nav>
-      <nav class="navbar navbar-inverse navbar-no-border navbar-no-borderradius museum-bar page-padding">
+      <nav class="navbar navbar-inverse navbar-no-margin navbar-no-border navbar-no-borderradius museum-bar page-padding">
         <div id="museum-bar" class="container-fluid row collapse navbar-collapse">
 
           <div id="cmp" class="museum active col-sm-5ths">

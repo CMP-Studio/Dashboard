@@ -30,7 +30,14 @@ stickyNav(smallHeight);
     //Now we get to the good stuff
     $(window).scroll(function() {
       if(!enabled) return;
-
+      var mainH = $(".main-body").offset().top - $("body").scrollTop();
+      var headH = $("header").height();
+      var relTop =  mainH - headH;
+      if(relTop + headH <= 10)
+      {
+        relTop = 10 - headH;
+      }
+      $("header").css({top : relTop + "px"})
     })
 
 
