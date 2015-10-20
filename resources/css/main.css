@@ -317,30 +317,6 @@ ol
   line-height: 2.5em;
   text-align:center;
 }
-@media (min-width:768px) and (max-width:991px)
-{
-  #infotext p
-  {
-    font-size: 1.5em;
-    line-height: 2em;
-  }
-}
-@media screen and (max-width: 767px )
-{
-  #infotext p
-  {
-    font-size: 1.25em;
-    line-height: 1.75em;
-  }
-}
-@media screen and (max-width: 480px )
-{
-  #infotext p
-  {
-    font-size: 1em;
-    line-height: 1.5em;
-  }
-}
 
 .loader
 {
@@ -352,6 +328,47 @@ ol
 {
   height:650px;
 }
+
+/* Small screens */
+@media (min-width:768px) and (max-width:991px)
+{
+  #infotext p
+  {
+    font-size: 1.5em;
+    line-height: 2em;
+  }
+  #chart
+  {
+    height: 550px;
+  }
+
+}
+@media screen and (max-width: 767px )
+{
+  #infotext p
+  {
+    font-size: 1.25em;
+    line-height: 1.75em;
+  }
+  #chart
+  {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 480px )
+{
+  #infotext p
+  {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  #chart
+  {
+    height: 350px;
+  }
+}
+
+
 
 /* Social */
 .social-pane .panel-heading
