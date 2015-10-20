@@ -344,6 +344,7 @@ ol
   border-radius: 8px;
   margin:5px 10px;
   text-align:center;
+  max-width:75%;
 }
 
 /* Small screens */
