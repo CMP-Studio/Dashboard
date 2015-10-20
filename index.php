@@ -131,10 +131,32 @@ require_once 'app/facebook.php';
       <div class="row">
         <div id='chart' class="col-xs-12 col-sm-12">
         </div>
-        <div id='socialmedia' class="col-xs-12 col-sm-4">
+      </div>
+      <div class="col-center">
+        <div class="row legend legend-stats">
+          <div class="legend-toggle legend-views col-sm-3 col-xs-3">Views
+          </div>
+          <div class="legend-toggle legend-users col-sm-3 col-xs-3">Users
+          </div>
+          <div class="legend-toggle legend-attend col-sm-3 col-xs-3">Admissions
+          </div>
+          <div class="legend-toggle legend-views col-sm-3 col-xs-3">Anomolies
+          </div>
+        </div>
+      </div>
+      <div class="col-center">
+        <div class="row legend legend-social">
+          <div class="legend-toggle legend-twitter col-sm-3 col-xs-3">Twitter
+          </div>
+          <div class="legend-toggle legend-facebook col-sm-3 col-xs-3">Facebook
+          </div>
+          <div class="legend-toggle legend-instagram col-sm-3 col-xs-3">Instagram
+          </div>
         </div>
       </div>
       <div class="row">
+        <div id='socialmedia' class="col-xs-12 col-sm-4">
+        </div>
         <div id='pop-pages' class="col-xs-12 col-sm-12">
           <p class='no-pg-space'>The most popular pages were:</p>
           <ol id='topPages'>

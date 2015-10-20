@@ -330,6 +330,12 @@ ol
   height:550px;
 }
 
+/* Chart - Legend */
+.col-center
+{
+  margin:auto;
+}
+
 /* Small screens */
 @media (min-width:768px) and (max-width:991px)
 {
