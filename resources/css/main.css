@@ -218,7 +218,19 @@ ol
   display:block;
 }
 
+.main-body
+{
+  margin-top: 152px;
+}
 
+@media (min-width:768px) and (max-width:991px)
+{
+  .logo
+  {
+    max-width:90%;
+  }
+
+}
 @media screen and (max-width: 767px )
 {
   header .page-padding
@@ -257,9 +269,13 @@ ol
   {
     margin-top:10px;
   }
+  .main-body
+  {
+    margin-top: 113px;
+  }
 
 }
-@media screen and (max-height: 500px )
+@media screen and (max-height: 500px ) and (max-width: 767px )
 {
 
   .logo
@@ -291,10 +307,7 @@ ol
 /*****************************
               Content
 *****************************/
-.main-body
-{
-  margin-top: 152px;
-}
+
 
 
 /* Textual info */
@@ -303,6 +316,30 @@ ol
   font-size: 2em;
   line-height: 2.5em;
   text-align:center;
+}
+@media (min-width:768px) and (max-width:991px)
+{
+  #infotext p
+  {
+    font-size: 1.5em;
+    line-height: 2em;
+  }
+}
+@media screen and (max-width: 767px )
+{
+  #infotext p
+  {
+    font-size: 1.25em;
+    line-height: 1.75em;
+  }
+}
+@media screen and (max-width: 480px )
+{
+  #infotext p
+  {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
 }
 
 .loader
