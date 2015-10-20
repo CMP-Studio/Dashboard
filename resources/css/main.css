@@ -342,7 +342,8 @@ ol
   background-color:black;
   color:white;
   border-radius: 8px;
-  margin:3px;
+  margin:5px 3px;
+  text-align:center;
 }
 
 /* Small screens */
