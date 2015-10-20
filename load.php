@@ -514,13 +514,15 @@ function toggleHighchart(series, show)
 }
 function toggleSocial(name, show)
 {
-  alert(name);
+
+  var sClass = '.' + name;
+  alert(sClass);
   if(show)
   {
-    $('.' + name).attr('display',null);
+    $(sClass).attr('display',null);
   }
   else {
-    $('.' + name).attr('display','none');
+    $(sClass).attr('display','none');
   }
 }
 
