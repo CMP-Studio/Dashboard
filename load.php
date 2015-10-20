@@ -461,11 +461,13 @@ function setupLegend()
 
     if($(this).hasClass("active"))
     {
+      console.log(series + " on");
       $(this).removeClass("active");
       toggleSeries(series, false);
     }
     else
     {
+      console.log(series + " off");
       $(this).addClass("active");
       toggleSeries(series, true);
     }
