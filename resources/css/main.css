@@ -307,8 +307,8 @@ ol
 
 .loader
 {
-  display:inline-block;
-  text-align: center;
+  display:block;
+  margin:auto;
 }
 
 #chart
