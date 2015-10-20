@@ -327,7 +327,7 @@ ol
 
 #chart
 {
-  height:650px;
+  height:550px;
 }
 
 /* Small screens */
@@ -340,7 +340,7 @@ ol
   }
   #chart
   {
-    height: 550px;
+    height: 450px;
   }
 
 }
@@ -353,7 +353,7 @@ ol
   }
   #chart
   {
-    height: 450px;
+    height: 350px;
   }
 }
 @media screen and (max-width: 480px )
@@ -365,7 +365,7 @@ ol
   }
   #chart
   {
-    height: 350px;
+    height: 300px;
   }
 }
 
