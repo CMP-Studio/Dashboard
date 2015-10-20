@@ -305,6 +305,12 @@ ol
   text-align:center;
 }
 
+.loader
+{
+  display:inline-block;
+  text-align: center;
+}
+
 #chart
 {
   height:650px;
