@@ -369,6 +369,23 @@ ol
 {
   background-color: rgb(35,145,35);
 }
+.legend-anomolies.active
+{
+  background-color: rgb(247,153,28);
+}
+.legend-twitter.active
+{
+  background-color: rgb(80,171,241);
+}
+.legend-facebook.active
+{
+  background-color: rgb(68,97,157);
+}
+.legend-instagram.active
+{
+  background-color: rgb(185,163,140);
+}
+
 
 
 /* Small screens */
