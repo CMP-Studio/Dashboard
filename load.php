@@ -314,6 +314,7 @@ function setupTooltip()
   })
 }
 
+/*
 function setupLegend()
 {
   var analytics = false;
@@ -375,6 +376,7 @@ function setupLegend()
 
 
 }
+*/
 
 function getLastYear()
 {
@@ -447,6 +449,26 @@ function getLastWeek()
 
   return time;
 
+}
+
+function setupLegend()
+{
+  //Legend toggle
+  $(".legend-toggle").click(function() {
+    var chart = $("#chart").highcharts();
+    var series = chart.series[0];
+
+    if($(this).hasClass("active"))
+    {
+      $(this).removeClass("active");
+      series.hide();
+    }
+    else
+    {
+      $(this).addClass("active");
+      series.show();
+    }
+  });
 }
 
 

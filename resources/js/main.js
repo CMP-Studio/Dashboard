@@ -38,16 +38,7 @@ $(document).ready(function()
     $("#help-panel").dialog("open");
   })
 
-  //Legend toggle
-  $(".legend-toggle").click(function() {
-    if($(this).hasClass("active"))
-    {
-      $(this).removeClass("active");
-    }
-    else {
-      $(this).addClass("active");
-    }
-  })
+
 
 stickyNav(smallHeight);
 
