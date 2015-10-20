@@ -172,21 +172,6 @@ $(document).ready(function (){
         console.error("Failure - Events: " + Eurl);
         $('.loader').remove();
       });
-      /*}
-      else
-      {
-      if(lastrequest == myrequest)
-      {
-      $('.loader').remove();
-      $('#chart').highcharts(cdata);
-      setupLegend();
-    }
-    else
-    {
-    console.info('AJAX load canceled: Not most recent call');
-  }
-}*/
-
 })
 .fail(function() {
   console.error("Failure - Chart: " + Curl);

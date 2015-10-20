@@ -22,6 +22,7 @@ class Highchart
 		$this->chart['series'] = array();
 
 		$this->chart['credits']['enabled'] = false;
+		$this->chart['legend']['enabled'] = false;
 		$this->chart['tooltip']['shared'] = true;
 		$this->chart['tooltip']['valueSuffix'] ='';
 		$this->chart['title']['text'] = '';
@@ -98,6 +99,7 @@ class Highchart
 
 	public function addLegend()
 	{
+		$this->chart['legend']['enabled'] = true;
 		$this->chart['legend']['layout'] = 'horizontal';
 		$this->chart['legend']['align'] = 'center';
 		$this->chart['legend']['verticalAlign'] = 'top';
@@ -228,7 +230,7 @@ class Highchart
 		$ddS = -1;
 		for($i = 0; $i < $ns; $i++)
 		{
-			
+
 			if($ser[$i]['name'] == $seriesName)
 			{
 				$ddS = $i;

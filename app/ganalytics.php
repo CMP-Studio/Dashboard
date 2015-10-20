@@ -452,8 +452,6 @@ function chartDashboard($settings)
   $start = strtotime($data[0][0]) ;
   $int = 1*24*60*60; //1 day
   $chart = new Highchart('areaspline');
-  //$chart->addLegend();
-  //$chart->disableTooltip();
   $chart->addPlotOption('fillOpacity',0.2);
   $chart->addSeries($data[1],'Pageviews',$colors[0]);
   $chart->addSeries($data[2],'Users',$colors[1]);
