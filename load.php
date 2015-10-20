@@ -516,13 +516,14 @@ function toggleSocial(name, show)
 {
 
   var sClass = '.' + name;
-  alert(sClass);
+
   if(show)
   {
-    $(sClass).attr('display',null);
+    $(sClass).attr("display","none");
   }
-  else {
-    $(sClass).attr('display','none');
+  else
+  {
+    $(sClass).attr("display",null);
   }
 }
 
