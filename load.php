@@ -514,9 +514,10 @@ function toggleHighchart(series, show)
 }
 function toggleSocial(name, show)
 {
+  alert(name);
   if(show)
   {
-      $('.' + name).attr('display',null);
+    $('.' + name).attr('display',null);
   }
   else {
     $('.' + name).attr('display','none');
