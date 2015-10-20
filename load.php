@@ -454,6 +454,7 @@ function getLastWeek()
 function setupLegend()
 {
   //Legend toggle
+  $(".legend-toggle").unbind("click");
   $(".legend-toggle").click(function() {
 
 
