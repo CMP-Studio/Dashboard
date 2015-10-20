@@ -477,25 +477,25 @@ function toggleSeries(name, show)
 
   switch(name)
   {
-    "views":
+    case "views":
       toggleHighchart(0, show);
       break;
-    "users":
+    case "users":
       toggleHighchart(1, show);
       break;
-    "admissions":
+    case "admissions":
       toggleHighchart(2, show);
       break;
-    "anomolies":
+    case "anomolies":
       toggleSocial("anomolies");
       break;
-    "twitter":
+    case "twitter":
       toggleSocial("twitter");
       break;
-    "facebook":
+    case "facebook":
       toggleSocial("facebook");
       break;
-    "instagram":
+    case "instagram":
       toggleSocial("instagram");
       break;
   }
