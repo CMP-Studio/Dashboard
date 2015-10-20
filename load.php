@@ -487,16 +487,16 @@ function toggleSeries(name, show)
       toggleHighchart(2, show);
       break;
     case "anomolies":
-      toggleSocial("anomolies");
+      toggleSocial("Google-Analytics");
       break;
     case "twitter":
-      toggleSocial("twitter");
+      toggleSocial("Twitter");
       break;
     case "facebook":
-      toggleSocial("facebook");
+      toggleSocial("Facebook");
       break;
     case "instagram":
-      toggleSocial("instagram");
+      toggleSocial("Instagram");
       break;
   }
 }
@@ -514,7 +514,13 @@ function toggleHighchart(series, show)
 }
 function toggleSocial(name, show)
 {
-
+  if(show)
+  {
+      $('.' + name).attr('display',null);
+  }
+  else {
+    $('.' + name).attr('display','none');
+  }
 }
 
 

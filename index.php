@@ -144,20 +144,20 @@ require_once 'app/facebook.php';
             <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
           </div>
           <div class="col-sm-3 col-xs-3">
-            <div class="legend-toggle legend-anomolies">Anomolies  <i class="fa fa-check"></i></div>
+            <div class="legend-toggle legend-anomolies" data-series="anomolies">Anomolies  <i class="fa fa-check"></i></div>
           </div>
         </div>
       </div>
       <div class="col-center">
         <div class="row legend legend-social">
           <div class="col-sm-4 col-xs-4">
-            <div class="legend-toggle legend-twitter">Twitter  <i class="fa fa-check"></i></div>
+            <div class="legend-toggle legend-twitter" data-series="twitter">Twitter  <i class="fa fa-check"></i></div>
           </div>
           <div class="col-sm-4 col-xs-4">
-            <div class="legend-toggle legend-facebook">Facebook  <i class="fa fa-check"></i></div>
+            <div class="legend-toggle legend-facebook" data-series="facebook">Facebook  <i class="fa fa-check"></i></div>
           </div>
           <div class="col-sm-4 col-xs-4">
-            <div class="legend-toggle legend-instagram">Instagram  <i class="fa fa-check"></i></div>
+            <div class="legend-toggle legend-instagram" data-series="instagram">Instagram  <i class="fa fa-check"></i></div>
           </div>
         </div>
       </div>
