@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
   //varialbes
-  var smallHeight = 500; //A small height in px (changes when sticky nav is active)
+  var smallHeight = 600; //A small height in px (changes when sticky nav is active)
 
   //main
   //Mobile menu
