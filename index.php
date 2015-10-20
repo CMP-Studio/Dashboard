@@ -146,11 +146,11 @@ require_once 'app/facebook.php';
       </div>
       <div class="col-center">
         <div class="row legend legend-social">
-          <div class="legend-toggle legend-twitter col-sm-3 col-xs-3">Twitter
+          <div class="legend-toggle legend-twitter col-sm-4 col-xs-4">Twitter
           </div>
-          <div class="legend-toggle legend-facebook col-sm-3 col-xs-3">Facebook
+          <div class="legend-toggle legend-facebook col-sm-4 col-xs-4">Facebook
           </div>
-          <div class="legend-toggle legend-instagram col-sm-3 col-xs-3">Instagram
+          <div class="legend-toggle legend-instagram col-sm-4 col-xs-4">Instagram
           </div>
         </div>
       </div>
