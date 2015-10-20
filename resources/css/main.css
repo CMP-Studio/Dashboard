@@ -361,6 +361,14 @@ ol
 {
   background-color: rgb(222,73,47);
 }
+.legend-users.active
+{
+  background-color: rgb(77,102,132);
+}
+.legend-admissions.active
+{
+  background-color: rgb(35,145,35);
+}
 
 
 /* Small screens */
