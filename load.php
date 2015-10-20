@@ -455,20 +455,66 @@ function setupLegend()
 {
   //Legend toggle
   $(".legend-toggle").click(function() {
-    var chart = $("#chart").highcharts();
-    var series = chart.series[0];
+
+
+    var series = $(this).attr("data-series");
 
     if($(this).hasClass("active"))
     {
       $(this).removeClass("active");
-      series.hide();
+      toggleSeries(series, false);
     }
     else
     {
       $(this).addClass("active");
-      series.show();
+      toggleSeries(series, true);
     }
   });
+}
+
+function toggleSeries(name, show)
+{
+
+  switch(name)
+  {
+    "views":
+      toggleHighchart(0, show);
+      break;
+    "users":
+      toggleHighchart(1, show);
+      break;
+    "admissions":
+      toggleHighchart(2, show);
+      break;
+    "anomolies":
+      toggleSocial("anomolies");
+      break;
+    "twitter":
+      toggleSocial("twitter");
+      break;
+    "facebook":
+      toggleSocial("facebook");
+      break;
+    "instagram":
+      toggleSocial("instagram");
+      break;
+  }
+}
+function toggleHighchart(series, show)
+{
+  var chart = $("#chart").highcharts();
+  var series = chart.series[series];
+  if(show)
+  {
+    series.show();
+  }
+  else {
+    series.hide();
+  }
+}
+function toggleSocial(name, show)
+{
+
 }
 
 

@@ -135,13 +135,13 @@ require_once 'app/facebook.php';
       <div class="">
         <div class="row legend legend-stats">
           <div class="col-sm-3 col-xs-3">
-            <div class="legend-toggle legend-views active">Views  <i class="fa fa-check"></i></div>
+            <div class="legend-toggle legend-views active" data-series="views">Views  <i class="fa fa-check"></i></div>
           </div>
           <div class="col-sm-3 col-xs-3">
-            <div class="legend-toggle legend-users active">Users  <i class="fa fa-check"></i></div>
+            <div class="legend-toggle legend-users active" data-series="users">Users  <i class="fa fa-check"></i></div>
           </div>
           <div class="col-sm-3 col-xs-3">
-            <div class="legend-toggle legend-admissions active">Admission  <i class="fa fa-check"></i></div>
+            <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
           </div>
           <div class="col-sm-3 col-xs-3">
             <div class="legend-toggle legend-anomolies">Anomolies  <i class="fa fa-check"></i></div>
