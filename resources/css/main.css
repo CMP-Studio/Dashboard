@@ -269,13 +269,10 @@ ol
   {
     margin-top:10px;
   }
-  .main-body
-  {
-    margin-top: 133px;
-  }
+
 
 }
-@media screen and (max-height: 500px ) and (max-width: 767px )
+@media screen and (max-height: 640px ) and (max-width: 767px )
 {
 
   .logo
@@ -298,6 +295,10 @@ ol
     text-align: center;
     line-height: 24px;
     font-size: 18px;
+  }
+  .main-body
+  {
+    margin-top: 133px;
   }
 
 
