@@ -339,7 +339,7 @@ ol
 .legend-toggle
 {
   line-height: 24px;
-  background-color:black;
+  background-color:rgb(175,175,175);
   color:white;
   border-radius: 8px;
   margin:5px 10px;
