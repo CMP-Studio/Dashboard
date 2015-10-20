@@ -132,7 +132,7 @@ require_once 'app/facebook.php';
         <div id='chart' class="col-xs-12 col-sm-12">
         </div>
       </div>
-      <div class="col-center">
+      <div class="">
         <div class="row legend legend-stats">
           <div class="legend-toggle legend-views col-sm-3 col-xs-3">Views
           </div>

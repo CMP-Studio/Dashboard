@@ -333,6 +333,7 @@ ol
 /* Chart - Legend */
 .col-center
 {
+  max-width:75%;
   margin:auto;
 }
 
