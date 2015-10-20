@@ -150,13 +150,13 @@ require_once 'app/facebook.php';
       </div>
       <div class="col-center">
         <div class="row legend legend-social">
-          <div class="col-sm-4 col-xs-4">
+          <div class="col-sm-4 col-xs-6">
             <div class="legend-toggle legend-twitter" data-series="twitter">Twitter  <i class="fa fa-check"></i></div>
           </div>
-          <div class="col-sm-4 col-xs-4">
+          <div class="col-sm-4 col-xs-6">
             <div class="legend-toggle legend-facebook" data-series="facebook">Facebook  <i class="fa fa-check"></i></div>
           </div>
-          <div class="col-sm-4 col-xs-4">
+          <div class="col-sm-4 col-xs-6">
             <div class="legend-toggle legend-instagram" data-series="instagram">Instagram  <i class="fa fa-check"></i></div>
           </div>
         </div>
