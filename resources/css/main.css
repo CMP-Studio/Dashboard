@@ -338,10 +338,11 @@ ol
 }
 .legend-toggle
 {
-  line-height: 16px;
+  line-height: 20px;
   background-color:black;
   color:white;
   border-radius: 8px;
+  margin:3px;
 }
 
 /* Small screens */

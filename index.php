@@ -134,23 +134,30 @@ require_once 'app/facebook.php';
       </div>
       <div class="">
         <div class="row legend legend-stats">
-          <div class="legend-toggle legend-views col-sm-3 col-xs-3">Views
+          <div class="col-sm-3 col-xs-3">
+            <div class="legend-toggle legend-views">Views</div>
           </div>
-          <div class="legend-toggle legend-users col-sm-3 col-xs-3">Users
+          <div class="col-sm-3 col-xs-3">
+            <div class="legend-toggle legend-users">Users</div>
           </div>
-          <div class="legend-toggle legend-attend col-sm-3 col-xs-3">Admissions
+          <div class="col-sm-3 col-xs-3">
+            <div class="legend-toggle legend-admissions">Admission</div>
           </div>
-          <div class="legend-toggle legend-views col-sm-3 col-xs-3">Anomolies
+          <div class="col-sm-3 col-xs-3">
+            <div class="legend-toggle legend-anomolies">Anomolies</div>
           </div>
         </div>
       </div>
       <div class="col-center">
         <div class="row legend legend-social">
-          <div class="legend-toggle legend-twitter col-sm-4 col-xs-4">Twitter
+          <div class="col-sm-4 col-xs-4">
+            <div class="legend-toggle legend-twitter">Twitter</div>
           </div>
-          <div class="legend-toggle legend-facebook col-sm-4 col-xs-4">Facebook
+          <div class="col-sm-4 col-xs-4">
+            <div class="legend-toggle legend-facebook">Facebook</div>
           </div>
-          <div class="legend-toggle legend-instagram col-sm-4 col-xs-4">Instagram
+          <div class="col-sm-4 col-xs-4">
+            <div class="legend-toggle legend-instagram">Instagram</div>
           </div>
         </div>
       </div>
