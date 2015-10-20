@@ -347,6 +347,21 @@ ol
   max-width:250px;
   min-width:100px;
 }
+.legend-toggle i
+{
+  display:none;
+}
+.legend-toggle.active i
+{
+  display:inline;
+}
+
+/* Specific legends */
+.legend-views.active
+{
+  background-color: rgb(222,73,47);
+}
+
 
 /* Small screens */
 @media (min-width:768px) and (max-width:991px)
