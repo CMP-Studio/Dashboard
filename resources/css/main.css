@@ -336,6 +336,13 @@ ol
   max-width:75%;
   margin:auto;
 }
+.legend-toggle
+{
+  line-height: 16px;
+  background-color:black;
+  color:white;
+  border-radius: 8px;
+}
 
 /* Small screens */
 @media (min-width:768px) and (max-width:991px)
