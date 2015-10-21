@@ -116,52 +116,57 @@ require_once 'app/facebook.php';
 
     </header>
 
+<!-- All content  should be in this div -->
+    <div class="main-body ">
+      <!-- White box -->
+      <div class="white-bg page-padding">
+        <div class="row">
+          <div id='infotext' class="col-xs-12 col-sm-12">
+            <p>From <b><span id='start-date'></span> to <span id='end-date'></span></b> the <b><span id='museum-text'></span></b> had <b><span id='museum-users'></span></b> people visit their websites.
+              Those users viewed <b><span id='pageviews'></span></b> pages.
+              During that time, visitors spent an average of <b><span id='time-on-site'></span></b> seconds using the website,
+              viewing an average of <b><span id='pages-per-visit'></span></b> pages per visit.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div id='chart' class="col-xs-12 col-sm-12">
+          </div>
+        </div>
+        <div class="">
+          <div class="row legend legend-stats">
+            <div class="col-sm-3 col-xs-6">
+              <div class="legend-toggle legend-views active" data-series="views">Views  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+              <div class="legend-toggle legend-users active" data-series="users">Users  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+              <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+              <div class="legend-toggle legend-anomolies" data-series="anomolies">Anomolies  <i class="fa fa-check"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-center">
+          <div class="row legend legend-social">
+            <div class="col-sm-4 col-xs-6">
+              <div class="legend-toggle legend-twitter" data-series="twitter">Twitter  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+              <div class="legend-toggle legend-facebook" data-series="facebook">Facebook  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+              <div class="legend-toggle legend-instagram" data-series="instagram">Instagram  <i class="fa fa-check"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="main-body page-padding">
-      <!-- All content  should be in this div -->
-      <div class="row">
-        <div id='infotext' class="col-xs-12 col-sm-12">
-          <p>From <b><span id='start-date'></span> to <span id='end-date'></span></b> the <b><span id='museum-text'></span></b> had <b><span id='museum-users'></span></b> people visit their websites.
-            Those users viewed <b><span id='pageviews'></span></b> pages.
-            During that time, visitors spent an average of <b><span id='time-on-site'></span></b> seconds using the website,
-            viewing an average of <b><span id='pages-per-visit'></span></b> pages per visit.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div id='chart' class="col-xs-12 col-sm-12">
-        </div>
-      </div>
-      <div class="">
-        <div class="row legend legend-stats">
-          <div class="col-sm-3 col-xs-6">
-            <div class="legend-toggle legend-views active" data-series="views">Views  <i class="fa fa-check"></i></div>
-          </div>
-          <div class="col-sm-3 col-xs-6">
-            <div class="legend-toggle legend-users active" data-series="users">Users  <i class="fa fa-check"></i></div>
-          </div>
-          <div class="col-sm-3 col-xs-6">
-            <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
-          </div>
-          <div class="col-sm-3 col-xs-6">
-            <div class="legend-toggle legend-anomolies" data-series="anomolies">Anomolies  <i class="fa fa-check"></i></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-center">
-        <div class="row legend legend-social">
-          <div class="col-sm-4 col-xs-6">
-            <div class="legend-toggle legend-twitter" data-series="twitter">Twitter  <i class="fa fa-check"></i></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="legend-toggle legend-facebook" data-series="facebook">Facebook  <i class="fa fa-check"></i></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="legend-toggle legend-instagram" data-series="instagram">Instagram  <i class="fa fa-check"></i></div>
-          </div>
-        </div>
-      </div>
-      <div class="grey-bg">
+      <!-- Grey box -->
+
+      <div class="grey-bg page-padding">
         <div class="row" class="col-xs-12 col-sm-12">
           <div id='social-holder'>
           </div>
