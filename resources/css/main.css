@@ -462,16 +462,21 @@ ol
   text-decoration: none;
 
 }
+.panel-body
+{
+  margin-bottom:20px;
+  background-color: #f8f8f8;
+}
 
-.social-pane.instagram .panel-heading
+.social-pane.instagram
 {
     background-color: rgb(126, 103, 78);
 }
-.social-pane.facebook .panel-heading
+.social-pane.facebook
 {
     background-color: rgb(68,97,157);
 }
-.social-pane.twitter .panel-heading
+.social-pane.twitter
 {
     background-color: rgb(80,171,241);
 }
