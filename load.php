@@ -455,6 +455,7 @@ function setupLegend()
 {
   //Legend toggle
   $(".legend-toggle").unbind("click");
+  legendDefautls();
   $(".legend-toggle").click(function() {
 
 
@@ -473,6 +474,26 @@ function setupLegend()
       toggleSeries(series, true);
     }
   });
+}
+function legendDefautls()
+{
+  //Default ON
+  toggleSeries("views", true);
+  toggleSeries("users", true);
+  toggleSeries("admissions", true);
+  $(".legend-views").addClass("active");
+  $(".legend-users").addClass("active");
+  $(".legend-admissions").addClass("active");
+
+  //Default OFF
+  toggleSeries('anomolies', false);
+  toggleSeries('twitter', false);
+  toggleSeries('facebook', false);
+  toggleSeries('instagram', false);
+  $(".legend-anomolies").removeClass("active");
+  $(".legend-twitter").removeClass("active");
+  $(".legend-facebook").removeClass("active");
+  $(".legend-instagram").removeClass("active");
 }
 
 function toggleSeries(name, show)
