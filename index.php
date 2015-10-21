@@ -175,7 +175,7 @@ require_once 'app/facebook.php';
 
       <!-- Black box -->
       <div class="darkgrey-bg page-padding black-box">
-        <img src="/resources/img/Innovation-Studio-logo-footer1.png">
+        <img class='footer-logo' src="/resources/img/Innovation-Studio-logo-footer1.png">
       </div>
 
 <!-- Where oh where should these go?
