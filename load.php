@@ -631,7 +631,7 @@ function events(data, srcs)
       case 'Facebook':
       return "rgba(68,97,157, 1)"; //FB blue
       case 'Instagram':
-      return "rgba(185,163,140, 1)"  //IG brown
+      return "rgba(126,103,78, 1)"  //IG brown
       default:
       return "rgba(255,255,255,1)";
     }
