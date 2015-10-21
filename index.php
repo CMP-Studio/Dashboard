@@ -173,6 +173,11 @@ require_once 'app/facebook.php';
         </div>
       </div>
 
+      <!-- Black box -->
+      <div class="black-bg page-padding black-box">
+        <img src="/resources/img/Innovation-Studio-logo-footer1.png">
+      </div>
+
 <!-- Where oh where should these go?
 
 <div id='socialmedia' class="col-xs-12 col-sm-4">
