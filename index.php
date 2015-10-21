@@ -166,7 +166,7 @@ require_once 'app/facebook.php';
 
       <!-- Grey box -->
 
-      <div class="grey-bg page-padding">
+      <div class="grey-bg page-padding grey-box">
         <div class="row" class="col-xs-12 col-sm-12">
           <div id='social-holder'>
           </div>
