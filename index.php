@@ -167,7 +167,7 @@ require_once 'app/facebook.php';
       <!-- Grey box -->
 
       <div class="grey-bg page-padding grey-box">
-        <div class="row" class="col-xs-12 col-sm-12">
+        <div class="row">
           <div id='social-holder'>
           </div>
         </div>
@@ -175,7 +175,9 @@ require_once 'app/facebook.php';
 
       <!-- Black box -->
       <div class="darkgrey-bg page-padding black-box">
-        <img class='footer-logo' src="/resources/img/Innovation-Studio-logo-footer1.png">
+        <div class="row">
+          <img class='footer-logo' src="/resources/img/Innovation-Studio-logo-footer1.png">
+        </div>
       </div>
 
 <!-- Where oh where should these go?
