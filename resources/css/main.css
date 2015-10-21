@@ -443,6 +443,7 @@ ol
 .social-pane
 {
   border: none;
+  padding-bottom:25px;
 }
 
 .social-pane .panel-heading
@@ -464,7 +465,6 @@ ol
 }
 .panel-body
 {
-  margin-bottom:20px;
   background-color: #f8f8f8;
 }
 
