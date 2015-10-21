@@ -489,10 +489,14 @@ ol
 /********************************************
               Footer
 ******************************************/
+.footer
+{
+  text-align: center;
+}
 
 .footer-logo
 {
-  margin:auto;
+  display: inline-block;
   padding-top:10px;
   padding-bottom:10px;
 }
