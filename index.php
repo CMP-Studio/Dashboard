@@ -179,6 +179,16 @@ require_once 'app/facebook.php';
           <a href="http://studio.carnegiemuseums.org" target="_blank">
             <img class='footer-logo' alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-logo-footer1.png">
           </a>
+          <p>
+            Carnegie Museums of Pittsburgh <br/>
+            Innovation Studio <br/>
+            4400 Forbes Avenue <br/>
+            Pittsburgh, PA 15213 <br/>
+            <a href="http://www.carnegiemuseums.org/interior.php?pageID=100">Privacy Policy</a>
+          </p>
+          <p>
+            Made with ♥ in the City of Champions
+          </p>
         </div>
       </div>
 
