@@ -161,19 +161,25 @@ require_once 'app/facebook.php';
           </div>
         </div>
       </div>
-      <div class="row">
-        <div id='socialmedia' class="col-xs-12 col-sm-4">
-        </div>
-        <div id='pop-pages' class="col-xs-12 col-sm-12">
-          <p class='no-pg-space'>The most popular pages were:</p>
-          <ol id='topPages'>
-          </ol>
+      <div class="grey-bg">
+        <div class="row" class="col-xs-12 col-sm-12">
+          <div id='social-holder'>
+          </div>
         </div>
       </div>
-      <div class="row" class="col-xs-12 col-sm-12">
-        <div id='social-holder'>
-        </div>
-      </div>
+
+<!-- Where oh where should these go?
+
+<div id='socialmedia' class="col-xs-12 col-sm-4">
+</div>
+
+<div id='pop-pages' class="col-xs-12 col-sm-12">
+  <p class='no-pg-space'>The most popular pages were:</p>
+  <ol id='topPages'>
+  </ol>
+</div>
+
+-->
 
       <!-- end main content -->
     </div>
