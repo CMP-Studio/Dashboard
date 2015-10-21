@@ -176,7 +176,7 @@ require_once 'app/facebook.php';
       <!-- Black box -->
       <div class="darkgrey-bg page-padding black-box">
         <div class="row footer">
-          <a href="studio.carnegiemuseums.org" target="_blank">
+          <a href="http://studio.carnegiemuseums.org" target="_blank">
             <img class='footer-logo' alt="Innovation Studio Logo" src="/resources/img/Innovation-Studio-logo-footer1.png">
           </a>
         </div>
