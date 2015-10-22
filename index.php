@@ -50,7 +50,7 @@ require_once 'app/facebook.php';
         <div class="container-fluid row">
 
           <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
-            <h1 class="title">Digital Metric Dashboard</h1>
+            <h1 class="title">Digital Metrics Dashboard</h1>
           </div>
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
             <button id="museum-bar-toggle" type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="false">
