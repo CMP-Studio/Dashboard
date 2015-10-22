@@ -130,7 +130,7 @@ require_once 'app/facebook.php';
           <div id='chart' class="col-xs-12 col-sm-12">
           </div>
 
-          <div id='socialmedia' class="social-display">
+          <div id='socialmedia' class="social-display hidden-xs col-sm-3">
           </div>
         </div>
         <div class="col-center">

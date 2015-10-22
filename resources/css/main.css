@@ -334,6 +334,9 @@ ol
 .social-display
 {
     display:none;
+    overflow-y: auto;
+    overflow-x: hidden;
+
 }
 /* Chart - Legend */
 .col-center
