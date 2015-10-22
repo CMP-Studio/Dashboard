@@ -598,6 +598,7 @@ function getChartSize()
     $("#chart").css("width","75%");
     $("#chart").attr("small-size", true);
     $("#socialmedia").show();
+    $("#socialmedia").text("Roll over the bars to see more details")
   }
   else
   {
@@ -640,6 +641,18 @@ function setupChartResize()
   {
     chartResize();
   })
+}
+
+function insertSocial(html)
+{
+  $("#socialmedia").html(html);
+
+  var w = $("#socialmedia").width();
+  var h = $("#socialmedia").height();
+  $("#socialmedia iframe").css({
+    "width":w,
+    "height":h
+  });
 }
 
 
@@ -730,30 +743,15 @@ function events(data, srcs)
     }
 
   })
-  //.style("cursor","hand")
   .on('click',function(d)
   {
-    //.log(d);
-    //$("#dialog").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>");
-    //$("#dialog").dialog("option","title",d.title);
-    //$("#dialog").dialog("open");
   })
   .on('mouseenter', function(d){
-  //  d3.select(this).attr("r","6");
-    $("#socialmedia").html(d.html + "<br><a target='_blank' href='" + d.url + "'>Permalink</a>")
-
-    //$("#infotext").hide();
+    insertSocial(d.html)
 
   })
   .on('mouseleave', function(d)
   {
-    /*
-    setTimeout(function(){
-      $("#socialmedia").hide();
-      $("#infotext").show();
-    }, 10000);
-    */
-  //  d3.select(this).attr("r","4");
   });
 
   $('.Google-Analytics').attr('display','none');
