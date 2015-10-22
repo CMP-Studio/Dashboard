@@ -625,7 +625,7 @@ function chartResize()
     setTimeout(function()
   {
     events(event_data, event_srcs);
-  }, 50);
+  }, 90);
 
 
   } catch (e) {
