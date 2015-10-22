@@ -334,7 +334,7 @@ ol
 .social-display
 {
     display:none;
-    overflow-y: hidden;
+    overflow-y: scroll;
     overflow-x: hidden;
 
 }
