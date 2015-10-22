@@ -651,7 +651,7 @@ function chartResize()
 
 function setupChartResize()
 {
-  $("#chart").resize(function()
+  $(window).resize(function()
   {
     chartResize();
   })
