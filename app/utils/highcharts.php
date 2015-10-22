@@ -45,13 +45,7 @@ class Highchart
 		$newdata = array();
 		foreach($data as $d)
 		{
-			if(empty($d))
-			{
-				array_push($newdata, null);
-			}
-			else {
-				array_push($newdata, round(floatval($d),2));
-			}
+			array_push($newdata, round(floatval($d),2));
 		}
 
 		return $newdata;
