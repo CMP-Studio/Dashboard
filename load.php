@@ -619,8 +619,13 @@ function chartResize()
   var h = $("#chart").height();
   try {
     $("#chart").highcharts().setSize(w, h, true);
-      events(event_data, event_srcs);
-      $("#socialmedia").css("height", h);
+    $("#socialmedia").css("height", h);
+    setTimeout(function()
+  {
+    events(event_data, event_srcs);
+  }, 1000);
+
+
   } catch (e) {
 
   } finally {
