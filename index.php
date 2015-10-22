@@ -67,7 +67,7 @@ require_once 'app/facebook.php';
             <div class="timespan">
               <h3 class='sr-only'>Stats for the selected timespan</h3>
               <select id='timespan'>
-                <option value='lw'>Last Week</option>
+                <option value='lw'>Last 7 Days</option>
                 <option value='lm' selected="selected">Last Month</option>
                 <option value='l3m'>Previous 3 Months</option>
                 <option value='ly'>Last Year</option>
