@@ -594,11 +594,11 @@ function getChartSize()
 
   var smallsize = $("#chart").attr("small-size");
 
-  var wasSmall = true;
+  var wasSmall = false;
 
   if (typeof smallsize !== typeof undefined && smallsize !== false)
   {
-    wasSmall = false;
+    wasSmall = true;
   }
   if(small)
   {
