@@ -14,6 +14,8 @@ $(document).ready(function (){
 
 
 
+
+
   //Social timespan
   /*
   $("#social-start").text(moment().subtract(1, 'month').startOf('month').format("MMMM D, YYYY"));
@@ -159,6 +161,7 @@ $(document).ready(function (){
           $('#chart').highcharts(cdata);
           //setupTooltip();
           setupLegend();
+          toggleChartSize();
           events(edata, srcs);
           console.log(edata);
         }
