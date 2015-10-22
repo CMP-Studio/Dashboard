@@ -49,8 +49,8 @@ require_once 'app/facebook.php';
       <nav id="primary-nav" class='navbar navbar-inverse navbar-no-margin navbar-no-borderradius page-padding'>
         <div class="container-fluid row">
 
-          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
-            <h1 class="title">Digital Dashboard</h1>
+          <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
+            <h1 class="title">Digital Metric Dashboard</h1>
           </div>
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
             <button id="museum-bar-toggle" type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="false">
@@ -60,10 +60,7 @@ require_once 'app/facebook.php';
               <span class="icon-bar"></span>
             </button>
           </div>
-          <div class="col-lg-6 col-md-5 col-sm-3 hidden-xs">
-            &nbsp;
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-9">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-9">
             <div class="timespan">
               <h3 class='sr-only'>Stats for the selected timespan</h3>
               <select id='timespan'>
