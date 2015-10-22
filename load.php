@@ -687,7 +687,7 @@ function events(data, srcs)
   var axis = d3.select(".highcharts-series-0.highcharts-tracker").node();
   var box = axis.getBBox();
 
-  var l = d3.select(".highcharts-series-0.highcharts-tracker").position().left;
+  var l = $(".highcharts-series-0.highcharts-tracker").position().left;
 
   var p = $(".highcharts-markers.highcharts-tracker").position();
 
