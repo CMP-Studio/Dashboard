@@ -9,15 +9,9 @@ $(document).ready(function (){
   //globals
   var event_data = null;
   var event_srcs = null;
-
-
-
+  //main
+  setupChartResize();
   loadAnalytics(museum, timespan.start, timespan.end);
-
-
-
-
-
 
   //Social timespan
   /*
@@ -621,8 +615,24 @@ function chartResize()
 {
   var w = $("#chart").width();
   var h = $("#chart").height();
-  $("#chart").highcharts().setSize(w, h, true);
-  events(event_data, event_srcs);
+  try {
+    $("#chart").highcharts().setSize(w, h, true);
+      events(event_data, event_srcs);
+      $("#socialmedia").css("height", h);
+  } catch (e) {
+
+  } finally {
+
+  }
+
+}
+
+function setupChartResize()
+{
+  $("#chart").resize(function()
+  {
+    chartResize();
+  })
 }
 
 
