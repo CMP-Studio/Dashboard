@@ -141,7 +141,7 @@ require_once 'app/facebook.php';
             <div class="col-sm-4 col-xs-6">
               <div class="legend-toggle legend-users active" data-series="users">Users  <i class="fa fa-check"></i></div>
             </div>
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-sm-4 col-xs-12">
               <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
             </div>
           </div>
