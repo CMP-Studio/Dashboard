@@ -582,6 +582,11 @@ function toggleChartSize()
 function getChartSize()
 {
   //See if any of the social toggles are active
+  var largeScreen = true;
+  if(screen.width <= 768)
+  {
+    largeScreen = false;
+  }
   var small = false;
   $(".legend-social .legend-toggle").each(function(i)
   {
@@ -600,7 +605,7 @@ function getChartSize()
   {
     wasSmall = true;
   }
-  if(small)
+  if(small && largeScreen)
   {
     $("#chart").css("width","75%");
     $("#chart").attr("small-size", true);
