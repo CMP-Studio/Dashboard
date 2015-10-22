@@ -6,13 +6,12 @@ $(document).ready(function (){
   var timespan = getLastMonth();
   var museum = 'cmp';
   var lastrequest = null;
-
-
-
+  //globals
+  var event_data = null;
+  var event_srcs = null;
+  //main
+  setupChartResize();
   loadAnalytics(museum, timespan.start, timespan.end);
-
-
-
 
   //Social timespan
   /*
@@ -159,6 +158,9 @@ $(document).ready(function (){
           $('#chart').highcharts(cdata);
           //setupTooltip();
           setupLegend();
+          toggleChartSize();
+          event_data = edata;
+          event_srcs = srcs;
           events(edata, srcs);
           console.log(edata);
         }
@@ -571,12 +573,113 @@ function toggleSocial(name, show)
   }
 }
 
+function toggleChartSize()
+{
+  //
+  $(".legend-social .legend-toggle").click(getChartSize);
+}
+
+function getChartSize()
+{
+  //See if any of the social toggles are active
+  var largeScreen = true;
+  if(screen.width <= 768)
+  {
+    largeScreen = false;
+  }
+  var small = false;
+  $(".legend-social .legend-toggle").each(function(i)
+  {
+    if($(this).hasClass("active"))
+    {
+      small = true;
+    }
+  });
+
+
+  var smallsize = $("#chart").attr("small-size");
+
+  var wasSmall = false;
+
+  if (typeof smallsize !== typeof undefined && smallsize !== false)
+  {
+    wasSmall = true;
+  }
+  if(small && largeScreen)
+  {
+    $("#chart").css("width","75%");
+    $("#chart").attr("small-size", true);
+    $("#socialmedia").show();
+
+  }
+  else
+  {
+    $("#chart").css("width","");
+    $("#chart").removeAttr("small-size");
+    $("#socialmedia").hide();
+  }
+  console.log("current: " + wasSmall + " next: " + small);
+  if(small != wasSmall) //If the sizes are not equal
+  {
+    console.log("Resize: " + (small != wasSmall));
+    $("#socialmedia").text("Roll over the bars to see more details");
+    chartResize();
+  }
+
+}
+
+function chartResize()
+{
+  var w = $("#chart").width();
+  var h = $("#chart").height();
+  try {
+    $("#chart").highcharts().setSize(w, h, true);
+    $("#socialmedia").css("height", h);
+    setTimeout(function()
+  {
+    events(event_data, event_srcs);
+  }, 450);
+
+
+  } catch (e) {
+
+  } finally {
+
+  }
+
+}
+
+function setupChartResize()
+{
+  $(window).resize(function()
+  {
+    chartResize();
+  })
+}
+
+function insertSocial(html)
+{
+  $("#socialmedia").html(html);
+
+  var w = $("#socialmedia").width();
+  var h = $("#socialmedia").height();
+  $("#socialmedia iframe").css({
+    "width":w,
+    "height":h
+  });
+  $("#socialmedia iframe").attr("width", w);
+  $("#socialmedia iframe").attr("height", h);
+}
+
 
 
 function events(data, srcs)
 {
+
   var svg = d3.select(".highcharts-container svg");
   //var eSvg = d3.select('#events-svg');
+
+  svg.select("#events").remove();
 
   var eSvg = svg.insert("g",".highcharts-tooltip").attr("id","events");
 
@@ -589,25 +692,29 @@ function events(data, srcs)
   var sbox = svg.select('.highcharts-series-group').node().getBBox();
 
   var h = sbox.y + sbox.height;
-  var l = $('.highcharts-series-group').position().left;
+  //$('.highcharts-series-group').position().left;
 
   var t = 0;
 
 
-  var axis = d3.select(".highcharts-markers.highcharts-tracker").node();
+  var axis = d3.select(".highcharts-series-0.highcharts-tracker").node();
   var box = axis.getBBox();
+
+  var l = $(".highcharts-series-0.highcharts-tracker").position().left;
 
   var p = $(".highcharts-markers.highcharts-tracker").position();
 
   var w = box.width;
 
+
+
   var max = maxScore(events);
 
+  console.log('Event width: ' + w);
 
 
 
-
-  var xS = d3.scale.linear().domain([start, end]).range([l,w+l]);
+  var xS = d3.scale.linear().domain([start, end - 1]).range([l,l+w]);
   var yS = d3.scale.linear().domain([0, 1]).range([t,h+t]);
 
 
@@ -656,30 +763,15 @@ function events(data, srcs)
     }
 
   })
-  //.style("cursor","hand")
   .on('click',function(d)
   {
-    //.log(d);
-    //$("#dialog").html(d.html + "<a target='_blank' href='" + d.url + "'>Permalink</a>");
-    //$("#dialog").dialog("option","title",d.title);
-    //$("#dialog").dialog("open");
   })
   .on('mouseenter', function(d){
-  //  d3.select(this).attr("r","6");
-    $("#socialmedia").html(d.html + "<br><a target='_blank' href='" + d.url + "'>Permalink</a>")
-    $("#socialmedia").show();
-    //$("#infotext").hide();
+    insertSocial(d.html)
 
   })
   .on('mouseleave', function(d)
   {
-    /*
-    setTimeout(function(){
-      $("#socialmedia").hide();
-      $("#infotext").show();
-    }, 10000);
-    */
-  //  d3.select(this).attr("r","4");
   });
 
   $('.Google-Analytics').attr('display','none');

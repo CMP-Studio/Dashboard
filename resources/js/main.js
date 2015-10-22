@@ -44,12 +44,7 @@ stickyNav(smallHeight);
 
 
 
-  function chartResize()
-  {
-    var w = $("#chart").width();
-    var h = $("#chart").height();
-    $("#chart").highcharts().setSize(w, h, true);
-  }
+
 
   function stickyNav(maxHeight)
   {

@@ -50,7 +50,7 @@ require_once 'app/facebook.php';
         <div class="container-fluid row">
 
           <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
-            <h1 class="title">Digital Metric Dashboard</h1>
+            <h1 class="title">Digital Metrics Dashboard</h1>
           </div>
           <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
             <button id="museum-bar-toggle" type="button" class="navbar-toggle collapsed btn btn-default" data-toggle="collapse" data-target="#museum-bar" aria-expanded="false">
@@ -129,32 +129,35 @@ require_once 'app/facebook.php';
         <div class="row">
           <div id='chart' class="col-xs-12 col-sm-12">
           </div>
-        </div>
-        <div class="">
-          <div class="row legend legend-stats">
-            <div class="col-sm-3 col-xs-6">
-              <div class="legend-toggle legend-views active" data-series="views">Views  <i class="fa fa-check"></i></div>
-            </div>
-            <div class="col-sm-3 col-xs-6">
-              <div class="legend-toggle legend-users active" data-series="users">Users  <i class="fa fa-check"></i></div>
-            </div>
-            <div class="col-sm-3 col-xs-6">
-              <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
-            </div>
-            <div class="col-sm-3 col-xs-6">
-              <div class="legend-toggle legend-anomolies" data-series="anomolies">Anomolies  <i class="fa fa-check"></i></div>
-            </div>
+
+          <div id='socialmedia' class="social-display hidden-xs col-sm-3">
           </div>
         </div>
         <div class="col-center">
-          <div class="row legend legend-social">
+          <div class="row legend legend-stats">
+            <div class="col-sm-4 col-xs-12">
+              <div class="legend-toggle legend-views active" data-series="views">Views  <i class="fa fa-check"></i></div>
+            </div>
             <div class="col-sm-4 col-xs-6">
+              <div class="legend-toggle legend-users active" data-series="users">Users  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+              <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="row legend legend-social">
+            <div class="col-sm-3 col-xs-6">
+              <div class="legend-toggle legend-anomolies" data-series="anomolies">Anomolies  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
               <div class="legend-toggle legend-twitter" data-series="twitter">Twitter  <i class="fa fa-check"></i></div>
             </div>
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-sm-3 col-xs-6">
               <div class="legend-toggle legend-facebook" data-series="facebook">Facebook  <i class="fa fa-check"></i></div>
             </div>
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-sm-3 col-xs-6">
               <div class="legend-toggle legend-instagram" data-series="instagram">Instagram  <i class="fa fa-check"></i></div>
             </div>
           </div>
@@ -191,8 +194,7 @@ require_once 'app/facebook.php';
 
 <!-- Where oh where should these go?
 
-<div id='socialmedia' class="col-xs-12 col-sm-4">
-</div>
+
 
 <div id='pop-pages' class="col-xs-12 col-sm-12">
   <p class='no-pg-space'>The most popular pages were:</p>
