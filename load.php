@@ -455,7 +455,7 @@ function setupLegend()
 {
   //Legend toggle
   $(".legend-toggle").unbind("click");
-  legendDefautls();
+  //legendDefautls();
   $(".legend-toggle").click(function() {
 
 
