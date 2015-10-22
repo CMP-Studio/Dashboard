@@ -586,7 +586,6 @@ function getChartSize()
     if($(this).hasClass("active"))
     {
       small = true;
-      break;
     }
   });
 
