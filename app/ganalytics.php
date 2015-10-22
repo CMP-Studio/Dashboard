@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/sw.php';
 /*
 
 This file will generate the JSON required to display an analytical chart
@@ -160,6 +161,7 @@ function getSettings()
   $settings["Account"] = tryGet("account");
   $settings["From"] = tryGet("start");
   $settings["To"] = tryGet("end");
+	$setting["Location"] = tryGet("location");
 
   //Validate settings
   if(empty($settings["Account"]))
@@ -440,6 +442,8 @@ function chartDashboard($settings)
     return json_encode($e);
   }
 
+	$att = getAttendanceData($settings["From"], $settings["To"], tryGet("location"));
+
 
 
 
@@ -448,11 +452,10 @@ function chartDashboard($settings)
   $start = strtotime($data[0][0]) ;
   $int = 1*24*60*60; //1 day
   $chart = new Highchart('areaspline');
-  //$chart->addLegend();
-  //$chart->disableTooltip();
   $chart->addPlotOption('fillOpacity',0.2);
   $chart->addSeries($data[1],'Pageviews',$colors[0]);
   $chart->addSeries($data[2],'Users',$colors[1]);
+	$chart->addSeries($att, 'Attendance', 'rgba(35,145,35,1)');
 
   if(tryGet('twitter'))
   {

@@ -7,41 +7,18 @@ $(document).ready(function (){
   var museum = 'cmp';
   var lastrequest = null;
 
-//Setup functions
-  //mobileMenu();
-  socialToggle();
-  optionsToggle();
-
-
 
 
   loadAnalytics(museum, timespan.start, timespan.end);
 
-  //Select timespan
-  $("#timespan").select2({
-    width: '100%',
-    minimumResultsForSearch: 50
-  });
 
-  //Dialog
-  $("#dialog").dialog({
-    autoOpen: false,
-    minWidth: 500,
-    position: { my: "center top", at: "center center", of: '#musebar' }
-  });
-
-  //Help dialog
-  $("#help-panel").dialog({
-    autoOpen: false
-  });
-  $(".help-btn").click(function(){
-    $("#help-panel").dialog("open");
-  })
 
 
   //Social timespan
+  /*
   $("#social-start").text(moment().subtract(1, 'month').startOf('month').format("MMMM D, YYYY"));
   $("#social-end").text(moment().startOf('month').format("MMMM D, YYYY"));
+  */
 
   $('#timespan').change(function ()
   {
@@ -105,10 +82,6 @@ $(document).ready(function (){
 
   function setActiveMuseum(loc)
   {
-    /*
-    if (location.href.indexOf("#") > -1) {
-        location.assign(location.href.replace(/\/?#/, "/"));
-    }*/
 
     $('#cmp').removeClass('active');
     $('#csc').removeClass('active');
@@ -116,7 +89,14 @@ $(document).ready(function (){
     $('#cmnh').removeClass('active');
     $('#warhol').removeClass('active');
 
+    $('#m-cmp').removeClass('active');
+    $('#m-csc').removeClass('active');
+    $('#m-cmoa').removeClass('active');
+    $('#m-cmnh').removeClass('active');
+    $('#m-warhol').removeClass('active');
+
     $('#' + loc).addClass('active');
+    $('#m-' + loc).addClass('active');
 
   }
 
@@ -177,7 +157,7 @@ $(document).ready(function (){
         {
           $('.loader').remove();
           $('#chart').highcharts(cdata);
-          setupTooltip();
+          //setupTooltip();
           setupLegend();
           events(edata, srcs);
           console.log(edata);
@@ -192,21 +172,6 @@ $(document).ready(function (){
         console.error("Failure - Events: " + Eurl);
         $('.loader').remove();
       });
-      /*}
-      else
-      {
-      if(lastrequest == myrequest)
-      {
-      $('.loader').remove();
-      $('#chart').highcharts(cdata);
-      setupLegend();
-    }
-    else
-    {
-    console.info('AJAX load canceled: Not most recent call');
-  }
-}*/
-
 })
 .fail(function() {
   console.error("Failure - Chart: " + Curl);
@@ -256,7 +221,7 @@ $.getJSON(url).done(function (data){
 
 var s_start = moment().subtract(1, 'month').startOf('month').unix();
 var s_end = moment().startOf('month').unix();
-var url = "./app/ajax.php?action=social&location=" + loc + "&start=" + s_start + "&end=" + s_end;
+var url = "./app/ajax.php?action=social&location=" + loc + "&start=" + start + "&end=" + end;
 $('#social-holder').empty();
 $.getJSON(url).done(function(data)
 {
@@ -349,6 +314,7 @@ function setupTooltip()
   })
 }
 
+/*
 function setupLegend()
 {
   var analytics = false;
@@ -410,6 +376,7 @@ function setupLegend()
 
 
 }
+*/
 
 function getLastYear()
 {
@@ -482,6 +449,126 @@ function getLastWeek()
 
   return time;
 
+}
+
+function setupLegend()
+{
+  //Legend toggle
+  $(".legend-toggle").unbind("click");
+  loadToggles();
+
+  $(".legend-toggle").click(function() {
+
+
+    var series = $(this).attr("data-series");
+
+    if($(this).hasClass("active"))
+    {
+      console.log(series + " off");
+      $(this).removeClass("active");
+      toggleSeries(series, false);
+    }
+    else
+    {
+      console.log(series + " on");
+      $(this).addClass("active");
+      toggleSeries(series, true);
+    }
+  });
+}
+function loadToggles()
+{
+  $(".legend-toggle").each(function(i)
+  {
+    var series = $(this).attr("data-series");
+
+    if($(this).hasClass("active"))
+    {
+      console.log(series + " on");
+      toggleSeries(series, true);
+    }
+    else
+    {
+      console.log(series + " off");
+      toggleSeries(series, false);
+    }
+  });
+
+  /*
+  //Default ON
+  toggleSeries("views", true);
+  toggleSeries("users", true);
+  toggleSeries("admissions", true);
+  $(".legend-views").addClass("active");
+  $(".legend-users").addClass("active");
+  $(".legend-admissions").addClass("active");
+
+  //Default OFF
+  toggleSeries('anomolies', false);
+  toggleSeries('twitter', false);
+  toggleSeries('facebook', false);
+  toggleSeries('instagram', false);
+  $(".legend-anomolies").removeClass("active");
+  $(".legend-twitter").removeClass("active");
+  $(".legend-facebook").removeClass("active");
+  $(".legend-instagram").removeClass("active");
+  */
+}
+
+function toggleSeries(name, show)
+{
+
+  switch(name)
+  {
+    case "views":
+      toggleHighchart(0, show);
+      break;
+    case "users":
+      toggleHighchart(1, show);
+      break;
+    case "admissions":
+      toggleHighchart(2, show);
+      break;
+    case "anomolies":
+      toggleSocial("Google-Analytics", show);
+      break;
+    case "twitter":
+      toggleSocial("Twitter", show);
+      break;
+    case "facebook":
+      toggleSocial("Facebook", show);
+      break;
+    case "instagram":
+      toggleSocial("Instagram", show);
+      break;
+  }
+}
+function toggleHighchart(series, show)
+{
+  var chart = $("#chart").highcharts();
+  var series = chart.series[series];
+  if(show)
+  {
+    series.show();
+  }
+  else {
+    series.hide();
+  }
+}
+function toggleSocial(name, show)
+{
+
+  var sClass = '.' + name;
+
+  if(show)
+  {
+    $(sClass).attr("display",null);
+  }
+  else
+  {
+
+    $(sClass).attr("display","none");
+  }
 }
 
 
@@ -563,7 +650,7 @@ function events(data, srcs)
       case 'Facebook':
       return "rgba(68,97,157, 1)"; //FB blue
       case 'Instagram':
-      return "rgba(185,163,140, 1)"  //IG brown
+      return "rgb(158, 129, 97)"  //IG brown
       default:
       return "rgba(255,255,255,1)";
     }
@@ -600,6 +687,8 @@ function events(data, srcs)
   $('.Facebook').attr('display','none');
   $('.Twitter').attr('display','none');
 
+  loadToggles();
+
 }
 
 
@@ -610,93 +699,7 @@ function getDate(d) {
 }
 
 
-function mobileMenu()
-{
 
-
-  //$(".fifth.museum.active").click(menu_toggle);
-  $(".fifth.museum").click(menuToggle);
-
-}
-var shown = false;
-function menuToggle()
-{
-  if($(".fifth.museum").attr("display-toggle") == "show")
-  {
-    $(".fifth.museum").removeAttr('style');
-    $(".fifth.museum").attr("display-toggle", null)
-  }
-  else {
-    {
-        $(".fifth.museum").css("display","block");
-        $(".fifth.museum").attr("display-toggle", "show")
-    }
-  }
-}
-
-function socialToggle()
-{
-    $(".social-select").click(function()
-  {
-    if($(this).attr("data-toggle") == "true")
-    {
-      $(this).removeClass("active");
-      $(this).attr("data-toggle", "false");
-    }
-    else
-    {
-      $(this).addClass("active");
-      $(this).attr("data-toggle", "true");
-    }
-  })
-}
-
-function optionsToggle()
-{
-  $("#options-toggle").click(function()
-  {
-    var open = $("#options-toggle").attr("data-toggle");
-    if(open == "true")
-    {
-      $("#options-toggle").attr("data-toggle","disabled");
-      $("#options-panel").slideUp('slow', function() {
-        $("#options-spacer").hide();
-        $("#main-content").css("width", "100%");
-        chartResize();
-        $("#options-toggle").children()
-        .filter("i")
-        .removeClass("fa-angle-double-up")
-        .addClass("fa-angle-double-down");
-        $("#options-toggle").attr("data-toggle","false");
-      });
-    }
-    else if(open == "disabled")
-    {
-
-    }
-    else
-    {
-      $("#options-spacer").show();
-      $("#main-content").attr("style",null);
-      chartResize();
-      $("#options-toggle").attr("data-toggle","disabled");
-      $("#options-panel").slideDown('slow', function() {
-        $("#options-toggle").children()
-        .filter("i")
-        .removeClass("fa-angle-double-down")
-        .addClass("fa-angle-double-up");
-        $("#options-toggle").attr("data-toggle","true");
-      });
-    }
-  });
-}
-
-function chartResize()
-{
-  var w = $("#chart").width();
-  var h = $("#chart").height();
-  $("#chart").highcharts().setSize(w, h, true);
-}
 
 function getActs()
 {

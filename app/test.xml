@@ -1,0 +1,52 @@
+<xml xmlns:s='uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882'
+  xmlns:dt='uuid:C2F41010-65B3-11d1-A29F-00AA00C14882'
+  xmlns:rs='urn:schemas-microsoft-com:rowset'
+  xmlns:z='#RowsetSchema'>
+<s:Schema id='RowsetSchema'>
+  <s:ElementType name='row' content='eltOnly' rs:updatable='true'>
+    <s:AttributeType name='admissions' rs:number='1' rs:nullable='true'
+       rs:write='true' rs:writeunknown='true'>
+      <s:datatype dt:type='int' dt:maxLength='4' rs:precision='10'
+       rs:fixedlength='true'/>
+    </s:AttributeType>
+    <s:AttributeType name='attenddate' rs:number='2' rs:nullable='true'
+       rs:write='true' rs:writeunknown='true'>
+      <s:datatype dt:type='dateTime' rs:dbtype='timestamp'
+       dt:maxLength='16' rs:scale='3' rs:precision='23' rs:fixedlength='true'/>
+    </s:AttributeType>
+    <s:extends type='rs:rowbase'/>
+  </s:ElementType>
+</s:Schema>
+<rs:data>
+  <z:row admissions='313' attenddate='2015-09-01T00:00:00'/>
+  <z:row admissions='424' attenddate='2015-09-02T00:00:00'/>
+  <z:row admissions='557' attenddate='2015-09-03T00:00:00'/>
+  <z:row admissions='676' attenddate='2015-09-04T00:00:00'/>
+  <z:row admissions='1665' attenddate='2015-09-05T00:00:00'/>
+  <z:row admissions='1491' attenddate='2015-09-06T00:00:00'/>
+  <z:row admissions='1256' attenddate='2015-09-07T00:00:00'/>
+  <z:row admissions='0' attenddate='2015-09-08T00:00:00'/>
+  <z:row admissions='401' attenddate='2015-09-09T00:00:00'/>
+  <z:row admissions='718' attenddate='2015-09-10T00:00:00'/>
+  <z:row admissions='589' attenddate='2015-09-11T00:00:00'/>
+  <z:row admissions='1837' attenddate='2015-09-12T00:00:00'/>
+  <z:row admissions='1091' attenddate='2015-09-13T00:00:00'/>
+  <z:row admissions='432' attenddate='2015-09-14T00:00:00'/>
+  <z:row admissions='0' attenddate='2015-09-15T00:00:00'/>
+  <z:row admissions='439' attenddate='2015-09-16T00:00:00'/>
+  <z:row admissions='724' attenddate='2015-09-17T00:00:00'/>
+  <z:row admissions='759' attenddate='2015-09-18T00:00:00'/>
+  <z:row admissions='0' attenddate='2015-09-19T00:00:00'/>
+  <z:row admissions='6193' attenddate='2015-09-20T00:00:00'/>
+  <z:row admissions='494' attenddate='2015-09-21T00:00:00'/>
+  <z:row admissions='0' attenddate='2015-09-22T00:00:00'/>
+  <z:row admissions='594' attenddate='2015-09-23T00:00:00'/>
+  <z:row admissions='692' attenddate='2015-09-24T00:00:00'/>
+  <z:row admissions='721' attenddate='2015-09-25T00:00:00'/>
+  <z:row admissions='1346' attenddate='2015-09-26T00:00:00'/>
+  <z:row admissions='882' attenddate='2015-09-27T00:00:00'/>
+  <z:row admissions='713' attenddate='2015-09-28T00:00:00'/>
+  <z:row admissions='0' attenddate='2015-09-29T00:00:00'/>
+  <z:row admissions='411' attenddate='2015-09-30T00:00:00'/>
+</rs:data>
+</xml>

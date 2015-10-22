@@ -1,4 +1,6 @@
-
+/******************************
+        General Purpose
+******************************/
 *
     {
     margin: 0;
@@ -7,7 +9,7 @@
 }
 body, html
 {
-  height:100%;
+  max-height:100%;
   overflow-x: hidden;
 }
 a
@@ -24,6 +26,20 @@ ol
 {
   margin-top: 0;
   margin-bottom: 2em;
+}
+.v-center
+{
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.full-height
+{
+  height: 100%;
 }
 
 
@@ -49,7 +65,7 @@ ol
 
 .instagram-fill
 {
-  background-color: rgb(185,163,140);
+  background-color: rgb(158, 129, 97);
 }
 
 
@@ -59,15 +75,18 @@ ol
   max-width:70%;
   margin:auto;
   position: relative;
-  top: 50%;
+
   padding-bottom: 10px;
   padding-top: 10px;
 
+  top: 50%;
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
+
+
 }
 
 .nav-pills .logo
@@ -79,6 +98,46 @@ ol
   transform: none;
 }
 
+.page-padding
+{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+/******************************
+        Topbar
+******************************/
+
+.title
+{
+  line-height:65px;
+  font-size: 1.7em;
+
+  margin:0;
+  color:white;
+  cursor:default
+
+}
+
+.timespan
+{
+  height: 65px;
+}
+
+.timespan > .select2
+{
+  margin-top:20px;
+  /*
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  */
+}
+
 /* Navbar */
 .navbar-brand
 {
@@ -87,69 +146,48 @@ ol
   padding-left: 15px;
   padding-right: 15px;
 }
-.spacer
+
+.help-btn
 {
-  height:65px;
-  width:100%;
+    line-height: 65px;
+    font-size: 1.5em;
+    color:white;
+    cursor:pointer;
 }
 
+.navbar-toggle
+{
+  margin-top:12px;
+  margin-bottom: 5px;
+  padding: 4px 6px;
+}
+
+
+
+
+/******************************
+        Museumbar
+******************************/
 
 /* Options */
-
-.options-toggle
+.museum-bar
 {
-    width: 70%;
-    height: 20px;
-    cursor:pointer;
-    margin:auto;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    margin-bottom:10px;
-    text-align: center;
-    color: white;
-
-
-}
-.nav-float
-{
-  position: fixed;
-  top:67px;
-  z-index: 100000; /* Keep on top */
+  background-color: rgb(175,175,175);
 }
 
-@media screen and (max-width: 767px ) {
-  .nav-float
-  {
-    position: relative;
-    top:10px;
-  }
-}
 
-.nav-spacer
-{
-  border-top:1px solid #d3d3d3;
-  border-bottom:1px solid #d3d3d3;
-
-  text-align: center;
-
-}
-
-.nav-spacer > *
-{
-  margin-top:4px;
-  margin-bottom:4px;
-}
 
 /* Options - Museums */
 .museum
 {
+  height:65px;
   cursor: pointer;
 }
 
 .museum.active
 {
   background-color: #4d6684;
-  border-radius: 4px;
+
 }
 .museum  img.active
 {
@@ -167,64 +205,316 @@ ol
 {
   display:none;
 }
+.active-museum
+{
+  height:65px;
+}
+.active-museum img
+{
+  display:none;
+}
+.active-museum .active
+{
+  display:block;
+}
 
-@media screen and (max-width: 767px ) {
-  .museum .logo
+.main-body
+{
+  margin-top: 152px;
+}
+
+@media (min-width:768px) and (max-width:991px)
+{
+  .logo
   {
-    max-width:35%;
+    max-width:90%;
   }
+
 }
-
-/* Options - Time */
-
-.timespan-picker
+@media screen and (max-width: 767px )
 {
-  width:70%;
-
-  margin-left:auto;
-  margin-right:auto;
-
-  margin-top:4px;
-  margin-bottom:4px;
-}
-@media screen and (max-width: 767px ) {
-  .timespan-picker
+  header .page-padding
   {
-    width:35%;
+    padding-left:0%;
+    padding-right:0%;
   }
+  .museum-bar
+  {
+    background: #4d6684;
+  }
+  .museum
+  {
+    background-color: rgb(175,175,175);
+  }
+  .museum.active
+  {
+    display:none;
+  }
+  .logo
+  {
+    max-height: 60px;
+    max-width:33%;
+  }
+  .title
+  {
+    text-align: center;
+    line-height: 36px;
+    font-size: 24px;
+  }
+  .timespan
+  {
+    height:45px;
+  }
+  .timespan > .select2
+  {
+    margin-top:10px;
+  }
+
+
+}
+@media screen and (max-height: 640px ) and (max-width: 767px )
+{
+
+  .logo
+  {
+    max-height: 40px;
+    max-width:33%;
+  }
+  .active-museum, .museum
+  {
+    height:42px;
+
+  }
+  .museum-bar
+  {
+    min-height: 40px;
+
+  }
+  .title
+  {
+    text-align: center;
+    line-height: 24px;
+    font-size: 18px;
+  }
+  .main-body
+  {
+    margin-top: 133px;
+  }
+
+
 }
 
 
-/* Options - Social */
-.social-select
+/*****************************
+              Content
+*****************************/
+
+
+
+/* Textual info */
+#infotext p
 {
-  cursor: pointer;
-  text-align: center;
+  font-size: 2em;
+  line-height: 2.5em;
+  text-align:center;
 }
-.social-select.active
+
+.loader
 {
-  border-radius: 4px;
+  display:block;
+  margin:auto;
+}
+
+#chart
+{
+  height:550px;
+}
+
+/* Chart - Legend */
+.col-center
+{
+  max-width:75%;
+  margin:auto;
+}
+.legend-toggle
+{
+  line-height: 24px;
+  background-color:rgb(75,75,75);
   color:white;
+  border-radius: 8px;
+  margin:5px 10px;
+  text-align:center;
+  max-width:250px;
+  min-width:100px;
+  cursor:pointer;
 }
-.social-select i
+.legend-toggle i
 {
-  display: none;
+  display:none;
 }
-.social-select.active i
+.legend-toggle.active i
 {
   display:inline;
 }
 
-.social-select.active.twitter
+/* Specific legends */
+.legend-views.active
+{
+  background-color: rgb(222,73,47);
+}
+.legend-users.active
+{
+  background-color: rgb(77,102,132);
+}
+.legend-admissions.active
+{
+  background-color: rgb(35,145,35);
+}
+.legend-anomolies.active
+{
+  background-color: rgb(247,153,28);
+}
+.legend-twitter.active
 {
   background-color: rgb(80,171,241);
 }
-.social-select.active.facebook
+.legend-facebook.active
 {
   background-color: rgb(68,97,157);
 }
-
-.social-select.active.instagram
+.legend-instagram.active
 {
-  background-color: rgb(185,163,140);
+  background-color: rgb(158, 129, 97);
+}
+
+
+
+/* Small screens */
+@media (min-width:768px) and (max-width:991px)
+{
+  #infotext p
+  {
+    font-size: 1.5em;
+    line-height: 2em;
+  }
+  #chart
+  {
+    height: 450px;
+  }
+
+}
+@media screen and (max-width: 767px )
+{
+  #infotext p
+  {
+    font-size: 1.25em;
+    line-height: 1.75em;
+  }
+  #chart
+  {
+    height: 350px;
+  }
+  .col-center
+  {
+    max-width:100%;
+  }
+}
+@media screen and (max-width: 480px )
+{
+  #infotext p
+  {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  #chart
+  {
+    height: 300px;
+  }
+}
+
+.grey-box
+{
+  padding-top: 20px;
+  margin-top:20px;
+}
+
+
+/* Social */
+.social-pane
+{
+  border: none;
+  padding-bottom:25px;
+}
+
+.social-pane .panel-heading
+{
+  color:white;
+
+}
+.social-pane .panel-title
+{
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+.panel-heading > a,
+.panel-heading > a:hover
+{
+  color:white;
+  text-decoration: none;
+
+}
+.panel-body
+{
+  background-color: #f8f8f8;
+}
+
+.social-pane.instagram
+{
+    background-color: rgb(158, 129, 97);
+}
+.social-pane.facebook
+{
+    background-color: rgb(68,97,157);
+}
+.social-pane.twitter
+{
+    background-color: rgb(80,171,241);
+}
+.social-urls
+{
+  padding-left:25px;
+}
+
+
+/********************************************
+              Footer
+******************************************/
+.footer
+{
+  text-align: center;
+}
+
+.footer p
+{
+  font-size: 12px;
+  color: #777777;
+}
+
+.footer a
+{
+  color: #f8f8f8;
+  text-decoration: none;
+}
+
+.footer a:hover
+{
+  color:#de492f;
+  text-decoration: none;
+}
+
+.footer-logo
+{
+  display: inline-block;
+  margin-top:25px;
+  margin-bottom:10px;
 }
