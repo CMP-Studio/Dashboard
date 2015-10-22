@@ -455,7 +455,8 @@ function setupLegend()
 {
   //Legend toggle
   $(".legend-toggle").unbind("click");
-  //legendDefautls();
+  loadToggles();
+
   $(".legend-toggle").click(function() {
 
 
@@ -463,20 +464,39 @@ function setupLegend()
 
     if($(this).hasClass("active"))
     {
-      console.log(series + " on");
+      console.log(series + " off");
       $(this).removeClass("active");
       toggleSeries(series, false);
     }
     else
     {
-      console.log(series + " off");
+      console.log(series + " on");
       $(this).addClass("active");
       toggleSeries(series, true);
     }
   });
 }
-function legendDefautls()
+function loadToggles()
 {
+  $(".legend-toggle").each(function(i)
+  {
+    var series = $(this).attr("data-series");
+
+    if($(this).hasClass("active"))
+    {
+      console.log(series + " off");
+      $(this).removeClass("active");
+      toggleSeries(series, false);
+    }
+    else
+    {
+      console.log(series + " on");
+      $(this).addClass("active");
+      toggleSeries(series, true);
+    }
+  });
+
+  /*
   //Default ON
   toggleSeries("views", true);
   toggleSeries("users", true);
@@ -494,6 +514,7 @@ function legendDefautls()
   $(".legend-twitter").removeClass("active");
   $(".legend-facebook").removeClass("active");
   $(".legend-instagram").removeClass("active");
+  */
 }
 
 function toggleSeries(name, show)
