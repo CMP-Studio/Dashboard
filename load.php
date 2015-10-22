@@ -679,13 +679,15 @@ function events(data, srcs)
   var sbox = svg.select('.highcharts-series-group').node().getBBox();
 
   var h = sbox.y + sbox.height;
-  var l = $('.highcharts-series-group').position().left;
+  //$('.highcharts-series-group').position().left;
 
   var t = 0;
 
 
-  var axis = d3.select(".highcharts-markers.highcharts-tracker").node();
+  var axis = d3.select(".highcharts-series-0.highcharts-tracker").node();
   var box = axis.getBBox();
+
+  var l = d3.select(".highcharts-series-0.highcharts-tracker").position().left;
 
   var p = $(".highcharts-markers.highcharts-tracker").position();
 
@@ -697,7 +699,7 @@ function events(data, srcs)
 
 
 
-  var xS = d3.scale.linear().domain([start, end]).range([l,w+l]);
+  var xS = d3.scale.linear().domain([start, end]).range([l,l+w]);
   var yS = d3.scale.linear().domain([0, 1]).range([t,h+t]);
 
 
