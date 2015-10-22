@@ -592,7 +592,14 @@ function getChartSize()
   });
 
 
-  var wasSmall = $("#chart").attr("small-size");
+  var smallsize = $("#chart").attr("small-size");
+
+  var wasSmall = true;
+
+  if (typeof smallsize !== typeof undefined && smallsize !== false)
+  {
+    wasSmall = false;
+  }
   if(small)
   {
     $("#chart").css("width","75%");
