@@ -598,7 +598,7 @@ function getChartSize()
     $("#chart").css("width","75%");
     $("#chart").attr("small-size", true);
     $("#socialmedia").show();
-    $("#socialmedia").text("Roll over the bars to see more details")
+
   }
   else
   {
@@ -609,6 +609,7 @@ function getChartSize()
 
   if(small != wasSmall) //If the sizes are not equal
   {
+    $("#socialmedia").text("Roll over the bars to see more details");
     chartResize();
   }
 
@@ -624,7 +625,7 @@ function chartResize()
     setTimeout(function()
   {
     events(event_data, event_srcs);
-  }, 100);
+  }, 10);
 
 
   } catch (e) {
