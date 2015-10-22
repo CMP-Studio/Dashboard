@@ -701,13 +701,15 @@ function events(data, srcs)
 
   var w = box.width;
 
+
+
   var max = maxScore(events);
 
   console.log('Event width: ' + w);
 
 
 
-  var xS = d3.scale.linear().domain([start, end]).range([l,l+w]);
+  var xS = d3.scale.linear().domain([start, end - 1]).range([l,l+w]);
   var yS = d3.scale.linear().domain([0, 1]).range([t,h+t]);
 
 
