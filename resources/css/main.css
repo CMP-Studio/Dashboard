@@ -309,7 +309,11 @@ ol
               Content
 *****************************/
 
-
+.loader
+{
+  display:block;
+  margin:auto;
+}
 
 /* Textual info */
 #infotext p
@@ -319,17 +323,18 @@ ol
   text-align:center;
 }
 
-.loader
-{
-  display:block;
-  margin:auto;
-}
+/************
+    Chart
+***********/
 
 #chart
 {
   height:550px;
 }
-
+.social-display
+{
+    display:none;
+}
 /* Chart - Legend */
 .col-center
 {

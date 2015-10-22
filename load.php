@@ -571,6 +571,52 @@ function toggleSocial(name, show)
   }
 }
 
+function toggleChartSize()
+{
+  //
+  $(".legend-social .legend-toggle").click(getChartSize);
+}
+
+function getChartSize()
+{
+  //See if any of the social toggles are active
+  var small = false;
+  $(".legend-social .legend-toggle").each(function(i)
+  {
+    if($(this).hasClass("active"))
+    {
+      small = true;
+      break;
+    }
+  });
+
+
+  var wasSmall = $("#chart").attr("small-size");
+  if(small)
+  {
+    $("#chart").css("width","75%");
+    $("#chart").attr("small-size", true);
+  }
+  else
+  {
+    $("#chart").css("width","");
+    $("#chart").removeAttr("small-size");
+  }
+
+  if(small != wasSmall) //If the sizes are not equal
+  {
+    chartResize();
+  }
+
+}
+
+function chartResize()
+{
+  var w = $("#chart").width();
+  var h = $("#chart").height();
+  $("#chart").highcharts().setSize(w, h, true);
+}
+
 
 
 function events(data, srcs)

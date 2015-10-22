@@ -129,6 +129,9 @@ require_once 'app/facebook.php';
         <div class="row">
           <div id='chart' class="col-xs-12 col-sm-12">
           </div>
+
+          <div id='socialmedia' class="social-display">
+          </div>
         </div>
         <div class="col-center">
           <div class="row legend legend-stats">
@@ -191,8 +194,7 @@ require_once 'app/facebook.php';
 
 <!-- Where oh where should these go?
 
-<div id='socialmedia' class="col-xs-12 col-sm-4">
-</div>
+
 
 <div id='pop-pages' class="col-xs-12 col-sm-12">
   <p class='no-pg-space'>The most popular pages were:</p>
