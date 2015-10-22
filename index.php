@@ -130,31 +130,31 @@ require_once 'app/facebook.php';
           <div id='chart' class="col-xs-12 col-sm-12">
           </div>
         </div>
-        <div class="">
+        <div class="col-center">
           <div class="row legend legend-stats">
-            <div class="col-sm-3 col-xs-6">
+            <div class="col-sm-4 col-xs-6">
               <div class="legend-toggle legend-views active" data-series="views">Views  <i class="fa fa-check"></i></div>
             </div>
-            <div class="col-sm-3 col-xs-6">
+            <div class="col-sm-4 col-xs-6">
               <div class="legend-toggle legend-users active" data-series="users">Users  <i class="fa fa-check"></i></div>
             </div>
-            <div class="col-sm-3 col-xs-6">
+            <div class="col-sm-4 col-xs-6">
               <div class="legend-toggle legend-admissions active" data-series="admissions">Admission  <i class="fa fa-check"></i></div>
-            </div>
-            <div class="col-sm-3 col-xs-6">
-              <div class="legend-toggle legend-anomolies" data-series="anomolies">Anomolies  <i class="fa fa-check"></i></div>
             </div>
           </div>
         </div>
-        <div class="col-center">
+        <div class="">
           <div class="row legend legend-social">
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-sm-3 col-xs-6">
+              <div class="legend-toggle legend-anomolies" data-series="anomolies">Anomolies  <i class="fa fa-check"></i></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
               <div class="legend-toggle legend-twitter" data-series="twitter">Twitter  <i class="fa fa-check"></i></div>
             </div>
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-sm-3 col-xs-6">
               <div class="legend-toggle legend-facebook" data-series="facebook">Facebook  <i class="fa fa-check"></i></div>
             </div>
-            <div class="col-sm-4 col-xs-6">
+            <div class="col-sm-3 col-xs-6">
               <div class="legend-toggle legend-instagram" data-series="instagram">Instagram  <i class="fa fa-check"></i></div>
             </div>
           </div>
