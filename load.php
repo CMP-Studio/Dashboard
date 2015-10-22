@@ -641,6 +641,7 @@ function setupChartResize()
 
 function events(data, srcs)
 {
+
   var svg = d3.select(".highcharts-container svg");
   //var eSvg = d3.select('#events-svg');
 
@@ -671,7 +672,7 @@ function events(data, srcs)
 
   var max = maxScore(events);
 
-
+  console.log('Event width: ' + w);
 
 
 
