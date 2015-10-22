@@ -687,6 +687,8 @@ function events(data, srcs)
   $('.Facebook').attr('display','none');
   $('.Twitter').attr('display','none');
 
+  loadToggles();
+
 }
 
 
