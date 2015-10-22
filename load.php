@@ -623,7 +623,7 @@ function chartResize()
     setTimeout(function()
   {
     events(event_data, event_srcs);
-  }, 1000);
+  }, 100);
 
 
   } catch (e) {
