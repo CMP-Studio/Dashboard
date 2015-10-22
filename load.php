@@ -464,13 +464,15 @@ function setupLegend()
 
     if($(this).hasClass("active"))
     {
-      console.log(series + " on");
-      toggleSeries(series, true);
+      console.log(series + " off");
+      $(this).removeClass("active");
+      toggleSeries(series, false);
     }
     else
     {
-      console.log(series + " off");
-      toggleSeries(series, false);
+      console.log(series + " on");
+      $(this).addClass("active");
+      toggleSeries(series, true);
     }
   });
 }
@@ -482,15 +484,13 @@ function loadToggles()
 
     if($(this).hasClass("active"))
     {
-      console.log(series + " off");
-      $(this).removeClass("active");
-      toggleSeries(series, false);
+      console.log(series + " on");
+      toggleSeries(series, true);
     }
     else
     {
-      console.log(series + " on");
-      $(this).addClass("active");
-      toggleSeries(series, true);
+      console.log(series + " off");
+      toggleSeries(series, false);
     }
   });
 
