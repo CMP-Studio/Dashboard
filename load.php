@@ -653,6 +653,8 @@ function insertSocial(html)
     "width":w,
     "height":h
   });
+  $("#socialmedia iframe").attr("width", w);
+  $("#socialmedia iframe").attr("height", h);
 }
 
 
