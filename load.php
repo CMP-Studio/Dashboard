@@ -609,7 +609,7 @@ function getChartSize()
   console.log("current: " + wasSmall + " next: " + small);
   if(small != wasSmall) //If the sizes are not equal
   {
-    console.log("Resize");
+    console.log("Resize: " + (small != wasSmall));
     $("#socialmedia").text("Roll over the bars to see more details");
     chartResize();
   }
