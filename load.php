@@ -6,6 +6,9 @@ $(document).ready(function (){
   var timespan = getLastMonth();
   var museum = 'cmp';
   var lastrequest = null;
+  //globals
+  var event_data = null;
+  var event_srcs = null;
 
 
 
@@ -162,6 +165,8 @@ $(document).ready(function (){
           //setupTooltip();
           setupLegend();
           toggleChartSize();
+          event_data = edata;
+          event_srcs = srcs;
           events(edata, srcs);
           console.log(edata);
         }
@@ -617,6 +622,7 @@ function chartResize()
   var w = $("#chart").width();
   var h = $("#chart").height();
   $("#chart").highcharts().setSize(w, h, true);
+  events(event_data, event_srcs);
 }
 
 
@@ -625,6 +631,8 @@ function events(data, srcs)
 {
   var svg = d3.select(".highcharts-container svg");
   //var eSvg = d3.select('#events-svg');
+
+  svg.select("#events").remove();
 
   var eSvg = svg.insert("g",".highcharts-tooltip").attr("id","events");
 
