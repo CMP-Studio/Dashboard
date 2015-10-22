@@ -606,7 +606,7 @@ function getChartSize()
     $("#chart").removeAttr("small-size");
     $("#socialmedia").hide();
   }
-
+  console.log("current: " + wasSmall + " next: " + small);
   if(small != wasSmall) //If the sizes are not equal
   {
     $("#socialmedia").text("Roll over the bars to see more details");
