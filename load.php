@@ -597,11 +597,13 @@ function getChartSize()
   {
     $("#chart").css("width","75%");
     $("#chart").attr("small-size", true);
+    $("#socialmedia").show();
   }
   else
   {
     $("#chart").css("width","");
     $("#chart").removeAttr("small-size");
+    $("#socialmedia").hide();
   }
 
   if(small != wasSmall) //If the sizes are not equal
@@ -733,7 +735,7 @@ function events(data, srcs)
   .on('mouseenter', function(d){
   //  d3.select(this).attr("r","6");
     $("#socialmedia").html(d.html + "<br><a target='_blank' href='" + d.url + "'>Permalink</a>")
-    $("#socialmedia").show();
+
     //$("#infotext").hide();
 
   })
