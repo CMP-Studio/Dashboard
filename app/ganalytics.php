@@ -437,6 +437,7 @@ function chartDashboard($settings)
     $data = runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"],"ga:pageviews,ga:users","ga:date");
 		if(isset($data->ga_error))
 		{
+			DoNotCache();
 			$data = array();
 			$data[0] = array();
 			$data[0][0] = 0;
