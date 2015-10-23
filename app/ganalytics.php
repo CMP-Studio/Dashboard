@@ -541,7 +541,7 @@ function getReferrals($count = 20, $refFilter = null, $account=null)
     $filter = '';
   }
 
-  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter)
+  $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
 
 	var_dump($data);
 
