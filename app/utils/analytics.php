@@ -9,21 +9,24 @@ require_once getAPIPath() . 'autoload.php';
 
 function getClient()
 {
+
 	$client = new Google_Client();
 	$client->setApplicationName(getGAAppName());
 	$client->setClientId(getGAClientID());
-	
+
 	return $client;
-	
+
 }
 
 /* Checks for previous authentication then runs AUth if needed  returns auth token*/
 function Authenticate($client)
 {
-	if (isset($_SESSION['service_token'])) 
+	return null; //QA
+
+	if (isset($_SESSION['service_token']))
 	{
 		$token = $_SESSION['service_token'];
-		
+
 		if ($client->getAuth()->isAccessTokenExpired())
 		{
 			$token = Auth($client);
@@ -39,7 +42,7 @@ function Authenticate($client)
 		$token = Auth($client);
 		$_SESSION['service_token'] = $token;
 	}
-	
+
 	return $token;
 
 }
@@ -96,9 +99,9 @@ function runQuery(&$analytics, $tableId, $startDate, $endDate, $metrics, $dimmen
    {
 		$params['max-results'] =  $maxResults;
    }
-   
-   
-   
+
+
+
    $results = $analytics->data_ga->get(
 		$tableId,
 		$startDate,
@@ -106,7 +109,7 @@ function runQuery(&$analytics, $tableId, $startDate, $endDate, $metrics, $dimmen
 		$metrics,
 		$params
 		);
-		
+
 	return $results;
 	}
 	catch (apiServiceException $e)

@@ -4,6 +4,7 @@ require_once "cache.php";
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
+  $url = "http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com";
 
   $cache = APIcache($url, $params);
 
@@ -33,7 +34,9 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
     if( ! $result = curl_exec($curl))
     {
-      return array("curl_error" => curl_error($curl));
+      $err = new stdClass();
+      $err->curl_error = curl_error($curl);
+      return $err
     }
 
     curl_close($curl);
@@ -52,6 +55,8 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
 function postAPI($url, $params=null, $headers=null, $ssl=true)
 {
+  $url = "http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com";
+
   $cache = APIcache($url, $params);
 
   if(isset($cache))
@@ -79,7 +84,9 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
 
     if( ! $result = curl_exec($curl))
     {
-      return array("curl_error" => curl_error($curl));
+      $err = new stdClass();
+      $err->curl_error = curl_error($curl);
+      return $err
     }
 
     curl_close($curl);
