@@ -24,6 +24,9 @@ function getAttendanceData($start = 1441065600, $end = 1443657600, $loc = '')
   $tend = strtotime($end);
   $q = getAttendQuery($lcode,$start, $end);
   $res = SOAPcall("select", $q);
+
+  if(!isset($res)) return null;
+  
   $data = parseResult($res);
   $intv = 24*60*60; //1 day;
   $data = toHighcharts($data, $tstart, $tend, $intv);
