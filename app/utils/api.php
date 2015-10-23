@@ -4,7 +4,7 @@ require_once "cache.php";
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
-  
+
   $cache = APIcache($url, $params);
 
   if(isset($cache))
@@ -54,7 +54,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
 function postAPI($url, $params=null, $headers=null, $ssl=true)
 {
-  
+
   $cache = APIcache($url, $params);
 
   if(isset($cache))
@@ -154,6 +154,19 @@ function APIstore($url, $params, $data)
 {
   $ds = APIdsName($url, $params);
   storeInCache($ds, $data);
+}
+
+function DoNotCache()
+{
+  if(isset($_SESSION["do-not-cache"]))
+  {
+    $_SESSION["do-not-cache"] += 1;
+  }
+  else {
+    $_SESSION["do-not-cache"] = 1;
+  }
+
+  return null;
 }
 
 

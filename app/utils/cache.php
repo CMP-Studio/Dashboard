@@ -46,8 +46,21 @@ function escape($data)
 	return $sql->real_escape_string($data);
 }
 
+
+
 function storeInCache($datasetName, $data)
 {
+	if(isset($_SESSION['do-not-cache']))
+	{
+		if($_SESSION['do-not-cache'] == 1)
+		{
+			unset($_SESSION['do-not-cache']);
+		}
+		else {
+			$_SESSION['do-not-cache'] -= 1;
+		}
+		return false;
+	}
 	$sql = getSql();
 	$now = date("Y-m-d H:i:s");
 

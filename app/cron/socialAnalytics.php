@@ -150,7 +150,7 @@ function getTwitterToken()
 		return $data->access_token;
 	}
 
-	return NULL;
+	return DoNotCache();
 }
 
 function getFBToken()

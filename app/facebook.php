@@ -15,8 +15,8 @@ require_once "config/fbConfig.php";
 
   $token = getAPI($url,$params);
 
-  if(isset($token->error)) return null;
-  if(isset($token->curl_error)) return null;
+  if(isset($token->error)) return DoNotCache();
+  if(isset($token->curl_error)) return DoNotCache();
 
   $token = explode('=', $token);
 
@@ -93,7 +93,7 @@ function getTopFBPosts($account, $count=10)
   $end = tryGet('end');
   $token = getFBToken();
 
-  if(!isset($token[0])) return null;  //No token
+  if(!isset($token[0])) return DoNotCache();  //No token
 
   $url = "https://graph.facebook.com/$account/posts";
 

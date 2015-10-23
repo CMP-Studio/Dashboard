@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/sw.php';
+require_once __DIR__ . '/utils/api.php';
 /*
 
 This file will generate the JSON required to display an analytical chart
@@ -204,7 +205,7 @@ function getChart()
 {
   $set = getSettings();
 
-  if(!isset($_GET["chart"])) return null;
+  if(!isset($_GET["chart"])) return DoNotCache();
 
       switch($_GET["chart"])
       {
@@ -240,7 +241,7 @@ function chartWebTraffic($settings)
   }
   catch (Exception $e)
   {
-    return NULL;
+    return DoNotCache();
   }
 
   //Form chart
@@ -270,7 +271,7 @@ function chartMobileOS($settings)
   }
   catch (Exception $e)
   {
-    return NULL;
+    return DoNotCache();
   }
 
   $chart = new Highchart('bar');
@@ -293,7 +294,7 @@ function chartTrafficHourly($settings)
   }
   catch (Exception $e)
   {
-    return NULL;
+    return DoNotCache();
   }
 
   //Build chart
@@ -325,7 +326,7 @@ function chartWebBrowsers($settings)
   }
   catch (Exception $e)
   {
-    return NULL;
+    return DoNotCache();
   }
 
   //Build chart
@@ -349,8 +350,7 @@ function chartMostViewed($settings)
   }
   catch (Exception $e)
   {
-    error_log("Error: $e");
-    return NULL;
+    return DoNotCache();
   }
 
   //Build chart
@@ -377,7 +377,7 @@ function chartTOS($settings)
   catch (Exception $e)
   {
     error_log("Error: $e");
-    return NULL;
+    return DoNotCache();
   }
 
   //Build chart
@@ -414,8 +414,7 @@ function chartHistViews($settings)
   }
   catch (Exception $e)
   {
-    error_log("Error: $e");
-    return NULL;
+    return DoNotCache();
   }
 
   //Build chart
@@ -516,7 +515,7 @@ function topSources($account = null, $count = 20)
 
   $filter = "ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org;ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:date,ga:hour,ga:source,ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
-	if(isset($data->ga_error)) return null;
+	if(isset($data->ga_error)) return DoNotCache();
 	return $data->getRows();
 }
 
@@ -556,7 +555,7 @@ function getReferrals($count = 20, $refFilter = null, $account=null)
 
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
 
-	if(isset($data->ga_error)) return null;
+	if(isset($data->ga_error)) return DoNotCache();
 
 	$data = $data->getRows();
 
@@ -608,7 +607,7 @@ function getStatistics()
   $count = 5;
   $filter= ""; //"ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org";
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
-	if(isset($data->ga_error)) return null;
+	if(isset($data->ga_error)) return DoNotCache();
   $data = $data->getRows();
 
   $result['toppages'] = array();
@@ -663,7 +662,7 @@ $ndays = getDays($start, $end);
  $sort = "-ga:pageviews";
  $count = 10000; //max
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
- if(isset($data->ga_error)) return null;
+ if(isset($data->ga_error)) return DoNotCache();
  $data = $data->getRows();
 
  $values = array();
@@ -697,7 +696,7 @@ $ndays = getDays($start, $end);
  $metric = "ga:pageviews";
  $sort = "-ga:pageviews";
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
- if(isset($data->ga_error)) return null;
+ if(isset($data->ga_error)) return DoNotCache();
  $data = $data->getRows();
 
  $result = array();

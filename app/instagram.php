@@ -13,7 +13,7 @@ function getTopIGMedia($userID, $count=10)
 
 	$res = getAPI($url, $params);
 
-	if(!isset($res->data)) return null;
+	if(!isset($res->data)) return DoNotCache();
 	$media = $res->data;
 
 	usort($media, "igSort");
