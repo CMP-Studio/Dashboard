@@ -5,8 +5,6 @@ require_once "cache.php";
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
 
-  $url = "http://asdfdfsadfdfsadfsadfsdfsdfsdfsadfsdfsadfsdfasdfasdf.com/"; //QA
-
   $cache = APIcache($url, $params);
 
   if(isset($cache))
@@ -81,9 +79,7 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
 
     if( ! $result = curl_exec($curl))
     {
-      print json_encode(array("error" => curl_error($curl), "type" => "curl error"));
-      //exit(-1);
-      return NULL;
+      return array("curl_error" => curl_error($curl));
     }
 
     curl_close($curl);
