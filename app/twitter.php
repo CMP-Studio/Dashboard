@@ -182,7 +182,7 @@ function getTweetsByDate($user, $start=0, $end=0)
 function getTwitterToken()
 {
 	$url = "https://api.twitter.com/oauth2/token";
-	$cred = "1234" //getBearerCred();
+	$cred = "1234"; //getBearerCred();
 
 	$headers = array(
 	"Authorization: Basic $cred",
