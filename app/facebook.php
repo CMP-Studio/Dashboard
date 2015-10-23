@@ -16,7 +16,7 @@ require_once "config/fbConfig.php";
   $token = getAPI($url,$params);
 
   if(isset($token->error)) return null;
-  if(isset($token["curl_error"])) return null;
+  if(isset($token->curl_error)) return null;
 
   $token = explode('=', $token);
 

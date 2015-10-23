@@ -97,7 +97,7 @@ function twitStats($id)
   $params = array("user_id" => $id);
   $url = "https://api.twitter.com/1.1/users/show.json";
   $info = getAPI($url, $params, $headers);
-  if(isset($info["curl_error"])) return null;
+  if(isset($info->curl_error)) return null;
 
   return array("followers" => $info->followers_count);
 
@@ -109,7 +109,7 @@ function fbStats($id)
   $url = "https://graph.facebook.com/$id";
   $params = array($token[0] => $token[1]);
   $info = getAPI($url,$params);
-  if(isset($info["curl_error"])) return null;
+  if(isset($info->curl_error)) return null;
 
   return array("followers" => $info->likes);
 
@@ -122,7 +122,7 @@ function igStats($id)
   $url = "https://api.instagram.com/v1/users/$id";
   $params = array("client_id" => $client);
   $info = getAPI($url, $params);
-  if(isset($info["curl_error"])) return null;
+  if(isset($info->curl_error)) return null;
 
   return array("followers" => $info->data->counts->followed_by);
 
@@ -163,7 +163,7 @@ function getFBToken()
  );
 
  $token = getAPI($url,$params);
- if(isset($token["curl_error"])) return null;
+ if(isset($token->curl_error)) return null;
  $token = explode('=', $token);
 
  return $token;
