@@ -24,19 +24,19 @@ function main()
   foreach ($fb as $key => $id)
   {
     $stats = fbStats($id);
-    saveStats($stats,$id,"facebook");
+    if(isset($stats))  saveStats($stats,$id,"facebook");
   }
   print "\nTwit:\n";
   foreach ($twit as $key => $id)
   {
     $stats = twitStats($id);
-    saveStats($stats,$id,"twitter");
+    if(isset($stats)) saveStats($stats,$id,"twitter");
   }
   print "\nIG:\n";
   foreach ($ig as $key => $id)
   {
     $stats = igStats($id);
-    saveStats($stats,$id,"instagram");
+    if(isset($stats)) saveStats($stats,$id,"instagram");
   }
   print "</pre>";
 }
@@ -97,6 +97,7 @@ function twitStats($id)
   $params = array("user_id" => $id);
   $url = "https://api.twitter.com/1.1/users/show.json";
   $info = getAPI($url, $params, $headers);
+  if(isset($info["curl_error"])) return null;
 
   return array("followers" => $info->followers_count);
 
@@ -108,6 +109,7 @@ function fbStats($id)
   $url = "https://graph.facebook.com/$id";
   $params = array($token[0] => $token[1]);
   $info = getAPI($url,$params);
+  if(isset($info["curl_error"])) return null;
 
   return array("followers" => $info->likes);
 
@@ -120,6 +122,7 @@ function igStats($id)
   $url = "https://api.instagram.com/v1/users/$id";
   $params = array("client_id" => $client);
   $info = getAPI($url, $params);
+  if(isset($info["curl_error"])) return null;
 
   return array("followers" => $info->data->counts->followed_by);
 
@@ -160,6 +163,7 @@ function getFBToken()
  );
 
  $token = getAPI($url,$params);
+ if(isset($info["curl_error"])) return null;
  $token = explode('=', $token);
 
  return $token;
