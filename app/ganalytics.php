@@ -436,8 +436,17 @@ function chartDashboard($settings)
   try
   {
     $data = runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"],"ga:pageviews,ga:users","ga:date");
-		if(isset($data->ga_error)) return null;
-		$data = invertData($data->getRows());
+		if(isset($data->ga_error))
+		{
+			$data = array();
+			$data[0] = array();
+			$data[1] = array();
+			$data[2] = array();
+		}
+		else {
+			$data = invertData($data->getRows());
+		}
+
   }
   catch (Exception $e)
   {
