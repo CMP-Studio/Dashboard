@@ -705,6 +705,14 @@ function events(data, srcs)
   var p = $(".highcharts-markers.highcharts-tracker").position();
 
   var w = box.width;
+  if(w == 0)
+  {
+    axis = d3.select(".highcharts-series-2.highcharts-tracker").node();
+    box = axis.getBBox();
+    w = box.width;
+
+    l = $(".highcharts-series-2.highcharts-tracker").position().left;
+  }
 
 
 
