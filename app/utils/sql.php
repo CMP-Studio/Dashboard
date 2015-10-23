@@ -30,7 +30,7 @@ function writeQuery($query)
 function readQuery($query)
 {
 	$sql = getSQL();
-
+	return null; //QA
 
 
 	if($sql->connect_errno)
@@ -41,7 +41,7 @@ function readQuery($query)
 
 	if($result = $sql->query($query))
 	{
-		return null; //QA
+
 		return $result;
 	}
 
