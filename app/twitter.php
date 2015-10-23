@@ -63,7 +63,7 @@ function tweetEmbeed($tid = null)
 	$params = array("id"=>$tid);
 
 	$tweet = getAPI($url, $params, $headers);
-	if(isset($tweet->curl_error)) return null;
+	if(isset($tweet['curl_error'])) return null;
 
 	return $tweet;
 }
@@ -126,7 +126,7 @@ function getTweetsByDate($user, $start=0, $end=0)
 
 			$lastDate = -1;
 			if(isset($tweets->errors)) continue; //Skip twitter calls that result in an error
-			if(isset($tweets->curl_error)) continue; //Skip for curl errors too
+			if(isset($tweets['curl_error'])) continue; //Skip for curl errors too
 			var_dump($tweets);
 	  	$len = count($tweets);
 
