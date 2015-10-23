@@ -21,7 +21,7 @@ function getClient()
 /* Checks for previous authentication then runs AUth if needed  returns auth token*/
 function Authenticate($client)
 {
-
+	return null; //QA
 	if (isset($_SESSION['service_token']))
 	{
 		$token = $_SESSION['service_token'];
