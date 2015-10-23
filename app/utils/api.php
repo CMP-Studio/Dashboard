@@ -36,7 +36,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
     {
       $err = new stdClass();
       $err->curl_error = curl_error($curl);
-      return $err
+      return $err;
     }
 
     curl_close($curl);
@@ -86,7 +86,7 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
     {
       $err = new stdClass();
       $err->curl_error = curl_error($curl);
-      return $err
+      return $err;
     }
 
     curl_close($curl);
