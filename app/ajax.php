@@ -76,12 +76,11 @@ function delegate($action)
 		$val = storeInCache($ds, output($data));
     if(!$val)
     {
-      print "{'error':'cache error'}";
-      exit(0);
+
     }
 
 	}
-	
+
 	echo output($data);
 	exit(0);
 
