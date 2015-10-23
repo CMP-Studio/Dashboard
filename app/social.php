@@ -397,9 +397,6 @@ function getMultiBadgeHTML($act)
 		$change = '?';
 		$dirclass = '';
 	}
-	else {
-		$chang = number_format($change);
-	}
 	else if($change > 0)
 	{
 		$dirclass = 'fa-chevron-up';
