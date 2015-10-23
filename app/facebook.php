@@ -14,7 +14,8 @@ error_reporting(0);
   );
 
   $token = getAPI($url,$params);
-var_dump($token);
+
+  if(isset($token->error)) return null;
 
   $token = explode('=', $token);
 
