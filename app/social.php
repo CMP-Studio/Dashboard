@@ -389,10 +389,16 @@ function getMultiBadgeHTML($act)
 	{
 		$followers = '?';
 	}
+	else {
+		$followers = number_format($followers);
+	}
 	if(!$hasChange)
 	{
 		$change = '?';
 		$dirclass = '';
+	}
+	else {
+		$chang = number_format($change);
 	}
 	else if($change > 0)
 	{
