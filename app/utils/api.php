@@ -4,8 +4,7 @@ require_once "cache.php";
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
-  $url = "http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com";
-
+  
   $cache = APIcache($url, $params);
 
   if(isset($cache))
@@ -55,8 +54,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
 function postAPI($url, $params=null, $headers=null, $ssl=true)
 {
-  $url = "http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com";
-
+  
   $cache = APIcache($url, $params);
 
   if(isset($cache))
