@@ -8,12 +8,6 @@ require_once 'config/twitConfig.php';
 /* This file will handle the twitter API calls */
 
 
-/*
-
-Endpoints
-
-*/
-
 
 function topTweets($user = null, $count = 20)
 {
@@ -188,7 +182,7 @@ function getTweetsByDate($user, $start=0, $end=0)
 function getTwitterToken()
 {
 	$url = "https://api.twitter.com/oauth2/token";
-	$cred = getBearerCred();
+	$cred = getBearerCred() . "auth_error";
 
 	$headers = array(
 	"Authorization: Basic $cred",
