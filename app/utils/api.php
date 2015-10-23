@@ -35,7 +35,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
 
     if( ! $result = curl_exec($curl))
     {
-      return array("error" => curl_error($curl), "type" => "curl error");
+      return array("curl_error" => curl_error($curl));
     }
 
     curl_close($curl);
