@@ -39,7 +39,6 @@ function getAttendanceData($start = 1441065600, $end = 1443657600, $loc = '')
 
 function SOAPcall($func, $args)
 {
-  return null; //QA
   $url = "https://wwservice.carnegiemuseums.org/wwSalesSvc.asmx?WSDL";
   $soap = new SoapClient($url);
   $var = array("strFunc" => $func, "strArgs" => $args);
