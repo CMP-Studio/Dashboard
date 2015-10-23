@@ -163,7 +163,7 @@ function getFBToken()
  );
 
  $token = getAPI($url,$params);
- if(isset($info["curl_error"])) return null;
+ if(isset($token["curl_error"])) return null;
  $token = explode('=', $token);
 
  return $token;
