@@ -440,6 +440,7 @@ function chartDashboard($settings)
 		{
 			$data = array();
 			$data[0] = array();
+			$data[0][0] = 0;
 			$data[1] = array();
 			$data[2] = array();
 		}
@@ -460,7 +461,7 @@ function chartDashboard($settings)
 
   //Form chart
   date_default_timezone_set('UTC');
-  $start = strtotime($data[0][0]) ;
+  $start = strtotime($settings["From"]) ;
   $int = 1*24*60*60; //1 day
   $chart = new Highchart('areaspline');
   $chart->addPlotOption('fillOpacity',0.2);
