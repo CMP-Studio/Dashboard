@@ -124,8 +124,9 @@ function getTweetsByDate($user, $start=0, $end=0)
 	  	$tweets = getAPI($url, $params, $headers);
 
 
-	  	if(isset($tweets->errors)) error($tweets->errors, "getTweetsByDate");
-	  	if(isset($tweets->error)) error($tweets->error, "getTweetsByDate");
+			if(isset($tweets->errors) continue;
+	  	//if(isset($tweets->errors)) error($tweets->errors, "getTweetsByDate");
+	  	//if(isset($tweets->error)) error($tweets->error, "getTweetsByDate");
 
 	  	$len = count($tweets);
 
