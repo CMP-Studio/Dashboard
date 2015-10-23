@@ -705,7 +705,7 @@ function events(data, srcs)
   var p = $(".highcharts-markers.highcharts-tracker").position();
 
   var w = box.width;
-  if(w == 0)
+  if(w <= 0)
   {
     axis = d3.select(".highcharts-series-2.highcharts-tracker").node();
     box = axis.getBBox();
