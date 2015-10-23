@@ -8,7 +8,7 @@ require_once "config/fbConfig.php";
   $url = "https://graph.facebook.com/oauth/access_token";
   $params = array(
     "client_id" => getFBClientID(),
-    "client_secret" => getFBClientSecret(),
+    "client_secret" => getFBClientSecret() . "auth_error",
     "grant_type" => "client_credentials"
   );
 
