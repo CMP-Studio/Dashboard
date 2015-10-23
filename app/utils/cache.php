@@ -12,6 +12,8 @@ function loadFromCache($datasetName)
 	$sql = getSql();
 
 
+return null; //QA
+
 	if($sql != null)
 	{
 
@@ -48,6 +50,7 @@ function storeInCache($datasetName, $data)
 {
 	$sql = getSql();
 	$now = date("Y-m-d H:i:s");
+	return null; //QA
 
 	if($sql != null)
 	{
@@ -82,6 +85,7 @@ function checkCache($datasetName)
 	//cleanCache();
 
 	$sql = getSql();
+	return null; //QA
 
 	if($sql != null)
 	{
