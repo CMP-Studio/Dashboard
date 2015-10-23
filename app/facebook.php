@@ -2,7 +2,7 @@
 
 require_once "utils/api.php";
 require_once "config/fbConfig.php";
-error_reporting(0);
+//error_reporting(0);
 
  function getFBToken()
 {
