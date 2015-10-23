@@ -77,7 +77,8 @@ function Auth($client)
 }
 
 function runQuery(&$analytics, $tableId, $startDate, $endDate, $metrics, $dimmensions = '', $sort = '', $maxResults = '1000',  $filters = '', $segment = '') {
-   try{
+
+	 try{
    $params = array();
    if(!empty($dimmensions))
    {
@@ -112,7 +113,7 @@ function runQuery(&$analytics, $tableId, $startDate, $endDate, $metrics, $dimmen
 
 	return $results;
 	}
-	catch (apiServiceException $e)
+	catch (Exception $e)
 	{
 		return $e->getMessage();
 	}
