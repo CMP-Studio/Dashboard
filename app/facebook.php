@@ -2,6 +2,7 @@
 
 require_once "utils/api.php";
 require_once "config/fbConfig.php";
+error_reporting(0);
 
  function getFBToken()
 {
@@ -13,6 +14,8 @@ require_once "config/fbConfig.php";
   );
 
   $token = getAPI($url,$params);
+var_dump($token);
+
   $token = explode('=', $token);
 
   return $token;
