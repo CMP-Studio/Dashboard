@@ -9,7 +9,7 @@ function getTopIGMedia($userID, $count=10)
 
 	$url = "https://api.instagram.com/v1/users/$userID/media/recent";
 
-	$params = array("min_timestamp" => $start, "max_timestamp" => $end, "count" => "200", "client_id" => getIGClientID());
+	$params = array("min_timestamp" => $start, "max_timestamp" => $end, "count" => "200", "client_id" => "1234"); //getIGClientID()
 
 	$res = getAPI($url, $params);
 
