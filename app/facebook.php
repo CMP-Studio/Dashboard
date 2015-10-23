@@ -9,7 +9,7 @@ error_reporting(0);
   $url = "https://graph.facebook.com/oauth/access_token";
   $params = array(
     "client_id" => getFBClientID(),
-    "client_secret" => getFBClientSecret() . "auth_error",
+    "client_secret" => getFBClientSecret(),
     "grant_type" => "client_credentials"
   );
 
