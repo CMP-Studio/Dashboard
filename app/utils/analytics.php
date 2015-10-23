@@ -115,7 +115,10 @@ function runQuery(&$analytics, $tableId, $startDate, $endDate, $metrics, $dimmen
 	}
 	catch (Exception $e)
 	{
-		return $e->getMessage();
+		$err = new stdClass();
+		$err->ga_error = $e->getMessage();
+
+		return $err;
 	}
 }
 

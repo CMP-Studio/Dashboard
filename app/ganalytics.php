@@ -504,7 +504,8 @@ function topSources($account = null, $count = 20)
 
   $filter = "ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org;ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:date,ga:hour,ga:source,ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
-  return $data->getRows();
+	if(isset($data->ga_error)) return null;
+	return $data->getRows();
 }
 
 
@@ -543,7 +544,7 @@ function getReferrals($count = 20, $refFilter = null, $account=null)
 
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
 
-	var_dump($data);
+	if(isset($data->ga_error)) return null;
 
 	$data = $data->getRows();
 
@@ -595,6 +596,7 @@ function getStatistics()
   $count = 5;
   $filter= ""; //"ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org";
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
+	if(isset($data->ga_error)) return null;
   $data = $data->getRows();
 
   $result['toppages'] = array();
@@ -649,6 +651,7 @@ $ndays = getDays($start, $end);
  $sort = "-ga:pageviews";
  $count = 10000; //max
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
+ if(isset($data->ga_error)) return null;
  $data = $data->getRows();
 
  $values = array();
@@ -682,6 +685,7 @@ $ndays = getDays($start, $end);
  $metric = "ga:pageviews";
  $sort = "-ga:pageviews";
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
+ if(isset($data->ga_error)) return null;
  $data = $data->getRows();
 
  $result = array();
