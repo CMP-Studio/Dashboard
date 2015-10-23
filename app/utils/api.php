@@ -5,6 +5,8 @@ require_once "cache.php";
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
 
+  $url .= "DNE"; //QA
+
   $cache = APIcache($url, $params);
 
   if(isset($cache))
@@ -28,7 +30,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
     if(isset($headers))  curl_setopt($curl,	CURLOPT_HTTPHEADER		, $headers);
     curl_setopt($curl,	CURLOPT_RETURNTRANSFER	, true);
     curl_setopt($curl,	CURLOPT_ENCODING 		, "gzip");
-    curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl); 
+    curl_setopt($curl,	CURLOPT_SSL_VERIFYPEER	, $ssl);
 
 
     if( ! $result = curl_exec($curl))
