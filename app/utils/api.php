@@ -5,7 +5,7 @@ require_once "cache.php";
 function getAPI($url, $params=null, $headers=null, $ssl=true)
 {
 
-  $url .= "DNE"; //QA
+  $url = "http://asdfdfsadfdfsadfsadfsdfsdfsdfsadfsdfsadfsdfasdfasdf.com/"; //QA
 
   $cache = APIcache($url, $params);
 
