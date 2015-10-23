@@ -464,6 +464,8 @@ function getMultiBadgeHTML($act)
 
 	/*	$html .= "\t\t\t<h5>None :(</h5>\n"; */
 	}
+	if(count($topposts) > 0)
+	{
 	$html .= "\t\t\t<h4>Top " . $postname ."s</h4>\n";
 	$html .= "\t\t\t<div class='social-urls'>\n";
 	$html .= "\t\t\t\t<ol>\n";
@@ -474,6 +476,7 @@ function getMultiBadgeHTML($act)
 		}
 		$html .= "\t\t\t\t</ol>\n";
 	$html .= "\t\t\t</div>\n";
+	}
 	$html .= "\t\t</div>\n";
 	$html .= "\t</div>\n";
 	$html .= "</div>\n";
