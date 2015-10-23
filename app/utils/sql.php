@@ -9,7 +9,6 @@ function writeQuery($query)
 
 	$sql = getSQL();
 
-	return false; //QA
 
 	if($sql->connect_errno)
 	{
@@ -30,7 +29,7 @@ function writeQuery($query)
 function readQuery($query)
 {
 	$sql = getSQL();
-	return null; //QA
+
 
 
 	if($sql->connect_errno)
