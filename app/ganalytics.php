@@ -435,7 +435,9 @@ function chartDashboard($settings)
 
   try
   {
-    $data = invertData(runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"],"ga:pageviews,ga:users","ga:date")->getRows());
+    $data = runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"],"ga:pageviews,ga:users","ga:date");
+		if(isset($data->ga_error)) return null;
+		$data = invertData($data->getRows());
   }
   catch (Exception $e)
   {
