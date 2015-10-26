@@ -31,9 +31,12 @@ require_once 'app/facebook.php';
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ //IS tracker
+ ga('create', 'UA-69309716-1', 'auto');
+ ga('send', 'pageview');
   //Unified tracker
-  ga('create', 'UA-65401320-1', 'auto');
-  ga('send', 'pageview');
+  ga('create', 'UA-65401320-1', 'auto', {'name':'unified'});
+  ga('unified.send', 'pageview');
   </script>
 
 
