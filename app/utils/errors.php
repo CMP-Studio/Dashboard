@@ -6,7 +6,7 @@ function error_logger($name="Error",$message="")
 	$sName = sqlSafe($name);
 	$sMsg = sqlSafe($message);
 	$sDate = sqlSafe(date("Y-m-d H:i:s"));
-	$query = "INSERT INTO error_log (`timestamp`,`error_name`,`error_description`) VALUES ($sDate,$sName,$sMsg);"
+	$query = "INSERT INTO error_log (`timestamp`,`error_name`,`error_description`) VALUES ($sDate,$sName,$sMsg);";
 	writeQuery($query);
 
 }
