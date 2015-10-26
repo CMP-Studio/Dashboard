@@ -32,7 +32,7 @@ require_once 'app/facebook.php';
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
  //IS tracker
- ga('create', 'UA-69309716-1', 'auto');
+ ga('create', 'UA-69309716-2', 'auto');
  ga('send', 'pageview');
   //Unified tracker
   ga('create', 'UA-65401320-1', 'auto', {'name':'unified'});
