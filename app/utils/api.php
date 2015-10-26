@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/cache.php";
-require_once __DIR__ . "/errors.php"
+require_once __DIR__ . "/errors.php";
 
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
