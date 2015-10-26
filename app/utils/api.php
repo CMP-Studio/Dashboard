@@ -1,5 +1,6 @@
 <?php
-require_once "cache.php";
+require_once __DIR__ . "/cache.php";
+require_once __DIR__ . "/errors.php"
 
 
 function getAPI($url, $params=null, $headers=null, $ssl=true)
@@ -34,6 +35,7 @@ function getAPI($url, $params=null, $headers=null, $ssl=true)
     if( ! $result = curl_exec($curl))
     {
       $err = new stdClass();
+      error_logger("Curl Error", curl_error($curl) );
       $err->curl_error = curl_error($curl);
       return $err;
     }
@@ -84,6 +86,7 @@ function postAPI($url, $params=null, $headers=null, $ssl=true)
     {
       $err = new stdClass();
       $err->curl_error = curl_error($curl);
+      error_logger("Curl Error", curl_error($curl) );
       return $err;
     }
 
@@ -154,19 +157,6 @@ function APIstore($url, $params, $data)
 {
   $ds = APIdsName($url, $params);
   storeInCache($ds, $data);
-}
-
-function DoNotCache()
-{
-  if(isset($_SESSION["do-not-cache"]))
-  {
-    $_SESSION["do-not-cache"] += 1;
-  }
-  else {
-    $_SESSION["do-not-cache"] = 1;
-  }
-
-  return null;
 }
 
 

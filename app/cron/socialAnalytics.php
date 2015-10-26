@@ -6,6 +6,7 @@ error_reporting(-1);
 //Utils
 require_once __DIR__ . "/../utils/sql.php";
 require_once __DIR__ . "/../utils/api.php";
+require_once __DIR__ . "/../utils/errors.php";
 //Configs
 require_once __DIR__ . "/../config/igConfig.php";
 require_once __DIR__ . "/../config/fbConfig.php";
@@ -150,7 +151,7 @@ function getTwitterToken()
 		return $data->access_token;
 	}
 
-	return DoNotCache();
+	return null;
 }
 
 function getFBToken()

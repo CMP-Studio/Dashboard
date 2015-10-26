@@ -1,7 +1,9 @@
 <?php
 
 require_once "utils/api.php";
+require_once "utils/errors.php";
 require_once "config/fbConfig.php";
+
 //error_reporting(0);
 
  function getFBToken()
@@ -15,8 +17,18 @@ require_once "config/fbConfig.php";
 
   $token = getAPI($url,$params);
 
-  if(isset($token->error)) return DoNotCache();
-  if(isset($token->curl_error)) return DoNotCache();
+  if(isset($token->error))
+  {
+    DoNotCache();
+    error_logger("Facebook Error","Authentication Failed");
+    return null;
+  }
+  if(isset($token->curl_error))
+  {
+    DoNotCache();
+    //Error logged in api.php
+    return null;
+  }
 
   $token = explode('=', $token);
 
@@ -93,7 +105,12 @@ function getTopFBPosts($account, $count=10)
   $end = tryGet('end');
   $token = getFBToken();
 
-  if(!isset($token[0])) return DoNotCache();  //No token
+  if(!isset($token[0])){
+    DoNotCache();
+    error_logger("Facebook Error", "Authentication failed" );
+    return null;
+  }  //No token
+
 
   $url = "https://graph.facebook.com/$account/posts";
 

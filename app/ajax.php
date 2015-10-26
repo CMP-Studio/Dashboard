@@ -1,4 +1,5 @@
 <?php
+require_once 'utils/errors.php';
 
 require_once 'twitter.php';
 require_once 'ganalytics.php';

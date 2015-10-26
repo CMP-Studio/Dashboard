@@ -1,6 +1,7 @@
 <?php
 require_once "utils/api.php";
 require_once "config/igConfig.php";
+require_once "utils/errors.php";
 
 function getTopIGMedia($userID, $count=10)
 {

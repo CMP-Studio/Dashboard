@@ -1,6 +1,7 @@
 <?php
 require_once 'utils/api.php';
 require_once 'utils/sql.php';
+require_once 'utils/errors.php';
 
 require_once 'twitter.php';
 require_once 'facebook.php';

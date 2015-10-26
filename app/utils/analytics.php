@@ -67,6 +67,7 @@ function Auth($client)
 
 		$client->getAuth()->refreshTokenWithAssertion($cred);
 } catch (Exception $e) {
+	    error_logger("Google Analytics Error", $e->getMessage() );
 }
 
 	}
@@ -114,6 +115,7 @@ function runQuery(&$analytics, $tableId, $startDate, $endDate, $metrics, $dimmen
 	catch (Exception $e)
 	{
 		$err = new stdClass();
+		error_logger("Google Analytics Error", $e->getMessage() );
 		$err->ga_error = $e->getMessage();
 
 		return $err;

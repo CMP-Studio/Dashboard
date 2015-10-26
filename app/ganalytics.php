@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/sw.php';
 require_once __DIR__ . '/utils/api.php';
+require_once __DIR__ . "/utils/errors.php";
 /*
 
 This file will generate the JSON required to display an analytical chart
@@ -205,7 +206,7 @@ function getChart()
 {
   $set = getSettings();
 
-  if(!isset($_GET["chart"])) return DoNotCache();
+  if(!isset($_GET["chart"])) return null;
 
       switch($_GET["chart"])
       {
@@ -271,7 +272,9 @@ function chartMobileOS($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache();
+    DoNotCache();
+		//Error logged by analytics.php
+		return null;
   }
 
   $chart = new Highchart('bar');
