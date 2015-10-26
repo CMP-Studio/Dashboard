@@ -143,7 +143,7 @@ $(document).ready(function (){
     $.getJSON(Curl, function(cdata)
     {
 
-      console.log(cdata);
+     //console.log(cdata);
 
 
       var Eurl = "./app/ajax.php?action=events&location=" + loc + "&end=" + end + "&start=" + start;
@@ -162,7 +162,7 @@ $(document).ready(function (){
           event_data = edata;
           event_srcs = srcs;
           events(edata, srcs);
-          console.log(edata);
+          //console.log(edata);
         }
         else
         {
@@ -188,7 +188,8 @@ $.getJSON(url).done(function (data){
     console.info('AJAX load canceled: Not most recent call');
     return;
   }
-  console.log(data);
+
+  //console.log(data);
 
 
   var start_s = moment.unix(start).format("MMMM D, YYYY");
@@ -316,70 +317,6 @@ function setupTooltip()
   })
 }
 
-/*
-function setupLegend()
-{
-  var analytics = false;
-  var twit = false;
-  var fb = false;
-  var ig = false;
-
-  $(".highcharts-legend-item text:contains(Anomalies)").parent().click(function()
-  {
-    if(analytics)
-    {
-      $('.Google-Analytics').attr('display','none');
-    }
-    else
-    {
-      $('.Google-Analytics').attr('display',null);
-    }
-    analytics = !analytics;
-  });
-
-  $(".highcharts-legend-item text:contains(Instagram)").parent().click(function()
-  {
-    if(ig)
-    {
-      $('.Instagram').attr('display','none');
-    }
-    else
-    {
-      $('.Instagram').attr('display',null);
-    }
-    ig = !ig;
-  });
-
-  $(".highcharts-legend-item text:contains(Facebook)").parent().click(function()
-  {
-    if(fb)
-    {
-      $('.Facebook').attr('display','none');
-    }
-    else
-    {
-      $('.Facebook').attr('display',null);
-    }
-    fb = !fb;
-  });
-
-  $(".highcharts-legend-item text:contains(Tweets)").parent().click(function()
-  {
-    if(twit)
-    {
-      $('.Twitter').attr('display','none');
-    }
-    else
-    {
-      $('.Twitter').attr('display',null);
-    }
-    twit = !twit;
-  });
-
-
-}
-*/
-
 function getLastYear()
 {
   var start = moment().subtract(1,'years').startOf('year');
@@ -466,13 +403,13 @@ function setupLegend()
 
     if($(this).hasClass("active"))
     {
-      console.log(series + " off");
+      //console.log(series + " off");
       $(this).removeClass("active");
       toggleSeries(series, false);
     }
     else
     {
-      console.log(series + " on");
+      //console.log(series + " on");
       $(this).addClass("active");
       toggleSeries(series, true);
     }
@@ -486,12 +423,12 @@ function loadToggles()
 
     if($(this).hasClass("active"))
     {
-      console.log(series + " on");
+      //console.log(series + " on");
       toggleSeries(series, true);
     }
     else
     {
-      console.log(series + " off");
+      //console.log(series + " off");
       toggleSeries(series, false);
     }
   });
@@ -618,10 +555,10 @@ function getChartSize()
     $("#chart").removeAttr("small-size");
     $("#socialmedia").hide();
   }
-  console.log("current: " + wasSmall + " next: " + small);
+  //console.log("current: " + wasSmall + " next: " + small);
   if(small != wasSmall) //If the sizes are not equal
   {
-    console.log("Resize: " + (small != wasSmall));
+    //console.log("Resize: " + (small != wasSmall));
     $("#socialmedia").text("Roll over the bars to see more details");
     chartResize();
   }
@@ -718,7 +655,7 @@ function events(data, srcs)
 
   var max = maxScore(events);
 
-  console.log('Event width: ' + w);
+  //console.log('Event width: ' + w);
 
 
 
