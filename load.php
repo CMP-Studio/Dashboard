@@ -368,7 +368,7 @@ function getLastMonth()
 function getLastWeek()
 {
 
-  var start = moment().subtract(8,'days');
+  var start = moment().subtract(7,'days');
   var end = moment().subtract(1,'days');
 
   end.hours(0);
