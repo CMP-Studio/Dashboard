@@ -18,7 +18,7 @@ $ana = getAnalytics();
 
   foreach ($otherTrackers as $key => $t)
   {
-    $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'','','10000');
+    $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'','10000');
 
     //$rows = $gaRes->getRows();
     var_dump($gaRes);
