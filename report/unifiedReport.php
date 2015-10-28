@@ -70,6 +70,7 @@ $ana = getAnalytics();
 
     $compare[$url]['other'] = $other;
     $compare[$url]['unified'] = $uni;
+    $compare[$url]['warhol'] = $uni2;
 
     $diff = $uni - $other;
 
@@ -116,7 +117,7 @@ $ana = getAnalytics();
   {
     print "\n<tr>\n";
     print "<td>$url</td>\n";
-    print "<td>" . $row["unified"] . "</td>\n";
+    print "<td>" . $row["unified"] . " (" . $row["warhol"] . ") </td>\n";
     print "<td>" . $row["other"] . "</td>\n";
     print "<td>" . $row["diff"] . "</td>\n";
     print "<td>" . $row["pcent"] . "%</td>\n";
