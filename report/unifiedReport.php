@@ -20,8 +20,8 @@ $ana = getAnalytics();
   {
     $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'','10000');
 
-    //$rows = $gaRes->getRows();
-    var_dump($gaRes);
+    $rows = $gaRes->getRows();
+    var_dump($rows);
   }
 
 
