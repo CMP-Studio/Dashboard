@@ -91,7 +91,7 @@ $ana = getAnalytics();
 
     $compare[$url]['diff'] = $diff;
 
-    $pcent = floatval($diff/$other)*100.0;
+    $pcent = 100;
 
     $compare[$url]['pcent'] = $pcent;
 
