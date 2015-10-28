@@ -57,17 +57,18 @@ $ana = getAnalytics();
   {
     $other = $pv;
     $uni = 0;
+    $uni2 = 0;
     $nonDefUrl = str_replace("default.aspx","",$url); //Fix for warhol weirdness
     if(isset($unifiedData[$url]))
     {
       $uni = $unifiedData[$url];
     }
-    else if (isset($unifiedData[$nonDefUrl])) {
-      $uni = $unifiedData[$nonDefUrl];
+    if (isset($unifiedData[$nonDefUrl])) {
+      $uni2 = $unifiedData[$nonDefUrl];
     }
 
     $compare[$url]['other'] = $other;
-    $compare[$url]['unified'] = $uni;
+    $compare[$url]['unified'] = $uni + $uni2;
 
     $diff = $uni - $other;
 
