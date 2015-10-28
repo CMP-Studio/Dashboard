@@ -57,9 +57,13 @@ $ana = getAnalytics();
   {
     $other = $pv;
     $uni = 0;
+    $nonDefUrl = str_replace("default.aspx","",$url); //Fix for warhol weirdness
     if(isset($unifiedData[$url]))
     {
       $uni = $unifiedData[$url];
+    }
+    else if (isset($unifiedData[$nonDefUrl])) {
+      $uni = $unifiedData[$nonDefUrl];
     }
 
     $compare[$url]['other'] = $other;
@@ -81,6 +85,9 @@ $ana = getAnalytics();
     $other = 0;
     if(isset($otherData[$url]))
     {
+      continue; //already recorded
+    }
+    else if (isset($otherData[$url . "default.aspx"])) {
       continue; //already recorded
     }
 
