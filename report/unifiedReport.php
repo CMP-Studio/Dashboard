@@ -42,7 +42,7 @@ $ana = getAnalytics();
   {
     $fullPath = $r[0] . $r[1];
     $views = $r[2];
-    if(isset($otherData[$fullPath]))
+    if(isset($unifiedData[$fullPath]))
     {
       $unifiedData[$fullPath] += intval($views);
     }
