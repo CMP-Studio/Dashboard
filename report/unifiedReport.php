@@ -79,7 +79,21 @@ $ana = getAnalytics();
 
 
   uasort($compare,'diffSort');
-  var_dump($compare);
+
+  print "<table><tr><th>URL</th><th>Unified Pageviews</th><th>Other Pageviews</th><th>Difference</th><th>Percentage</th></tr>";
+
+  foreach ($compare as $url => $row)
+  {
+    print "\n<tr>\n";
+    print "<td>$url</td>\n";
+    print "<td>" . $row["unified"] . "</td>\n";
+    print "<td>" . $row["other"] . "</td>\n";
+    print "<td>" . $row["diff"] . "</td>\n";
+    print "<td>" . $row["pcent"] . "%</td>\n";
+    print "</tr>\n";
+  }
+
+  print "</table>\n";
 
 
 
