@@ -21,8 +21,22 @@ $ana = getAnalytics();
     $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'-ga:pageviews','10000');
 
     $rows = $gaRes->getRows();
-    var_dump($rows);
+    foreach ($rows as $key => $r)
+    {
+      $fullPath = $r[0] . $r[1];
+      $views = $r[2];
+      if(isset($otherData[$fullPath]))
+      {
+        $otherData[$fullPath] += intval($views);
+      }
+      else {
+        $otherData[$fullPath] = intval($views);
+      }
+    }
   }
+  arsort($otherData);
+
+  var_dump($otherData);
 
 
 
