@@ -18,7 +18,7 @@ $ana = getAnalytics();
 
   foreach ($otherTrackers as $key => $t)
   {
-    $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'-ga:pageviews','10000');
+    $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'-ga:pageviews','10000',"ga:pageviews>10");
 
     $rows = $gaRes->getRows();
     foreach ($rows as $key => $r)
@@ -36,7 +36,50 @@ $ana = getAnalytics();
   }
   arsort($otherData);
 
-  var_dump($otherData);
+  $gaRes = runQuery($ana, $unifiedTracker, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'-ga:pageviews','10000',"ga:pageviews>10");
+  $rows = $gaRes->getRows();
+  foreach ($rows as $key => $r)
+  {
+    $fullPath = $r[0] . $r[1];
+    $views = $r[2];
+    if(isset($otherData[$fullPath]))
+    {
+      $unifiedData[$fullPath] += intval($views);
+    }
+    else {
+      $unifiedData[$fullPath] = intval($views);
+    }
+  }
+  arsort($unifiedData);
+
+  $compare = array();
+  foreach ($otherData as $url => $pv)
+  {
+    $other = $pv;
+    $uni = 0;
+    if(isset($unifiedData[$url]))
+    {
+      $uni = $unifiedData[$url]
+    }
+
+    $compare[$url]['other'] = $other;
+    $compare[$url]['unified'] = $uni;
+
+    $diff = $uni - $other;
+
+    $compare[$url]['diff'] = $diff;
+
+    $pcent = floatval($diff/$other)*100.0;
+
+    $compare[$url]['pcent'] = $pcent;
+
+
+  }
+
+
+
+  uasort($compare,'diffSort');
+  var_dump($compare);
 
 
 
@@ -46,5 +89,15 @@ $ana = getAnalytics();
     $token = Authenticate($client);
     $analytics = new Google_Service_Analytics($client);
     return $analytics;
+  }
+
+  function diffSort($a, $b)
+  {
+    $adiff = $a['diff'];
+    $bdiff = $b['diff'];
+
+    if($adiff == $bdiff) return 0;
+    if($adiff > $bdiff) return -1;
+    return 1;
   }
  ?>
