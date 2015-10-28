@@ -59,7 +59,7 @@ $ana = getAnalytics();
     $uni = 0;
     if(isset($unifiedData[$url]))
     {
-      $uni = $unifiedData[$url]
+      $uni = $unifiedData[$url];
     }
 
     $compare[$url]['other'] = $other;
