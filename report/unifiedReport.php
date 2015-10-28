@@ -73,6 +73,27 @@ $ana = getAnalytics();
 
     $compare[$url]['pcent'] = $pcent;
 
+  }
+
+  foreach ($unifiedData as $url => $pv)
+  {
+    $uni = $pv;
+    $other = 0;
+    if(isset($otherData[$url]))
+    {
+      continue; //already recorded
+    }
+
+    $compare[$url]['other'] = $other;
+    $compare[$url]['unified'] = $uni;
+
+    $diff = $uni - $other;
+
+    $compare[$url]['diff'] = $diff;
+
+    $pcent = floatval($diff/$other)*100.0;
+
+    $compare[$url]['pcent'] = $pcent;
 
   }
 
