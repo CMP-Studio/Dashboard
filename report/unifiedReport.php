@@ -19,9 +19,10 @@ $ana = getAnalytics();
   foreach ($otherTrackers as $key => $t)
   {
     $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'-ga:pageviews','10000',"ga:pageviews>10");
-    try {
+    if(property_exists($gaRes,'getRows'))
+    {
       $rows = $gaRes->getRows();
-    } catch (Exception $e) {
+    } else {
       continue;
     }
 
