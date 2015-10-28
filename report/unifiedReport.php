@@ -66,9 +66,10 @@ $ana = getAnalytics();
     if (isset($unifiedData[$nonDefUrl])) {
       $uni2 = $unifiedData[$nonDefUrl];
     }
+    $uni += $uni2;
 
     $compare[$url]['other'] = $other;
-    $compare[$url]['unified'] = $uni + $uni2;
+    $compare[$url]['unified'] = $uni;
 
     $diff = $uni - $other;
 
