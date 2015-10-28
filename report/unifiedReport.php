@@ -56,6 +56,7 @@ $ana = getAnalytics();
   foreach ($otherData as $url => $pv)
   {
     $other = $pv;
+    $other2 = 0;
     $uni = 0;
     $uni2 = 0;
     $nonDefUrl = str_replace("default.aspx","",$url); //Fix for warhol weirdness
@@ -66,11 +67,17 @@ $ana = getAnalytics();
     if (isset($unifiedData[$nonDefUrl])) {
       $uni2 = $unifiedData[$nonDefUrl];
     }
-    
+    if(isset($otherData[$nonDefUrl]))
+    {
+      $other2 = $otherData[$nonDefUrl];
+    }
+
+    $uni += $uni2;
+    $other += $other2;
 
     $compare[$url]['other'] = $other;
     $compare[$url]['unified'] = $uni;
-    $compare[$url]['warhol'] = $uni2;
+    //$compare[$url]['warhol'] = $uni2;
 
     $diff = $uni - $other;
 
@@ -118,7 +125,7 @@ $ana = getAnalytics();
   {
     print "\n<tr>\n";
     print "<td>$url</td>\n";
-    print "<td>" . $row["unified"] . " (" . $row["warhol"] . ") </td>\n";
+    print "<td>" . $row["unified"] . "</td>\n";
     print "<td>" . $row["other"] . "</td>\n";
     print "<td>" . $row["diff"] . "</td>\n";
     print "<td>" . $row["pcent"] . "%</td>\n";
