@@ -93,8 +93,8 @@ $ana = getAnalytics();
 
   function diffSort($a, $b)
   {
-    $adiff = $a['diff'];
-    $bdiff = $b['diff'];
+    $adiff = abs($a['diff']);
+    $bdiff = abs($b['diff']);
 
     if($adiff == $bdiff) return 0;
     if($adiff > $bdiff) return -1;
