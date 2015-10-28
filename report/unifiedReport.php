@@ -104,6 +104,7 @@ $ana = getAnalytics();
     $pcent = 100;
 
     $compare[$url]['pcent'] = $pcent;
+      $compare[$url]['warhol'] = 0;
 
   }
 
