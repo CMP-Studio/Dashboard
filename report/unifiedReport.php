@@ -19,8 +19,12 @@ $ana = getAnalytics();
   foreach ($otherTrackers as $key => $t)
   {
     $gaRes = runQuery($ana, $t, $start, $end, "ga:pageviews","ga:hostname,ga:pagePath",'-ga:pageviews','10000',"ga:pageviews>10");
+    try {
+      $rows = $gaRes->getRows();
+    } catch (Exception $e) {
+      continue;
+    }
 
-    $rows = $gaRes->getRows();
     foreach ($rows as $key => $r)
     {
       $fullPath = $r[0] . $r[1];
