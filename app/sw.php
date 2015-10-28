@@ -1,5 +1,5 @@
 <?php
-require_once 'utils/api.php';
+require_once 'utils/errors.php';
 
 
 function getAttendanceData($start = 1441065600, $end = 1443657600, $loc = '')
