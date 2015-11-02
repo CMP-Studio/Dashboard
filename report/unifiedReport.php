@@ -120,11 +120,24 @@ $ana = getAnalytics();
 
   }
 
+  $totalUni = 0;
+  $totalOther = 0;
+  $totalDiff = 0;
+  foreach ($compare as $key => $c)
+  {
+    $totalUni += $c["unified"];
+    $totalOther += $c["other"];
+    $totalDiff += $c["diff"];
+  }
+  $totalPcent = round(floatval($totalDiff/$totalOther)*100.0,2);
+
 
 
   uasort($compare,'diffSort');
 
   print "<table><tr><th>URL</th><th>Unified Pageviews</th><th>Other Pageviews</th><th>Difference</th><th>Percentage</th></tr>";
+
+  print "<tr><th>Total</th><th>$totalUni</th><th>$totalOther</th><th>$totalDiff</th><th>$totalPcent</th></tr>";
 
   foreach ($compare as $url => $row)
   {
@@ -133,7 +146,7 @@ $ana = getAnalytics();
     print "<td>" . $row["unified"] . "</td>\n";
     print "<td>" . $row["other"] . "</td>\n";
     print "<td>" . $row["diff"] . "</td>\n";
-    print "<td>" . $row["pcent"] . "%</td>\n";
+    print "<td>" . round($row["pcent"],2) . "%</td>\n";
     print "</tr>\n";
   }
 
