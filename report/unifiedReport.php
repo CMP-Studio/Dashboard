@@ -137,12 +137,12 @@ $ana = getAnalytics();
 
   print "<table><tr><th>URL</th><th>Unified Pageviews</th><th>Other Pageviews</th><th>Difference</th><th>Percentage</th></tr>";
 
-  print "<tr><td>Total</td><td>$totalUni</td><td>$totalOther</td><td>$totalDiff</td><td>$totalPcent</td></tr>";
+  print "<tr><td>Total</td><td>$totalUni</td><td>$totalOther</td><td>$totalDiff</td><td>$totalPcent%</td></tr>";
 
   foreach ($compare as $url => $row)
   {
     print "\n<tr>\n";
-    print "<td>$url</td>\n";
+    print "<td><a href='$url'>$url</a></td>\n";
     print "<td>" . $row["unified"] . "</td>\n";
     print "<td>" . $row["other"] . "</td>\n";
     print "<td>" . $row["diff"] . "</td>\n";
