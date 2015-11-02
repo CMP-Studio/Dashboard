@@ -142,7 +142,7 @@ $ana = getAnalytics();
   foreach ($compare as $url => $row)
   {
     print "\n<tr>\n";
-    print "<td><a href='$url'>$url</a></td>\n";
+    print "<td><a href='http://$url'>$url</a></td>\n";
     print "<td>" . $row["unified"] . "</td>\n";
     print "<td>" . $row["other"] . "</td>\n";
     print "<td>" . $row["diff"] . "</td>\n";
