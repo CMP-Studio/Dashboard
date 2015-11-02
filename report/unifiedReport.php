@@ -11,7 +11,7 @@ require_once "../app/utils/analytics.php";
 $unifiedData = array();
 $otherData = array();
 
-$start = date('Y-m-d', strtotime('-7 days'));
+$start = date('Y-m-d', strtotime('-2 days'));
 $end =   date('Y-m-d', strtotime('-1 day'));
 
 $ana = getAnalytics();
@@ -137,7 +137,7 @@ $ana = getAnalytics();
 
   print "<table><tr><th>URL</th><th>Unified Pageviews</th><th>Other Pageviews</th><th>Difference</th><th>Percentage</th></tr>";
 
-  print "<tr><th>Total</th><th>$totalUni</th><th>$totalOther</th><th>$totalDiff</th><th>$totalPcent</th></tr>";
+  print "<tr><td>Total</td><td>$totalUni</td><td>$totalOther</td><td>$totalDiff</td><td>$totalPcent</td></tr>";
 
   foreach ($compare as $url => $row)
   {
