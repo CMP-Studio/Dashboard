@@ -1,0 +1,32 @@
+{
+  "location": {
+    "LOCATION_NAME" : {
+      "accounts": [
+        {
+          "type": "google analytics",
+          "username": "USERNAME",
+          "id": "ga:XXXXXXXXXX view ID"
+        },
+        {
+          "type": "twitter",
+          "username": "@Twitter",
+          "id": "USER_ID",
+          "url": "https://twitter.com/Twitter"
+        },
+        {
+          "type": "instagram",
+          "username": "instagram",
+          "id": "USER_ID",
+          "url":"https://instagram.com/instagram"
+
+        },
+        {
+          "type": "facebook",
+          "username": "Facebook",
+          "id": "USER_ID",
+          "url":"https://www.facebook.com/Facebook"
+        }
+      ]
+    }
+  }
+}
