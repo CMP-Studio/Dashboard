@@ -21,6 +21,10 @@ This project is a single page website designed to run off of a LAMP (or LEMP) se
 *  load.php - This is loaded by index.php it essentially is a javascript file that loads all of the data 	  dynamically.  It is only in a different file to sperate out th Javascript portion from the HTML of index.php
 
 
-## Future Versions
+## Future Features
 
 * Disabled Selectors - Grey out selections which do not have any data associated with them.  For example, Warhol does not have an Instagram account so Instagram should always be greyed out.
+
+* Data export - The abillity to export data into a CSV file or similar
+
+* Percent change - show percent change on social badges. 
