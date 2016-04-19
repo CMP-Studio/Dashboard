@@ -33,20 +33,6 @@ function getAttendanceData($start = 1441065600, $end = 1443657600, $loc = '')
   return $data;
 }
 
-
-
-
-
-function SOAPcall($func, $args)
-{
-  $url = "https://wwservice.carnegiemuseums.org/wwSalesSvc.asmx?WSDL";
-  $soap = new SoapClient($url);
-  $var = array("strFunc" => $func, "strArgs" => $args);
-  $result = $soap->rInvoke($var);
-  return $result->rInvokeResult;
-
-}
-
 function toHighcharts($data, $start, $end, $intv)
 {
   $return = array();
@@ -73,6 +59,20 @@ function toHighcharts($data, $start, $end, $intv)
 
   return $return;
 }
+
+
+
+function SOAPcall($func, $args)
+{
+  $url = "https://wwservice.carnegiemuseums.org/wwSalesSvc.asmx?WSDL";
+  $soap = new SoapClient($url);
+  $var = array("strFunc" => $func, "strArgs" => $args);
+  $result = $soap->rInvoke($var);
+  return $result->rInvokeResult;
+
+}
+
+
 
 
 function getAttendQuery($loc, $start, $end)
