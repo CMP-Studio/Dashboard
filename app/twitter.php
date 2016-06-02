@@ -65,7 +65,7 @@ function tweetEmbeed($tid = null)
 	$tweet = getAPI($url, $params, $headers);
 	if(isset($tweet->curl_error))
 	{
-		$err = $tweet->curl_error
+		$err = $tweet->curl_error;
 		return DoNotCache("Twitter error: $err");
 	}
 
