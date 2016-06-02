@@ -63,7 +63,11 @@ function tweetEmbeed($tid = null)
 	$params = array("id"=>$tid);
 
 	$tweet = getAPI($url, $params, $headers);
-	if(isset($tweet->curl_error)) return DoNotCache();
+	if(isset($tweet->curl_error))
+	{
+		$err = $tweet->curl_error
+		return DoNotCache("Twitter error: $err");
+	}
 
 	return $tweet;
 }
@@ -127,12 +131,14 @@ function getTweetsByDate($user, $start=0, $end=0)
 			$lastDate = -1;
 			if(isset($tweets->errors))
 			{
-				DoNotCache();
+				$err = json_encode($tweets->errors);
+				DoNotCache("Twitter error: $err");
 				continue;
 			}//Skip twitter calls that result in an error
 			if(isset($tweets->curl_error))
 			{
-				DoNotCache();
+				$err = $tweets->curl_error;
+				DoNotCache("Twitter error: $err");
 				continue;
 			} //Skip for curl errors too
 

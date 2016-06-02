@@ -11,8 +11,10 @@ function error_logger($name="Error",$message="")
 
 }
 
-function DoNotCache()
+function DoNotCache($reason = "")
 {
+	error_logger("Cache Error",$reason);
+	
   if(isset($_SESSION["do-not-cache"]))
   {
     $_SESSION["do-not-cache"] += 1;

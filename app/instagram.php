@@ -14,7 +14,7 @@ function getTopIGMedia($userID, $count=10)
 
 	$res = getAPI($url, $params);
 
-	if(!isset($res->data)) return DoNotCache();
+	if(!isset($res->data)) return DoNotCache("Couldn't get Instagram Media: " . json_encode($res));
 	$media = $res->data;
 
 	usort($media, "igSort");

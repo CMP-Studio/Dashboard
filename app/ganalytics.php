@@ -242,7 +242,7 @@ function chartWebTraffic($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache();
+    return DoNotCache("GA Exception: $e");
   }
 
   //Form chart
@@ -272,7 +272,7 @@ function chartMobileOS($settings)
   }
   catch (Exception $e)
   {
-    DoNotCache();
+    DoNotCache("GA Exception: $e");
 		//Error logged by analytics.php
 		return null;
   }
@@ -297,7 +297,7 @@ function chartTrafficHourly($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache();
+    return DoNotCache("GA Exception: $e");
   }
 
   //Build chart
@@ -329,7 +329,7 @@ function chartWebBrowsers($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache();
+    return DoNotCache("GA Exception: $e");
   }
 
   //Build chart
@@ -353,7 +353,7 @@ function chartMostViewed($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache();
+    return DoNotCache("GA Exception: $e");
   }
 
   //Build chart
@@ -379,8 +379,7 @@ function chartTOS($settings)
   }
   catch (Exception $e)
   {
-    error_log("Error: $e");
-    return DoNotCache();
+    return DoNotCache("GA Exception: $e");
   }
 
   //Build chart
@@ -417,7 +416,7 @@ function chartHistViews($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache();
+    return DoNotCache("GA Exception: $e");
   }
 
   //Build chart
@@ -440,7 +439,8 @@ function chartDashboard($settings)
     $data = runQuery($analytics, $settings["Account"], $settings["From"], $settings["To"],"ga:pageviews,ga:users","ga:date");
 		if(isset($data->ga_error))
 		{
-			DoNotCache();
+			$err = $data->ga_error;
+			DoNotCache("GA Exception: $err");
 			$data = array();
 			$data[0] = array();
 			$data[0][0] = 0;
@@ -519,7 +519,11 @@ function topSources($account = null, $count = 20)
 
   $filter = "ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org;ga:source!=(direct)"; //Filter out direct sources and homepage views to get more interesting content
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:date,ga:hour,ga:source,ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
-	if(isset($data->ga_error)) return DoNotCache();
+	if(isset($data->ga_error))
+	{
+		$err = $data->ga_error;
+		return DoNotCache("GA Error: $err");
+	}
 	return $data->getRows();
 }
 
@@ -559,7 +563,11 @@ function getReferrals($count = 20, $refFilter = null, $account=null)
 
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
 
-	if(isset($data->ga_error)) return DoNotCache();
+	if(isset($data->ga_error))
+	{
+		$err = $data->ga_error;
+		return DoNotCache("GA Error: $err");
+	}
 
 	$data = $data->getRows();
 
@@ -611,7 +619,11 @@ function getStatistics()
   $count = 5;
   $filter= ""; //"ga:pagepath!~^(\/index\.php|\/default\.aspx|\/)(\?.*$|$),ga:hostname!~(^www\.|^)(cmoa|carnegiemnh|carnegiesciencecenter|warhol)\.org";
   $data = runQuery($analytics, $account , $start, $end, "ga:pageviews","ga:hostname,ga:pagePath,ga:pageTitle","-ga:pageviews",$count,$filter);
-	if(isset($data->ga_error)) return DoNotCache();
+	if(isset($data->ga_error))
+	{
+		$err = $data->ga_error;
+		return DoNotCache("GA Error: $err");
+	}
   $data = $data->getRows();
 
   $result['toppages'] = array();
@@ -666,7 +678,11 @@ $ndays = getDays($start, $end);
  $sort = "-ga:pageviews";
  $count = 10000; //max
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
- if(isset($data->ga_error)) return DoNotCache();
+ if(isset($data->ga_error))
+ {
+	 $err = $data->ga_error;
+	 return DoNotCache("GA Error: $err");
+ }
  $data = $data->getRows();
 
  $values = array();
@@ -700,7 +716,10 @@ $ndays = getDays($start, $end);
  $metric = "ga:pageviews";
  $sort = "-ga:pageviews";
  $data = runQuery($analytics, $account , $start, $end, $metric,$dims,$sort,$count,$filter);
- if(isset($data->ga_error)) return DoNotCache();
+ if(isset($data->ga_error)) {
+	 $err = $data->ga_error;
+	 return DoNotCache("GA Error: $err");
+ }
  $data = $data->getRows();
 
  $result = array();

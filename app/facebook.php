@@ -19,13 +19,12 @@ require_once "config/fbConfig.php";
 
   if(isset($token->error))
   {
-    DoNotCache();
-    error_logger("Facebook Error","Authentication Failed");
+    DoNotCache("Facebook: Authentication Failed");
     return null;
   }
   if(isset($token->curl_error))
   {
-    DoNotCache();
+    DoNotCache("See CURL error");
     //Error logged in api.php
     return null;
   }
@@ -106,8 +105,7 @@ function getTopFBPosts($account, $count=10)
   $token = getFBToken();
 
   if(!isset($token[0])){
-    DoNotCache();
-    error_logger("Facebook Error", "Authentication failed" );
+    DoNotCache("Facebook: Authentication failed");
     return null;
   }  //No token
 
