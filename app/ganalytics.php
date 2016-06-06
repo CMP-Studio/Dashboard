@@ -242,7 +242,7 @@ function chartWebTraffic($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache("GA Exception: $e");
+    return DoNotCache("GA Exception (245): $e");
   }
 
   //Form chart
@@ -272,7 +272,7 @@ function chartMobileOS($settings)
   }
   catch (Exception $e)
   {
-    DoNotCache("GA Exception: $e");
+    DoNotCache("GA Exception (275): $e");
 		//Error logged by analytics.php
 		return null;
   }
@@ -297,7 +297,7 @@ function chartTrafficHourly($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache("GA Exception: $e");
+    return DoNotCache("GA Exception (300): $e");
   }
 
   //Build chart
@@ -329,7 +329,7 @@ function chartWebBrowsers($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache("GA Exception: $e");
+    return DoNotCache("GA Exception (332): $e");
   }
 
   //Build chart
@@ -353,7 +353,7 @@ function chartMostViewed($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache("GA Exception: $e");
+    return DoNotCache("GA Exception (356): $e");
   }
 
   //Build chart
@@ -379,7 +379,7 @@ function chartTOS($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache("GA Exception: $e");
+    return DoNotCache("GA Exception (382): $e");
   }
 
   //Build chart
@@ -416,7 +416,7 @@ function chartHistViews($settings)
   }
   catch (Exception $e)
   {
-    return DoNotCache("GA Exception: $e");
+    return DoNotCache("GA Exception (419): $e");
   }
 
   //Build chart
@@ -440,7 +440,7 @@ function chartDashboard($settings)
 		if(isset($data->ga_error))
 		{
 			$err = $data->ga_error;
-			DoNotCache("GA Exception: $err");
+			DoNotCache("GA Exception (443): $err");
 			$data = array();
 			$data[0] = array();
 			$data[0][0] = 0;
